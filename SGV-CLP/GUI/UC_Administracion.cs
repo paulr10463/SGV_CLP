@@ -16,5 +16,30 @@ namespace SGV_CLP.GUI
         {
             InitializeComponent();
         }
+
+        private void siticoneHtmlLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneTextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneTextBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
