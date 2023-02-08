@@ -9,11 +9,12 @@
 
         private void siticoneGradientButton1_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
             MainMenu ventana = new MainMenu();
             ventana.Owner = this;
             ventana.ShowDialog();
             this.Dispose();
+
         }
     }
 }

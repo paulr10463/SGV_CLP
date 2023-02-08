@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
@@ -65,7 +64,7 @@
             // 
             this.siticonePictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.siticonePictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.siticonePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("siticonePictureBox1.Image")));
+            this.siticonePictureBox1.Image = global::SGV_CLP.Properties.Resources.Login_picture;
             this.siticonePictureBox1.ImageRotate = 0F;
             this.siticonePictureBox1.Location = new System.Drawing.Point(3, 0);
             this.siticonePictureBox1.Name = "siticonePictureBox1";

@@ -33,5 +33,15 @@ namespace SGV_CLP
         {
             uC_Clientes1.BringToFront();
         }
+
+        private void siticoneButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            uC_Proveedores1.BringToFront();
+        }
+
+        private void siticoneButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            uC_Productos1.BringToFront();
+        }
     }
 }

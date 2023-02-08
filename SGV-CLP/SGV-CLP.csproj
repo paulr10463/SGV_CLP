@@ -9,11 +9,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="res\**" />
-    <EmbeddedResource Remove="res\**" />
-    <None Remove="res\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Siticone.Desktop.UI" Version="2.1.1" />
@@ -24,6 +19,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="GUI\UC_Clientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\UC_Productos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\UC_Proveedores.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="GUI\UC_Ventas.cs">
