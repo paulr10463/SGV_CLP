@@ -20,7 +20,7 @@ namespace SGV_CLP.GUI
 
         private void siticoneDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Modificar_Eliminar_Producto ventana = new Modificar_Eliminar_Producto();
+            Editar_Eliminar_Producto ventana = new Editar_Eliminar_Producto();
             ventana.ShowDialog();
         }
 

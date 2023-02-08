@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace SGV_CLP.GUI
 {
-    public partial class Modificar_Eliminar_Producto : Form
+    public partial class Editar_Eliminar_Producto : Form
     {
-        public Modificar_Eliminar_Producto()
+        public Editar_Eliminar_Producto()
         {
             InitializeComponent();
         }
@@ -38,8 +38,12 @@ namespace SGV_CLP.GUI
                 == DialogResult.Yes)
             {
                 MessageBox.Show("Producto eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
             }
-            this.Dispose();
+            else
+            {
+                MessageBox.Show("Producto no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

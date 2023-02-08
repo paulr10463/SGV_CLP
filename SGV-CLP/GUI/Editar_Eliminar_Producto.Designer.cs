@@ -1,6 +1,6 @@
 ﻿namespace SGV_CLP.GUI
 {
-    partial class Modificar_Eliminar_Producto
+    partial class Editar_Eliminar_Producto
     {
         /// <summary>
         /// Required designer variable.
