@@ -23,5 +23,6 @@ namespace SGV_CLP.GUI
             SystemSounds.Beep.Play();
             MessageBox.Show("Venta añadida con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }

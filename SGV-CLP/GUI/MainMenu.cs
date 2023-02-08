@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.GUI;
+using System.Media;
 
 namespace SGV_CLP
 {
@@ -42,6 +43,24 @@ namespace SGV_CLP
         private void siticoneButton6_CheckedChanged(object sender, EventArgs e)
         {
             uC_Productos1.BringToFront();
+        }
+
+        private void siticoneButton7_Click(object sender, EventArgs e)
+        {
+            SystemSounds.Beep.Play();
+            if (MessageBox.Show("¿Desea cerrar sesión?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                == DialogResult.Yes)
+            {
+                this.Hide();
+                Login ventana = new Login();
+                ventana.Owner = this;
+                ventana.ShowDialog();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Sesión no cerrada", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

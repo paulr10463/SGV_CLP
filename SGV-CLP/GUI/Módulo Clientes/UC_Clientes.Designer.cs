@@ -135,7 +135,7 @@
             // 
             this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(1190, 465);
+            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(1087, 470);
             this.siticoneHtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
             this.siticoneHtmlLabel4.Size = new System.Drawing.Size(131, 22);
@@ -146,7 +146,7 @@
             // 
             this.siticoneHtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel12.Location = new System.Drawing.Point(885, 465);
+            this.siticoneHtmlLabel12.Location = new System.Drawing.Point(782, 470);
             this.siticoneHtmlLabel12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel12.Name = "siticoneHtmlLabel12";
             this.siticoneHtmlLabel12.Size = new System.Drawing.Size(111, 22);
@@ -157,7 +157,7 @@
             // 
             this.siticoneHtmlLabel13.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel13.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel13.Location = new System.Drawing.Point(1190, 370);
+            this.siticoneHtmlLabel13.Location = new System.Drawing.Point(1087, 375);
             this.siticoneHtmlLabel13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel13.Name = "siticoneHtmlLabel13";
             this.siticoneHtmlLabel13.Size = new System.Drawing.Size(129, 22);
@@ -168,7 +168,7 @@
             // 
             this.siticoneHtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel14.Location = new System.Drawing.Point(885, 370);
+            this.siticoneHtmlLabel14.Location = new System.Drawing.Point(782, 375);
             this.siticoneHtmlLabel14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel14.Name = "siticoneHtmlLabel14";
             this.siticoneHtmlLabel14.Size = new System.Drawing.Size(109, 22);
@@ -185,7 +185,7 @@
             this.siticoneTextBox9.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox9.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox9.Location = new System.Drawing.Point(1183, 488);
+            this.siticoneTextBox9.Location = new System.Drawing.Point(1080, 493);
             this.siticoneTextBox9.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneTextBox9.Name = "siticoneTextBox9";
             this.siticoneTextBox9.PasswordChar = '\0';
@@ -204,7 +204,7 @@
             this.siticoneTextBox10.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox10.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox10.Location = new System.Drawing.Point(1183, 392);
+            this.siticoneTextBox10.Location = new System.Drawing.Point(1080, 397);
             this.siticoneTextBox10.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneTextBox10.Name = "siticoneTextBox10";
             this.siticoneTextBox10.PasswordChar = '\0';
@@ -217,7 +217,7 @@
             // 
             this.siticoneHtmlLabel16.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel16.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel16.Location = new System.Drawing.Point(622, 502);
+            this.siticoneHtmlLabel16.Location = new System.Drawing.Point(519, 507);
             this.siticoneHtmlLabel16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel16.Name = "siticoneHtmlLabel16";
             this.siticoneHtmlLabel16.Size = new System.Drawing.Size(110, 34);
@@ -234,7 +234,7 @@
             this.siticoneTextBox11.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox11.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox11.Location = new System.Drawing.Point(878, 488);
+            this.siticoneTextBox11.Location = new System.Drawing.Point(775, 493);
             this.siticoneTextBox11.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneTextBox11.Name = "siticoneTextBox11";
             this.siticoneTextBox11.PasswordChar = '\0';
@@ -247,7 +247,7 @@
             // 
             this.siticoneHtmlLabel17.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel17.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel17.Location = new System.Drawing.Point(622, 406);
+            this.siticoneHtmlLabel17.Location = new System.Drawing.Point(519, 411);
             this.siticoneHtmlLabel17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel17.Name = "siticoneHtmlLabel17";
             this.siticoneHtmlLabel17.Size = new System.Drawing.Size(106, 34);
@@ -264,7 +264,7 @@
             this.siticoneTextBox12.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox12.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox12.Location = new System.Drawing.Point(878, 392);
+            this.siticoneTextBox12.Location = new System.Drawing.Point(775, 397);
             this.siticoneTextBox12.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneTextBox12.Name = "siticoneTextBox12";
             this.siticoneTextBox12.PasswordChar = '\0';
@@ -283,7 +283,7 @@
             this.siticoneTextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox3.Location = new System.Drawing.Point(878, 649);
+            this.siticoneTextBox3.Location = new System.Drawing.Point(775, 654);
             this.siticoneTextBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneTextBox3.Name = "siticoneTextBox3";
             this.siticoneTextBox3.PasswordChar = '\0';
@@ -302,7 +302,7 @@
             this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Location = new System.Drawing.Point(878, 567);
+            this.siticoneTextBox1.Location = new System.Drawing.Point(775, 572);
             this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneTextBox1.Name = "siticoneTextBox1";
             this.siticoneTextBox1.PasswordChar = '\0';
@@ -315,7 +315,7 @@
             // 
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(622, 581);
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(519, 586);
             this.siticoneHtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
             this.siticoneHtmlLabel1.Size = new System.Drawing.Size(126, 34);
@@ -332,7 +332,7 @@
             this.siticoneTextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox2.Location = new System.Drawing.Point(878, 299);
+            this.siticoneTextBox2.Location = new System.Drawing.Point(775, 304);
             this.siticoneTextBox2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneTextBox2.Name = "siticoneTextBox2";
             this.siticoneTextBox2.PasswordChar = '\0';
@@ -362,7 +362,7 @@
             // 
             this.siticoneHtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel7.Location = new System.Drawing.Point(622, 663);
+            this.siticoneHtmlLabel7.Location = new System.Drawing.Point(519, 668);
             this.siticoneHtmlLabel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel7.Name = "siticoneHtmlLabel7";
             this.siticoneHtmlLabel7.Size = new System.Drawing.Size(112, 34);
@@ -373,7 +373,7 @@
             // 
             this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(622, 313);
+            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(519, 318);
             this.siticoneHtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
             this.siticoneHtmlLabel3.Size = new System.Drawing.Size(99, 34);

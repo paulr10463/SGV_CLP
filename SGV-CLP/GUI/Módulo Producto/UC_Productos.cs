@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGV_CLP.GUI.Módulo_Producto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,6 +70,12 @@ namespace SGV_CLP.GUI
         private void siticoneGroupBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void siticoneDataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Editar_Eliminar_Lote ventana = new Editar_Eliminar_Lote();
+            ventana.ShowDialog();
         }
     }
 }

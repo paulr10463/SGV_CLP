@@ -93,9 +93,9 @@
             this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneHtmlLabel2.Location = new System.Drawing.Point(85, 148);
             this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(206, 34);
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(66, 34);
             this.siticoneHtmlLabel2.TabIndex = 2;
-            this.siticoneHtmlLabel2.Text = "Precio de venta";
+            this.siticoneHtmlLabel2.Text = "P.V.P";
             // 
             // siticoneHtmlLabel3
             // 
@@ -178,7 +178,7 @@
             this.siticoneButton3.Text = "Eliminar";
             this.siticoneButton3.Click += new System.EventHandler(this.siticoneButton3_Click);
             // 
-            // Modificar_Eliminar_Producto
+            // Editar_Eliminar_Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -193,7 +193,7 @@
             this.Controls.Add(this.siticoneHtmlLabel2);
             this.Controls.Add(this.siticoneTextBox1);
             this.Controls.Add(this.siticoneHtmlLabel1);
-            this.Name = "Modificar_Eliminar_Producto";
+            this.Name = "Editar_Eliminar_Producto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar/Eliminar Producto";
             this.ResumeLayout(false);

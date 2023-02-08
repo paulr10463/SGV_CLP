@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGV_CLP.GUI.Módulo_Proveedores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,12 @@ namespace SGV_CLP.GUI
         {
             SystemSounds.Beep.Play();
             MessageBox.Show("Proveedor añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void siticoneDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Editar_Eliminar_Proveedor ventana = new Editar_Eliminar_Proveedor();
+            ventana.ShowDialog();
         }
     }
 }

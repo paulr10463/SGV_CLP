@@ -32,6 +32,7 @@ namespace SGV_CLP
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticoneButton7 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneCirclePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticoneCirclePictureBox();
             this.siticoneButton5 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton6 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -54,6 +55,7 @@ namespace SGV_CLP
             // 
             // siticonePanel1
             // 
+            this.siticonePanel1.Controls.Add(this.siticoneButton7);
             this.siticonePanel1.Controls.Add(this.siticoneCirclePictureBox1);
             this.siticonePanel1.Controls.Add(this.siticoneButton5);
             this.siticonePanel1.Controls.Add(this.siticoneButton6);
@@ -66,6 +68,31 @@ namespace SGV_CLP
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.Size = new System.Drawing.Size(260, 813);
             this.siticonePanel1.TabIndex = 3;
+            // 
+            // siticoneButton7
+            // 
+            this.siticoneButton7.Animated = true;
+            this.siticoneButton7.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.siticoneButton7.CheckedState.CustomBorderColor = System.Drawing.Color.Black;
+            this.siticoneButton7.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.siticoneButton7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneButton7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneButton7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneButton7.FillColor = System.Drawing.Color.White;
+            this.siticoneButton7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneButton7.ForeColor = System.Drawing.Color.Black;
+            this.siticoneButton7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.siticoneButton7.ImageOffset = new System.Drawing.Point(10, 0);
+            this.siticoneButton7.Location = new System.Drawing.Point(0, 575);
+            this.siticoneButton7.Name = "siticoneButton7";
+            this.siticoneButton7.PressedDepth = 0;
+            this.siticoneButton7.Size = new System.Drawing.Size(256, 45);
+            this.siticoneButton7.TabIndex = 12;
+            this.siticoneButton7.Text = "Log out";
+            this.siticoneButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.siticoneButton7.TextOffset = new System.Drawing.Point(20, 0);
+            this.siticoneButton7.Click += new System.EventHandler(this.siticoneButton7_Click);
             // 
             // siticoneCirclePictureBox1
             // 
@@ -94,7 +121,7 @@ namespace SGV_CLP
             this.siticoneButton5.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton5.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton5.Location = new System.Drawing.Point(1, 494);
+            this.siticoneButton5.Location = new System.Drawing.Point(-2, 473);
             this.siticoneButton5.Name = "siticoneButton5";
             this.siticoneButton5.PressedDepth = 0;
             this.siticoneButton5.Size = new System.Drawing.Size(256, 45);
@@ -119,7 +146,7 @@ namespace SGV_CLP
             this.siticoneButton6.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton6.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton6.Location = new System.Drawing.Point(1, 541);
+            this.siticoneButton6.Location = new System.Drawing.Point(-2, 422);
             this.siticoneButton6.Name = "siticoneButton6";
             this.siticoneButton6.PressedDepth = 0;
             this.siticoneButton6.Size = new System.Drawing.Size(256, 45);
@@ -133,6 +160,7 @@ namespace SGV_CLP
             // 
             this.siticoneButton4.Animated = true;
             this.siticoneButton4.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
+            this.siticoneButton4.Checked = true;
             this.siticoneButton4.CheckedState.CustomBorderColor = System.Drawing.Color.Black;
             this.siticoneButton4.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.siticoneButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -144,7 +172,7 @@ namespace SGV_CLP
             this.siticoneButton4.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton4.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton4.Location = new System.Drawing.Point(1, 446);
+            this.siticoneButton4.Location = new System.Drawing.Point(3, 269);
             this.siticoneButton4.Name = "siticoneButton4";
             this.siticoneButton4.PressedDepth = 0;
             this.siticoneButton4.Size = new System.Drawing.Size(256, 45);
@@ -169,7 +197,7 @@ namespace SGV_CLP
             this.siticoneButton3.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton3.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton3.Location = new System.Drawing.Point(1, 398);
+            this.siticoneButton3.Location = new System.Drawing.Point(0, 320);
             this.siticoneButton3.Name = "siticoneButton3";
             this.siticoneButton3.PressedDepth = 0;
             this.siticoneButton3.Size = new System.Drawing.Size(256, 45);
@@ -194,7 +222,7 @@ namespace SGV_CLP
             this.siticoneButton2.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton2.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton2.Location = new System.Drawing.Point(1, 350);
+            this.siticoneButton2.Location = new System.Drawing.Point(-2, 371);
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.PressedDepth = 0;
             this.siticoneButton2.Size = new System.Drawing.Size(256, 45);
@@ -208,7 +236,6 @@ namespace SGV_CLP
             // 
             this.siticoneButton1.Animated = true;
             this.siticoneButton1.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.siticoneButton1.Checked = true;
             this.siticoneButton1.CheckedState.CustomBorderColor = System.Drawing.Color.Black;
             this.siticoneButton1.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -220,7 +247,7 @@ namespace SGV_CLP
             this.siticoneButton1.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton1.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton1.Location = new System.Drawing.Point(1, 302);
+            this.siticoneButton1.Location = new System.Drawing.Point(-2, 524);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.PressedDepth = 0;
             this.siticoneButton1.Size = new System.Drawing.Size(256, 45);
@@ -253,6 +280,7 @@ namespace SGV_CLP
             // 
             this.uC_Administracion1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_Administracion1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Administracion1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Administracion1.Name = "uC_Administracion1";
             this.uC_Administracion1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Administracion1.TabIndex = 12;
@@ -261,6 +289,7 @@ namespace SGV_CLP
             // 
             this.uC_Compras1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_Compras1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Compras1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Compras1.Name = "uC_Compras1";
             this.uC_Compras1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Compras1.TabIndex = 0;
@@ -269,6 +298,7 @@ namespace SGV_CLP
             // 
             this.uC_Ventas1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_Ventas1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Ventas1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Ventas1.Name = "uC_Ventas1";
             this.uC_Ventas1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Ventas1.TabIndex = 12;
@@ -277,6 +307,7 @@ namespace SGV_CLP
             // 
             this.uC_Clientes1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_Clientes1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Clientes1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Clientes1.Name = "uC_Clientes1";
             this.uC_Clientes1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Clientes1.TabIndex = 12;
@@ -285,6 +316,7 @@ namespace SGV_CLP
             // 
             this.uC_Productos1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_Productos1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Productos1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Productos1.Name = "uC_Productos1";
             this.uC_Productos1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Productos1.TabIndex = 12;
@@ -293,6 +325,7 @@ namespace SGV_CLP
             // 
             this.uC_Proveedores1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_Proveedores1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Proveedores1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Proveedores1.Name = "uC_Proveedores1";
             this.uC_Proveedores1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Proveedores1.TabIndex = 12;
@@ -333,5 +366,6 @@ namespace SGV_CLP
         private GUI.UC_Clientes uC_Clientes1;
         private GUI.UC_Proveedores uC_Proveedores1;
         private GUI.UC_Productos uC_Productos1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton7;
     }
 }

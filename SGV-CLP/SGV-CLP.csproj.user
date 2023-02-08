@@ -13,11 +13,17 @@
     <Compile Update="GUI\Módulo Compras\Editar_Eliminar_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\Módulo Producto\Editar_Eliminar_Lote.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\Módulo Producto\Editar_Eliminar_Producto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Compras\UC_Compras.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\Módulo Proveedores\Editar_Eliminar_Proveedor.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 </Project>
