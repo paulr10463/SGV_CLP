@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SGV_CLP.GUI.Módulo_Clientes;
+using SGV_CLP.GUI.Módulo_Compras;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +34,12 @@ namespace SGV_CLP.GUI
         {
             SystemSounds.Beep.Play();
             MessageBox.Show("Compra añadida con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void siticoneDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Editar_Eliminar_Compra ventana = new Editar_Eliminar_Compra();
+            ventana.ShowDialog();
         }
     }
 }

@@ -15,19 +15,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="GUI\UC_Administracion.cs">
+    <Compile Update="GUI\Módulo Administración\UC_Administracion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\UC_Clientes.cs">
+    <Compile Update="GUI\Módulo Clientes\UC_Clientes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\UC_Productos.cs">
+    <Compile Update="GUI\Módulo Producto\UC_Productos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\UC_Proveedores.cs">
+    <Compile Update="GUI\Módulo Proveedores\UC_Proveedores.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\UC_Ventas.cs">
+    <Compile Update="GUI\Módulo Ventas\UC_Ventas.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

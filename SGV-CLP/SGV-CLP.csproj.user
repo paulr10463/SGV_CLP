@@ -7,10 +7,16 @@
     <Compile Update="GUI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Editar_Eliminar_Producto.cs">
+    <Compile Update="GUI\Módulo Clientes\Editar_Eliminar_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\UC_Compras.cs">
+    <Compile Update="GUI\Módulo Compras\Editar_Eliminar_Compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Módulo Producto\Editar_Eliminar_Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Módulo Compras\UC_Compras.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
