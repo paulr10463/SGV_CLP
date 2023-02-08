@@ -71,19 +71,6 @@
         YII=
 </value>
   </data>
-  <data name="siticoneButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAAYRJREFUWEfVlzFKBEEQRddAFMHIE5gampgJeg3v4BVMNPAOeg0jFUwUzTUz1jso
-        6n+wC0XTNV29vd3ghwfDTvWv2p7q2tlZQPviXDyIT/E9h2s+uxDErFxH4lH8BnkSx6JZW+JK5JJEuBZ4
-        LKUd8SJyxjXggVeVqDqX/EfciBOxK9bncM1n3CMmXYdX1U7ktv1VHIiSiCE2XY9nSDRPuvhObIuoiGVN
-        6kMzF5V2O9+mJvlCrEl3Au9JcYbtAp5nZNs9sTbtick5wZCxwTRVq/CwnuRwxTSzwXR2q/CwnuRwxUi1
-        wRyvVuFhPcnhirlugznjrcLDepLD1YgCvoSrEY/gQ7ga0YT3wtWIY3gmXI0YRHtiUj1H8a0oqueP0aEI
-        qcfPMdAPm6KoVb+QWIjZEEXxGvUsciatVO1Ey0vpFOEiUO1rOd1Ow5Ekd39BVREo98eE2c54ZcIxZOw5
-        xzxSRKgnltW/KeJSdFWpiHfRXVNFMLyGyCviVAwTDcczZ9vfhJLP1v4AswBa1brvIH0AAAAASUVORK5C
-        YII=
-</value>
-  </data>
   <metadata name="User.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

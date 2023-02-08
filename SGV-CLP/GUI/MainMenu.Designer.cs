@@ -45,8 +45,8 @@ namespace SGV_CLP
             this.uC_Compras1 = new SGV_CLP.GUI.UC_Compras();
             this.uC_Ventas1 = new SGV_CLP.GUI.UC_Ventas();
             this.uC_Clientes1 = new SGV_CLP.GUI.UC_Clientes();
-            this.uC_Proveedores1 = new SGV_CLP.GUI.UC_Proveedores();
             this.uC_Productos1 = new SGV_CLP.GUI.UC_Productos();
+            this.uC_Proveedores1 = new SGV_CLP.GUI.UC_Proveedores();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneCirclePictureBox1)).BeginInit();
             this.siticoneGradientPanel1.SuspendLayout();
@@ -237,12 +237,12 @@ namespace SGV_CLP
             // 
             // siticoneGradientPanel1
             // 
-            this.siticoneGradientPanel1.Controls.Add(this.uC_Proveedores1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Administracion1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Compras1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Ventas1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Clientes1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Productos1);
+            this.siticoneGradientPanel1.Controls.Add(this.uC_Proveedores1);
             this.siticoneGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneGradientPanel1.Location = new System.Drawing.Point(260, 0);
             this.siticoneGradientPanel1.Name = "siticoneGradientPanel1";
@@ -281,14 +281,6 @@ namespace SGV_CLP
             this.uC_Clientes1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Clientes1.TabIndex = 12;
             // 
-            // uC_Proveedores1
-            // 
-            this.uC_Proveedores1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Proveedores1.Location = new System.Drawing.Point(0, 0);
-            this.uC_Proveedores1.Name = "uC_Proveedores1";
-            this.uC_Proveedores1.Size = new System.Drawing.Size(1604, 813);
-            this.uC_Proveedores1.TabIndex = 12;
-            // 
             // uC_Productos1
             // 
             this.uC_Productos1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -296,6 +288,14 @@ namespace SGV_CLP
             this.uC_Productos1.Name = "uC_Productos1";
             this.uC_Productos1.Size = new System.Drawing.Size(1604, 813);
             this.uC_Productos1.TabIndex = 12;
+            // 
+            // uC_Proveedores1
+            // 
+            this.uC_Proveedores1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Proveedores1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Proveedores1.Name = "uC_Proveedores1";
+            this.uC_Proveedores1.Size = new System.Drawing.Size(1604, 813);
+            this.uC_Proveedores1.TabIndex = 12;
             // 
             // MainMenu
             // 
@@ -306,6 +306,7 @@ namespace SGV_CLP
             this.Controls.Add(this.siticonePanel1);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SGV-CLP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.siticonePanel1.ResumeLayout(false);

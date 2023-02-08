@@ -20,8 +20,55 @@ namespace SGV_CLP.GUI
 
         private void siticoneDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Modificar_Eliminar_Producto ventana = new Modificar_Eliminar_Producto();
+            ventana.ShowDialog();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneDateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneRadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            siticoneDateTimePicker1.Visible = false;
+        }
+
+        private void siticoneRadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            siticoneDateTimePicker1.Visible = true;
+        }
+
+        private void siticoneButton1_Click(object sender, EventArgs e)
+        {
             SystemSounds.Beep.Play();
-            MessageBox.Show("Usuario añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Producto añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            SystemSounds.Beep.Play();
+            MessageBox.Show("Lote añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void siticoneRadioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            siticoneDateTimePicker2.Visible = false;
+        }
+
+        private void siticoneRadioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            siticoneDateTimePicker2.Visible = true;
+        }
+
+        private void siticoneGroupBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

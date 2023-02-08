@@ -31,8 +31,6 @@
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneGradientButton1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.siticoneSeparator2 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
             this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
@@ -76,8 +74,6 @@
             // siticonePanel2
             // 
             this.siticonePanel2.BackColor = System.Drawing.Color.White;
-            this.siticonePanel2.Controls.Add(this.siticoneButton1);
-            this.siticonePanel2.Controls.Add(this.siticoneHtmlLabel5);
             this.siticonePanel2.Controls.Add(this.siticoneGradientButton1);
             this.siticonePanel2.Controls.Add(this.siticoneSeparator2);
             this.siticonePanel2.Controls.Add(this.siticoneSeparator1);
@@ -95,31 +91,6 @@
             this.siticonePanel2.Size = new System.Drawing.Size(752, 877);
             this.siticonePanel2.TabIndex = 1;
             // 
-            // siticoneButton1
-            // 
-            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.FillColor = System.Drawing.Color.White;
-            this.siticoneButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton1.ForeColor = System.Drawing.Color.Gray;
-            this.siticoneButton1.Location = new System.Drawing.Point(262, 751);
-            this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.Size = new System.Drawing.Size(110, 35);
-            this.siticoneButton1.TabIndex = 11;
-            this.siticoneButton1.Text = "Registrate";
-            // 
-            // siticoneHtmlLabel5
-            // 
-            this.siticoneHtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel5.Location = new System.Drawing.Point(118, 756);
-            this.siticoneHtmlLabel5.Name = "siticoneHtmlLabel5";
-            this.siticoneHtmlLabel5.Size = new System.Drawing.Size(146, 23);
-            this.siticoneHtmlLabel5.TabIndex = 10;
-            this.siticoneHtmlLabel5.Text = "No tienes cuenta?";
-            // 
             // siticoneGradientButton1
             // 
             this.siticoneGradientButton1.BorderRadius = 10;
@@ -132,7 +103,7 @@
             this.siticoneGradientButton1.FillColor2 = System.Drawing.Color.Black;
             this.siticoneGradientButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneGradientButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneGradientButton1.Location = new System.Drawing.Point(218, 621);
+            this.siticoneGradientButton1.Location = new System.Drawing.Point(216, 652);
             this.siticoneGradientButton1.Name = "siticoneGradientButton1";
             this.siticoneGradientButton1.Size = new System.Drawing.Size(275, 61);
             this.siticoneGradientButton1.TabIndex = 9;
@@ -282,8 +253,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel5;
         private Siticone.Desktop.UI.WinForms.SiticoneGradientButton siticoneGradientButton1;
     }
 }
