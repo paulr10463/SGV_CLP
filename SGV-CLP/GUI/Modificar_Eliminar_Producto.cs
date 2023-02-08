@@ -22,7 +22,7 @@ namespace SGV_CLP.GUI
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
-            MessageBox.Show("Producto modificado con éxito", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Producto editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Dispose();
         }
 
