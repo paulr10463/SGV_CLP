@@ -77,5 +77,22 @@ namespace SGV_CLP.GUI
             Editar_Eliminar_Lote ventana = new Editar_Eliminar_Lote();
             ventana.ShowDialog();
         }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void siticoneButton3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string fileName;
+                fileName = dlg.FileName;
+                siticoneTextBox9.Text = fileName;
+            }
+        }
     }
 }

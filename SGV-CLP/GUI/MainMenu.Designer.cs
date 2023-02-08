@@ -71,28 +71,19 @@ namespace SGV_CLP
             // 
             // siticoneButton7
             // 
-            this.siticoneButton7.Animated = true;
-            this.siticoneButton7.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.siticoneButton7.CheckedState.CustomBorderColor = System.Drawing.Color.Black;
-            this.siticoneButton7.CustomBorderThickness = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.siticoneButton7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.siticoneButton7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.siticoneButton7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton7.FillColor = System.Drawing.Color.White;
+            this.siticoneButton7.FillColor = System.Drawing.Color.Black;
             this.siticoneButton7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton7.ForeColor = System.Drawing.Color.Black;
-            this.siticoneButton7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.siticoneButton7.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton7.Location = new System.Drawing.Point(0, 575);
+            this.siticoneButton7.ForeColor = System.Drawing.Color.White;
+            this.siticoneButton7.Location = new System.Drawing.Point(33, 756);
             this.siticoneButton7.Name = "siticoneButton7";
-            this.siticoneButton7.PressedDepth = 0;
-            this.siticoneButton7.Size = new System.Drawing.Size(256, 45);
+            this.siticoneButton7.Size = new System.Drawing.Size(180, 45);
             this.siticoneButton7.TabIndex = 12;
-            this.siticoneButton7.Text = "Log out";
-            this.siticoneButton7.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.siticoneButton7.TextOffset = new System.Drawing.Point(20, 0);
-            this.siticoneButton7.Click += new System.EventHandler(this.siticoneButton7_Click);
+            this.siticoneButton7.Text = "Cerrar sesión";
+            this.siticoneButton7.Click += new System.EventHandler(this.siticoneButton7_Click_1);
             // 
             // siticoneCirclePictureBox1
             // 
@@ -264,12 +255,12 @@ namespace SGV_CLP
             // 
             // siticoneGradientPanel1
             // 
-            this.siticoneGradientPanel1.Controls.Add(this.uC_Administracion1);
-            this.siticoneGradientPanel1.Controls.Add(this.uC_Compras1);
-            this.siticoneGradientPanel1.Controls.Add(this.uC_Ventas1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Clientes1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Productos1);
             this.siticoneGradientPanel1.Controls.Add(this.uC_Proveedores1);
+            this.siticoneGradientPanel1.Controls.Add(this.uC_Administracion1);
+            this.siticoneGradientPanel1.Controls.Add(this.uC_Compras1);
+            this.siticoneGradientPanel1.Controls.Add(this.uC_Ventas1);
             this.siticoneGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneGradientPanel1.Location = new System.Drawing.Point(260, 0);
             this.siticoneGradientPanel1.Name = "siticoneGradientPanel1";
