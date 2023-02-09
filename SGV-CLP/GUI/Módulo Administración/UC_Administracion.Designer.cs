@@ -526,7 +526,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Size = new System.Drawing.Size(1500, 834);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modificar/Eliminar";
+            this.tabPage2.Text = "Editar/Eliminar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel7
@@ -949,7 +949,7 @@
             this.tabPage_MoficarParam.Name = "tabPage_MoficarParam";
             this.tabPage_MoficarParam.Size = new System.Drawing.Size(1473, 831);
             this.tabPage_MoficarParam.TabIndex = 3;
-            this.tabPage_MoficarParam.Text = "Modificar/Eliminar";
+            this.tabPage_MoficarParam.Text = "Editar/Eliminar";
             this.tabPage_MoficarParam.UseVisualStyleBackColor = true;
             // 
             // siticoneTabControl4

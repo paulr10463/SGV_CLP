@@ -34,6 +34,7 @@
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.Añadir = new System.Windows.Forms.TabPage();
             this.siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton4 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -77,7 +78,6 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.siticoneTabControl1.SuspendLayout();
             this.Añadir.SuspendLayout();
             this.siticoneGradientPanel1.SuspendLayout();
@@ -154,6 +154,14 @@
             this.siticoneGradientPanel1.Size = new System.Drawing.Size(311, 873);
             this.siticoneGradientPanel1.TabIndex = 5;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(23, 101);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(265, 471);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
+            // 
             // siticoneHtmlLabel5
             // 
             this.siticoneHtmlLabel5.BackColor = System.Drawing.Color.Transparent;
@@ -185,7 +193,7 @@
             this.siticoneButton4.Name = "siticoneButton4";
             this.siticoneButton4.Size = new System.Drawing.Size(255, 36);
             this.siticoneButton4.TabIndex = 4;
-            this.siticoneButton4.Text = "Finalizar Venta";
+            this.siticoneButton4.Text = "Realizar Pago";
             this.siticoneButton4.Click += new System.EventHandler(this.siticoneButton4_Click);
             // 
             // siticoneTextBox2
@@ -640,14 +648,6 @@
             this.codFactura.MinimumWidth = 6;
             this.codFactura.Name = "codFactura";
             this.codFactura.Width = 264;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(23, 101);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(265, 471);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
             // 
             // UC_Ventas
             // 

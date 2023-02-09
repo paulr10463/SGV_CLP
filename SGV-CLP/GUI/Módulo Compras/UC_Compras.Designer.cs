@@ -123,7 +123,7 @@
             this.Añadir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Añadir.Location = new System.Drawing.Point(224, 4);
             this.Añadir.Name = "Añadir";
-            this.Añadir.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Añadir.Padding = new System.Windows.Forms.Padding(3);
             this.Añadir.Size = new System.Drawing.Size(1481, 879);
             this.Añadir.TabIndex = 0;
             this.Añadir.Text = "Registrar Compra";
@@ -381,10 +381,10 @@
             this.Editar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Editar.Location = new System.Drawing.Point(224, 4);
             this.Editar.Name = "Editar";
-            this.Editar.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Editar.Padding = new System.Windows.Forms.Padding(3);
             this.Editar.Size = new System.Drawing.Size(1481, 879);
             this.Editar.TabIndex = 1;
-            this.Editar.Text = "Modificar/Eliminar Compra";
+            this.Editar.Text = "Editar/Eliminar Compra";
             this.Editar.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel1
