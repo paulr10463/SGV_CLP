@@ -54,6 +54,7 @@
             this.siticoneNumericUpDown1 = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.Editar = new System.Windows.Forms.TabPage();
+            this.siticoneGradientPanel2 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +78,6 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siticoneGradientPanel2 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.siticoneTabControl1.SuspendLayout();
             this.Añadir.SuspendLayout();
             this.siticoneGradientPanel1.SuspendLayout();
@@ -91,9 +91,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.Editar.SuspendLayout();
+            this.siticoneGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox4)).BeginInit();
-            this.siticoneGradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticoneTabControl1
@@ -147,7 +147,6 @@
             // siticoneGradientPanel1
             // 
             this.siticoneGradientPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.siticoneGradientPanel1.Controls.Add(this.richTextBox1);
             this.siticoneGradientPanel1.Controls.Add(this.siticoneHtmlLabel5);
             this.siticoneGradientPanel1.Controls.Add(this.siticoneHtmlLabel4);
             this.siticoneGradientPanel1.Controls.Add(this.siticoneButton4);
@@ -158,15 +157,6 @@
             this.siticoneGradientPanel1.Name = "siticoneGradientPanel1";
             this.siticoneGradientPanel1.Size = new System.Drawing.Size(355, 1017);
             this.siticoneGradientPanel1.TabIndex = 5;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(26, 135);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(302, 627);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
             // 
             // siticoneHtmlLabel5
             // 
@@ -427,6 +417,15 @@
             this.Editar.Text = "Consultar Venta";
             this.Editar.UseVisualStyleBackColor = true;
             // 
+            // siticoneGradientPanel2
+            // 
+            this.siticoneGradientPanel2.Controls.Add(this.siticoneDataGridView1);
+            this.siticoneGradientPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.siticoneGradientPanel2.Location = new System.Drawing.Point(3, 325);
+            this.siticoneGradientPanel2.Name = "siticoneGradientPanel2";
+            this.siticoneGradientPanel2.Size = new System.Drawing.Size(1408, 696);
+            this.siticoneGradientPanel2.TabIndex = 24;
+            // 
             // siticoneDataGridView1
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -680,15 +679,6 @@
             this.codFactura.Name = "codFactura";
             this.codFactura.Width = 264;
             // 
-            // siticoneGradientPanel2
-            // 
-            this.siticoneGradientPanel2.Controls.Add(this.siticoneDataGridView1);
-            this.siticoneGradientPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.siticoneGradientPanel2.Location = new System.Drawing.Point(3, 325);
-            this.siticoneGradientPanel2.Name = "siticoneGradientPanel2";
-            this.siticoneGradientPanel2.Size = new System.Drawing.Size(1408, 696);
-            this.siticoneGradientPanel2.TabIndex = 24;
-            // 
             // UC_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -715,9 +705,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.Editar.ResumeLayout(false);
             this.Editar.PerformLayout();
+            this.siticoneGradientPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox4)).EndInit();
-            this.siticoneGradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

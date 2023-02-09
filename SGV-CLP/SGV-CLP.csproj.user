@@ -25,5 +25,8 @@
     <Compile Update="GUI\Módulo Proveedores\Editar_Eliminar_Proveedor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\Módulo Ventas\Checkout.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

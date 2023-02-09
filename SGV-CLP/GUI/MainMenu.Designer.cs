@@ -172,6 +172,7 @@ namespace SGV_CLP
             this.siticoneButton4.Location = new System.Drawing.Point(3, 269);
             this.siticoneButton4.Name = "siticoneButton4";
             this.siticoneButton4.PressedDepth = 0;
+            this.siticoneButton4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.siticoneButton4.Size = new System.Drawing.Size(256, 45);
             this.siticoneButton4.TabIndex = 9;
             this.siticoneButton4.Text = "Clientes";
@@ -261,12 +262,12 @@ namespace SGV_CLP
             // 
             // siticoneCustomGradientPanel1
             // 
-            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Administracion1);
-            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Proveedores1);
-            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Productos1);
-            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Compras1);
-            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Ventas1);
             this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Clientes1);
+            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Ventas1);
+            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Compras1);
+            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Productos1);
+            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Proveedores1);
+            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Administracion1);
             this.siticoneCustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneCustomGradientPanel1.Location = new System.Drawing.Point(260, 0);
             this.siticoneCustomGradientPanel1.Name = "siticoneCustomGradientPanel1";
@@ -280,7 +281,7 @@ namespace SGV_CLP
             this.uC_Administracion1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Administracion1.Name = "uC_Administracion1";
             this.uC_Administracion1.Size = new System.Drawing.Size(1642, 1033);
-            this.uC_Administracion1.TabIndex = 5;
+            this.uC_Administracion1.TabIndex = 0;
             // 
             // uC_Proveedores1
             // 
@@ -289,7 +290,7 @@ namespace SGV_CLP
             this.uC_Proveedores1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Proveedores1.Name = "uC_Proveedores1";
             this.uC_Proveedores1.Size = new System.Drawing.Size(1642, 1033);
-            this.uC_Proveedores1.TabIndex = 4;
+            this.uC_Proveedores1.TabIndex = 1;
             // 
             // uC_Productos1
             // 
@@ -298,7 +299,7 @@ namespace SGV_CLP
             this.uC_Productos1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Productos1.Name = "uC_Productos1";
             this.uC_Productos1.Size = new System.Drawing.Size(1642, 1033);
-            this.uC_Productos1.TabIndex = 3;
+            this.uC_Productos1.TabIndex = 2;
             // 
             // uC_Compras1
             // 
@@ -307,7 +308,7 @@ namespace SGV_CLP
             this.uC_Compras1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Compras1.Name = "uC_Compras1";
             this.uC_Compras1.Size = new System.Drawing.Size(1642, 1033);
-            this.uC_Compras1.TabIndex = 2;
+            this.uC_Compras1.TabIndex = 3;
             // 
             // uC_Ventas1
             // 
@@ -316,7 +317,7 @@ namespace SGV_CLP
             this.uC_Ventas1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Ventas1.Name = "uC_Ventas1";
             this.uC_Ventas1.Size = new System.Drawing.Size(1642, 1033);
-            this.uC_Ventas1.TabIndex = 1;
+            this.uC_Ventas1.TabIndex = 4;
             // 
             // uC_Clientes1
             // 
@@ -325,7 +326,7 @@ namespace SGV_CLP
             this.uC_Clientes1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uC_Clientes1.Name = "uC_Clientes1";
             this.uC_Clientes1.Size = new System.Drawing.Size(1642, 1033);
-            this.uC_Clientes1.TabIndex = 0;
+            this.uC_Clientes1.TabIndex = 5;
             // 
             // MainMenu
             // 
@@ -358,10 +359,10 @@ namespace SGV_CLP
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton7;
         private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel1;
         private GUI.UC_Clientes uC_Clientes1;
-        private GUI.UC_Administracion uC_Administracion1;
-        private GUI.UC_Proveedores uC_Proveedores1;
-        private GUI.UC_Productos uC_Productos1;
-        private GUI.UC_Compras uC_Compras1;
         private GUI.UC_Ventas uC_Ventas1;
+        private GUI.UC_Compras uC_Compras1;
+        private GUI.UC_Productos uC_Productos1;
+        private GUI.UC_Proveedores uC_Proveedores1;
+        private GUI.UC_Administracion uC_Administracion1;
     }
 }

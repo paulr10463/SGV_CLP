@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGV_CLP.GUI.Módulo_Ventas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,8 @@ namespace SGV_CLP.GUI
 
         private void siticoneButton4_Click(object sender, EventArgs e)
         {
-            SystemSounds.Beep.Play();
-            MessageBox.Show("Venta añadida con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Checkout ventana = new Checkout();
+            ventana.ShowDialog();
         }
 
     }
