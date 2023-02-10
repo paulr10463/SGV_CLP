@@ -43,31 +43,28 @@ namespace SGV_CLP.GUI
             MessageBox.Show("Cliente añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void siticoneDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Editar_Eliminar_Cliente ventana = new Editar_Eliminar_Cliente();
-            ventana.ShowDialog();
-        }
-
-        private void grid_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0)
-                return;
-
-            //I supposed your button column is at index 0
-            if (e.ColumnIndex == 6)
+            if (siticoneDataGridView1.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                var w = Properties.Resources.Eliminar.Width;
-                var h = Properties.Resources.Eliminar.Height;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Properties.Resources.Eliminar, new Rectangle(x, y, w, h));
-                e.Handled = true;
+                if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    clientes.RemoveAt(e.RowIndex);
+                    siticoneDataGridView1.Rows.Clear();
+                    foreach (Cliente c in clientes)
+                    {
+                        siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                    }
+                }
             }
-        }
 
+            if (siticoneDataGridView1.Columns[e.ColumnIndex].Name == "ColumnaEditar")
+            {
+                String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                Editar_Eliminar_Cliente ventana = new Editar_Eliminar_Cliente(cedula);
+                ventana.ShowDialog();
+            }
+
+        }
     }
 }

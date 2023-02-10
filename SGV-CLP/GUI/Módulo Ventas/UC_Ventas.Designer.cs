@@ -103,7 +103,7 @@
             this.siticoneTabControl1.Controls.Add(this.Editar);
             this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneTabControl1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(220, 75);
+            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(230, 75);
             this.siticoneTabControl1.Location = new System.Drawing.Point(0, 0);
             this.siticoneTabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneTabControl1.Name = "siticoneTabControl1";
@@ -124,7 +124,7 @@
             this.siticoneTabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
             this.siticoneTabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(220, 75);
+            this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(230, 75);
             this.siticoneTabControl1.TabIndex = 2;
             this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.Black;
             // 
@@ -135,11 +135,11 @@
             this.Añadir.Controls.Add(this.siticonePanel3);
             this.Añadir.Controls.Add(this.siticonePanel2);
             this.Añadir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Añadir.Location = new System.Drawing.Point(224, 4);
+            this.Añadir.Location = new System.Drawing.Point(234, 4);
             this.Añadir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Añadir.Name = "Añadir";
             this.Añadir.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Añadir.Size = new System.Drawing.Size(1414, 1025);
+            this.Añadir.Size = new System.Drawing.Size(1404, 1025);
             this.Añadir.TabIndex = 0;
             this.Añadir.Text = "Registrar Venta";
             this.Añadir.UseVisualStyleBackColor = true;
@@ -152,7 +152,7 @@
             this.siticoneGradientPanel1.Controls.Add(this.siticoneButton4);
             this.siticoneGradientPanel1.Controls.Add(this.siticoneTextBox2);
             this.siticoneGradientPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.siticoneGradientPanel1.Location = new System.Drawing.Point(1056, 4);
+            this.siticoneGradientPanel1.Location = new System.Drawing.Point(1046, 4);
             this.siticoneGradientPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneGradientPanel1.Name = "siticoneGradientPanel1";
             this.siticoneGradientPanel1.Size = new System.Drawing.Size(355, 1017);

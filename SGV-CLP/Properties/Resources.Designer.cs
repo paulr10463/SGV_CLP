@@ -119,14 +119,5 @@ namespace SGV_CLP.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
-        internal static System.Drawing.Bitmap Eliminar
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Eliminar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

@@ -30,9 +30,11 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Clientes));
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
-            this.Añadir = new System.Windows.Forms.TabPage();
+            this.TabRegistrar = new System.Windows.Forms.TabPage();
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel12 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel13 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -50,23 +52,23 @@
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.Editar = new System.Windows.Forms.TabPage();
+            this.TabEditar = new System.Windows.Forms.TabPage();
             this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticonePictureBox3 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticoneComboBox6 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ape = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColumnaCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaEditar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnaEliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.siticoneTabControl1.SuspendLayout();
-            this.Añadir.SuspendLayout();
-            this.Editar.SuspendLayout();
+            this.TabRegistrar.SuspendLayout();
+            this.TabEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox3)).BeginInit();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
@@ -75,11 +77,11 @@
             // siticoneTabControl1
             // 
             this.siticoneTabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.siticoneTabControl1.Controls.Add(this.Añadir);
-            this.siticoneTabControl1.Controls.Add(this.Editar);
+            this.siticoneTabControl1.Controls.Add(this.TabRegistrar);
+            this.siticoneTabControl1.Controls.Add(this.TabEditar);
             this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneTabControl1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(220, 75);
+            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(230, 75);
             this.siticoneTabControl1.Location = new System.Drawing.Point(0, 0);
             this.siticoneTabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneTabControl1.Name = "siticoneTabControl1";
@@ -100,38 +102,38 @@
             this.siticoneTabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
             this.siticoneTabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(220, 75);
+            this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(230, 75);
             this.siticoneTabControl1.TabIndex = 2;
             this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.Black;
             // 
-            // Añadir
+            // TabRegistrar
             // 
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel4);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel12);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel13);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel14);
-            this.Añadir.Controls.Add(this.txtSegundoApellidoCliente);
-            this.Añadir.Controls.Add(this.txtSegundoNombreCliente);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel16);
-            this.Añadir.Controls.Add(this.txtPrimerApellidoCliente);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel17);
-            this.Añadir.Controls.Add(this.txtPrimerNombreCliente);
-            this.Añadir.Controls.Add(this.txtTelefonoCliente);
-            this.Añadir.Controls.Add(this.txtDireccionCliente);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel1);
-            this.Añadir.Controls.Add(this.txtCedulaCliente);
-            this.Añadir.Controls.Add(this.siticoneButton1);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel7);
-            this.Añadir.Controls.Add(this.siticoneHtmlLabel3);
-            this.Añadir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Añadir.Location = new System.Drawing.Point(224, 4);
-            this.Añadir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Añadir.Name = "Añadir";
-            this.Añadir.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Añadir.Size = new System.Drawing.Size(1414, 1025);
-            this.Añadir.TabIndex = 0;
-            this.Añadir.Text = "Registrar Cliente";
-            this.Añadir.UseVisualStyleBackColor = true;
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel4);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel12);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel13);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel14);
+            this.TabRegistrar.Controls.Add(this.txtSegundoApellidoCliente);
+            this.TabRegistrar.Controls.Add(this.txtSegundoNombreCliente);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel16);
+            this.TabRegistrar.Controls.Add(this.txtPrimerApellidoCliente);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel17);
+            this.TabRegistrar.Controls.Add(this.txtPrimerNombreCliente);
+            this.TabRegistrar.Controls.Add(this.txtTelefonoCliente);
+            this.TabRegistrar.Controls.Add(this.txtDireccionCliente);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel1);
+            this.TabRegistrar.Controls.Add(this.txtCedulaCliente);
+            this.TabRegistrar.Controls.Add(this.siticoneButton1);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel7);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel3);
+            this.TabRegistrar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TabRegistrar.Location = new System.Drawing.Point(234, 4);
+            this.TabRegistrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TabRegistrar.Name = "TabRegistrar";
+            this.TabRegistrar.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TabRegistrar.Size = new System.Drawing.Size(1404, 1025);
+            this.TabRegistrar.TabIndex = 0;
+            this.TabRegistrar.Text = "Registrar Cliente";
+            this.TabRegistrar.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel4
             // 
@@ -382,22 +384,22 @@
             this.siticoneHtmlLabel3.TabIndex = 24;
             this.siticoneHtmlLabel3.Text = "Cédula";
             // 
-            // Editar
+            // TabEditar
             // 
-            this.Editar.Controls.Add(this.siticoneHtmlLabel2);
-            this.Editar.Controls.Add(this.siticonePictureBox3);
-            this.Editar.Controls.Add(this.siticoneComboBox6);
-            this.Editar.Controls.Add(this.siticoneTextBox6);
-            this.Editar.Controls.Add(this.siticonePanel1);
-            this.Editar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Editar.Location = new System.Drawing.Point(224, 4);
-            this.Editar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Editar.Name = "Editar";
-            this.Editar.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Editar.Size = new System.Drawing.Size(1414, 1025);
-            this.Editar.TabIndex = 1;
-            this.Editar.Text = "Modificar/Eliminar Cliente";
-            this.Editar.UseVisualStyleBackColor = true;
+            this.TabEditar.Controls.Add(this.siticoneHtmlLabel2);
+            this.TabEditar.Controls.Add(this.siticonePictureBox3);
+            this.TabEditar.Controls.Add(this.siticoneComboBox6);
+            this.TabEditar.Controls.Add(this.siticoneTextBox6);
+            this.TabEditar.Controls.Add(this.siticonePanel1);
+            this.TabEditar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TabEditar.Location = new System.Drawing.Point(234, 4);
+            this.TabEditar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TabEditar.Name = "TabEditar";
+            this.TabEditar.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TabEditar.Size = new System.Drawing.Size(1404, 1025);
+            this.TabEditar.TabIndex = 1;
+            this.TabEditar.Text = "Editar/Eliminar Cliente";
+            this.TabEditar.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel2
             // 
@@ -468,16 +470,17 @@
             this.siticonePanel1.Location = new System.Drawing.Point(3, 325);
             this.siticonePanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.Size = new System.Drawing.Size(1408, 696);
+            this.siticonePanel1.Size = new System.Drawing.Size(1398, 696);
             this.siticonePanel1.TabIndex = 1;
             // 
             // siticoneDataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.siticoneDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.siticoneDataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -487,102 +490,126 @@
             this.siticoneDataGridView1.ColumnHeadersHeight = 50;
             this.siticoneDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.siticoneDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.User,
-            this.Column3,
-            this.Ape,
-            this.Column1,
-            this.Column2,
-            this.dataGridViewTextBoxColumn1,
-            this.Eliminar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnaCedula,
+            this.ColumnaNombres,
+            this.ColumnaApellidos,
+            this.ColumnaDireccion,
+            this.ColumnaTelefono,
+            this.ColumnaEditar,
+            this.ColumnaEliminar});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.siticoneDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.siticoneDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.siticoneDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.siticoneDataGridView1.Location = new System.Drawing.Point(0, 0);
             this.siticoneDataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneDataGridView1.Name = "siticoneDataGridView1";
+            this.siticoneDataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.siticoneDataGridView1.RowHeadersVisible = false;
             this.siticoneDataGridView1.RowHeadersWidth = 50;
-            this.siticoneDataGridView1.RowTemplate.Height = 25;
-            this.siticoneDataGridView1.Size = new System.Drawing.Size(1408, 696);
+            this.siticoneDataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.siticoneDataGridView1.RowTemplate.DividerHeight = 15;
+            this.siticoneDataGridView1.RowTemplate.Height = 40;
+            this.siticoneDataGridView1.Size = new System.Drawing.Size(1398, 696);
             this.siticoneDataGridView1.TabIndex = 0;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.siticoneDataGridView1.Theme = Siticone.Desktop.UI.WinForms.Enums.DataGridViewPresetThemes.Dark;
+            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.siticoneDataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DimGray;
+            this.siticoneDataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Black;
             this.siticoneDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.siticoneDataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneDataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.siticoneDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.siticoneDataGridView1.ThemeStyle.HeaderStyle.Height = 50;
             this.siticoneDataGridView1.ThemeStyle.ReadOnly = false;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.siticoneDataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 25;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView1_CellDoubleClick);
-            this.siticoneDataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.grid_CellPainting);
+            this.siticoneDataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 40;
+            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.siticoneDataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView1_CellClick);
             // 
-            // User
+            // ColumnaCedula
             // 
-            this.User.HeaderText = "CI";
-            this.User.MinimumWidth = 6;
-            this.User.Name = "User";
+            this.ColumnaCedula.HeaderText = "CI";
+            this.ColumnaCedula.MinimumWidth = 6;
+            this.ColumnaCedula.Name = "ColumnaCedula";
+            this.ColumnaCedula.ReadOnly = true;
+            this.ColumnaCedula.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnaCedula.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnaCedula.Width = 43;
             // 
-            // Column3
+            // ColumnaNombres
             // 
-            this.Column3.HeaderText = "Nombres";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
+            this.ColumnaNombres.HeaderText = "Nombres";
+            this.ColumnaNombres.MinimumWidth = 6;
+            this.ColumnaNombres.Name = "ColumnaNombres";
+            this.ColumnaNombres.ReadOnly = true;
+            this.ColumnaNombres.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnaNombres.Width = 124;
             // 
-            // Ape
+            // ColumnaApellidos
             // 
-            this.Ape.HeaderText = "Apellidos";
-            this.Ape.MinimumWidth = 6;
-            this.Ape.Name = "Ape";
+            this.ColumnaApellidos.HeaderText = "Apellidos";
+            this.ColumnaApellidos.MinimumWidth = 6;
+            this.ColumnaApellidos.Name = "ColumnaApellidos";
+            this.ColumnaApellidos.ReadOnly = true;
+            this.ColumnaApellidos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnaApellidos.Width = 126;
             // 
-            // Column1
+            // ColumnaDireccion
             // 
-            this.Column1.HeaderText = "Dirección";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.ColumnaDireccion.HeaderText = "Dirección";
+            this.ColumnaDireccion.MinimumWidth = 6;
+            this.ColumnaDireccion.Name = "ColumnaDireccion";
+            this.ColumnaDireccion.ReadOnly = true;
+            this.ColumnaDireccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnaDireccion.Width = 133;
             // 
-            // Column2
+            // ColumnaTelefono
             // 
-            this.Column2.HeaderText = "Teléfono";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
+            this.ColumnaTelefono.HeaderText = "Teléfono";
+            this.ColumnaTelefono.MinimumWidth = 6;
+            this.ColumnaTelefono.Name = "ColumnaTelefono";
+            this.ColumnaTelefono.ReadOnly = true;
+            this.ColumnaTelefono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnaTelefono.Width = 121;
             // 
-            // dataGridViewTextBoxColumn1
+            // ColumnaEditar
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Editar";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn1.Width = 106;
+            this.ColumnaEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            this.ColumnaEditar.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnaEditar.HeaderText = "";
+            this.ColumnaEditar.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEditar.Image")));
+            this.ColumnaEditar.MinimumWidth = 45;
+            this.ColumnaEditar.Name = "ColumnaEditar";
+            this.ColumnaEditar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnaEditar.Width = 45;
             // 
-            // Eliminar
+            // ColumnaEliminar
             // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.MinimumWidth = 6;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnaEliminar.HeaderText = "";
+            this.ColumnaEliminar.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEliminar.Image")));
+            this.ColumnaEliminar.MinimumWidth = 45;
+            this.ColumnaEliminar.Name = "ColumnaEliminar";
+            this.ColumnaEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnaEliminar.Width = 45;
             // 
             // UC_Clientes
             // 
@@ -593,10 +620,10 @@
             this.Name = "UC_Clientes";
             this.Size = new System.Drawing.Size(1642, 1033);
             this.siticoneTabControl1.ResumeLayout(false);
-            this.Añadir.ResumeLayout(false);
-            this.Añadir.PerformLayout();
-            this.Editar.ResumeLayout(false);
-            this.Editar.PerformLayout();
+            this.TabRegistrar.ResumeLayout(false);
+            this.TabRegistrar.PerformLayout();
+            this.TabEditar.ResumeLayout(false);
+            this.TabEditar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox3)).EndInit();
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
@@ -607,8 +634,8 @@
         #endregion
 
         private Siticone.Desktop.UI.WinForms.SiticoneTabControl siticoneTabControl1;
-        private TabPage Añadir;
-        private TabPage Editar;
+        private TabPage TabRegistrar;
+        private TabPage TabEditar;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTelefonoCliente;
@@ -632,12 +659,12 @@
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPrimerApellidoCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel17;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPrimerNombreCliente;
-        private DataGridViewTextBoxColumn User;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Ape;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewImageColumn dataGridViewTextBoxColumn1;
-        private DataGridViewButtonColumn Eliminar;
+        private DataGridViewTextBoxColumn ColumnaCedula;
+        private DataGridViewTextBoxColumn ColumnaNombres;
+        private DataGridViewTextBoxColumn ColumnaApellidos;
+        private DataGridViewTextBoxColumn ColumnaDireccion;
+        private DataGridViewTextBoxColumn ColumnaTelefono;
+        private DataGridViewImageColumn ColumnaEditar;
+        private DataGridViewImageColumn ColumnaEliminar;
     }
 }

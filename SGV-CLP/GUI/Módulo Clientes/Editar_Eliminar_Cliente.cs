@@ -13,9 +13,11 @@ namespace SGV_CLP.GUI.Módulo_Clientes
 {
     public partial class Editar_Eliminar_Cliente : Form
     {
-        public Editar_Eliminar_Cliente()
+        String cedulaCliente;
+        public Editar_Eliminar_Cliente(String cedula)
         {
             InitializeComponent();
+            cedulaCliente = cedula;
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)

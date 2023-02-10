@@ -37,6 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Administracion));
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.tabPage_Usuarios = new System.Windows.Forms.TabPage();
             this.siticoneTabControl3 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
@@ -99,18 +100,20 @@
             this.siticoneTextBox2 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.idParam_Porc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentajeDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idParam_Porc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.porcentajeDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxuni_Extra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.siticoneTabControl1.SuspendLayout();
             this.tabPage_Usuarios.SuspendLayout();
             this.siticoneTabControl3.SuspendLayout();
@@ -147,7 +150,7 @@
             this.siticoneTabControl1.Controls.Add(this.tabPage_Parametros);
             this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneTabControl1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(220, 55);
+            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(230, 75);
             this.siticoneTabControl1.Location = new System.Drawing.Point(0, 0);
             this.siticoneTabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneTabControl1.Name = "siticoneTabControl1";
@@ -168,7 +171,7 @@
             this.siticoneTabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
             this.siticoneTabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(220, 55);
+            this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(230, 75);
             this.siticoneTabControl1.TabIndex = 2;
             this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.Black;
             // 
@@ -176,11 +179,11 @@
             // 
             this.tabPage_Usuarios.Controls.Add(this.siticoneTabControl3);
             this.tabPage_Usuarios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_Usuarios.Location = new System.Drawing.Point(224, 4);
+            this.tabPage_Usuarios.Location = new System.Drawing.Point(234, 4);
             this.tabPage_Usuarios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_Usuarios.Name = "tabPage_Usuarios";
             this.tabPage_Usuarios.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage_Usuarios.Size = new System.Drawing.Size(1414, 1025);
+            this.tabPage_Usuarios.Size = new System.Drawing.Size(1404, 1025);
             this.tabPage_Usuarios.TabIndex = 0;
             this.tabPage_Usuarios.Text = "Usuarios";
             this.tabPage_Usuarios.UseVisualStyleBackColor = true;
@@ -195,7 +198,7 @@
             this.siticoneTabControl3.Location = new System.Drawing.Point(3, 4);
             this.siticoneTabControl3.Name = "siticoneTabControl3";
             this.siticoneTabControl3.SelectedIndex = 0;
-            this.siticoneTabControl3.Size = new System.Drawing.Size(1408, 1017);
+            this.siticoneTabControl3.Size = new System.Drawing.Size(1398, 1017);
             this.siticoneTabControl3.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.siticoneTabControl3.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.siticoneTabControl3.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -240,8 +243,8 @@
             this.tabPage1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1400, 969);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1390, 969);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Añadir";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -537,8 +540,8 @@
             this.tabPage2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(1400, 969);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1390, 969);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar/Eliminar";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -619,6 +622,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.siticoneDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.siticoneDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -681,10 +685,10 @@
             // 
             this.tabPage_Parametros.Controls.Add(this.siticoneTabControl2);
             this.tabPage_Parametros.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_Parametros.Location = new System.Drawing.Point(224, 4);
+            this.tabPage_Parametros.Location = new System.Drawing.Point(234, 4);
             this.tabPage_Parametros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_Parametros.Name = "tabPage_Parametros";
-            this.tabPage_Parametros.Size = new System.Drawing.Size(1414, 1025);
+            this.tabPage_Parametros.Size = new System.Drawing.Size(1404, 1025);
             this.tabPage_Parametros.TabIndex = 2;
             this.tabPage_Parametros.Text = "Parámetros";
             this.tabPage_Parametros.UseVisualStyleBackColor = true;
@@ -699,7 +703,7 @@
             this.siticoneTabControl2.Location = new System.Drawing.Point(0, 0);
             this.siticoneTabControl2.Name = "siticoneTabControl2";
             this.siticoneTabControl2.SelectedIndex = 0;
-            this.siticoneTabControl2.Size = new System.Drawing.Size(1414, 1025);
+            this.siticoneTabControl2.Size = new System.Drawing.Size(1404, 1025);
             this.siticoneTabControl2.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.siticoneTabControl2.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.siticoneTabControl2.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -725,8 +729,8 @@
             this.tabPage_aniadirParam.Controls.Add(this.siticoneTabControl5);
             this.tabPage_aniadirParam.Location = new System.Drawing.Point(4, 44);
             this.tabPage_aniadirParam.Name = "tabPage_aniadirParam";
-            this.tabPage_aniadirParam.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage_aniadirParam.Size = new System.Drawing.Size(1406, 977);
+            this.tabPage_aniadirParam.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_aniadirParam.Size = new System.Drawing.Size(1396, 977);
             this.tabPage_aniadirParam.TabIndex = 0;
             this.tabPage_aniadirParam.Text = "Añadir";
             this.tabPage_aniadirParam.UseVisualStyleBackColor = true;
@@ -741,7 +745,7 @@
             this.siticoneTabControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneTabControl5.Name = "siticoneTabControl5";
             this.siticoneTabControl5.SelectedIndex = 0;
-            this.siticoneTabControl5.Size = new System.Drawing.Size(1400, 971);
+            this.siticoneTabControl5.Size = new System.Drawing.Size(1390, 971);
             this.siticoneTabControl5.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.siticoneTabControl5.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.siticoneTabControl5.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -774,7 +778,7 @@
             this.tabPage_aniadirPorUnidad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_aniadirPorUnidad.Name = "tabPage_aniadirPorUnidad";
             this.tabPage_aniadirPorUnidad.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage_aniadirPorUnidad.Size = new System.Drawing.Size(1392, 923);
+            this.tabPage_aniadirPorUnidad.Size = new System.Drawing.Size(1382, 923);
             this.tabPage_aniadirPorUnidad.TabIndex = 0;
             this.tabPage_aniadirPorUnidad.Text = "Por Unidad";
             this.tabPage_aniadirPorUnidad.UseVisualStyleBackColor = true;
@@ -810,7 +814,6 @@
             this.siticoneNumericUpDown2.Size = new System.Drawing.Size(145, 55);
             this.siticoneNumericUpDown2.TabIndex = 52;
             this.siticoneNumericUpDown2.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown2.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // siticoneNumericUpDown1
             // 
@@ -822,7 +825,6 @@
             this.siticoneNumericUpDown1.Size = new System.Drawing.Size(145, 55);
             this.siticoneNumericUpDown1.TabIndex = 51;
             this.siticoneNumericUpDown1.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown1.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // siticoneHtmlLabel4
             // 
@@ -909,7 +911,6 @@
             this.siticoneNumericUpDown3.Size = new System.Drawing.Size(167, 55);
             this.siticoneNumericUpDown3.TabIndex = 57;
             this.siticoneNumericUpDown3.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown3.UpDownButtonForeColor = System.Drawing.Color.White;
             this.siticoneNumericUpDown3.Value = new decimal(new int[] {
             10,
             0,
@@ -951,7 +952,7 @@
             this.tabPage_MoficarParam.Location = new System.Drawing.Point(4, 44);
             this.tabPage_MoficarParam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_MoficarParam.Name = "tabPage_MoficarParam";
-            this.tabPage_MoficarParam.Size = new System.Drawing.Size(1406, 977);
+            this.tabPage_MoficarParam.Size = new System.Drawing.Size(1396, 977);
             this.tabPage_MoficarParam.TabIndex = 3;
             this.tabPage_MoficarParam.Text = "Modificar/Eliminar";
             this.tabPage_MoficarParam.UseVisualStyleBackColor = true;
@@ -966,7 +967,7 @@
             this.siticoneTabControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneTabControl4.Name = "siticoneTabControl4";
             this.siticoneTabControl4.SelectedIndex = 0;
-            this.siticoneTabControl4.Size = new System.Drawing.Size(1406, 977);
+            this.siticoneTabControl4.Size = new System.Drawing.Size(1396, 977);
             this.siticoneTabControl4.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.siticoneTabControl4.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.siticoneTabControl4.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -998,7 +999,7 @@
             this.tabPage_ModificarUnid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_ModificarUnid.Name = "tabPage_ModificarUnid";
             this.tabPage_ModificarUnid.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage_ModificarUnid.Size = new System.Drawing.Size(1398, 929);
+            this.tabPage_ModificarUnid.Size = new System.Drawing.Size(1388, 929);
             this.tabPage_ModificarUnid.TabIndex = 0;
             this.tabPage_ModificarUnid.Text = "Por Unidad";
             this.tabPage_ModificarUnid.UseVisualStyleBackColor = true;
@@ -1073,7 +1074,7 @@
             this.siticonePanel3.Location = new System.Drawing.Point(3, 229);
             this.siticonePanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticonePanel3.Name = "siticonePanel3";
-            this.siticonePanel3.Size = new System.Drawing.Size(1392, 696);
+            this.siticonePanel3.Size = new System.Drawing.Size(1382, 696);
             this.siticonePanel3.TabIndex = 3;
             // 
             // siticoneDataGridView3
@@ -1093,7 +1094,9 @@
             this.siticoneDataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxuni_Extra});
+            this.dataGridViewTextBoxuni_Extra,
+            this.dataGridViewImageColumn1,
+            this.dataGridViewImageColumn2});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -1110,7 +1113,7 @@
             this.siticoneDataGridView3.RowHeadersVisible = false;
             this.siticoneDataGridView3.RowHeadersWidth = 51;
             this.siticoneDataGridView3.RowTemplate.Height = 25;
-            this.siticoneDataGridView3.Size = new System.Drawing.Size(1392, 696);
+            this.siticoneDataGridView3.Size = new System.Drawing.Size(1382, 696);
             this.siticoneDataGridView3.TabIndex = 0;
             this.siticoneDataGridView3.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.siticoneDataGridView3.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1280,48 +1283,6 @@
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre de Usuario";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "CC";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombres";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Apellidos";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Cargo";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "Editar";
-            this.Editar.MinimumWidth = 6;
-            this.Editar.Name = "Editar";
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.MinimumWidth = 6;
-            this.Eliminar.Name = "Eliminar";
-            // 
             // idParam_Porc
             // 
             this.idParam_Porc.HeaderText = "ID parámetro";
@@ -1333,6 +1294,61 @@
             this.porcentajeDesc.HeaderText = "% Porcentaje";
             this.porcentajeDesc.MinimumWidth = 6;
             this.porcentajeDesc.Name = "porcentajeDesc";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre de Usuario";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 167;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "CC";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombres";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 147;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Apellidos";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 149;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Cargo";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 115;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "";
+            this.Editar.Image = ((System.Drawing.Image)(resources.GetObject("Editar.Image")));
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Width = 23;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 23;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1351,6 +1367,24 @@
             this.dataGridViewTextBoxuni_Extra.HeaderText = "Unidad extra";
             this.dataGridViewTextBoxuni_Extra.MinimumWidth = 6;
             this.dataGridViewTextBoxuni_Extra.Name = "dataGridViewTextBoxuni_Extra";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // UC_Administracion
             // 
@@ -1461,17 +1495,19 @@
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox3;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox6;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox2;
+        private DataGridViewTextBoxColumn idParam_Porc;
+        private DataGridViewTextBoxColumn porcentajeDesc;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn Editar;
-        private DataGridViewTextBoxColumn Eliminar;
+        private DataGridViewImageColumn Editar;
+        private DataGridViewImageColumn Eliminar;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxuni_Extra;
-        private DataGridViewTextBoxColumn idParam_Porc;
-        private DataGridViewTextBoxColumn porcentajeDesc;
+        private DataGridViewImageColumn dataGridViewImageColumn1;
+        private DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }
