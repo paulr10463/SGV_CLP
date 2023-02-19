@@ -31,6 +31,7 @@
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticoneGradientButton2 = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.siticoneGradientButton1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.siticoneSeparator2 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
             this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
@@ -41,7 +42,6 @@
             this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneGradientButton2 = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.siticonePanel2.SuspendLayout();
@@ -95,6 +95,26 @@
             this.siticonePanel2.Name = "siticonePanel2";
             this.siticonePanel2.Size = new System.Drawing.Size(614, 1033);
             this.siticonePanel2.TabIndex = 1;
+            // 
+            // siticoneGradientButton2
+            // 
+            this.siticoneGradientButton2.BorderRadius = 10;
+            this.siticoneGradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneGradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneGradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneGradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneGradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneGradientButton2.FillColor = System.Drawing.Color.Black;
+            this.siticoneGradientButton2.FillColor2 = System.Drawing.Color.Black;
+            this.siticoneGradientButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneGradientButton2.ForeColor = System.Drawing.Color.White;
+            this.siticoneGradientButton2.Location = new System.Drawing.Point(326, 817);
+            this.siticoneGradientButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneGradientButton2.Name = "siticoneGradientButton2";
+            this.siticoneGradientButton2.Size = new System.Drawing.Size(254, 81);
+            this.siticoneGradientButton2.TabIndex = 10;
+            this.siticoneGradientButton2.Text = "Salir";
+            this.siticoneGradientButton2.Click += new System.EventHandler(this.siticoneGradientButton2_Click);
             // 
             // siticoneGradientButton1
             // 
@@ -233,26 +253,6 @@
             this.siticoneHtmlLabel1.Size = new System.Drawing.Size(231, 45);
             this.siticoneHtmlLabel1.TabIndex = 0;
             this.siticoneHtmlLabel1.Text = "Iniciar sesión";
-            // 
-            // siticoneGradientButton2
-            // 
-            this.siticoneGradientButton2.BorderRadius = 10;
-            this.siticoneGradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneGradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneGradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneGradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneGradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneGradientButton2.FillColor = System.Drawing.Color.Black;
-            this.siticoneGradientButton2.FillColor2 = System.Drawing.Color.Black;
-            this.siticoneGradientButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneGradientButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneGradientButton2.Location = new System.Drawing.Point(326, 817);
-            this.siticoneGradientButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneGradientButton2.Name = "siticoneGradientButton2";
-            this.siticoneGradientButton2.Size = new System.Drawing.Size(254, 81);
-            this.siticoneGradientButton2.TabIndex = 10;
-            this.siticoneGradientButton2.Text = "Salir";
-            this.siticoneGradientButton2.Click += new System.EventHandler(this.siticoneGradientButton2_Click);
             // 
             // Login
             // 
