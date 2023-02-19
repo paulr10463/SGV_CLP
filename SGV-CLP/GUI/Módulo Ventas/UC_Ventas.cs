@@ -25,5 +25,16 @@ namespace SGV_CLP.GUI
             ventana.ShowDialog();
         }
 
+
+        private void siticoneTextBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void siticoneTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

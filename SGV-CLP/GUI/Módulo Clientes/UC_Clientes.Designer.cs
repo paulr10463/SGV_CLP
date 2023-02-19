@@ -108,6 +108,7 @@
             // 
             // TabRegistrar
             // 
+            this.TabRegistrar.BackColor = System.Drawing.Color.White;
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel4);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel12);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel13);
@@ -133,7 +134,6 @@
             this.TabRegistrar.Size = new System.Drawing.Size(1404, 1025);
             this.TabRegistrar.TabIndex = 0;
             this.TabRegistrar.Text = "Registrar Cliente";
-            this.TabRegistrar.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel4
             // 
@@ -386,6 +386,7 @@
             // 
             // TabEditar
             // 
+            this.TabEditar.BackColor = System.Drawing.Color.White;
             this.TabEditar.Controls.Add(this.siticoneHtmlLabel2);
             this.TabEditar.Controls.Add(this.siticonePictureBox3);
             this.TabEditar.Controls.Add(this.siticoneComboBox6);
@@ -399,7 +400,6 @@
             this.TabEditar.Size = new System.Drawing.Size(1404, 1025);
             this.TabEditar.TabIndex = 1;
             this.TabEditar.Text = "Editar/Eliminar Cliente";
-            this.TabEditar.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel2
             // 
