@@ -37,7 +37,6 @@
             this.TabRegistrar = new System.Windows.Forms.TabPage();
             this.siticoneHtmlLabel_correct_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel_wrong_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel_cc_correct_length = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel_cc_valida = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel_cc_invalida = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -93,7 +92,7 @@
             this.siticoneTabControl1.Location = new System.Drawing.Point(0, 0);
             this.siticoneTabControl1.Name = "siticoneTabControl1";
             this.siticoneTabControl1.SelectedIndex = 0;
-            this.siticoneTabControl1.Size = new System.Drawing.Size(1642, 1033);
+            this.siticoneTabControl1.Size = new System.Drawing.Size(1953, 1183);
             this.siticoneTabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.siticoneTabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.Black;
             this.siticoneTabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -117,7 +116,6 @@
             // 
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_correct_length_telef);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_wrong_length_telef);
-            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel5);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_cc_correct_length);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_cc_valida);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_cc_invalida);
@@ -144,7 +142,7 @@
             this.TabRegistrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TabRegistrar.Name = "TabRegistrar";
             this.TabRegistrar.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TabRegistrar.Size = new System.Drawing.Size(1404, 1025);
+            this.TabRegistrar.Size = new System.Drawing.Size(1715, 1175);
             this.TabRegistrar.TabIndex = 0;
             this.TabRegistrar.Text = "Registrar Cliente";
             this.TabRegistrar.UseVisualStyleBackColor = true;
@@ -156,7 +154,7 @@
             this.siticoneHtmlLabel_correct_length_telef.Location = new System.Drawing.Point(915, 649);
             this.siticoneHtmlLabel_correct_length_telef.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel_correct_length_telef.Name = "siticoneHtmlLabel_correct_length_telef";
-            this.siticoneHtmlLabel_correct_length_telef.Size = new System.Drawing.Size(128, 22);
+            this.siticoneHtmlLabel_correct_length_telef.Size = new System.Drawing.Size(103, 17);
             this.siticoneHtmlLabel_correct_length_telef.TabIndex = 60;
             this.siticoneHtmlLabel_correct_length_telef.Text = "¡Longitud correcta!";
             // 
@@ -167,20 +165,9 @@
             this.siticoneHtmlLabel_wrong_length_telef.Location = new System.Drawing.Point(915, 649);
             this.siticoneHtmlLabel_wrong_length_telef.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel_wrong_length_telef.Name = "siticoneHtmlLabel_wrong_length_telef";
-            this.siticoneHtmlLabel_wrong_length_telef.Size = new System.Drawing.Size(160, 22);
+            this.siticoneHtmlLabel_wrong_length_telef.Size = new System.Drawing.Size(127, 17);
             this.siticoneHtmlLabel_wrong_length_telef.TabIndex = 59;
             this.siticoneHtmlLabel_wrong_length_telef.Text = "¡Se necesitan 10 caract.!";
-            // 
-            // siticoneHtmlLabel5
-            // 
-            this.siticoneHtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel5.Location = new System.Drawing.Point(315, 731);
-            this.siticoneHtmlLabel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneHtmlLabel5.Name = "siticoneHtmlLabel5";
-            this.siticoneHtmlLabel5.Size = new System.Drawing.Size(278, 34);
-            this.siticoneHtmlLabel5.TabIndex = 58;
-            this.siticoneHtmlLabel5.Text = "Fecha de nacimiento";
             // 
             // siticoneHtmlLabel_cc_correct_length
             // 
@@ -188,7 +175,7 @@
             this.siticoneHtmlLabel_cc_correct_length.ForeColor = System.Drawing.Color.SpringGreen;
             this.siticoneHtmlLabel_cc_correct_length.Location = new System.Drawing.Point(917, 299);
             this.siticoneHtmlLabel_cc_correct_length.Name = "siticoneHtmlLabel_cc_correct_length";
-            this.siticoneHtmlLabel_cc_correct_length.Size = new System.Drawing.Size(128, 22);
+            this.siticoneHtmlLabel_cc_correct_length.Size = new System.Drawing.Size(103, 17);
             this.siticoneHtmlLabel_cc_correct_length.TabIndex = 57;
             this.siticoneHtmlLabel_cc_correct_length.Text = "¡Longitud correcta!";
             // 
@@ -198,7 +185,7 @@
             this.siticoneHtmlLabel_cc_valida.ForeColor = System.Drawing.Color.SpringGreen;
             this.siticoneHtmlLabel_cc_valida.Location = new System.Drawing.Point(917, 243);
             this.siticoneHtmlLabel_cc_valida.Name = "siticoneHtmlLabel_cc_valida";
-            this.siticoneHtmlLabel_cc_valida.Size = new System.Drawing.Size(101, 22);
+            this.siticoneHtmlLabel_cc_valida.Size = new System.Drawing.Size(80, 17);
             this.siticoneHtmlLabel_cc_valida.TabIndex = 56;
             this.siticoneHtmlLabel_cc_valida.Text = "¡Cédula válida!";
             // 
@@ -208,7 +195,7 @@
             this.siticoneHtmlLabel_cc_invalida.ForeColor = System.Drawing.Color.Red;
             this.siticoneHtmlLabel_cc_invalida.Location = new System.Drawing.Point(917, 243);
             this.siticoneHtmlLabel_cc_invalida.Name = "siticoneHtmlLabel_cc_invalida";
-            this.siticoneHtmlLabel_cc_invalida.Size = new System.Drawing.Size(113, 22);
+            this.siticoneHtmlLabel_cc_invalida.Size = new System.Drawing.Size(90, 17);
             this.siticoneHtmlLabel_cc_invalida.TabIndex = 55;
             this.siticoneHtmlLabel_cc_invalida.Text = "¡Cédula inválida!";
             // 
@@ -218,7 +205,7 @@
             this.siticoneHtmlLabel_cc_wrong_length.ForeColor = System.Drawing.Color.Red;
             this.siticoneHtmlLabel_cc_wrong_length.Location = new System.Drawing.Point(915, 299);
             this.siticoneHtmlLabel_cc_wrong_length.Name = "siticoneHtmlLabel_cc_wrong_length";
-            this.siticoneHtmlLabel_cc_wrong_length.Size = new System.Drawing.Size(160, 22);
+            this.siticoneHtmlLabel_cc_wrong_length.Size = new System.Drawing.Size(127, 17);
             this.siticoneHtmlLabel_cc_wrong_length.TabIndex = 54;
             this.siticoneHtmlLabel_cc_wrong_length.Text = "¡Se necesitan 10 caract.!";
             // 
@@ -503,10 +490,9 @@
             this.siticoneHtmlLabel_buscarCliente_sin_campo.ForeColor = System.Drawing.Color.Red;
             this.siticoneHtmlLabel_buscarCliente_sin_campo.Location = new System.Drawing.Point(818, 158);
             this.siticoneHtmlLabel_buscarCliente_sin_campo.Name = "siticoneHtmlLabel_buscarCliente_sin_campo";
-            this.siticoneHtmlLabel_buscarCliente_sin_campo.Size = new System.Drawing.Size(152, 22);
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.Size = new System.Drawing.Size(122, 17);
             this.siticoneHtmlLabel_buscarCliente_sin_campo.TabIndex = 19;
             this.siticoneHtmlLabel_buscarCliente_sin_campo.Text = "¡Seleccione un campo!";
-            this.Editar.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel2
             // 
@@ -521,8 +507,8 @@
             // siticonePictureBox3
             // 
             this.siticonePictureBox3.Image = global::SGV_CLP.Properties.Resources.search;
+            this.siticonePictureBox3.ImageRotate = 0F;
             this.siticonePictureBox3.Location = new System.Drawing.Point(1085, 204);
-            this.siticonePictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticonePictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticonePictureBox3.Name = "siticonePictureBox3";
             this.siticonePictureBox3.Size = new System.Drawing.Size(39, 36);
@@ -543,15 +529,16 @@
             "CI",
             "Nombres",
             "Apellidos",
+            "Teléfono"});
             this.siticoneComboBox_EliminarEditarCliente.Location = new System.Drawing.Point(550, 204);
             this.siticoneComboBox_EliminarEditarCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneComboBox_EliminarEditarCliente.Name = "siticoneComboBox_EliminarEditarCliente";
             this.siticoneComboBox_EliminarEditarCliente.Size = new System.Drawing.Size(261, 36);
             this.siticoneComboBox_EliminarEditarCliente.TabIndex = 16;
             this.siticoneComboBox_EliminarEditarCliente.SelectedIndexChanged += new System.EventHandler(this.siticoneComboBox_EliminarEditarCliente_SelectedIndexChanged);
-            this.siticoneComboBox6.TabIndex = 16;
             // 
             // txtBuscarClientePor
+            // 
             this.txtBuscarClientePor.DefaultText = "";
             this.txtBuscarClientePor.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtBuscarClientePor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -569,15 +556,13 @@
             this.txtBuscarClientePor.Size = new System.Drawing.Size(248, 48);
             this.txtBuscarClientePor.TabIndex = 15;
             this.txtBuscarClientePor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarClientePor_KeyPress);
-            this.siticoneTextBox6.TabIndex = 15;
             // 
             // siticonePanel1
             // 
             this.siticonePanel1.Controls.Add(this.siticoneDataGridView1);
             this.siticonePanel1.Location = new System.Drawing.Point(3, 325);
             this.siticonePanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticonePanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticonePanel1.Size = new System.Drawing.Size(1398, 696);
+            this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.Size = new System.Drawing.Size(1719, 696);
             this.siticonePanel1.TabIndex = 1;
             // 
@@ -618,11 +603,11 @@
             this.siticoneDataGridView1.Location = new System.Drawing.Point(0, 0);
             this.siticoneDataGridView1.Name = "siticoneDataGridView1";
             this.siticoneDataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.siticoneDataGridView1.RowHeadersVisible = false;
             this.siticoneDataGridView1.RowHeadersWidth = 50;
             this.siticoneDataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.siticoneDataGridView1.RowTemplate.DividerHeight = 15;
             this.siticoneDataGridView1.RowTemplate.Height = 40;
-            this.siticoneDataGridView1.Size = new System.Drawing.Size(1398, 696);
             this.siticoneDataGridView1.Size = new System.Drawing.Size(1719, 696);
             this.siticoneDataGridView1.TabIndex = 0;
             this.siticoneDataGridView1.Theme = Siticone.Desktop.UI.WinForms.Enums.DataGridViewPresetThemes.Dark;
@@ -657,7 +642,7 @@
             this.ColumnaCedula.ReadOnly = true;
             this.ColumnaCedula.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnaCedula.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnaCedula.Width = 43;
+            this.ColumnaCedula.Width = 34;
             // 
             // ColumnaNombres
             // 
@@ -666,7 +651,7 @@
             this.ColumnaNombres.Name = "ColumnaNombres";
             this.ColumnaNombres.ReadOnly = true;
             this.ColumnaNombres.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnaNombres.Width = 124;
+            this.ColumnaNombres.Width = 95;
             // 
             // ColumnaApellidos
             // 
@@ -675,7 +660,7 @@
             this.ColumnaApellidos.Name = "ColumnaApellidos";
             this.ColumnaApellidos.ReadOnly = true;
             this.ColumnaApellidos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnaApellidos.Width = 126;
+            this.ColumnaApellidos.Width = 95;
             // 
             // ColumnaDireccion
             // 
@@ -684,7 +669,6 @@
             this.ColumnaDireccion.Name = "ColumnaDireccion";
             this.ColumnaDireccion.ReadOnly = true;
             this.ColumnaDireccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnaDireccion.Width = 133;
             // 
             // ColumnaTelefono
             // 
@@ -693,7 +677,7 @@
             this.ColumnaTelefono.Name = "ColumnaTelefono";
             this.ColumnaTelefono.ReadOnly = true;
             this.ColumnaTelefono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnaTelefono.Width = 121;
+            this.ColumnaTelefono.Width = 91;
             // 
             // ColumnaEditar
             // 
@@ -723,7 +707,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.siticoneTabControl1);
-            this.Size = new System.Drawing.Size(1642, 1033);
+            this.Name = "UC_Clientes";
             this.Size = new System.Drawing.Size(1953, 1183);
             this.siticoneTabControl1.ResumeLayout(false);
             this.TabRegistrar.ResumeLayout(false);
@@ -776,7 +760,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_cc_valida;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_cc_invalida;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_cc_wrong_length;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel5;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_length_telef;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_length_telef;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;

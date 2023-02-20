@@ -53,6 +53,7 @@
             this.CC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTabControl1.SuspendLayout();
             this.Añadir.SuspendLayout();
             this.Editar.SuspendLayout();
@@ -94,6 +95,7 @@
             // 
             // Añadir
             // 
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel4);
             this.Añadir.Controls.Add(this.siticoneButton1);
             this.Añadir.Controls.Add(this.siticoneTextBox3);
             this.Añadir.Controls.Add(this.siticoneTextBox1);
@@ -414,6 +416,16 @@
             this.Nombre.MinimumWidth = 6;
             this.Nombre.Name = "Nombre";
             // 
+            // siticoneHtmlLabel4
+            // 
+            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(500, 245);
+            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
+            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(46, 26);
+            this.siticoneHtmlLabel4.TabIndex = 55;
+            this.siticoneHtmlLabel4.Text = "RUC";
+            // 
             // UC_Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -457,5 +469,6 @@
         private DataGridViewTextBoxColumn CC;
         private DataGridViewTextBoxColumn Contras;
         private DataGridViewTextBoxColumn Nombre;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
     }
 }
