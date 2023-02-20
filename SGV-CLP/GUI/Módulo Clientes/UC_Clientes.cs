@@ -212,6 +212,56 @@ namespace SGV_CLP.GUI
             }
         }
 
+        private void txtSegundoNombreCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSegundoApellidoCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel_cc_correct_length_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel_cc_valida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TabRegistrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel_cc_wrong_length_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel_correct_length_telef_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel_wrong_length_telef_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtSegundoApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
