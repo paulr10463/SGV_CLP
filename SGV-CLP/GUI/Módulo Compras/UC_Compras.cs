@@ -41,5 +41,6 @@ namespace SGV_CLP.GUI
             Editar_Eliminar_Compra ventana = new Editar_Eliminar_Compra();
             ventana.ShowDialog();
         }
+
     }
 }

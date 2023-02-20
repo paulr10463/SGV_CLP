@@ -10,11 +10,6 @@ namespace SGV_CLP
             InitializeComponent();
         }
 
-        private void MainMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void siticoneButton1_CheckedChanged(object sender, EventArgs e)
         {
             uC_Administracion1.BringToFront();
@@ -47,7 +42,7 @@ namespace SGV_CLP
 
         private void siticoneButton7_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void siticoneButton7_Click_1(object sender, EventArgs e)
@@ -62,7 +57,7 @@ namespace SGV_CLP
                 ventana.ShowDialog();
                 this.Dispose();
             }
-           
+
         }
     }
 }

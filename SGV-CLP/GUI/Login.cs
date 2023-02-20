@@ -16,5 +16,10 @@
             this.Dispose();
 
         }
+
+        private void siticoneGradientButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

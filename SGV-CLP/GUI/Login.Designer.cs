@@ -31,6 +31,7 @@
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticoneGradientButton2 = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.siticoneGradientButton1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.siticoneSeparator2 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
             this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
@@ -53,9 +54,10 @@
             this.siticonePanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             this.siticonePanel1.Controls.Add(this.siticonePictureBox1);
             this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.siticonePanel1.Location = new System.Drawing.Point(518, 0);
+            this.siticonePanel1.Location = new System.Drawing.Point(569, 0);
+            this.siticonePanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.Size = new System.Drawing.Size(1166, 791);
+            this.siticonePanel1.Size = new System.Drawing.Size(1333, 1033);
             this.siticonePanel1.TabIndex = 0;
             // 
             // siticonePictureBox1
@@ -66,7 +68,7 @@
             this.siticonePictureBox1.ImageRotate = 0F;
             this.siticonePictureBox1.Location = new System.Drawing.Point(3, 0);
             this.siticonePictureBox1.Name = "siticonePictureBox1";
-            this.siticonePictureBox1.Size = new System.Drawing.Size(1163, 791);
+            this.siticonePictureBox1.Size = new System.Drawing.Size(1329, 1033);
             this.siticonePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.siticonePictureBox1.TabIndex = 0;
             this.siticonePictureBox1.TabStop = false;
@@ -74,6 +76,7 @@
             // siticonePanel2
             // 
             this.siticonePanel2.BackColor = System.Drawing.Color.White;
+            this.siticonePanel2.Controls.Add(this.siticoneGradientButton2);
             this.siticonePanel2.Controls.Add(this.siticoneGradientButton1);
             this.siticonePanel2.Controls.Add(this.siticoneSeparator2);
             this.siticonePanel2.Controls.Add(this.siticoneSeparator1);
@@ -88,8 +91,28 @@
             this.siticonePanel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.siticonePanel2.Location = new System.Drawing.Point(0, 0);
             this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.Size = new System.Drawing.Size(752, 791);
+            this.siticonePanel2.Size = new System.Drawing.Size(614, 1033);
             this.siticonePanel2.TabIndex = 1;
+            // 
+            // siticoneGradientButton2
+            // 
+            this.siticoneGradientButton2.BorderRadius = 10;
+            this.siticoneGradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneGradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneGradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneGradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneGradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneGradientButton2.FillColor = System.Drawing.Color.Black;
+            this.siticoneGradientButton2.FillColor2 = System.Drawing.Color.Black;
+            this.siticoneGradientButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneGradientButton2.ForeColor = System.Drawing.Color.White;
+            this.siticoneGradientButton2.Location = new System.Drawing.Point(326, 817);
+            this.siticoneGradientButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneGradientButton2.Name = "siticoneGradientButton2";
+            this.siticoneGradientButton2.Size = new System.Drawing.Size(254, 81);
+            this.siticoneGradientButton2.TabIndex = 10;
+            this.siticoneGradientButton2.Text = "Salir";
+            this.siticoneGradientButton2.Click += new System.EventHandler(this.siticoneGradientButton2_Click);
             // 
             // siticoneGradientButton1
             // 
@@ -103,9 +126,10 @@
             this.siticoneGradientButton1.FillColor2 = System.Drawing.Color.Black;
             this.siticoneGradientButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneGradientButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneGradientButton1.Location = new System.Drawing.Point(216, 652);
+            this.siticoneGradientButton1.Location = new System.Drawing.Point(39, 817);
+            this.siticoneGradientButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneGradientButton1.Name = "siticoneGradientButton1";
-            this.siticoneGradientButton1.Size = new System.Drawing.Size(275, 61);
+            this.siticoneGradientButton1.Size = new System.Drawing.Size(254, 81);
             this.siticoneGradientButton1.TabIndex = 9;
             this.siticoneGradientButton1.Text = "Iniciar sesión";
             this.siticoneGradientButton1.Click += new System.EventHandler(this.siticoneGradientButton1_Click);
@@ -135,8 +159,8 @@
             this.siticoneTextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox2.Location = new System.Drawing.Point(118, 432);
-            this.siticoneTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.siticoneTextBox2.Location = new System.Drawing.Point(135, 576);
+            this.siticoneTextBox2.Margin = new System.Windows.Forms.Padding(5);
             this.siticoneTextBox2.Name = "siticoneTextBox2";
             this.siticoneTextBox2.PasswordChar = '●';
             this.siticoneTextBox2.PlaceholderText = "";
@@ -156,8 +180,8 @@
             this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Location = new System.Drawing.Point(118, 317);
-            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.siticoneTextBox1.Location = new System.Drawing.Point(135, 423);
+            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(5);
             this.siticoneTextBox1.Name = "siticoneTextBox1";
             this.siticoneTextBox1.PasswordChar = '\0';
             this.siticoneTextBox1.PlaceholderText = "";
@@ -225,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1684, 791);
+            this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.siticonePanel2);
             this.Controls.Add(this.siticonePanel1);
             this.Name = "Login";
@@ -254,5 +278,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneGradientButton siticoneGradientButton1;
+        private Siticone.Desktop.UI.WinForms.SiticoneGradientButton siticoneGradientButton2;
     }
 }
