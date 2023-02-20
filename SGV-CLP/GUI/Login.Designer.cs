@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.siticonePanel3 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
@@ -43,36 +42,25 @@
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTextBox2 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.siticonePanel2.SuspendLayout();
             this.siticonePanel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // siticonePanel1
-            // 
-            this.siticonePanel1.BackColor = System.Drawing.Color.White;
-            this.siticonePanel1.BorderColor = System.Drawing.Color.White;
-            this.siticonePanel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.siticonePanel1.Controls.Add(this.siticonePictureBox1);
-            this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.siticonePanel1.Location = new System.Drawing.Point(569, 0);
-            this.siticonePanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticonePanel1.MaximumSize = new System.Drawing.Size(1200, 0);
-            this.siticonePanel1.MinimumSize = new System.Drawing.Size(600, 0);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.Size = new System.Drawing.Size(1200, 861);
-            this.siticonePanel1.TabIndex = 0;
-            // 
             // siticonePictureBox1
             // 
+            this.siticonePictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticonePictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.siticonePictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.siticonePictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticonePictureBox1.Image = global::SGV_CLP.Properties.Resources.Login_picture;
             this.siticonePictureBox1.ImageRotate = 0F;
-            this.siticonePictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.siticonePictureBox1.Location = new System.Drawing.Point(570, 0);
+            this.siticonePictureBox1.MaximumSize = new System.Drawing.Size(1400, 0);
+            this.siticonePictureBox1.MinimumSize = new System.Drawing.Size(400, 0);
             this.siticonePictureBox1.Name = "siticonePictureBox1";
-            this.siticonePictureBox1.Size = new System.Drawing.Size(1200, 861);
+            this.siticonePictureBox1.Size = new System.Drawing.Size(951, 861);
             this.siticonePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.siticonePictureBox1.TabIndex = 0;
             this.siticonePictureBox1.TabStop = false;
@@ -80,16 +68,14 @@
             // 
             // siticonePanel2
             // 
-            this.siticonePanel2.AutoSize = true;
             this.siticonePanel2.BackColor = System.Drawing.Color.White;
+            this.siticonePanel2.Controls.Add(this.siticonePictureBox1);
             this.siticonePanel2.Controls.Add(this.siticonePanel3);
-            this.siticonePanel2.Controls.Add(this.siticonePanel1);
             this.siticonePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticonePanel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.siticonePanel2.Location = new System.Drawing.Point(0, 0);
-            this.siticonePanel2.MinimumSize = new System.Drawing.Size(450, 700);
             this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.Size = new System.Drawing.Size(1769, 861);
+            this.siticonePanel2.Size = new System.Drawing.Size(1521, 861);
             this.siticonePanel2.TabIndex = 1;
             this.siticonePanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.siticonePanel2_Paint);
             // 
@@ -284,24 +270,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1769, 861);
+            this.ClientSize = new System.Drawing.Size(1521, 861);
             this.Controls.Add(this.siticonePanel2);
             this.Name = "Login";
             this.Text = "LOGIN SGV-CLP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.siticonePanel2.ResumeLayout(false);
             this.siticonePanel3.ResumeLayout(false);
             this.siticonePanel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox1;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
         private Siticone.Desktop.UI.WinForms.SiticoneSeparator siticoneSeparator2;
