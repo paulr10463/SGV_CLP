@@ -21,5 +21,55 @@
         {
             this.Close();
         }
+
+        private void siticoneHtmlLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneCustomCheckBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneSeparator2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneSeparator1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticonePanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void siticonePictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
