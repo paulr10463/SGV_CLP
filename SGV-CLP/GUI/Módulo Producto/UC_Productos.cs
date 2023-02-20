@@ -67,21 +67,12 @@ namespace SGV_CLP.GUI
             siticoneDateTimePicker2.Visible = true;
         }
 
-        private void siticoneGroupBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void siticoneDataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Editar_Eliminar_Lote ventana = new Editar_Eliminar_Lote();
             ventana.ShowDialog();
         }
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
 
         private void siticoneButton3_Click(object sender, EventArgs e)
         {
