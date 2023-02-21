@@ -9,12 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-namespace SGV_CLP.GUI
+namespace SGV_CLP.GUI.Módulo_Proveedores
 {
-    public partial class Editar_Eliminar_Producto : Form
+    public partial class Editar_Proveedor : Form
     {
-        public Editar_Eliminar_Producto()
+        public Editar_Proveedor()
         {
             InitializeComponent();
         }
@@ -22,13 +21,13 @@ namespace SGV_CLP.GUI
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
-            MessageBox.Show("Producto editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cliente editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Dispose();
         }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
-             this.Dispose();
+            this.Dispose();
         }
 
         private void siticoneButton3_Click(object sender, EventArgs e)
@@ -37,12 +36,12 @@ namespace SGV_CLP.GUI
             if (MessageBox.Show("¿Desea continuar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 == DialogResult.Yes)
             {
-                MessageBox.Show("Producto eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Proveedor eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("Producto no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Proveedor no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

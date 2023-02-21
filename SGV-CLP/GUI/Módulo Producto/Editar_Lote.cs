@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SGV_CLP.GUI.Módulo_Producto
 {
-    public partial class Editar_Eliminar_Lote : Form
+    public partial class Editar_Lote : Form
     {
-        public Editar_Eliminar_Lote()
+        public Editar_Lote()
         {
             InitializeComponent();
         }
@@ -45,24 +45,14 @@ namespace SGV_CLP.GUI.Módulo_Producto
             this.Dispose();
         }
 
-        private void siticoneRadioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            siticoneDateTimePicker1.Visible = true;
-        }
-
-        private void siticoneRadioButton1_CheckedChanged(object sender, EventArgs e)
+        private void SRBFechaActual_CheckedChanged(object sender, EventArgs e)
         {
             siticoneDateTimePicker1.Visible = false;
         }
 
-        private void siticoneRadioButton3_CheckedChanged(object sender, EventArgs e)
+        private void SRBElegirFecha_CheckedChanged(object sender, EventArgs e)
         {
-            siticoneDateTimePicker2.Visible = true;
-        }
-
-        private void siticoneRadioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-            siticoneDateTimePicker2.Visible = false;
+            siticoneDateTimePicker1.Visible = true;
         }
     }
 }

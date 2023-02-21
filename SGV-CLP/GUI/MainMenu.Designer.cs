@@ -246,7 +246,7 @@ namespace SGV_CLP
             this.siticoneButton1.PressedDepth = 0;
             this.siticoneButton1.Size = new System.Drawing.Size(226, 45);
             this.siticoneButton1.TabIndex = 0;
-            this.siticoneButton1.Text = "Administracion";
+            this.siticoneButton1.Text = "Administración";
             this.siticoneButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton1.TextOffset = new System.Drawing.Point(20, 0);
             this.siticoneButton1.CheckedChanged += new System.EventHandler(this.siticoneButton1_CheckedChanged);
