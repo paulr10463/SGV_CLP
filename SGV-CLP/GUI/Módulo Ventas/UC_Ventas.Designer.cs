@@ -33,21 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.Añadir = new System.Windows.Forms.TabPage();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton4 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneTextBox2 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticonePanel3 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneNumericUpDown2 = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
-            this.siticonePictureBox2 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
-            this.siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneNumericUpDown1 = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
-            this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.Editar = new System.Windows.Forms.TabPage();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,12 +68,6 @@
             this.siticoneTabControl1.SuspendLayout();
             this.Añadir.SuspendLayout();
             this.siticoneGradientPanel1.SuspendLayout();
-            this.siticonePanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox2)).BeginInit();
-            this.siticonePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.Editar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -117,9 +105,11 @@
             // 
             // Añadir
             // 
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel2);
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel1);
+            this.Añadir.Controls.Add(this.flowLayoutPanel2);
+            this.Añadir.Controls.Add(this.flowLayoutPanel1);
             this.Añadir.Controls.Add(this.siticoneGradientPanel1);
-            this.Añadir.Controls.Add(this.siticonePanel3);
-            this.Añadir.Controls.Add(this.siticonePanel2);
             this.Añadir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Añadir.Location = new System.Drawing.Point(164, 4);
             this.Añadir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -129,6 +119,49 @@
             this.Añadir.TabIndex = 0;
             this.Añadir.Text = "Registrar Venta";
             this.Añadir.UseVisualStyleBackColor = true;
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(6, 322);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(93, 17);
+            this.siticoneHtmlLabel2.TabIndex = 9;
+            this.siticoneHtmlLabel2.Text = "Bebidas calientes";
+            // 
+            // siticoneHtmlLabel1
+            // 
+            this.siticoneHtmlLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(6, 21);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(79, 17);
+            this.siticoneHtmlLabel1.TabIndex = 8;
+            this.siticoneHtmlLabel1.Text = "Especialidades";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 351);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(665, 306);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 44);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(662, 213);
+            this.flowLayoutPanel1.TabIndex = 6;
             // 
             // siticoneGradientPanel1
             // 
@@ -203,124 +236,6 @@
             this.siticoneTextBox2.SelectedText = "";
             this.siticoneTextBox2.Size = new System.Drawing.Size(184, 36);
             this.siticoneTextBox2.TabIndex = 3;
-            // 
-            // siticonePanel3
-            // 
-            this.siticonePanel3.Controls.Add(this.siticoneButton2);
-            this.siticonePanel3.Controls.Add(this.siticoneHtmlLabel2);
-            this.siticonePanel3.Controls.Add(this.siticoneNumericUpDown2);
-            this.siticonePanel3.Controls.Add(this.siticonePictureBox2);
-            this.siticonePanel3.Location = new System.Drawing.Point(174, 6);
-            this.siticonePanel3.Name = "siticonePanel3";
-            this.siticonePanel3.Size = new System.Drawing.Size(162, 247);
-            this.siticonePanel3.TabIndex = 4;
-            // 
-            // siticoneButton2
-            // 
-            this.siticoneButton2.BorderRadius = 10;
-            this.siticoneButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton2.FillColor = System.Drawing.Color.Black;
-            this.siticoneButton2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton2.Location = new System.Drawing.Point(16, 161);
-            this.siticoneButton2.Name = "siticoneButton2";
-            this.siticoneButton2.Size = new System.Drawing.Size(71, 36);
-            this.siticoneButton2.TabIndex = 3;
-            this.siticoneButton2.Text = "Añadir";
-            // 
-            // siticoneHtmlLabel2
-            // 
-            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(44, 14);
-            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(69, 25);
-            this.siticoneHtmlLabel2.TabIndex = 1;
-            this.siticoneHtmlLabel2.Text = "Humita";
-            // 
-            // siticoneNumericUpDown2
-            // 
-            this.siticoneNumericUpDown2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneNumericUpDown2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneNumericUpDown2.Location = new System.Drawing.Point(93, 161);
-            this.siticoneNumericUpDown2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneNumericUpDown2.Name = "siticoneNumericUpDown2";
-            this.siticoneNumericUpDown2.Size = new System.Drawing.Size(58, 36);
-            this.siticoneNumericUpDown2.TabIndex = 2;
-            this.siticoneNumericUpDown2.UpDownButtonFillColor = System.Drawing.Color.Black;
-            // 
-            // siticonePictureBox2
-            // 
-            this.siticonePictureBox2.Image = global::SGV_CLP.Properties.Resources.Humita;
-            this.siticonePictureBox2.ImageRotate = 0F;
-            this.siticonePictureBox2.Location = new System.Drawing.Point(16, 45);
-            this.siticonePictureBox2.Name = "siticonePictureBox2";
-            this.siticonePictureBox2.Size = new System.Drawing.Size(128, 98);
-            this.siticonePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.siticonePictureBox2.TabIndex = 0;
-            this.siticonePictureBox2.TabStop = false;
-            // 
-            // siticonePanel2
-            // 
-            this.siticonePanel2.Controls.Add(this.siticoneButton1);
-            this.siticonePanel2.Controls.Add(this.siticoneHtmlLabel1);
-            this.siticonePanel2.Controls.Add(this.siticoneNumericUpDown1);
-            this.siticonePanel2.Controls.Add(this.siticonePictureBox1);
-            this.siticonePanel2.Location = new System.Drawing.Point(6, 6);
-            this.siticonePanel2.Name = "siticonePanel2";
-            this.siticonePanel2.Size = new System.Drawing.Size(162, 247);
-            this.siticonePanel2.TabIndex = 0;
-            // 
-            // siticoneButton1
-            // 
-            this.siticoneButton1.BorderRadius = 10;
-            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.FillColor = System.Drawing.Color.Black;
-            this.siticoneButton1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.Location = new System.Drawing.Point(13, 161);
-            this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.Size = new System.Drawing.Size(71, 36);
-            this.siticoneButton1.TabIndex = 3;
-            this.siticoneButton1.Text = "Añadir";
-            // 
-            // siticoneHtmlLabel1
-            // 
-            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(53, 14);
-            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(60, 25);
-            this.siticoneHtmlLabel1.TabIndex = 1;
-            this.siticoneHtmlLabel1.Text = "Tamal";
-            // 
-            // siticoneNumericUpDown1
-            // 
-            this.siticoneNumericUpDown1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneNumericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneNumericUpDown1.Location = new System.Drawing.Point(90, 161);
-            this.siticoneNumericUpDown1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneNumericUpDown1.Name = "siticoneNumericUpDown1";
-            this.siticoneNumericUpDown1.Size = new System.Drawing.Size(58, 36);
-            this.siticoneNumericUpDown1.TabIndex = 2;
-            this.siticoneNumericUpDown1.UpDownButtonFillColor = System.Drawing.Color.Black;
-            // 
-            // siticonePictureBox1
-            // 
-            this.siticonePictureBox1.Image = global::SGV_CLP.Properties.Resources.Tamal1;
-            this.siticonePictureBox1.ImageRotate = 0F;
-            this.siticonePictureBox1.Location = new System.Drawing.Point(12, 45);
-            this.siticonePictureBox1.Name = "siticonePictureBox1";
-            this.siticonePictureBox1.Size = new System.Drawing.Size(136, 98);
-            this.siticonePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.siticonePictureBox1.TabIndex = 0;
-            this.siticonePictureBox1.TabStop = false;
             // 
             // Editar
             // 
@@ -577,16 +492,9 @@
             this.Size = new System.Drawing.Size(1200, 720);
             this.siticoneTabControl1.ResumeLayout(false);
             this.Añadir.ResumeLayout(false);
+            this.Añadir.PerformLayout();
             this.siticoneGradientPanel1.ResumeLayout(false);
             this.siticoneGradientPanel1.PerformLayout();
-            this.siticonePanel3.ResumeLayout(false);
-            this.siticonePanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox2)).EndInit();
-            this.siticonePanel2.ResumeLayout(false);
-            this.siticonePanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneNumericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.Editar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -598,19 +506,9 @@
         private Siticone.Desktop.UI.WinForms.SiticoneTabControl siticoneTabControl1;
         private TabPage Añadir;
         private TabPage Editar;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel2;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox1;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown siticoneNumericUpDown1;
         private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel siticoneGradientPanel1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton4;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox2;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel3;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
-        private Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown siticoneNumericUpDown2;
-        private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox2;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel5;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox6;
@@ -635,5 +533,9 @@
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
         private RichTextBox richTextBox1;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
     }
 }
