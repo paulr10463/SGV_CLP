@@ -22,7 +22,7 @@ namespace SGV_CLP.GUI
         public UC_Proveedores()
         {
             InitializeComponent();
-            Proveedor pr1 = new Proveedor("123456789", "Nestle", "ULTIMAS NOTICIAS E37-78 Y EL COMERCIO", "026849853");
+            Proveedor pr1 = new Proveedor("795641569", "Nestle", "ULTIMAS NOTICIAS E37-78 Y EL COMERCIO", "026849853");
             Proveedor pr2 = new Proveedor("298668742", "Juan García", "Mercadillo Oe3-113 y Ulloa", "021549863");
             Proveedor pr3 = new Proveedor("863971548", "Andrés Algüacil", "AV.AMAZONAS N34-159 E IÑAQUITO", "026987453");
 

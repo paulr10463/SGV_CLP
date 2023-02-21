@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SGV_CLP.GUI.Módulo_Compras
 {
-    public partial class Editar_Eliminar_Compra : Form
+    public partial class Editar_Compra : Form
     {
-        public Editar_Eliminar_Compra()
+        public Editar_Compra()
         {
             InitializeComponent();
         }

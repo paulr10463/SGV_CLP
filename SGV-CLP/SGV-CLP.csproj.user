@@ -10,7 +10,7 @@
     <Compile Update="GUI\Módulo Clientes\Editar_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Compras\Editar_Eliminar_Compra.cs">
+    <Compile Update="GUI\Módulo Compras\Editar_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Producto\Editar_Lote.cs">
