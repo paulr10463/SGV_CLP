@@ -37,7 +37,9 @@
             this.siticoneGradientButton1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientButton();
             this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneSeparator2 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
+            this.siticoneCustomCheckBox1 = new Siticone.Desktop.UI.WinForms.SiticoneCustomCheckBox();
             this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
+            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTextBox2 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
@@ -84,7 +86,9 @@
             this.siticonePanel3.Controls.Add(this.siticoneGradientButton1);
             this.siticonePanel3.Controls.Add(this.siticoneHtmlLabel3);
             this.siticonePanel3.Controls.Add(this.siticoneSeparator2);
+            this.siticonePanel3.Controls.Add(this.siticoneCustomCheckBox1);
             this.siticonePanel3.Controls.Add(this.siticoneSeparator1);
+            this.siticonePanel3.Controls.Add(this.siticoneHtmlLabel4);
             this.siticonePanel3.Controls.Add(this.siticoneTextBox2);
             this.siticonePanel3.Controls.Add(this.siticoneTextBox1);
             this.siticonePanel3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -193,6 +197,25 @@
             this.siticoneSeparator2.TabIndex = 8;
             this.siticoneSeparator2.Click += new System.EventHandler(this.siticoneSeparator2_Click);
             // 
+            // siticoneCustomCheckBox1
+            // 
+            this.siticoneCustomCheckBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneCustomCheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneCustomCheckBox1.CheckedState.BorderRadius = 2;
+            this.siticoneCustomCheckBox1.CheckedState.BorderThickness = 0;
+            this.siticoneCustomCheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneCustomCheckBox1.Location = new System.Drawing.Point(117, 636);
+            this.siticoneCustomCheckBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneCustomCheckBox1.Name = "siticoneCustomCheckBox1";
+            this.siticoneCustomCheckBox1.Size = new System.Drawing.Size(23, 27);
+            this.siticoneCustomCheckBox1.TabIndex = 3;
+            this.siticoneCustomCheckBox1.Text = "siticoneCustomCheckBox1";
+            this.siticoneCustomCheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.siticoneCustomCheckBox1.UncheckedState.BorderRadius = 2;
+            this.siticoneCustomCheckBox1.UncheckedState.BorderThickness = 0;
+            this.siticoneCustomCheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.siticoneCustomCheckBox1.Click += new System.EventHandler(this.siticoneCustomCheckBox1_Click);
+            // 
             // siticoneSeparator1
             // 
             this.siticoneSeparator1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -202,6 +225,19 @@
             this.siticoneSeparator1.Size = new System.Drawing.Size(365, 13);
             this.siticoneSeparator1.TabIndex = 7;
             this.siticoneSeparator1.Click += new System.EventHandler(this.siticoneSeparator1_Click);
+            // 
+            // siticoneHtmlLabel4
+            // 
+            this.siticoneHtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(147, 635);
+            this.siticoneHtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
+            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(242, 25);
+            this.siticoneHtmlLabel4.TabIndex = 4;
+            this.siticoneHtmlLabel4.Text = "Mantener sesión iniciada";
+            this.siticoneHtmlLabel4.Click += new System.EventHandler(this.siticoneHtmlLabel4_Click);
             // 
             // siticoneTextBox2
             // 
@@ -272,6 +308,8 @@
         private Siticone.Desktop.UI.WinForms.SiticoneSeparator siticoneSeparator1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox2;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
+        private Siticone.Desktop.UI.WinForms.SiticoneCustomCheckBox siticoneCustomCheckBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
