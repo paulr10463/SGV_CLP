@@ -189,7 +189,7 @@
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Name = "Editar_Producto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar/Eliminar Producto";
+            this.Text = "Editar Producto";
             this.ResumeLayout(false);
             this.PerformLayout();
 

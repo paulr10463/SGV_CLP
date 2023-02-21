@@ -174,7 +174,6 @@
             this.siticoneDateTimePicker1.TabIndex = 51;
             this.siticoneDateTimePicker1.TextOffset = new System.Drawing.Point(5, 0);
             this.siticoneDateTimePicker1.Value = new System.DateTime(2023, 2, 6, 0, 0, 0, 0);
-            this.siticoneDateTimePicker1.Visible = false;
             // 
             // Editar_Compra
             // 
@@ -192,7 +191,7 @@
             this.Controls.Add(this.siticoneTextBox1);
             this.Name = "Editar_Compra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar_Eliminar_Compra";
+            this.Text = "Editar Compra";
             this.ResumeLayout(false);
             this.PerformLayout();
 

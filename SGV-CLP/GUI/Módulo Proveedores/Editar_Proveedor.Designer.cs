@@ -155,7 +155,7 @@
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Name = "Editar_Proveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar_Eliminar_Proveedor";
+            this.Text = "Editar Proveedor";
             this.ResumeLayout(false);
             this.PerformLayout();
 
