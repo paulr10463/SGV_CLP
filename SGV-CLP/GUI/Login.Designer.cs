@@ -98,7 +98,7 @@
             // 
             // siticoneGradientButton2
             // 
-            this.siticoneGradientButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneGradientButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.siticoneGradientButton2.BorderRadius = 10;
             this.siticoneGradientButton2.DefaultAutoSize = true;
             this.siticoneGradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -148,7 +148,7 @@
             // 
             // siticoneGradientButton1
             // 
-            this.siticoneGradientButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneGradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.siticoneGradientButton1.BorderRadius = 10;
             this.siticoneGradientButton1.DefaultAutoSize = true;
             this.siticoneGradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
