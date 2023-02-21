@@ -28,5 +28,8 @@
     <Compile Update="GUI\Módulo Ventas\Checkout.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\Módulo Ventas\UC_Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
