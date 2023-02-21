@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Clientes));
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.TabRegistrar = new System.Windows.Forms.TabPage();
@@ -74,6 +74,8 @@
             this.CorreoE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaEditar = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnaEliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.siticoneHtmlLabel_correct_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel_wrong_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTabControl1.SuspendLayout();
             this.TabRegistrar.SuspendLayout();
             this.TabEditar.SuspendLayout();
@@ -115,6 +117,8 @@
             // 
             // TabRegistrar
             // 
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_correct_email);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_wrong_email);
             this.TabRegistrar.Controls.Add(this.txtCorreoCliente);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel2);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_correct_length_telef);
@@ -175,6 +179,7 @@
             this.txtCorreoCliente.TabIndex = 62;
             this.txtCorreoCliente.TextOffset = new System.Drawing.Point(5, 0);
             this.txtCorreoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreoCliente_KeyPress);
+            this.txtCorreoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCorreoCliente_KeyUp);
             // 
             // siticoneHtmlLabel2
             // 
@@ -662,17 +667,17 @@
             // 
             // siticoneDataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.siticoneDataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.siticoneDataGridView1.ColumnHeadersHeight = 75;
             this.siticoneDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.siticoneDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -684,14 +689,14 @@
             this.CorreoE,
             this.ColumnaEditar,
             this.ColumnaEliminar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.siticoneDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siticoneDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -778,10 +783,10 @@
             // ColumnaEditar
             // 
             this.ColumnaEditar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            this.ColumnaEditar.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
+            this.ColumnaEditar.DefaultCellStyle = dataGridViewCellStyle7;
             this.ColumnaEditar.HeaderText = "";
             this.ColumnaEditar.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEditar.Image")));
             this.ColumnaEditar.MinimumWidth = 45;
@@ -796,6 +801,30 @@
             this.ColumnaEliminar.MinimumWidth = 45;
             this.ColumnaEliminar.Name = "ColumnaEliminar";
             this.ColumnaEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // siticoneHtmlLabel_correct_email
+            // 
+            this.siticoneHtmlLabel_correct_email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel_correct_email.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_correct_email.ForeColor = System.Drawing.Color.SpringGreen;
+            this.siticoneHtmlLabel_correct_email.Location = new System.Drawing.Point(901, 810);
+            this.siticoneHtmlLabel_correct_email.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel_correct_email.Name = "siticoneHtmlLabel_correct_email";
+            this.siticoneHtmlLabel_correct_email.Size = new System.Drawing.Size(93, 22);
+            this.siticoneHtmlLabel_correct_email.TabIndex = 85;
+            this.siticoneHtmlLabel_correct_email.Text = "¡Email válido!";
+            // 
+            // siticoneHtmlLabel_wrong_email
+            // 
+            this.siticoneHtmlLabel_wrong_email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel_wrong_email.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_wrong_email.ForeColor = System.Drawing.Color.Red;
+            this.siticoneHtmlLabel_wrong_email.Location = new System.Drawing.Point(899, 810);
+            this.siticoneHtmlLabel_wrong_email.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel_wrong_email.Name = "siticoneHtmlLabel_wrong_email";
+            this.siticoneHtmlLabel_wrong_email.Size = new System.Drawing.Size(105, 22);
+            this.siticoneHtmlLabel_wrong_email.TabIndex = 84;
+            this.siticoneHtmlLabel_wrong_email.Text = "¡Email inválido!";
             // 
             // UC_Clientes
             // 
@@ -859,5 +888,7 @@
         private DataGridViewTextBoxColumn CorreoE;
         private DataGridViewImageColumn ColumnaEditar;
         private DataGridViewImageColumn ColumnaEliminar;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_email;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_email;
     }
 }

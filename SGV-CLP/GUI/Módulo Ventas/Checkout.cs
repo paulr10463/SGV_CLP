@@ -51,6 +51,28 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             ButtonConfirmarVenta.Enabled= false;
         }
 
+        public void vaciarCampos()
+        {
+            txtCC_ClienteVenta.Text = String.Empty;
+            txtNombre1Venta.Text = String.Empty;
+            txtNombre2Venta.Text = String.Empty;
+            txtApellido1Venta.Text = String.Empty;
+            txtApellido2Venta.Text = String.Empty;
+            txtDireccionVenta.Text = String.Empty;
+            txtTelefVenta.Text = String.Empty;
+            txtCorreoVenta.Text = String.Empty;
+
+            siticoneHtmlLabel_cc_correct_length.Hide();
+            siticoneHtmlLabel_cc_valida.Hide();
+            siticoneHtmlLabel_correct_email.Hide();
+            siticoneHtmlLabel_correct_length_telef.Hide();
+
+            siticoneHtmlLabel_cc_wrong_length.Show();
+            siticoneHtmlLabel_cc_invalida.Show();
+            siticoneHtmlLabel_wrong_email.Show();
+            siticoneHtmlLabel_wrong_length_telef.Show();
+        }
+
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
@@ -115,6 +137,9 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             txtApellido2Venta.Enabled = false;
             txtDireccionVenta.Enabled = false;
             txtTelefVenta.Enabled = false;
+            txtCorreoVenta.Enabled = false;
+
+            vaciarCampos();
         }
 
         private void txtCC_ClienteVenta_KeyPress(object sender, KeyPressEventArgs e)
