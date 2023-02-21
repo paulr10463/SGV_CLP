@@ -17,6 +17,7 @@ namespace SGV_CLP.GUI
         public UC_Productos()
         {
             InitializeComponent();
+            
         }
 
         private void siticoneDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
