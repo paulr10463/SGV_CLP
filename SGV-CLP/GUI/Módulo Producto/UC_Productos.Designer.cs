@@ -33,10 +33,10 @@ namespace SGV_CLP.GUI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Productos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Productos));
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.Añadir = new System.Windows.Forms.TabPage();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -57,15 +57,7 @@ namespace SGV_CLP.GUI
             this.siticoneComboBox6 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ape = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditarProducto = new System.Windows.Forms.DataGridViewImageColumn();
-            this.EliminarProducto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.SDGVProducto = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.siticoneGroupBox1 = new Siticone.Desktop.UI.WinForms.SiticoneGroupBox();
             this.SRBFechaActual = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
@@ -78,25 +70,33 @@ namespace SGV_CLP.GUI
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
-            this.siticoneDataGridView2 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.SDGVLote = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditarLote = new System.Windows.Forms.DataGridViewImageColumn();
-            this.EliminarLote = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnaCodLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaCodProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColunmaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaFechayHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaEditarLote = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnaEliminarLote = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnaCódigoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaPVP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaCantidadProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaEditarProducto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnaEliminarProducto = new System.Windows.Forms.DataGridViewImageColumn();
             this.siticoneTabControl1.SuspendLayout();
             this.Añadir.SuspendLayout();
             this.Editar.SuspendLayout();
             this.siticonePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SDGVProducto)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.siticoneGroupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.siticoneGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SDGVLote)).BeginInit();
             this.SuspendLayout();
             // 
             // siticoneTabControl1
@@ -263,7 +263,7 @@ namespace SGV_CLP.GUI
             this.SBAniadirProd.Size = new System.Drawing.Size(206, 60);
             this.SBAniadirProd.TabIndex = 45;
             this.SBAniadirProd.Text = "Añadir";
-            this.SBAniadirProd.Click += new System.EventHandler(this.siticoneButton1_Click);
+            this.SBAniadirProd.Click += new System.EventHandler(this.SBAniadirProducto_Click);
             // 
             // txtCategoria
             // 
@@ -463,7 +463,7 @@ namespace SGV_CLP.GUI
             // 
             // siticonePanel1
             // 
-            this.siticonePanel1.Controls.Add(this.siticoneDataGridView1);
+            this.siticonePanel1.Controls.Add(this.SDGVProducto);
             this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.siticonePanel1.Location = new System.Drawing.Point(3, 340);
             this.siticonePanel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -471,11 +471,11 @@ namespace SGV_CLP.GUI
             this.siticonePanel1.Size = new System.Drawing.Size(1275, 667);
             this.siticonePanel1.TabIndex = 1;
             // 
-            // siticoneDataGridView1
+            // SDGVProducto
             // 
-            this.siticoneDataGridView1.AllowUserToDeleteRows = false;
+            this.SDGVProducto.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.SDGVProducto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -483,18 +483,18 @@ namespace SGV_CLP.GUI
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.siticoneDataGridView1.ColumnHeadersHeight = 75;
-            this.siticoneDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.siticoneDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.User,
-            this.CC,
-            this.Contras,
-            this.Nombre,
-            this.Ape,
-            this.CantidadTotal,
-            this.EditarProducto,
-            this.EliminarProducto});
+            this.SDGVProducto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.SDGVProducto.ColumnHeadersHeight = 75;
+            this.SDGVProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.SDGVProducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnaCódigoProd,
+            this.ColumnaNombreProd,
+            this.ColumnaPE,
+            this.ColumnaPVP,
+            this.ColumnaCategoria,
+            this.ColumnaCantidadProd,
+            this.ColumnaEditarProducto,
+            this.ColumnaEliminarProducto});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -502,103 +502,41 @@ namespace SGV_CLP.GUI
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.siticoneDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.siticoneDataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.siticoneDataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneDataGridView1.Name = "siticoneDataGridView1";
-            this.siticoneDataGridView1.RowHeadersVisible = false;
-            this.siticoneDataGridView1.RowHeadersWidth = 51;
-            this.siticoneDataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.RowTemplate.DividerHeight = 15;
-            this.siticoneDataGridView1.RowTemplate.Height = 50;
-            this.siticoneDataGridView1.Size = new System.Drawing.Size(1275, 667);
-            this.siticoneDataGridView1.TabIndex = 0;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DimGray;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.Height = 75;
-            this.siticoneDataGridView1.ThemeStyle.ReadOnly = false;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 50;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView1_CellDoubleClick);
-            // 
-            // User
-            // 
-            this.User.FillWeight = 75F;
-            this.User.HeaderText = "Código";
-            this.User.MinimumWidth = 6;
-            this.User.Name = "User";
-            // 
-            // CC
-            // 
-            this.CC.FillWeight = 150F;
-            this.CC.HeaderText = "Nombre";
-            this.CC.MinimumWidth = 6;
-            this.CC.Name = "CC";
-            // 
-            // Contras
-            // 
-            this.Contras.FillWeight = 50F;
-            this.Contras.HeaderText = "P.E";
-            this.Contras.MinimumWidth = 6;
-            this.Contras.Name = "Contras";
-            // 
-            // Nombre
-            // 
-            this.Nombre.FillWeight = 50F;
-            this.Nombre.HeaderText = "P.V.P";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            // 
-            // Ape
-            // 
-            this.Ape.FillWeight = 150F;
-            this.Ape.HeaderText = "Categoría";
-            this.Ape.MinimumWidth = 6;
-            this.Ape.Name = "Ape";
-            // 
-            // CantidadTotal
-            // 
-            this.CantidadTotal.FillWeight = 75F;
-            this.CantidadTotal.HeaderText = "Cantidad";
-            this.CantidadTotal.MinimumWidth = 6;
-            this.CantidadTotal.Name = "CantidadTotal";
-            // 
-            // EditarProducto
-            // 
-            this.EditarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EditarProducto.HeaderText = "";
-            this.EditarProducto.Image = ((System.Drawing.Image)(resources.GetObject("EditarProducto.Image")));
-            this.EditarProducto.MinimumWidth = 6;
-            this.EditarProducto.Name = "EditarProducto";
-            this.EditarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.EditarProducto.Width = 182;
-            // 
-            // EliminarProducto
-            // 
-            this.EliminarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EliminarProducto.HeaderText = "";
-            this.EliminarProducto.Image = ((System.Drawing.Image)(resources.GetObject("EliminarProducto.Image")));
-            this.EliminarProducto.MinimumWidth = 6;
-            this.EliminarProducto.Name = "EliminarProducto";
-            this.EliminarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.EliminarProducto.Width = 182;
+            this.SDGVProducto.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SDGVProducto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SDGVProducto.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProducto.Location = new System.Drawing.Point(0, 0);
+            this.SDGVProducto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SDGVProducto.Name = "SDGVProducto";
+            this.SDGVProducto.RowHeadersVisible = false;
+            this.SDGVProducto.RowHeadersWidth = 50;
+            this.SDGVProducto.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProducto.RowTemplate.DividerHeight = 15;
+            this.SDGVProducto.RowTemplate.Height = 50;
+            this.SDGVProducto.Size = new System.Drawing.Size(1275, 667);
+            this.SDGVProducto.TabIndex = 0;
+            this.SDGVProducto.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVProducto.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.SDGVProducto.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.SDGVProducto.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.SDGVProducto.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.SDGVProducto.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVProducto.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProducto.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DimGray;
+            this.SDGVProducto.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.SDGVProducto.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SDGVProducto.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.SDGVProducto.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.SDGVProducto.ThemeStyle.HeaderStyle.Height = 75;
+            this.SDGVProducto.ThemeStyle.ReadOnly = false;
+            this.SDGVProducto.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVProducto.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.SDGVProducto.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SDGVProducto.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.SDGVProducto.ThemeStyle.RowsStyle.Height = 50;
+            this.SDGVProducto.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProducto.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.SDGVProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SDGVProducto_CellClick);
             // 
             // tabPage1
             // 
@@ -628,9 +566,9 @@ namespace SGV_CLP.GUI
             this.siticoneGroupBox1.Location = new System.Drawing.Point(433, 350);
             this.siticoneGroupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneGroupBox1.Name = "siticoneGroupBox1";
-            this.siticoneGroupBox1.Size = new System.Drawing.Size(424, 204);
+            this.siticoneGroupBox1.Size = new System.Drawing.Size(473, 204);
             this.siticoneGroupBox1.TabIndex = 63;
-            this.siticoneGroupBox1.Text = "Fecha";
+            this.siticoneGroupBox1.Text = "Fecha y Hora";
             // 
             // SRBFechaActual
             // 
@@ -644,10 +582,10 @@ namespace SGV_CLP.GUI
             this.SRBFechaActual.Location = new System.Drawing.Point(15, 68);
             this.SRBFechaActual.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SRBFechaActual.Name = "SRBFechaActual";
-            this.SRBFechaActual.Size = new System.Drawing.Size(194, 34);
+            this.SRBFechaActual.Size = new System.Drawing.Size(112, 34);
             this.SRBFechaActual.TabIndex = 56;
             this.SRBFechaActual.TabStop = true;
-            this.SRBFechaActual.Text = "Fecha Actual";
+            this.SRBFechaActual.Text = "Actual";
             this.SRBFechaActual.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.SRBFechaActual.UncheckedState.BorderThickness = 2;
             this.SRBFechaActual.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -662,12 +600,12 @@ namespace SGV_CLP.GUI
             this.SRBElegirFecha.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SRBElegirFecha.CheckedState.InnerColor = System.Drawing.Color.White;
             this.SRBElegirFecha.CheckedState.InnerOffset = -4;
-            this.SRBElegirFecha.Location = new System.Drawing.Point(237, 68);
+            this.SRBElegirFecha.Location = new System.Drawing.Point(245, 68);
             this.SRBElegirFecha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SRBElegirFecha.Name = "SRBElegirFecha";
-            this.SRBElegirFecha.Size = new System.Drawing.Size(176, 34);
+            this.SRBElegirFecha.Size = new System.Drawing.Size(98, 34);
             this.SRBElegirFecha.TabIndex = 57;
-            this.SRBElegirFecha.Text = "Elegir fecha";
+            this.SRBElegirFecha.Text = "Elegir";
             this.SRBElegirFecha.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.SRBElegirFecha.UncheckedState.BorderThickness = 2;
             this.SRBElegirFecha.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -678,16 +616,17 @@ namespace SGV_CLP.GUI
             // 
             this.siticoneDateTimePicker1.BorderRadius = 10;
             this.siticoneDateTimePicker1.Checked = true;
-            this.siticoneDateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.siticoneDateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.siticoneDateTimePicker1.FillColor = System.Drawing.Color.White;
             this.siticoneDateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.siticoneDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.siticoneDateTimePicker1.Location = new System.Drawing.Point(237, 127);
             this.siticoneDateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneDateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.siticoneDateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.siticoneDateTimePicker1.Name = "siticoneDateTimePicker1";
-            this.siticoneDateTimePicker1.Size = new System.Drawing.Size(162, 37);
+            this.siticoneDateTimePicker1.ShowUpDown = true;
+            this.siticoneDateTimePicker1.Size = new System.Drawing.Size(199, 37);
             this.siticoneDateTimePicker1.TabIndex = 58;
             this.siticoneDateTimePicker1.TextOffset = new System.Drawing.Point(5, 0);
             this.siticoneDateTimePicker1.Value = new System.DateTime(2023, 2, 6, 1, 19, 20, 716);
@@ -796,7 +735,7 @@ namespace SGV_CLP.GUI
             // 
             // siticoneGradientPanel1
             // 
-            this.siticoneGradientPanel1.Controls.Add(this.siticoneDataGridView2);
+            this.siticoneGradientPanel1.Controls.Add(this.SDGVLote);
             this.siticoneGradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.siticoneGradientPanel1.Location = new System.Drawing.Point(0, 345);
             this.siticoneGradientPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -804,10 +743,10 @@ namespace SGV_CLP.GUI
             this.siticoneGradientPanel1.Size = new System.Drawing.Size(1281, 667);
             this.siticoneGradientPanel1.TabIndex = 28;
             // 
-            // siticoneDataGridView2
+            // SDGVLote
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.SDGVLote.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -815,16 +754,16 @@ namespace SGV_CLP.GUI
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.siticoneDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.siticoneDataGridView2.ColumnHeadersHeight = 50;
-            this.siticoneDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.siticoneDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn5,
-            this.EditarLote,
-            this.EliminarLote});
+            this.SDGVLote.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.SDGVLote.ColumnHeadersHeight = 75;
+            this.SDGVLote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.SDGVLote.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnaCodLote,
+            this.ColumnaCodProd,
+            this.ColunmaCantidad,
+            this.ColumnaFechayHora,
+            this.ColumnaEditarLote,
+            this.ColumnaEliminarLote});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -832,41 +771,41 @@ namespace SGV_CLP.GUI
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.siticoneDataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
-            this.siticoneDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.siticoneDataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.siticoneDataGridView2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.siticoneDataGridView2.Name = "siticoneDataGridView2";
-            this.siticoneDataGridView2.RowHeadersVisible = false;
-            this.siticoneDataGridView2.RowHeadersWidth = 51;
-            this.siticoneDataGridView2.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView2.RowTemplate.DividerHeight = 15;
-            this.siticoneDataGridView2.RowTemplate.Height = 40;
-            this.siticoneDataGridView2.Size = new System.Drawing.Size(1281, 667);
-            this.siticoneDataGridView2.TabIndex = 27;
-            this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView2.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView2.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DimGray;
-            this.siticoneDataGridView2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.siticoneDataGridView2.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDataGridView2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.siticoneDataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.siticoneDataGridView2.ThemeStyle.HeaderStyle.Height = 50;
-            this.siticoneDataGridView2.ThemeStyle.ReadOnly = false;
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.Height = 40;
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView2_CellDoubleClick);
+            this.SDGVLote.DefaultCellStyle = dataGridViewCellStyle6;
+            this.SDGVLote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SDGVLote.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVLote.Location = new System.Drawing.Point(0, 0);
+            this.SDGVLote.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.SDGVLote.Name = "SDGVLote";
+            this.SDGVLote.RowHeadersVisible = false;
+            this.SDGVLote.RowHeadersWidth = 50;
+            this.SDGVLote.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVLote.RowTemplate.DividerHeight = 15;
+            this.SDGVLote.RowTemplate.Height = 50;
+            this.SDGVLote.Size = new System.Drawing.Size(1281, 667);
+            this.SDGVLote.TabIndex = 27;
+            this.SDGVLote.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVLote.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.SDGVLote.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.SDGVLote.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.SDGVLote.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.SDGVLote.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVLote.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVLote.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DimGray;
+            this.SDGVLote.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.SDGVLote.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SDGVLote.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.SDGVLote.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.SDGVLote.ThemeStyle.HeaderStyle.Height = 75;
+            this.SDGVLote.ThemeStyle.ReadOnly = false;
+            this.SDGVLote.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVLote.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.SDGVLote.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SDGVLote.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.SDGVLote.ThemeStyle.RowsStyle.Height = 50;
+            this.SDGVLote.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVLote.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.SDGVLote.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SDGVLote_CellClick);
             // 
             // siticoneComboBox1
             // 
@@ -910,47 +849,131 @@ namespace SGV_CLP.GUI
             this.siticoneTextBox1.Size = new System.Drawing.Size(312, 61);
             this.siticoneTextBox1.TabIndex = 23;
             // 
-            // dataGridViewTextBoxColumn1
+            // ColumnaCodLote
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Código lote";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.ColumnaCodLote.HeaderText = "Código lote";
+            this.ColumnaCodLote.MinimumWidth = 6;
+            this.ColumnaCodLote.Name = "ColumnaCodLote";
+            this.ColumnaCodLote.ReadOnly = true;
+            this.ColumnaCodLote.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // dataGridViewTextBoxColumn2
+            // ColumnaCodProd
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Código producto";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.ColumnaCodProd.HeaderText = "Código producto";
+            this.ColumnaCodProd.MinimumWidth = 6;
+            this.ColumnaCodProd.Name = "ColumnaCodProd";
+            this.ColumnaCodProd.ReadOnly = true;
+            this.ColumnaCodProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // dataGridViewTextBoxColumn3
+            // ColunmaCantidad
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.ColunmaCantidad.HeaderText = "Cantidad";
+            this.ColunmaCantidad.MinimumWidth = 6;
+            this.ColunmaCantidad.Name = "ColunmaCantidad";
+            this.ColunmaCantidad.ReadOnly = true;
+            this.ColunmaCantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // dataGridViewTextBoxColumn5
+            // ColumnaFechayHora
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Cantidad";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.ColumnaFechayHora.HeaderText = "Fecha y Hora";
+            this.ColumnaFechayHora.MinimumWidth = 6;
+            this.ColumnaFechayHora.Name = "ColumnaFechayHora";
+            this.ColumnaFechayHora.ReadOnly = true;
+            this.ColumnaFechayHora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // EditarLote
+            // ColumnaEditarLote
             // 
-            this.EditarLote.HeaderText = "";
-            this.EditarLote.Image = ((System.Drawing.Image)(resources.GetObject("EditarLote.Image")));
-            this.EditarLote.MinimumWidth = 6;
-            this.EditarLote.Name = "EditarLote";
-            this.EditarLote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EditarLote.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnaEditarLote.HeaderText = "";
+            this.ColumnaEditarLote.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEditarLote.Image")));
+            this.ColumnaEditarLote.MinimumWidth = 6;
+            this.ColumnaEditarLote.Name = "ColumnaEditarLote";
+            this.ColumnaEditarLote.ReadOnly = true;
+            this.ColumnaEditarLote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // EliminarLote
+            // ColumnaEliminarLote
             // 
-            this.EliminarLote.HeaderText = "";
-            this.EliminarLote.Image = ((System.Drawing.Image)(resources.GetObject("EliminarLote.Image")));
-            this.EliminarLote.MinimumWidth = 6;
-            this.EliminarLote.Name = "EliminarLote";
-            this.EliminarLote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EliminarLote.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnaEliminarLote.HeaderText = "";
+            this.ColumnaEliminarLote.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEliminarLote.Image")));
+            this.ColumnaEliminarLote.MinimumWidth = 6;
+            this.ColumnaEliminarLote.Name = "ColumnaEliminarLote";
+            this.ColumnaEliminarLote.ReadOnly = true;
+            this.ColumnaEliminarLote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnaCódigoProd
+            // 
+            this.ColumnaCódigoProd.FillWeight = 75F;
+            this.ColumnaCódigoProd.HeaderText = "Código";
+            this.ColumnaCódigoProd.MinimumWidth = 6;
+            this.ColumnaCódigoProd.Name = "ColumnaCódigoProd";
+            this.ColumnaCódigoProd.ReadOnly = true;
+            this.ColumnaCódigoProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaNombreProd
+            // 
+            this.ColumnaNombreProd.FillWeight = 150F;
+            this.ColumnaNombreProd.HeaderText = "Nombre";
+            this.ColumnaNombreProd.MinimumWidth = 6;
+            this.ColumnaNombreProd.Name = "ColumnaNombreProd";
+            this.ColumnaNombreProd.ReadOnly = true;
+            this.ColumnaNombreProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaPE
+            // 
+            this.ColumnaPE.FillWeight = 50F;
+            this.ColumnaPE.HeaderText = "P.E";
+            this.ColumnaPE.MinimumWidth = 6;
+            this.ColumnaPE.Name = "ColumnaPE";
+            this.ColumnaPE.ReadOnly = true;
+            this.ColumnaPE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaPVP
+            // 
+            this.ColumnaPVP.FillWeight = 50F;
+            this.ColumnaPVP.HeaderText = "P.V.P";
+            this.ColumnaPVP.MinimumWidth = 6;
+            this.ColumnaPVP.Name = "ColumnaPVP";
+            this.ColumnaPVP.ReadOnly = true;
+            this.ColumnaPVP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaCategoria
+            // 
+            this.ColumnaCategoria.FillWeight = 150F;
+            this.ColumnaCategoria.HeaderText = "Categoría";
+            this.ColumnaCategoria.MinimumWidth = 6;
+            this.ColumnaCategoria.Name = "ColumnaCategoria";
+            this.ColumnaCategoria.ReadOnly = true;
+            this.ColumnaCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaCantidadProd
+            // 
+            this.ColumnaCantidadProd.FillWeight = 75F;
+            this.ColumnaCantidadProd.HeaderText = "Cantidad";
+            this.ColumnaCantidadProd.MinimumWidth = 6;
+            this.ColumnaCantidadProd.Name = "ColumnaCantidadProd";
+            this.ColumnaCantidadProd.ReadOnly = true;
+            this.ColumnaCantidadProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaEditarProducto
+            // 
+            this.ColumnaEditarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnaEditarProducto.HeaderText = "";
+            this.ColumnaEditarProducto.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEditarProducto.Image")));
+            this.ColumnaEditarProducto.MinimumWidth = 6;
+            this.ColumnaEditarProducto.Name = "ColumnaEditarProducto";
+            this.ColumnaEditarProducto.ReadOnly = true;
+            this.ColumnaEditarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnaEditarProducto.Width = 182;
+            // 
+            // ColumnaEliminarProducto
+            // 
+            this.ColumnaEliminarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnaEliminarProducto.HeaderText = "";
+            this.ColumnaEliminarProducto.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEliminarProducto.Image")));
+            this.ColumnaEliminarProducto.MinimumWidth = 6;
+            this.ColumnaEliminarProducto.Name = "ColumnaEliminarProducto";
+            this.ColumnaEliminarProducto.ReadOnly = true;
+            this.ColumnaEliminarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnaEliminarProducto.Width = 182;
             // 
             // UC_Productos
             // 
@@ -965,14 +988,14 @@ namespace SGV_CLP.GUI
             this.Añadir.PerformLayout();
             this.Editar.ResumeLayout(false);
             this.siticonePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SDGVProducto)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.siticoneGroupBox1.ResumeLayout(false);
             this.siticoneGroupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.siticoneGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SDGVLote)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -983,12 +1006,12 @@ namespace SGV_CLP.GUI
         private TabPage Añadir;
         private TabPage Editar;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
+        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView SDGVProducto;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox6;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox6;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView2;
+        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView SDGVLote;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton SBAniadirProd;
@@ -1015,19 +1038,19 @@ namespace SGV_CLP.GUI
         private Siticone.Desktop.UI.WinForms.SiticoneGradientPanel siticoneGradientPanel1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtIDProd;
-        private DataGridViewTextBoxColumn User;
-        private DataGridViewTextBoxColumn CC;
-        private DataGridViewTextBoxColumn Contras;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Ape;
-        private DataGridViewTextBoxColumn CantidadTotal;
-        private DataGridViewImageColumn EditarProducto;
-        private DataGridViewImageColumn EliminarProducto;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewImageColumn EditarLote;
-        private DataGridViewImageColumn EliminarLote;
+        private DataGridViewTextBoxColumn ColumnaCódigoProd;
+        private DataGridViewTextBoxColumn ColumnaNombreProd;
+        private DataGridViewTextBoxColumn ColumnaPE;
+        private DataGridViewTextBoxColumn ColumnaPVP;
+        private DataGridViewTextBoxColumn ColumnaCategoria;
+        private DataGridViewTextBoxColumn ColumnaCantidadProd;
+        private DataGridViewImageColumn ColumnaEditarProducto;
+        private DataGridViewImageColumn ColumnaEliminarProducto;
+        private DataGridViewTextBoxColumn ColumnaCodLote;
+        private DataGridViewTextBoxColumn ColumnaCodProd;
+        private DataGridViewTextBoxColumn ColunmaCantidad;
+        private DataGridViewTextBoxColumn ColumnaFechayHora;
+        private DataGridViewImageColumn ColumnaEditarLote;
+        private DataGridViewImageColumn ColumnaEliminarLote;
     }
 }

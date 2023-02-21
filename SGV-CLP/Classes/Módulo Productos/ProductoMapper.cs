@@ -12,64 +12,9 @@ namespace SGV_CLP.Classes
     public class ProductoMapper
     {
         private static readonly string _connectionString = "Host=localhost:5432;Username=postgres;Password=P@ssw0rd;Database=SGV-CLP";
-        //USAR using SGV_CLP.Classes
+
         //--------
-        //CREATE
-        public static List<Producto> ConsultarProductos()
-        {
-            List<Producto> ProductosRegistrados = new List<Producto>();
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var command = new NpgsqlCommand("SELECT * FROM \"Producto\"", connection))
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        ProductosRegistrados.Add(new Producto(reader.GetString(0), reader.GetString(1), reader.GetDouble(2), reader.GetDouble(3), reader.GetString(4), reader.GetDouble(5), reader.GetString(6)));
-                    }
-                }
-            }
-            return ProductosRegistrados;
-        }
-
-        public static List<string> ConsultarNombresProductos()
-        {
-            List<string> NombresProductosRegistrados = new List<string>();
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var command = new NpgsqlCommand("SELECT \"nombre_Producto\" FROM \"Producto\"", connection))
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        NombresProductosRegistrados.Add(reader.GetString(0));
-                    }
-                }
-            }
-            return NombresProductosRegistrados;
-        }
-
-        public static string ConsultarIdProducto(string nombreProducto)
-        {
-            string IdProductoRegistrado = "";
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var command = new NpgsqlCommand("SELECT \"cod_Producto\" FROM \"Producto\" where \"nombre_Producto\" = " + nombreProducto, connection))
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        IdProductoRegistrado = reader.GetString(0);
-                    }
-                }
-            }
-            return IdProductoRegistrado;
-        }
-
-
+        // INGRESAR PRODUCTO
         public static void IngresarProducto(Producto producto)
         {
             // Conexión a BD
@@ -90,24 +35,71 @@ namespace SGV_CLP.Classes
             }
         }
 
-        public static List<Lote> ConsultarLotes()
+        //--------
+        // CONSULTAR PRODUCTOS
+        public static List<Producto> ConsultarProductos()
         {
-            List<Lote> LotesRegistrados = new List<Lote>();
+            List<Producto> ProductosRegistrados = new List<Producto>();
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand("SELECT * FROM \"Lote\"", connection))
+                using (var command = new NpgsqlCommand("SELECT * FROM \"Producto\"", connection))
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        LotesRegistrados.Add(new Lote(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3).Date));
+                        ProductosRegistrados.Add(new Producto(reader.GetString(0), reader.GetString(1), reader.GetDouble(2), reader.GetDouble(3), reader.GetString(4), reader.GetDouble(5), reader.GetString(6)));
                     }
                 }
             }
-            return LotesRegistrados;
+            return ProductosRegistrados;
         }
 
+        //--------
+        // CONSULTAR NOMBRES PRODUCTOS
+        public static List<string> ConsultarNombresProductos()
+        {
+            List<string> NombresProductosRegistrados = new List<string>();
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT \"nombre_Producto\" FROM \"Producto\"", connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        NombresProductosRegistrados.Add(reader.GetString(0));
+                    }
+                }
+            }
+            return NombresProductosRegistrados;
+        }
+
+        //--------
+        // CONSULTAR ID PRODUCTO
+        public static string ConsultarIdProducto(string nombreProducto)
+        {
+            string IdProductoRegistrado = "";
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT \"cod_Producto\" FROM \"Producto\" WHERE \"nombre_Producto\" = @nombre_Producto", connection))
+                {
+                    command.Parameters.AddWithValue("@nombre_Producto", nombreProducto);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            IdProductoRegistrado = reader.GetString(0);
+                        }
+                    }
+                }
+            }
+            return IdProductoRegistrado;
+        }
+
+        //--------
+        // INGRESAR LOTE
         public static void IngresarLote(Lote lote)
         {
             // Conexión a BD
@@ -123,35 +115,27 @@ namespace SGV_CLP.Classes
                 cmd.ExecuteNonQuery();
             }
         }
-        
 
-        
-        public static async Task<Cliente> MostrarClientes(string CC_Cliente)
+        //--------
+        // CONSULTAR LOTES
+        public static List<Lote> ConsultarLotes()
         {
-            await using NpgsqlConnection connection = new(_connectionString);
-            connection.Open();
-            await using NpgsqlCommand command = connection.CreateCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT \"cc_Cliente\", \"primer_Nombre\", \"segundo_Nombre\", \"primer_Apellido\", \"segundo_Apellido\", \"direccion_Domicilio\", telefono, \"correo_Electronico\" FROM public.\"Cliente\" WHERE \"cc_Cliente\" = @ccCliente limit 1;";
-            command.Parameters.AddWithValue("@ccCliente", CC_Cliente);
-            NpgsqlDataReader reader = await command.ExecuteReaderAsync();
-            if (reader.HasRows)
+            List<Lote> LotesRegistrados = new List<Lote>();
+            using (var connection = new NpgsqlConnection(_connectionString))
             {
-                reader.Read();
-                string primerNombre = (string)reader["primer_Nombre"];
-                string segundoNombre = (string)reader["segundo_Nombre"];
-                string primerApellido = (string)reader["primer_Apellido"];
-                string segundoApellido = (string)reader["segundo_Apellido"];
-                string direccionDomicilio = (string)reader["direccion_Domicilio"];
-                string telefono = (string)reader["telefono"];
-                string correoElectronico = (string)reader["correo_Electronico"];
-                string ccCLiente = (string)reader["cc_Cliente"];
-                return new Cliente(ccCLiente, primerNombre, segundoNombre, primerApellido, segundoApellido, direccionDomicilio, telefono, correoElectronico);
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM \"Lote\"", connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        LotesRegistrados.Add(new Lote(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3)));
+                    }
+                }
             }
-            return null;
+            return LotesRegistrados;
         }
-        //var client = await ClienteMapper.MostrarClientes(idCliente);
-        //Console.WriteLine($"{client.Id_Cliente} ,{client.Nombre},{client.Telefono},{client.Fecha_Ingreso} ");
+
         //--------
         //UPDATE
         public static async Task<bool> ModificarCliente(Cliente cliente)
@@ -177,13 +161,7 @@ namespace SGV_CLP.Classes
             }
             return result > 0;
         }
-        //client.Id_Cliente += 1;
-        //client.Nombre += "Julian";
-        //client.Telefono += "0954186584";
-        //client.Fecha_Ingreso = DateTime.Now;
-        //await ClienteMapper.ModificarCliente(client);
-        //var client2 = await ClienteMapper.MostrarClientes(client.Id_Cliente);
-        //Console.WriteLine($"{client2.Id_Cliente} {client2.Nombre},{client2.Telefono},{client2.Fecha_Ingreso} ");
+        
         //--------
         //DELETE
         public static async Task<bool> EliminarCliente(string CC_Cliente)
@@ -197,6 +175,6 @@ namespace SGV_CLP.Classes
             var result = await command.ExecuteNonQueryAsync();
             return result > 0;
         }
-        //await ClienteMapper.EliminarCliente(1);
+
     }
 }

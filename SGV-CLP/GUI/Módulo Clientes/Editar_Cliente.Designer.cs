@@ -1,6 +1,6 @@
 ﻿namespace SGV_CLP.GUI.Módulo_Clientes
 {
-    partial class Editar_Eliminar_Cliente
+    partial class Editar_Cliente
     {
         /// <summary>
         /// Required designer variable.

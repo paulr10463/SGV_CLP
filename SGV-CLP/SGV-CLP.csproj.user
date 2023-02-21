@@ -7,22 +7,22 @@
     <Compile Update="GUI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Clientes\Editar_Eliminar_Cliente.cs">
+    <Compile Update="GUI\Módulo Clientes\Editar_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Compras\Editar_Eliminar_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Producto\Editar_Eliminar_Lote.cs">
+    <Compile Update="GUI\Módulo Producto\Editar_Lote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Producto\Editar_Eliminar_Producto.cs">
+    <Compile Update="GUI\Módulo Producto\Editar_Producto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Compras\UC_Compras.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Proveedores\Editar_Eliminar_Proveedor.cs">
+    <Compile Update="GUI\Módulo Proveedores\Editar_Proveedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Ventas\Checkout.cs">

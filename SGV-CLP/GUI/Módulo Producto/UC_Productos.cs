@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.GUI.Módulo_Clientes;
 using SGV_CLP.GUI.Módulo_Producto;
 using System;
 using System.Collections.Generic;
@@ -41,12 +42,12 @@ namespace SGV_CLP.GUI
         {
             if (ProductosRegistrados != null)
             {
-                siticoneDataGridView1.Rows.Clear();
+                SDGVProducto.Rows.Clear();
                 ProductosRegistrados = ProductoMapper.ConsultarProductos();
                 foreach (Producto producto in ProductosRegistrados)
                 {
                     // dgvClientes
-                    siticoneDataGridView1.Rows.Add(producto.Id, producto.Nombre, producto.PrecioElaboracion, producto.PVP, producto.Categoria, producto.CantidadTotal);
+                    SDGVProducto.Rows.Add(producto.Id, producto.Nombre, producto.PrecioElaboracion, producto.PVP, producto.Categoria, producto.CantidadTotal);
                 }
             }
         }
@@ -55,11 +56,11 @@ namespace SGV_CLP.GUI
         {
             if (LoteRegistrados != null)
             {
-                siticoneDataGridView2.Rows.Clear();
+                SDGVLote.Rows.Clear();
                 LoteRegistrados = ProductoMapper.ConsultarLotes();
                 foreach (Lote lote in LoteRegistrados)
                 {
-                    siticoneDataGridView2.Rows.Add(lote.Cod_Lote, lote.Cod_Producto, lote.Cantidad, lote.FechaElaboracion);
+                    SDGVLote.Rows.Add(lote.Cod_Lote, lote.Cod_Producto, lote.Cantidad, lote.FechaElaboracion);
                 }
             }
         }
@@ -77,14 +78,7 @@ namespace SGV_CLP.GUI
                 }
             }
         }
-
-
-        private void siticoneDataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Editar_Eliminar_Producto ventana = new Editar_Eliminar_Producto();
-            ventana.ShowDialog();
-        }
-
+        
         private void siticoneRadioButton1_CheckedChanged(object sender, EventArgs e)
         {
             siticoneDateTimePicker1.Visible = false;
@@ -95,7 +89,7 @@ namespace SGV_CLP.GUI
             siticoneDateTimePicker1.Visible = true;
         }
 
-        private void siticoneButton1_Click(object sender, EventArgs e)
+        private void SBAniadirProducto_Click(object sender, EventArgs e)
         {
             var producto = new Producto(
                 txtIDProd.Text, 
@@ -121,7 +115,7 @@ namespace SGV_CLP.GUI
                 ProductoMapper.ConsultarIdProducto(SCBProductoLote.SelectedItem.ToString()) + siticoneDateTimePicker1.Value.ToString("ddMM"),
                 ProductoMapper.ConsultarIdProducto(SCBProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
-                siticoneDateTimePicker1.Value.Date);
+                siticoneDateTimePicker1.Value);
 
             ProductoMapper.IngresarLote(Lote);
             llenarTablaLote();
@@ -130,13 +124,6 @@ namespace SGV_CLP.GUI
             SystemSounds.Beep.Play();
             MessageBox.Show("Lote añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        private void siticoneDataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Editar_Eliminar_Lote ventana = new Editar_Eliminar_Lote();
-            ventana.ShowDialog();
-        }
-
 
         private void siticoneButton3_Click(object sender, EventArgs e)
         {
@@ -150,6 +137,64 @@ namespace SGV_CLP.GUI
             }
         }
 
+        private void SDGVProducto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (SDGVProducto.Columns[e.ColumnIndex].Name == "ColumnaEliminarProducto")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    if (MessageBox.Show("¿Está seguro de eliminar este producto?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        /*clientes.RemoveAt(e.RowIndex);
+                        siticoneDataGridView1.Rows.Clear();
+                        foreach (Cliente c in clientes)
+                        {
+                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                        }
+                        */
+                    }
+                } 
+            }
 
+            if (SDGVProducto.Columns[e.ColumnIndex].Name == "ColumnaEditarProducto")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    // String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Producto ventana = new Editar_Producto();
+                    ventana.ShowDialog();
+                }
+            }
+        }
+
+        private void SDGVLote_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (SDGVLote.Columns[e.ColumnIndex].Name == "ColumnaEliminarLote")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    if (MessageBox.Show("¿Está seguro de eliminar este Lote?", "Eliminar Lote", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        /*clientes.RemoveAt(e.RowIndex);
+                        siticoneDataGridView1.Rows.Clear();
+                        foreach (Cliente c in clientes)
+                        {
+                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                        }
+                        */
+                    }
+                }
+            }
+
+            if (SDGVLote.Columns[e.ColumnIndex].Name == "ColumnaEditarLote")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    // String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Lote ventana = new Editar_Lote();
+                    ventana.ShowDialog();
+                }
+            }
+        }
     }
 }

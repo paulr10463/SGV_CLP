@@ -111,23 +111,29 @@ namespace SGV_CLP.GUI
         {
             if (siticoneDataGridView1.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
             {
-                if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (e.RowIndex >= 0)
                 {
-                    /*clientes.RemoveAt(e.RowIndex);
-                    siticoneDataGridView1.Rows.Clear();
-                    foreach (Cliente c in clientes)
+                    if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Eliminar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                        /*clientes.RemoveAt(e.RowIndex);
+                        siticoneDataGridView1.Rows.Clear();
+                        foreach (Cliente c in clientes)
+                        {
+                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                        }
+                        */
                     }
-                    */
                 }
             }
 
             if (siticoneDataGridView1.Columns[e.ColumnIndex].Name == "ColumnaEditar")
             {
-                String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
-                Editar_Eliminar_Cliente ventana = new Editar_Eliminar_Cliente(cedula);
-                ventana.ShowDialog();
+                if (e.RowIndex >= 0)
+                {
+                    String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Cliente ventana = new Editar_Cliente(cedula);
+                    ventana.ShowDialog();
+                }
             }
         }
 

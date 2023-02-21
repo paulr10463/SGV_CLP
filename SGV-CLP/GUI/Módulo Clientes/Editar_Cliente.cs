@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SGV_CLP.GUI.Módulo_Clientes
 {
-    public partial class Editar_Eliminar_Cliente : Form
+    public partial class Editar_Cliente : Form
     {
         String cedulaCliente;
         int limit_telef_length = 10, limit_direc_length = 100;
@@ -21,7 +21,7 @@ namespace SGV_CLP.GUI.Módulo_Clientes
         int count_correct_fields = 0;
 
         int num_atributos = 2;
-        public Editar_Eliminar_Cliente(String cedula)
+        public Editar_Cliente(String cedula)
         {
             InitializeComponent();
             cedulaCliente = cedula;
