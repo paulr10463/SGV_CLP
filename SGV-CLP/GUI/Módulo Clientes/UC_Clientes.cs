@@ -21,7 +21,7 @@ namespace SGV_CLP.GUI
 {
     public partial class UC_Clientes : UserControl
     {
-        List<Cliente> clientesRegistrados = ClienteMapper.consultarClientes();
+        List<Cliente> clientesRegistrados = ClienteMapper.ConsultarClientes();
         
         int limit_cc_length = 10, limit_nombre_length = 50, limit_apellido_length = 50,
             limit_direccion_length = 100, limit_telef_length = 10, limit_fechanac_length = 10;
@@ -75,7 +75,7 @@ namespace SGV_CLP.GUI
             if (clientesRegistrados != null)
             {
                 siticoneDataGridView1.Rows.Clear();
-                clientesRegistrados = ClienteMapper.consultarClientes();
+                clientesRegistrados = ClienteMapper.ConsultarClientes();
                 foreach (Cliente cliente in clientesRegistrados)
                 {
                     // dgvClientes
