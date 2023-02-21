@@ -28,12 +28,12 @@ namespace SGV_CLP.GUI
 
         int count_correct_fields = 0;
 
-        int num_atributos = 8;
+        int num_atributos = 7;
 
         bool control_cc = true;
         bool control_apell1 = true, control_apell2 = true;
         bool control_nombre1 = true, control_nombre2 = true, control_direc = true;
-        bool control_telef = true, control_correo = true;
+        bool control_telef = true;
         
         public UC_Clientes()
         {
@@ -53,7 +53,6 @@ namespace SGV_CLP.GUI
 
             siticoneHtmlLabel_cc_correct_length.Hide();
             siticoneHtmlLabel_cc_valida.Hide();
-            siticoneHtmlLabel_correct_email.Hide();
 
             siticoneHtmlLabel_correct_length_telef.Hide();
 
@@ -69,17 +68,6 @@ namespace SGV_CLP.GUI
             txtSegundoApellidoCliente.Text = string.Empty;
             txtDireccionCliente.Text = string.Empty;
             txtTelefonoCliente.Text = string.Empty;
-            txtCorreoCliente.Text = string.Empty;
-
-            siticoneHtmlLabel_cc_correct_length.Hide();
-            siticoneHtmlLabel_cc_valida.Hide();
-            siticoneHtmlLabel_correct_email.Hide();
-            siticoneHtmlLabel_correct_length_telef.Hide();
-
-            siticoneHtmlLabel_cc_wrong_length.Show();
-            siticoneHtmlLabel_cc_invalida.Show();
-            siticoneHtmlLabel_wrong_email.Show();
-            siticoneHtmlLabel_wrong_length_telef.Show();
         }
         
         public void llenarTablaCliente()
@@ -278,8 +266,7 @@ namespace SGV_CLP.GUI
 
         private void txtCorreoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar)
-                && e.KeyChar != '@' && e.KeyChar != '_' && e.KeyChar != '.')
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -287,41 +274,15 @@ namespace SGV_CLP.GUI
                 return;
             }
 
-            validateFieldsCounter();
-        }
-
-        private void txtCorreoCliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (IsValidEmail(txtCorreoCliente.Text) && control_correo 
-                && txtCorreoCliente.Text.Length > 0)
+            if (txtCorreoCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
             {
-                // El correo es valido por primera vez
-                siticoneHtmlLabel_wrong_email.Hide();
-                siticoneHtmlLabel_correct_email.Show();
-
+                control_direc = false;
                 count_correct_fields++;
-                control_correo = false;
-
             }
-            else if (IsValidEmail(txtCorreoCliente.Text) && !control_correo
-                && txtCorreoCliente.Text.Length > 0)
+            else if (txtCorreoCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
             {
-                // El correo es valido por mas de una vez
-                siticoneHtmlLabel_wrong_email.Hide();
-                siticoneHtmlLabel_correct_email.Show();
-            }
-            else if (!IsValidEmail(txtCorreoCliente.Text) && !control_correo)
-            {
-                // El correo es invalido un vez fue valido anteriormente
-                siticoneHtmlLabel_wrong_email.Show();
-                siticoneHtmlLabel_correct_email.Hide();
-
+                control_direc = true;
                 count_correct_fields--;
-                control_correo = true;
-            }
-            else
-            {
-                // El correo es invalido sin ser valido anteriormente
             }
 
             validateFieldsCounter();
