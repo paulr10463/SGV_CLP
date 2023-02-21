@@ -35,6 +35,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Clientes));
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.TabRegistrar = new System.Windows.Forms.TabPage();
+            this.siticoneHtmlLabel_correct_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel_wrong_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.txtCorreoCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneHtmlLabel_correct_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.txtPrimerNombreCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneHtmlLabel_wrong_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -111,6 +115,10 @@
             // 
             // TabRegistrar
             // 
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_correct_email);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_wrong_email);
+            this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel2);
+            this.TabRegistrar.Controls.Add(this.txtCorreoCliente);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_correct_length_telef);
             this.TabRegistrar.Controls.Add(this.txtPrimerNombreCliente);
             this.TabRegistrar.Controls.Add(this.siticoneHtmlLabel_wrong_length_telef);
@@ -144,6 +152,67 @@
             this.TabRegistrar.Text = "Registrar Cliente";
             this.TabRegistrar.UseVisualStyleBackColor = true;
             this.TabRegistrar.Click += new System.EventHandler(this.TabRegistrar_Click);
+            // 
+            // siticoneHtmlLabel_correct_email
+            // 
+            this.siticoneHtmlLabel_correct_email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel_correct_email.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_correct_email.ForeColor = System.Drawing.Color.SpringGreen;
+            this.siticoneHtmlLabel_correct_email.Location = new System.Drawing.Point(756, 599);
+            this.siticoneHtmlLabel_correct_email.Name = "siticoneHtmlLabel_correct_email";
+            this.siticoneHtmlLabel_correct_email.Size = new System.Drawing.Size(73, 17);
+            this.siticoneHtmlLabel_correct_email.TabIndex = 85;
+            this.siticoneHtmlLabel_correct_email.Text = "¡Email válido!";
+            // 
+            // siticoneHtmlLabel_wrong_email
+            // 
+            this.siticoneHtmlLabel_wrong_email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel_wrong_email.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_wrong_email.ForeColor = System.Drawing.Color.Red;
+            this.siticoneHtmlLabel_wrong_email.Location = new System.Drawing.Point(756, 599);
+            this.siticoneHtmlLabel_wrong_email.Name = "siticoneHtmlLabel_wrong_email";
+            this.siticoneHtmlLabel_wrong_email.Size = new System.Drawing.Size(83, 17);
+            this.siticoneHtmlLabel_wrong_email.TabIndex = 84;
+            this.siticoneHtmlLabel_wrong_email.Text = "¡Email inválido!";
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(300, 599);
+            this.siticoneHtmlLabel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(58, 26);
+            this.siticoneHtmlLabel2.TabIndex = 62;
+            this.siticoneHtmlLabel2.Text = "eMail";
+            // 
+            // txtCorreoCliente
+            // 
+            this.txtCorreoCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCorreoCliente.AutoSize = true;
+            this.txtCorreoCliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.txtCorreoCliente.BorderRadius = 20;
+            this.txtCorreoCliente.DefaultText = "";
+            this.txtCorreoCliente.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCorreoCliente.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCorreoCliente.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCorreoCliente.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCorreoCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCorreoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCorreoCliente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCorreoCliente.Location = new System.Drawing.Point(446, 590);
+            this.txtCorreoCliente.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.txtCorreoCliente.MinimumSize = new System.Drawing.Size(200, 45);
+            this.txtCorreoCliente.Name = "txtCorreoCliente";
+            this.txtCorreoCliente.PasswordChar = '\0';
+            this.txtCorreoCliente.PlaceholderText = "";
+            this.txtCorreoCliente.SelectedText = "";
+            this.txtCorreoCliente.Size = new System.Drawing.Size(200, 45);
+            this.txtCorreoCliente.TabIndex = 61;
+            this.txtCorreoCliente.TextOffset = new System.Drawing.Point(5, 0);
+            this.txtCorreoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreoCliente_KeyPress);
+            this.txtCorreoCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCorreoCliente_KeyUp);
             // 
             // siticoneHtmlLabel_correct_length_telef
             // 
@@ -221,7 +290,7 @@
             this.Button_aniadirCliente.FillColor = System.Drawing.Color.Black;
             this.Button_aniadirCliente.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Button_aniadirCliente.ForeColor = System.Drawing.Color.White;
-            this.Button_aniadirCliente.Location = new System.Drawing.Point(571, 678);
+            this.Button_aniadirCliente.Location = new System.Drawing.Point(690, 697);
             this.Button_aniadirCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Button_aniadirCliente.Name = "Button_aniadirCliente";
             this.Button_aniadirCliente.Size = new System.Drawing.Size(180, 45);
@@ -809,5 +878,9 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_length_telef;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_length_telef;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCorreoCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_email;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_email;
     }
 }

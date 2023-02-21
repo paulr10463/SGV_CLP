@@ -46,5 +46,65 @@ namespace SGV_CLP.GUI
             Checkout ventana = new Checkout();
             ventana.ShowDialog();
         }
+
+        private void txtConsultarVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
+            {
+                case 0:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 1:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números o \"-\" (siga el formato aaaa-mm-dd)!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 2:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 3:
+                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 4:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                default:
+                    if (ComboBox_ConsultarVentaPor.SelectedIndex == -1) e.Handled = true;
+                    break;
+            }
+        }
+
+        private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtConsultarVenta.Text = String.Empty;
+        }
     }
 }

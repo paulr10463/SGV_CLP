@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Media;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -25,12 +26,13 @@ namespace SGV_CLP.GUI
 
         int count_correct_fields = 0;
 
-        int num_atributos = 7;
+        int num_atributos = 8;
 
         bool control_cc = true;
         bool control_apell1 = true, control_apell2 = true;
         bool control_nombre1 = true, control_nombre2 = true, control_direc = true;
         bool control_telef = true;
+        bool control_correo = true;
 
         public UC_Clientes()
         {
@@ -49,6 +51,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel_cc_valida.Hide();
 
             siticoneHtmlLabel_correct_length_telef.Hide();
+            siticoneHtmlLabel_correct_email.Hide();
 
             Button_aniadirCliente.Enabled = false;
         }
@@ -112,7 +115,7 @@ namespace SGV_CLP.GUI
         private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -163,7 +166,7 @@ namespace SGV_CLP.GUI
             switch (siticoneComboBox_EliminarEditarCliente.SelectedIndex)
             {
                 case 0:
-                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
                         SystemSounds.Beep.Play();
@@ -172,7 +175,7 @@ namespace SGV_CLP.GUI
                     }
                     break;
                 case 1:
-                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                    if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
                     {
                         e.Handled = true;
                         SystemSounds.Beep.Play();
@@ -181,7 +184,7 @@ namespace SGV_CLP.GUI
                     }
                     break;
                 case 2:
-                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                    if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
                     {
                         e.Handled = true;
                         SystemSounds.Beep.Play();
@@ -190,7 +193,7 @@ namespace SGV_CLP.GUI
                     }
                     break;
                 case 3:
-                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
                         SystemSounds.Beep.Play();
@@ -206,6 +209,7 @@ namespace SGV_CLP.GUI
 
         private void siticoneComboBox_EliminarEditarCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtBuscarClientePor.Text = String.Empty;
             if (siticoneComboBox_EliminarEditarCliente.SelectedIndex != -1)
             {
                 siticoneHtmlLabel_buscarCliente_sin_campo.Hide();
@@ -262,9 +266,43 @@ namespace SGV_CLP.GUI
 
         }
 
+        private void txtCorreoCliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (IsValidEmail(txtCorreoCliente.Text) && control_correo)
+            {
+                // El correo es valido por primera vez
+                siticoneHtmlLabel_wrong_email.Hide();
+                siticoneHtmlLabel_correct_email.Show();
+
+                count_correct_fields++;
+                control_correo = false;
+
+            }
+            else if(IsValidEmail(txtCorreoCliente.Text) && !control_correo)
+            {
+                // El correo es valido por mas de una vez
+                siticoneHtmlLabel_wrong_email.Hide();
+                siticoneHtmlLabel_correct_email.Show();
+            }else if (!IsValidEmail(txtCorreoCliente.Text) && !control_correo)
+            {
+                // El correo es invalido un vez fue valido anteriormente
+                siticoneHtmlLabel_wrong_email.Show();
+                siticoneHtmlLabel_correct_email.Hide();
+
+                count_correct_fields--;
+                control_correo = true;
+            }
+            else
+            {
+                // El correo es invalido sin ser valido anteriormente
+            }
+
+            validateFieldsCounter();
+        }
+
         private void txtSegundoApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -286,9 +324,23 @@ namespace SGV_CLP.GUI
             validateFieldsCounter();
         }
 
+        private void txtCorreoCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != '_' && e.KeyChar != '@' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Ingrese únicamente letras o números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            validateFieldsCounter();
+        }
+
         private void txtPrimerApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -312,7 +364,7 @@ namespace SGV_CLP.GUI
 
         private void txtSegundoNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -336,7 +388,7 @@ namespace SGV_CLP.GUI
 
         private void txtPrimerNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -359,7 +411,7 @@ namespace SGV_CLP.GUI
         }
         private void txtDireccionCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -383,7 +435,7 @@ namespace SGV_CLP.GUI
 
         private void txtTelefonoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -459,6 +511,17 @@ namespace SGV_CLP.GUI
             }
 
             return ultimoDigito == digitoVerificador;
+        }
+        public static bool IsValidEmail(string email)
+        {
+            // Define la expresión regular para validar un correo electrónico
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            // Crea un objeto Regex con la expresión regular
+            Regex regex = new Regex(pattern);
+
+            // Valida el correo electrónico
+            return regex.IsMatch(email);
         }
     }
 }
