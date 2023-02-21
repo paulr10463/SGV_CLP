@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SGV_CLP.Classes;
+using SGV_CLP.GUI.Módulo_Administración;
+using SGV_CLP.GUI.Módulo_Clientes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +17,9 @@ namespace SGV_CLP.GUI
 {
     public partial class UC_Administracion : UserControl
     {
+        List<Usuario> UsuariosRegistrados = new List<Usuario>();
+        List<ParametroPorUnidad> ParamsPURegistrados = new List<ParametroPorUnidad>();
+        List<ParametroPorcentaje> ParamsPORegistrados = new List<ParametroPorcentaje>();
         int count_correct_fields = 0, num_atributos = 8;
 
         // Nombre de usuario
@@ -57,6 +63,34 @@ namespace SGV_CLP.GUI
             txtAniadirApellido2Usuario.MaxLength = max_long_apellidos;
 
             Button_aniadirUsuario.Enabled = false;
+
+            Usuario us1 = new Usuario("admin01", "1234567890", "1234567890", "Luis", "Joel", "Guingla", "Verdezoto", "admin");
+            Usuario us2 = new Usuario("cajero01", "0987654321", "0987654321", "Paul", "Alexander", "Roman", "Quimbiulco", "cajero");
+            Usuario us3 = new Usuario("cajero02", "1234567890", "1234567890", "George", "Mattheus", "Quishpe", "Hidalgo", "cajero");
+
+            UsuariosRegistrados.Add(us1);
+            UsuariosRegistrados.Add(us2);
+            UsuariosRegistrados.Add(us3);
+      
+            llenarTablaUsuario();
+
+            ParametroPorUnidad paramPU1 = new ParametroPorUnidad("1", "10", "2", "Humita");
+            ParametroPorUnidad paramPU2 = new ParametroPorUnidad("2", "5", "1", "Quimbolito");
+            ParametroPorUnidad paramPU3 = new ParametroPorUnidad("3", "3", "1", "Tamal");
+
+            ParamsPURegistrados.Add(paramPU1);
+            ParamsPURegistrados.Add(paramPU2);
+            ParamsPURegistrados.Add(paramPU3);
+
+            llenarTablaParamUnidad();
+
+            ParametroPorcentaje paramP1 = new ParametroPorcentaje("1", "Humita", 10);
+            ParametroPorcentaje paramP2 = new ParametroPorcentaje("2", "Tamal", 20);
+
+            ParamsPORegistrados.Add(paramP1);
+            ParamsPORegistrados.Add(paramP2);
+
+            llenarTablaParamPorcentaje();
         }
 
         public void vaciarCampos()
@@ -73,6 +107,46 @@ namespace SGV_CLP.GUI
             count_correct_fields = 0;
 
             validateFieldsCounter();
+        }
+
+        public void llenarTablaUsuario()
+        {
+            if (UsuariosRegistrados != null)
+            {
+                SDGVUsuario.Rows.Clear();
+                // UsuariosRegistrados = ClienteMapper.ConsultarClientes();
+                foreach (Usuario usuario in UsuariosRegistrados)
+                {
+                    // dgvClientes
+                    SDGVUsuario.Rows.Add(usuario.NombreUsuario, usuario.Cc_Usuario, usuario.Primer_Nombre + usuario.Segundo_Nombre, usuario.Primer_Apellido + usuario.Segundo_Apellido, usuario.Cargo);
+                }
+            }
+        }
+        
+        public void llenarTablaParamUnidad()
+        {
+            if (ParamsPURegistrados != null)
+            {
+                SDGVParamUnidad.Rows.Clear();
+                // UsuariosRegistrados = ClienteMapper.ConsultarClientes();
+                foreach (ParametroPorUnidad param in ParamsPURegistrados)
+                {
+                    SDGVParamUnidad.Rows.Add(param.IdParametro, param.UnidadBase, param.UnidadExtra, param.Producto);
+                }
+            }
+        }
+
+        public void llenarTablaParamPorcentaje()
+        {
+            if (ParamsPORegistrados != null)
+            {
+                SDGVParamPorcen.Rows.Clear();
+                // UsuariosRegistrados = ClienteMapper.ConsultarClientes();
+                foreach (ParametroPorcentaje paraP in ParamsPORegistrados)
+                {
+                    SDGVParamPorcen.Rows.Add(paraP.IdParametro, paraP.Producto, paraP.Porcentaje);
+                }
+            }
         }
 
         private void Button_aniadirUsuario_Click(object sender, EventArgs e)
@@ -268,6 +342,96 @@ namespace SGV_CLP.GUI
                 count_correct_fields++;
             }
             validateFieldsCounter();
+        }
+
+        private void SDGVUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (SDGVUsuario.Columns[e.ColumnIndex].Name == "ColumnaEliminarUsuario")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    if (MessageBox.Show("¿Está seguro de eliminar este usuario?", "Eliminar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        /*clientes.RemoveAt(e.RowIndex);
+                        siticoneDataGridView1.Rows.Clear();
+                        foreach (Cliente c in clientes)
+                        {
+                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                        }
+                        */
+                    }
+                }
+            }
+
+            if (SDGVUsuario.Columns[e.ColumnIndex].Name == "ColumnaEditarUsuario")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    //String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Usuario ventana = new Editar_Usuario();
+                    ventana.ShowDialog();
+                }
+            }
+        }
+
+        private void SDGVParamUnidad_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (SDGVParamUnidad.Columns[e.ColumnIndex].Name == "ColumnaEliminarParUn")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    if (MessageBox.Show("¿Está seguro de eliminar este parámetro?", "Eliminar parámetro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        /*clientes.RemoveAt(e.RowIndex);
+                        siticoneDataGridView1.Rows.Clear();
+                        foreach (Cliente c in clientes)
+                        {
+                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                        }
+                        */
+                    }
+                }
+            }
+
+            if (SDGVParamUnidad.Columns[e.ColumnIndex].Name == "ColumnaEditarParUn")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    //String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Parametro_Por_Unidad ventana = new Editar_Parametro_Por_Unidad();
+                    ventana.ShowDialog();
+                }
+            }
+        }
+
+        private void SDGVParamPorcen_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (SDGVParamPorcen.Columns[e.ColumnIndex].Name == "ColumnaEliminarParPor")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    if (MessageBox.Show("¿Está seguro de eliminar este parámetro?", "Eliminar parámetro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        /*clientes.RemoveAt(e.RowIndex);
+                        siticoneDataGridView1.Rows.Clear();
+                        foreach (Cliente c in clientes)
+                        {
+                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
+                        }
+                        */
+                    }
+                }
+            }
+
+            if (SDGVParamPorcen.Columns[e.ColumnIndex].Name == "ColumnaEditarParPor")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    //String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Parametro_Por_Porcentaje ventana = new Editar_Parametro_Por_Porcentaje();
+                    ventana.ShowDialog();
+                }
+            }
         }
 
         private void txtAniadirNombre2Usuario_KeyPress(object sender, KeyPressEventArgs e)

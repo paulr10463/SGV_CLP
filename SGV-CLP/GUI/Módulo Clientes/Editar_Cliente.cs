@@ -26,8 +26,8 @@ namespace SGV_CLP.GUI.Módulo_Clientes
             InitializeComponent();
             cedulaCliente = cedula;
 
-            txtEditarEliminarDirecCliente.MaxLength = limit_direc_length;
-            txtEditarEliminarClienteTelef.MaxLength = limit_telef_length;
+            txtEditarDirecCliente.MaxLength = limit_direc_length;
+            txtEditarClienteTelef.MaxLength = limit_telef_length;
 
             button_AceptarEditarEliminarCliente.Enabled = false;
         }
@@ -35,7 +35,7 @@ namespace SGV_CLP.GUI.Módulo_Clientes
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
-            MessageBox.Show("Cliente editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cliente editado con éxito", "Editar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Dispose();
         }
 
@@ -44,24 +44,9 @@ namespace SGV_CLP.GUI.Módulo_Clientes
             this.Dispose();
         }
 
-        private void siticoneButton3_Click(object sender, EventArgs e)
-        {
-            SystemSounds.Beep.Play();
-            if (MessageBox.Show("¿Desea continuar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-                == DialogResult.Yes)
-            {
-                MessageBox.Show("Cliente eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Cliente no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
         private void txtEditarEliminarCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+           if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -69,12 +54,12 @@ namespace SGV_CLP.GUI.Módulo_Clientes
                 return;
             }
 
-            if (txtEditarEliminarDirecCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
+            if (txtEditarDirecCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
             {
                 control_direc = false;
                 count_correct_fields++;
             }
-            else if (txtEditarEliminarDirecCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
+            else if (txtEditarDirecCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
             {
                 control_direc = true;
                 count_correct_fields--;
@@ -93,12 +78,12 @@ namespace SGV_CLP.GUI.Módulo_Clientes
                 return;
             }
 
-            if (txtEditarEliminarClienteTelef.Text.Length + 1 == limit_telef_length && control_telef && e.KeyChar != '\b')
+            if (txtEditarClienteTelef.Text.Length + 1 == limit_telef_length && control_telef && e.KeyChar != '\b')
             {
                 control_telef = false;
                 count_correct_fields++;
             }
-            else if (txtEditarEliminarClienteTelef.Text.Length - 1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
+            else if (txtEditarClienteTelef.Text.Length - 1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
             {
                 control_telef = true;
                 count_correct_fields--;

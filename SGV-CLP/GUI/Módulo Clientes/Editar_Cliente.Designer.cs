@@ -28,82 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.txtEditarEliminarDirecCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.txtEditarEliminarClienteTelef = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.button_AceptarEditarEliminarCliente = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneHtmlLabel20 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.txtEditarDirecCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.txtEditarClienteTelef = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.SuspendLayout();
-            // 
-            // siticoneHtmlLabel1
-            // 
-            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(71, 65);
-            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(126, 34);
-            this.siticoneHtmlLabel1.TabIndex = 2;
-            this.siticoneHtmlLabel1.Text = "Dirección";
-            // 
-            // txtEditarEliminarDirecCliente
-            // 
-            this.txtEditarEliminarDirecCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEditarEliminarDirecCliente.BorderRadius = 20;
-            this.txtEditarEliminarDirecCliente.DefaultText = "";
-            this.txtEditarEliminarDirecCliente.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtEditarEliminarDirecCliente.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtEditarEliminarDirecCliente.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEditarEliminarDirecCliente.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEditarEliminarDirecCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEditarEliminarDirecCliente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEditarEliminarDirecCliente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEditarEliminarDirecCliente.Location = new System.Drawing.Point(215, 52);
-            this.txtEditarEliminarDirecCliente.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtEditarEliminarDirecCliente.Name = "txtEditarEliminarDirecCliente";
-            this.txtEditarEliminarDirecCliente.PasswordChar = '\0';
-            this.txtEditarEliminarDirecCliente.PlaceholderText = "";
-            this.txtEditarEliminarDirecCliente.SelectedText = "";
-            this.txtEditarEliminarDirecCliente.Size = new System.Drawing.Size(229, 48);
-            this.txtEditarEliminarDirecCliente.TabIndex = 43;
-            this.txtEditarEliminarDirecCliente.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtEditarEliminarDirecCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEditarEliminarCliente_KeyPress);
-            // 
-            // txtEditarEliminarClienteTelef
-            // 
-            this.txtEditarEliminarClienteTelef.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtEditarEliminarClienteTelef.BorderRadius = 20;
-            this.txtEditarEliminarClienteTelef.DefaultText = "";
-            this.txtEditarEliminarClienteTelef.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtEditarEliminarClienteTelef.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtEditarEliminarClienteTelef.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEditarEliminarClienteTelef.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEditarEliminarClienteTelef.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEditarEliminarClienteTelef.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEditarEliminarClienteTelef.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEditarEliminarClienteTelef.Location = new System.Drawing.Point(215, 113);
-            this.txtEditarEliminarClienteTelef.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.txtEditarEliminarClienteTelef.Name = "txtEditarEliminarClienteTelef";
-            this.txtEditarEliminarClienteTelef.PasswordChar = '\0';
-            this.txtEditarEliminarClienteTelef.PlaceholderText = "";
-            this.txtEditarEliminarClienteTelef.SelectedText = "";
-            this.txtEditarEliminarClienteTelef.Size = new System.Drawing.Size(229, 48);
-            this.txtEditarEliminarClienteTelef.TabIndex = 45;
-            this.txtEditarEliminarClienteTelef.TextOffset = new System.Drawing.Point(5, 0);
-            this.txtEditarEliminarClienteTelef.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEditarEliminarTelef_KeyPress);
-            // 
-            // siticoneHtmlLabel7
-            // 
-            this.siticoneHtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel7.Location = new System.Drawing.Point(71, 127);
-            this.siticoneHtmlLabel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneHtmlLabel7.Name = "siticoneHtmlLabel7";
-            this.siticoneHtmlLabel7.Size = new System.Drawing.Size(112, 34);
-            this.siticoneHtmlLabel7.TabIndex = 44;
-            this.siticoneHtmlLabel7.Text = "Teléfono";
             // 
             // siticoneButton2
             // 
@@ -116,7 +49,7 @@
             this.siticoneButton2.FillColor = System.Drawing.Color.Black;
             this.siticoneButton2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton2.Location = new System.Drawing.Point(285, 200);
+            this.siticoneButton2.Location = new System.Drawing.Point(392, 266);
             this.siticoneButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.Size = new System.Drawing.Size(206, 60);
@@ -135,7 +68,7 @@
             this.button_AceptarEditarEliminarCliente.FillColor = System.Drawing.Color.Black;
             this.button_AceptarEditarEliminarCliente.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button_AceptarEditarEliminarCliente.ForeColor = System.Drawing.Color.White;
-            this.button_AceptarEditarEliminarCliente.Location = new System.Drawing.Point(23, 200);
+            this.button_AceptarEditarEliminarCliente.Location = new System.Drawing.Point(130, 266);
             this.button_AceptarEditarEliminarCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_AceptarEditarEliminarCliente.Name = "button_AceptarEditarEliminarCliente";
             this.button_AceptarEditarEliminarCliente.Size = new System.Drawing.Size(206, 60);
@@ -143,18 +76,122 @@
             this.button_AceptarEditarEliminarCliente.Text = "Aceptar";
             this.button_AceptarEditarEliminarCliente.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
+            // siticoneHtmlLabel20
+            // 
+            this.siticoneHtmlLabel20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel20.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel20.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel20.Location = new System.Drawing.Point(21, 26);
+            this.siticoneHtmlLabel20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel20.Name = "siticoneHtmlLabel20";
+            this.siticoneHtmlLabel20.Size = new System.Drawing.Size(126, 34);
+            this.siticoneHtmlLabel20.TabIndex = 49;
+            this.siticoneHtmlLabel20.Text = "Dirección";
+            // 
+            // txtEditarDirecCliente
+            // 
+            this.txtEditarDirecCliente.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEditarDirecCliente.BorderRadius = 20;
+            this.txtEditarDirecCliente.DefaultText = "";
+            this.txtEditarDirecCliente.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEditarDirecCliente.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEditarDirecCliente.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEditarDirecCliente.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEditarDirecCliente.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEditarDirecCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEditarDirecCliente.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEditarDirecCliente.Location = new System.Drawing.Point(271, 26);
+            this.txtEditarDirecCliente.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.txtEditarDirecCliente.Name = "txtEditarDirecCliente";
+            this.txtEditarDirecCliente.PasswordChar = '\0';
+            this.txtEditarDirecCliente.PlaceholderText = "";
+            this.txtEditarDirecCliente.SelectedText = "";
+            this.txtEditarDirecCliente.Size = new System.Drawing.Size(451, 53);
+            this.txtEditarDirecCliente.TabIndex = 48;
+            this.txtEditarDirecCliente.TextOffset = new System.Drawing.Point(5, 0);
+            // 
+            // siticoneHtmlLabel1
+            // 
+            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(21, 124);
+            this.siticoneHtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(112, 34);
+            this.siticoneHtmlLabel1.TabIndex = 51;
+            this.siticoneHtmlLabel1.Text = "Teléfono";
+            // 
+            // txtEditarClienteTelef
+            // 
+            this.txtEditarClienteTelef.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEditarClienteTelef.BorderRadius = 20;
+            this.txtEditarClienteTelef.DefaultText = "";
+            this.txtEditarClienteTelef.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtEditarClienteTelef.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtEditarClienteTelef.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEditarClienteTelef.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtEditarClienteTelef.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEditarClienteTelef.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEditarClienteTelef.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtEditarClienteTelef.Location = new System.Drawing.Point(271, 105);
+            this.txtEditarClienteTelef.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.txtEditarClienteTelef.Name = "txtEditarClienteTelef";
+            this.txtEditarClienteTelef.PasswordChar = '\0';
+            this.txtEditarClienteTelef.PlaceholderText = "";
+            this.txtEditarClienteTelef.SelectedText = "";
+            this.txtEditarClienteTelef.Size = new System.Drawing.Size(218, 53);
+            this.txtEditarClienteTelef.TabIndex = 50;
+            this.txtEditarClienteTelef.TextOffset = new System.Drawing.Point(5, 0);
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(15, 207);
+            this.siticoneHtmlLabel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(244, 34);
+            this.siticoneHtmlLabel2.TabIndex = 53;
+            this.siticoneHtmlLabel2.Text = "Correo electrónico";
+            // 
+            // siticoneTextBox1
+            // 
+            this.siticoneTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneTextBox1.BorderRadius = 20;
+            this.siticoneTextBox1.DefaultText = "";
+            this.siticoneTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.siticoneTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.siticoneTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.siticoneTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneTextBox1.Location = new System.Drawing.Point(271, 188);
+            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.siticoneTextBox1.Name = "siticoneTextBox1";
+            this.siticoneTextBox1.PasswordChar = '\0';
+            this.siticoneTextBox1.PlaceholderText = "";
+            this.siticoneTextBox1.SelectedText = "";
+            this.siticoneTextBox1.Size = new System.Drawing.Size(451, 53);
+            this.siticoneTextBox1.TabIndex = 52;
+            this.siticoneTextBox1.TextOffset = new System.Drawing.Point(5, 0);
+            // 
             // Editar_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(523, 312);
+            this.ClientSize = new System.Drawing.Size(745, 345);
+            this.Controls.Add(this.siticoneHtmlLabel2);
+            this.Controls.Add(this.siticoneTextBox1);
+            this.Controls.Add(this.siticoneHtmlLabel1);
+            this.Controls.Add(this.txtEditarClienteTelef);
+            this.Controls.Add(this.siticoneHtmlLabel20);
+            this.Controls.Add(this.txtEditarDirecCliente);
             this.Controls.Add(this.siticoneButton2);
             this.Controls.Add(this.button_AceptarEditarEliminarCliente);
-            this.Controls.Add(this.txtEditarEliminarClienteTelef);
-            this.Controls.Add(this.siticoneHtmlLabel7);
-            this.Controls.Add(this.txtEditarEliminarDirecCliente);
-            this.Controls.Add(this.siticoneHtmlLabel1);
             this.Name = "Editar_Cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Cliente";
@@ -164,11 +201,13 @@
         }
 
         #endregion
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEditarEliminarDirecCliente;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEditarEliminarClienteTelef;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel7;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         private Siticone.Desktop.UI.WinForms.SiticoneButton button_AceptarEditarEliminarCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel20;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEditarDirecCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtEditarClienteTelef;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
     }
 }
