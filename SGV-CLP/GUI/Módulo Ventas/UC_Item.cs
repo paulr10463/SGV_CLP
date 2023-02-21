@@ -14,6 +14,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 {
     public partial class UC_Item : UserControl
     {
+
         public UC_Item(string nombreProducto, string imagen)
         {
             InitializeComponent();
