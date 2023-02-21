@@ -1,7 +1,5 @@
 ﻿using SGV_CLP.Classes;
 using SGV_CLP.GUI.Módulo_Ventas;
-using Siticone.Desktop.UI.AnimatorNS;
-using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,125 +10,101 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SGV_CLP.GUI
 {
     public partial class UC_Ventas : UserControl
     {
-        List<Producto> especialidades;
-        List<Producto> bebidasCalientes;
         public UC_Ventas()
         {
             InitializeComponent();
-
-            especialidades = new List<Producto>();
-            especialidades.Add(new Producto("TAM", "Tamal", 0.5, 1.25, "Especialidades", 0, null));
-            especialidades.Add(new Producto("HUM", "Humita", 0.5, 1.5, "Especialidades", 0, null));
-            especialidades.Add(new Producto("QUIM", "Quimbolito", 0.5, 1, "Especialidades", 0, null));
-            /*
+            List<Producto> especialidades = new List<Producto>();
+            especialidades.Add(new Producto("Quimbolito", "Quimbolito"));
             especialidades.Add(new Producto("Tamal", "Tamal"));
             especialidades.Add(new Producto("Humita", "Humita"));
             especialidades.Add(new Producto("Empanadas Viento", "Empanadas Viento"));
             especialidades.Add(new Producto("Humita Frita", "HumitaFrita"));
-            */
 
-            bebidasCalientes = new List<Producto>();
-            bebidasCalientes.Add(new Producto("CAFE", "Café", 0.5, 0.75, "Bebidas", 0, null));
-            bebidasCalientes.Add(new Producto("CHOC", "Chocolate", 0.5, 1.25, "Bebidas", 0, null));
-            bebidasCalientes.Add(new Producto("MORO", "Morocho", 0.5, 1, "Bebidas", 0, null));
+            List<Producto> bebidasCalientes = new List<Producto>();
+            bebidasCalientes.Add(new Producto("Café", "Cafe"));
+            bebidasCalientes.Add(new Producto("Chocolate", "Chocolate"));
+            bebidasCalientes.Add(new Producto("Morocho", "Morocho"));
 
+            foreach (Producto item in especialidades)
+            {
+                flowLayoutPanel1.Controls.Add(new UC_Item(item.Nombre, item.Imagen));
+            }
 
-
+            foreach (Producto item in bebidasCalientes)
+            {
+                flowLayoutPanel2.Controls.Add(new UC_Item(item.Nombre, item.Imagen));
+            }
         }
 
         private void siticoneButton4_Click(object sender, EventArgs e)
         {
-            Checkout ventana = new Checkout(siticoneDataGridView2);
+            Checkout ventana = new Checkout();
             ventana.ShowDialog();
         }
 
-        private void siticoneButton1_Click(object sender, EventArgs e)
+        private void txtConsultarVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            addRowInTable(siticoneNumericUpDown1, especialidades[0]);
-        }
-
-        private void siticoneButton2_Click(object sender, EventArgs e)
-        {
-            addRowInTable(siticoneNumericUpDown2, especialidades[1]);
-        }
-
-        private void siticoneButton3_Click(object sender, EventArgs e)
-        {
-            addRowInTable(siticoneNumericUpDown3, especialidades[2]);
-        }
-
-        private void siticoneButton5_Click(object sender, EventArgs e)
-        {
-            addRowInTable(siticoneNumericUpDown4, bebidasCalientes[0]);
-        }
-
-        private void siticoneButton6_Click(object sender, EventArgs e)
-        {
-            addRowInTable(siticoneNumericUpDown5, bebidasCalientes[1]);
-        }
-
-        private void siticoneButton7_Click(object sender, EventArgs e)
-        {
-            addRowInTable(siticoneNumericUpDown6, bebidasCalientes[2]);
-        }
-
-        public void addRowInTable(SiticoneNumericUpDown cantidad, Producto producto)
-        {
-            bool flag = false;
-
-            foreach (DataGridViewRow rowItem in siticoneDataGridView2.Rows)
+            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
-                if (rowItem.Cells[0].Value != null)
-                {
-                    if (rowItem.Cells[0].Value.Equals(producto.Nombre))
+                case 0:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                     {
-                        rowItem.Cells[1].Value = (int)cantidad.Value;
-                        rowItem.Cells[2].Value = producto.PVP * (int)cantidad.Value;
-                        flag = true;
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
                     }
-                }
-                else
-                {
                     break;
-                }
+                case 1:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números o \"-\" (siga el formato aaaa-mm-dd)!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 2:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 3:
+                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 4:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                default:
+                    if (ComboBox_ConsultarVentaPor.SelectedIndex == -1) e.Handled = true;
+                    break;
             }
-            if (!flag)
-            {
-                DataGridViewRow row = (DataGridViewRow)siticoneDataGridView2.Rows[0].Clone();
-                row.Cells[0].Value = producto.Nombre;
-                row.Cells[1].Value = (int)cantidad.Value;
-                row.Cells[2].Value = producto.PVP * (int)cantidad.Value;
-                siticoneDataGridView2.Rows.Add(row);
-            }
-            setTotal(siticoneDataGridView2);
-
         }
 
-        public void setTotal(SiticoneDataGridView tablaVenta)
+        private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            double total = 0;
-            foreach (DataGridViewRow rowItem in siticoneDataGridView2.Rows)
-            {
-                if (rowItem.Cells[0].Value != null)
-                {
-                    total += (double)rowItem.Cells[2].Value;
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            siticoneHtmlLabel11.Text = "Total:      $"+ total.ToString();
-
+            txtConsultarVenta.Text = String.Empty;
         }
-
-
     }
 }
