@@ -118,7 +118,8 @@ namespace SGV_CLP.GUI
                 foreach (Usuario usuario in UsuariosRegistrados)
                 {
                     // dgvClientes
-                    SDGVUsuario.Rows.Add(usuario.NombreUsuario, usuario.Cc_Usuario, usuario.Primer_Nombre + usuario.Segundo_Nombre, usuario.Primer_Apellido + usuario.Segundo_Apellido, usuario.Cargo);
+                    SDGVUsuario.Rows.Add(usuario.NombreUsuario, usuario.Cc_Usuario, usuario.Primer_Nombre + " " + usuario.Segundo_Nombre, 
+                        usuario.Primer_Apellido + " " + usuario.Segundo_Apellido, usuario.Cargo);
                 }
             }
         }
