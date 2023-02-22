@@ -421,6 +421,10 @@ namespace SGV_CLP.GUI
             // siticoneComboBox6
             // 
             this.siticoneComboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneComboBox6.AutoCompleteCustomSource.AddRange(new string[] {
+            "Código",
+            "Nombre",
+            "Categoría"});
             this.siticoneComboBox6.BackColor = System.Drawing.Color.Transparent;
             this.siticoneComboBox6.BorderRadius = 20;
             this.siticoneComboBox6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;

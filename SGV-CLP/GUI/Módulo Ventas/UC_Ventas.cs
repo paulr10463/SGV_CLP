@@ -3,6 +3,7 @@ using SGV_CLP.GUI.Módulo_Ventas;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,9 +21,24 @@ namespace SGV_CLP.GUI
     {
         List<Producto> especialidades;
         List<Producto> bebidasCalientes;
+        List<NotaVenta> notasDeVenta;
+        NotaVenta notaDeVenta;
+
+        int limit_cc_length = 10;
+        bool control_cc = true;
+
+        int num_atributos = 8;
+        int count_correct_fields = 0;
+
         public UC_Ventas()
         {
             InitializeComponent();
+            SBRealizarPago.Enabled = false;
+
+            txtCC_ClienteVenta.MaxLength = limit_cc_length;
+
+            siticoneHtmlLabel_cc_valida.Hide();
+            siticoneHtmlLabel_cc_correct_length.Hide();
 
             especialidades = new List<Producto>();
             especialidades.Add(new Producto("TAM", "Tamal", 0.5, 1.25, "Especialidades", 0, null));
@@ -42,11 +58,41 @@ namespace SGV_CLP.GUI
 
 
 
+            Cliente cliente = new Cliente("1725651518", "Paul", "Alexander", "Román", "Quimbiulco", "La kennedy", "0983472881", "paulroman3d@gmail.com");
+            Cliente cliente1 = new Cliente("1825651521", "Ernesto", "Alexander", "Perez", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com");
+            Cliente cliente2 = new Cliente("1715651521", "Maria", "Alexander", "Uribe", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com");
+            Cliente clienteVacio = new Cliente("0", "", "", "", "", "", "", "");
+
+            AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+            lista.Add(cliente.Cc_Cliente);
+            lista.Add(cliente1.Cc_Cliente);
+            lista.Add(cliente2.Cc_Cliente);
+            txtCC_ClienteVenta.AutoCompleteCustomSource = lista;
+            
+            notasDeVenta = new List<NotaVenta>();
         }
 
-        private void siticoneButton4_Click(object sender, EventArgs e)
+        public void llenarTablaVentas()
         {
-            Checkout ventana = new Checkout(siticoneDataGridView2);
+            if (notasDeVenta != null)
+            {
+                siticoneDataGridView1.Rows.Clear();
+                foreach (NotaVenta notaVenta in notasDeVenta)
+                {
+                    // dgvClientes
+                    siticoneDataGridView1.Rows.Add(notaVenta.Cc_Cliente, notaVenta.Total_Venta, notaVenta.Fecha);
+                }
+            }
+        }
+
+        private void SBRealizarPago_Click(object sender, EventArgs e)
+        {
+            if (notaDeVenta != null)
+            {
+                notasDeVenta.Add(notaDeVenta);
+            }
+
+            Checkout ventana = new Checkout(siticoneDataGridView2, ref notaDeVenta);
             ventana.ShowDialog();
         }
 
@@ -127,7 +173,7 @@ namespace SGV_CLP.GUI
                 }
             }
 
-            siticoneHtmlLabel11.Text = "Total:      $"+ total.ToString();
+            siticoneHtmlLabel11.Text = "Total:      $" + total.ToString();
 
         }
 
@@ -187,6 +233,7 @@ namespace SGV_CLP.GUI
             }
         }
 
+
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtConsultarVenta.Text = System.String.Empty;
@@ -206,5 +253,150 @@ namespace SGV_CLP.GUI
         {
 
         }
+
+        private void txtCC_ClienteVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
+        private void validateFieldsCounter()
+        {
+            SBRealizarPago.Enabled = count_correct_fields >= num_atributos && ValidarCedula(txtCC_ClienteVenta.Text);
+        }
+
+        private void txtCC_ClienteVenta_TextChanged(object sender, EventArgs e)
+        {
+            // comprueba que la cc == 10 y muesta mensaje de correcto
+            if (txtCC_ClienteVenta.Text.Length == limit_cc_length && control_cc)
+            {
+                control_cc = false;
+                count_correct_fields++;
+                siticoneHtmlLabel_cc_wrong_length.Hide();
+                
+                siticoneHtmlLabel_cc_correct_length.Show();
+            }
+            else if (txtCC_ClienteVenta.Text.Length < limit_cc_length && !control_cc)
+            {
+                // Borro 1 char de la cc teniendo ya completos los 10 previamente
+                control_cc = true;
+                count_correct_fields--;
+                siticoneHtmlLabel_cc_invalida.Show();
+                siticoneHtmlLabel_cc_wrong_length.Show();
+
+                siticoneHtmlLabel_cc_correct_length.Hide();
+                siticoneHtmlLabel_cc_valida.Hide();
+            }
+
+            validateFieldsCounter();
+
+            /*if (txtCC_ClienteVenta.Text.Equals("1725651518"))
+            {
+                loadCustomerFields(cliente);
+            }
+            else
+            if (txtCC_ClienteVenta.Text.Equals("1825651521"))
+            {
+                loadCustomerFields(cliente1);
+            }
+            else
+            if (txtCC_ClienteVenta.Text.Equals("1715651521"))
+            {
+                loadCustomerFields(cliente2);
+            }
+            else
+            {
+                loadCustomerFields(clienteVacio);
+            }*/
+        }
+
+        public void controlCedula()
+        {
+            if (ValidarCedula(txtCC_ClienteVenta.Text))
+            {
+                siticoneHtmlLabel_cc_invalida.Hide();
+                siticoneHtmlLabel_cc_valida.Show();
+            }
+            validateFieldsCounter();
+        }
+
+        private void txtCC_ClienteVenta_KeyUp(object sender, KeyEventArgs e)
+        {
+            controlCedula();
+
+            if (ValidarCedula(txtCC_ClienteVenta.Text) && txtCC_ClienteVenta.Text.Length == limit_cc_length)
+            {
+                SBRealizarPago.Enabled = true;
+            }
+            else
+            {
+                SBRealizarPago.Enabled = false;
+            }
+        }
+
+        public static bool ValidarCedula(string cedula)
+        {
+            // Verificar que la cédula tenga 10 dígitos
+            if (cedula.Length != 10)
+            {
+                return false;
+            }
+
+            int tercerDigito = int.Parse(cedula[2].ToString());
+
+            // Verificar que el tercer dígito sea entre 0 y 5
+            if (tercerDigito < 0 || tercerDigito > 5)
+            {
+                return false;
+            }
+
+            // Verificar el último dígito de la cédula
+            int ultimoDigito = int.Parse(cedula[9].ToString());
+
+            int suma = 0;
+
+            for (int i = 0; i < 9; i++)
+            {
+                int digito = int.Parse(cedula[i].ToString());
+
+                if (i % 2 == 0)
+                {
+                    digito *= 2;
+
+                    if (digito > 9)
+                    {
+                        digito -= 9;
+                    }
+                }
+
+                suma += digito;
+            }
+
+            int digitoVerificador = 10 - (suma % 10);
+
+            if (digitoVerificador == 10)
+            {
+                digitoVerificador = 0;
+            }
+
+            return ultimoDigito == digitoVerificador;
+        }
+
+        /*private void loadCustomerFields(Cliente cliente)
+        {
+            txtNombre1Venta.Text = cliente.Primer_Nombre;
+            txtNombre2Venta.Text = cliente.Segundo_Nombre;
+            txtApellido1Venta.Text = cliente.Primer_Apellido;
+            txtApellido2Venta.Text = cliente.Segundo_Apellido;
+            txtDireccionVenta.Text = cliente.Direccion_Domicilio;
+            txtTelefVenta.Text = cliente.Telefono;
+            txtCorreoVenta.Text = cliente.Correo_Electronico;
+
+        }*/
     }
 }
