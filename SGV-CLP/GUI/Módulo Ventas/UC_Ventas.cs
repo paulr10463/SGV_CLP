@@ -1,5 +1,6 @@
 ﻿using SGV_CLP.Classes;
 using SGV_CLP.Classes.Modulo_Ventas;
+using SGV_CLP.GUI.Módulo_Clientes;
 using SGV_CLP.GUI.Módulo_Ventas;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
@@ -21,8 +22,8 @@ namespace SGV_CLP.GUI
     public partial class UC_Ventas : UserControl
     {
         public static int numeroFactura = 2;
-        
-        
+
+
         List<Producto> especialidades;
         List<Producto> bebidasCalientes;
         public static List<Cliente> clientes = new List<Cliente>
@@ -34,11 +35,19 @@ namespace SGV_CLP.GUI
         public static List<TotalVenta> notasVenta = new List<TotalVenta>()
         {
              new TotalVenta(clientes[0], "NV1", "Efectivo", 20.25, "12/02/2022")
-        };   
-       
+        };
+
         public UC_Ventas()
         {
             InitializeComponent();
+
+            siticoneButton1.Enabled = false;
+            siticoneButton2.Enabled = false;
+            siticoneButton3.Enabled = false;
+            siticoneButton5.Enabled = false;
+            siticoneButton6.Enabled = false;
+            siticoneButton7.Enabled = false;
+
             especialidades = new List<Producto>
             {
                 new Producto("TAM", "Tamal", 0.5, 1.25, "Especialidades", 0, null),
@@ -65,8 +74,17 @@ namespace SGV_CLP.GUI
 
         private void siticoneButton4_Click(object sender, EventArgs e)
         {
-            Checkout ventana = new Checkout(siticoneDataGridView2);
-            ventana.ShowDialog();
+            if(siticoneDataGridView2.RowCount == 1)
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Debe elegir al menos un producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Checkout ventana = new Checkout(siticoneDataGridView2);
+                ventana.ShowDialog();
+            }
+
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)
@@ -101,7 +119,7 @@ namespace SGV_CLP.GUI
 
         public void resetValues()
         {
-            siticoneNumericUpDown1.Value= 0;
+            siticoneNumericUpDown1.Value = 0;
             siticoneNumericUpDown2.Value = 0;
             siticoneNumericUpDown3.Value = 0;
             siticoneNumericUpDown4.Value = 0;
@@ -158,7 +176,7 @@ namespace SGV_CLP.GUI
                 }
             }
 
-            siticoneHtmlLabel11.Text = "Total:      $"+ total.ToString();
+            siticoneHtmlLabel11.Text = "Total:      $" + total.ToString();
 
         }
 
@@ -249,7 +267,7 @@ namespace SGV_CLP.GUI
         private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool flag = false;
-            List<string> codFacturaList =new List<string>();
+            List<string> codFacturaList = new List<string>();
             foreach (DataGridViewRow rowItem in siticoneDataGridView1.Rows)
             {
                 if (rowItem.Cells[0].Value != null)
@@ -275,7 +293,7 @@ namespace SGV_CLP.GUI
                     row.Cells[7].Value = totalVenta.fechaVenta;
                     siticoneDataGridView1.Rows.Add(row);
                 }
-                
+
             }
         }
 
@@ -348,6 +366,118 @@ namespace SGV_CLP.GUI
             }
 
 
+        }
+
+        private void siticoneDataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (siticoneDataGridView2.Columns[e.ColumnIndex].Name == "EliminarDetalle")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    if (MessageBox.Show("¿Está seguro de eliminar este detalle de nota de venta?", "Eliminar detalle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        DataGridViewRow row = siticoneDataGridView2.Rows[e.RowIndex];
+                        if (row.Cells[0].Value.ToString().Equals("Humita"))
+                        {
+                            siticoneNumericUpDown2.Value = 0;
+                        }
+                        else if (row.Cells[0].Value.ToString().Equals("Tamal"))
+                        {
+                            siticoneNumericUpDown1.Value = 0;
+                        }
+                        else if (row.Cells[0].Value.ToString().Equals("Quimbolito"))
+                        {
+                            siticoneNumericUpDown3.Value = 0;
+                        }
+                        else if (row.Cells[0].Value.ToString().Equals("Café"))
+                        {
+                            siticoneNumericUpDown4.Value = 0;
+                        }
+                        else if (row.Cells[0].Value.ToString().Equals("Chocolate"))
+                        {
+                            siticoneNumericUpDown5.Value = 0;
+                        }
+                        else if (row.Cells[0].Value.ToString().Equals("Morocho"))
+                        {
+                            siticoneNumericUpDown6.Value = 0;
+                        }
+                        siticoneDataGridView2.Rows.RemoveAt(e.RowIndex);
+                        setTotal(siticoneDataGridView2);
+                    }
+                }
+            }
+        }
+
+        private void siticoneNumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            if(siticoneNumericUpDown1.Value > 0)
+            {
+                siticoneButton1.Enabled = true;
+            }
+            else
+            {
+                siticoneButton1.Enabled = false;
+            }
+        }
+
+        private void siticoneNumericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            if (siticoneNumericUpDown2.Value > 0)
+            {
+                siticoneButton2.Enabled = true;
+            }
+            else
+            {
+                siticoneButton2.Enabled = false;
+            }
+        }
+
+        private void siticoneNumericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            if (siticoneNumericUpDown3.Value > 0)
+            {
+                siticoneButton3.Enabled = true;
+            }
+            else
+            {
+                siticoneButton3.Enabled = false;
+            }
+        }
+
+        private void siticoneNumericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+            if (siticoneNumericUpDown4.Value > 0)
+            {
+                siticoneButton5.Enabled = true;
+            }
+            else
+            {
+                siticoneButton5.Enabled = false;
+            }
+        }
+
+        private void siticoneNumericUpDown5_ValueChanged(object sender, EventArgs e)
+        {
+            if (siticoneNumericUpDown5.Value > 0)
+            {
+                siticoneButton6.Enabled = true;
+            }
+            else
+            {
+                siticoneButton6.Enabled = false;
+            }
+        }
+
+        private void siticoneNumericUpDown6_ValueChanged(object sender, EventArgs e)
+        {
+            if (siticoneNumericUpDown6.Value > 0)
+            {
+                siticoneButton7.Enabled = true;
+            }
+            else
+            {
+                siticoneButton7.Enabled = false;
+            }
         }
     }
 }

@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Ventas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -68,6 +69,7 @@
             this.CC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EliminarDetalle = new System.Windows.Forms.DataGridViewImageColumn();
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton4 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.Editar = new System.Windows.Forms.TabPage();
@@ -226,6 +228,7 @@
             this.siticoneNumericUpDown6.TabIndex = 32;
             this.siticoneNumericUpDown6.UpDownButtonFillColor = System.Drawing.Color.Black;
             this.siticoneNumericUpDown6.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.siticoneNumericUpDown6.ValueChanged += new System.EventHandler(this.siticoneNumericUpDown6_ValueChanged);
             // 
             // siticonePictureBox6
             // 
@@ -277,7 +280,7 @@
             this.siticoneNumericUpDown5.Size = new System.Drawing.Size(56, 36);
             this.siticoneNumericUpDown5.TabIndex = 28;
             this.siticoneNumericUpDown5.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown5.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.siticoneNumericUpDown5.ValueChanged += new System.EventHandler(this.siticoneNumericUpDown5_ValueChanged);
             // 
             // siticonePictureBox5
             // 
@@ -329,7 +332,7 @@
             this.siticoneNumericUpDown4.Size = new System.Drawing.Size(56, 36);
             this.siticoneNumericUpDown4.TabIndex = 24;
             this.siticoneNumericUpDown4.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown4.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.siticoneNumericUpDown4.ValueChanged += new System.EventHandler(this.siticoneNumericUpDown4_ValueChanged);
             // 
             // siticonePictureBox4
             // 
@@ -380,7 +383,7 @@
             this.siticoneNumericUpDown3.Size = new System.Drawing.Size(56, 36);
             this.siticoneNumericUpDown3.TabIndex = 20;
             this.siticoneNumericUpDown3.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown3.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.siticoneNumericUpDown3.ValueChanged += new System.EventHandler(this.siticoneNumericUpDown3_ValueChanged);
             // 
             // siticonePictureBox3
             // 
@@ -431,7 +434,7 @@
             this.siticoneNumericUpDown2.Size = new System.Drawing.Size(56, 36);
             this.siticoneNumericUpDown2.TabIndex = 16;
             this.siticoneNumericUpDown2.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown2.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.siticoneNumericUpDown2.ValueChanged += new System.EventHandler(this.siticoneNumericUpDown2_ValueChanged);
             // 
             // siticonePictureBox2
             // 
@@ -482,7 +485,7 @@
             this.siticoneNumericUpDown1.Size = new System.Drawing.Size(56, 36);
             this.siticoneNumericUpDown1.TabIndex = 12;
             this.siticoneNumericUpDown1.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.siticoneNumericUpDown1.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.siticoneNumericUpDown1.ValueChanged += new System.EventHandler(this.siticoneNumericUpDown1_ValueChanged);
             // 
             // siticonePictureBox1
             // 
@@ -563,7 +566,8 @@
             this.siticoneDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CC,
             this.Contras,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn3,
+            this.EliminarDetalle});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -577,7 +581,8 @@
             this.siticoneDataGridView2.Name = "siticoneDataGridView2";
             this.siticoneDataGridView2.RowHeadersVisible = false;
             this.siticoneDataGridView2.RowHeadersWidth = 51;
-            this.siticoneDataGridView2.RowTemplate.Height = 25;
+            this.siticoneDataGridView2.RowTemplate.DividerHeight = 15;
+            this.siticoneDataGridView2.RowTemplate.Height = 50;
             this.siticoneDataGridView2.Size = new System.Drawing.Size(391, 309);
             this.siticoneDataGridView2.TabIndex = 55;
             this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -598,9 +603,10 @@
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView2.ThemeStyle.RowsStyle.Height = 25;
+            this.siticoneDataGridView2.ThemeStyle.RowsStyle.Height = 50;
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.siticoneDataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.siticoneDataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.siticoneDataGridView2_CellClick);
             // 
             // CC
             // 
@@ -619,6 +625,13 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Subtotal";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // EliminarDetalle
+            // 
+            this.EliminarDetalle.HeaderText = "";
+            this.EliminarDetalle.Image = ((System.Drawing.Image)(resources.GetObject("EliminarDetalle.Image")));
+            this.EliminarDetalle.MinimumWidth = 6;
+            this.EliminarDetalle.Name = "EliminarDetalle";
             // 
             // siticoneHtmlLabel4
             // 
@@ -989,9 +1002,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown siticoneNumericUpDown1;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView2;
-        private DataGridViewTextBoxColumn CC;
-        private DataGridViewTextBoxColumn Contras;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel11;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;
         private DataGridViewTextBoxColumn CodNV;
@@ -1002,5 +1012,9 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn FechaDeVenta;
+        private DataGridViewTextBoxColumn CC;
+        private DataGridViewTextBoxColumn Contras;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewImageColumn EliminarDetalle;
     }
 }

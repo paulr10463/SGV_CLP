@@ -39,10 +39,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             foreach (DataGridViewRow rowItem in siticoneDataGridView.Rows)
             {
                 DataGridViewRow row = (DataGridViewRow)rowItem.Clone();
-                row.Cells[0].Value = rowItem.Cells[0].Value;
-                row.Cells[1].Value = rowItem.Cells[1].Value;
-                row.Cells[2].Value = rowItem.Cells[2].Value;
-                siticoneDataGridView1.Rows.Add(row);
+                siticoneDataGridView1.Rows.Add(rowItem.Cells[0].Value, rowItem.Cells[1].Value, rowItem.Cells[2].Value);
             }
             setTotal(siticoneDataGridView1);
             listaDeSugerenciasdeAutompletacion = new AutoCompleteStringCollection();
@@ -88,7 +85,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             UC_Ventas.numeroFactura++;
 
             SystemSounds.Beep.Play();
-            MessageBox.Show("Venta finalizada con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Venta finalizada con éxito", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MainMenu.uC_Ventas1.resetValues();
 
             this.Dispose();
@@ -460,7 +457,15 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter) && txtRecibidoVenta.Text != null)
             {
-                txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text) - Convert.ToDouble(txtTotalVenta.Text)).ToString();
+                if (Convert.ToDouble(txtRecibidoVenta.Text) > Convert.ToDouble(txtTotalVenta.Text))
+                {
+                    txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text) - Convert.ToDouble(txtTotalVenta.Text)).ToString();
+                }
+                else
+                {
+                    txtRecibidoVenta.Text = "";
+                    MessageBox.Show("El valor recibido debe ser mayor al total de la venta!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }else if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != Convert.ToChar(Keys.Back))
             {
                 e.Handled = true;
