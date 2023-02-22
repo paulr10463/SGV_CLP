@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Modulo_Ventas;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
 using System;
@@ -15,16 +16,10 @@ using System.Windows.Forms;
 
 namespace SGV_CLP.GUI.Módulo_Ventas
 {
-    
     public partial class Checkout : Form
     {
-        NotaVenta notaVenta;
+        AutoCompleteStringCollection listaDeSugerenciasdeAutompletacion;
 
-        Cliente cliente = new Cliente("1725651518", "Paul", "Alexander", "Román", "Quimbiulco", "La kennedy", "0983472881", "paulroman3d@gmail.com");
-        Cliente cliente1 = new Cliente("1825651521", "Ernesto", "Alexander", "Perez", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com");
-        Cliente cliente2 = new Cliente("1715651521", "Maria", "Alexander", "Uribe", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com");
-        Cliente clienteVacio = new Cliente("0", "", "", "", "", "", "", "");
-        
         int limit_cc_length = 10;
         int max_nombre_length = 50, max_apell_length = 50;
         int limit_nombre_length = 50, limit_apellido_length = 50,
@@ -38,9 +33,8 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         int num_atributos = 8;
         int count_correct_fields = 0;
 
-        public Checkout(SiticoneDataGridView siticoneDataGridView, ref NotaVenta notaDeVenta)
+        public Checkout(SiticoneDataGridView siticoneDataGridView)
         {
-            this.notaVenta = notaDeVenta;
             InitializeComponent();
             foreach (DataGridViewRow rowItem in siticoneDataGridView.Rows)
             {
@@ -51,13 +45,10 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 siticoneDataGridView1.Rows.Add(row);
             }
             setTotal(siticoneDataGridView1);
-            AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+            listaDeSugerenciasdeAutompletacion = new AutoCompleteStringCollection();
+            actulizarListadeSugerenciasdeAutocompletacion();
 
-
-            lista.Add(cliente.Cc_Cliente);
-            lista.Add(cliente1.Cc_Cliente);
-            lista.Add(cliente2.Cc_Cliente);
-            txtCC_ClienteVenta.AutoCompleteCustomSource = lista;
+            txtCC_ClienteVenta.AutoCompleteCustomSource = listaDeSugerenciasdeAutompletacion;
 
             txtCC_ClienteVenta.MaxLength = limit_cc_length;
             txtNombre1Venta.MaxLength = max_nombre_length;
@@ -80,20 +71,26 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         }
 
+        private void actulizarListadeSugerenciasdeAutocompletacion()
+        {
+            foreach (Cliente cliente in UC_Ventas.clientes)
+            {
+                listaDeSugerenciasdeAutompletacion.Add(cliente.Cc_Cliente);
+            }
+        }
+
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            notaVenta = new NotaVenta(txtCC_ClienteVenta.Text, Convert.ToDouble(txtTotalVenta.Text), DateTime.Now);
-            foreach (DataGridViewRow fila in siticoneDataGridView1.Rows)
-            {
-                DetalleNotaVenta dnv = new DetalleNotaVenta(
-                    fila.Cells[0].Value.ToString(),
-                    Convert.ToInt32(fila.Cells[1].Value),
-                    Convert.ToDouble(fila.Cells[2].Value)
-                    );
-                notaVenta.detalles.Add(dnv);
-            }
+            Cliente clienteFinal = new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
+            DateTime now = DateTime.Now;
+            TotalVenta tv = new TotalVenta(clienteFinal,"NV"+UC_Ventas.numeroFactura, "Efectivo",Convert.ToDouble(txtTotalVenta.Text), now.ToShortDateString());
+            UC_Ventas.notasVenta.Add(tv);
+            UC_Ventas.numeroFactura++;
+
             SystemSounds.Beep.Play();
-            MessageBox.Show("Compra finalizada con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Venta finalizada con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainMenu.uC_Ventas1.resetValues();
+
             this.Dispose();
         }
 
@@ -116,7 +113,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 MessageBox.Show("Proveedor no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
+     
         private void siticoneButton4_Click(object sender, EventArgs e)
         {
             txtNombre2Venta.Enabled = true;
@@ -149,7 +146,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         private void siticoneButton3_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show("Cliente Registrado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             ButtonConfirmarVenta.Visible = false;
             txtNombre2Venta.Enabled = false;
             txtApellido1Venta.Enabled = false;
@@ -157,6 +153,11 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             txtApellido2Venta.Enabled = false;
             txtDireccionVenta.Enabled = false;
             txtTelefVenta.Enabled = false;
+            txtCorreoVenta.Enabled = false;
+            siticoneHtmlLabel_correct_length_telef.Visible= false;
+            siticoneHtmlLabel_correct_email.Visible= false;
+            UC_Ventas.clientes.Add(new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text));
+            actulizarListadeSugerenciasdeAutocompletacion();
         }
 
         private void txtCC_ClienteVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -438,26 +439,21 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             }
 
             validateFieldsCounter();
-
-            if (txtCC_ClienteVenta.Text.Equals("1725651518"))
+            bool clienteEncontrado=false;
+            foreach (Cliente cliente in UC_Ventas.clientes)
             {
-                loadCustomerFields(cliente);
+                if(cliente != null )
+                {
+                    if (cliente.Cc_Cliente.Equals(txtCC_ClienteVenta.Text))
+                    {
+                        loadCustomerFields(cliente);
+                        clienteEncontrado= true;
+                    }
+                }
             }
-            else
-            if (txtCC_ClienteVenta.Text.Equals("1825651521"))
-            {
-                loadCustomerFields(cliente1);
+            if ( !clienteEncontrado ) {
+                loadCustomerFields(new Cliente("0", "", "", "", "", "", "", ""));
             }
-            else
-            if (txtCC_ClienteVenta.Text.Equals("1715651521"))
-            {
-                loadCustomerFields(cliente2);
-            }
-            else
-            {
-                loadCustomerFields(clienteVacio);
-            }
-
         }
 
         private void txtRecibidoVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -551,6 +547,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             }
 
             txtTotalVenta.Text = total.ToString();
+
         }
 
 

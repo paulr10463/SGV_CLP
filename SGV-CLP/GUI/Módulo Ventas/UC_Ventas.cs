@@ -1,9 +1,9 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Modulo_Ventas;
 using SGV_CLP.GUI.Módulo_Ventas;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,36 +14,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SGV_CLP.GUI
 {
     public partial class UC_Ventas : UserControl
     {
+        public static int numeroFactura = 2;
+        
+        
         List<Producto> especialidades;
         List<Producto> bebidasCalientes;
-        List<NotaVenta> notasDeVenta;
-        NotaVenta notaDeVenta;
-
-        int limit_cc_length = 10;
-        bool control_cc = true;
-
-        int num_atributos = 8;
-        int count_correct_fields = 0;
-
+        public static List<Cliente> clientes = new List<Cliente>
+        {
+            new Cliente("1725656431", "Paul", "Alexander", "Román", "Quimbiulco", "La kennedy", "0983472881", "paulroman3d@gmail.com"),
+            new Cliente("1714818299", "Ernesto", "Alexander", "Perez", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com"),
+            new Cliente("1713627071", "Maria", "Alexander", "Uribe", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com"),
+        };
+        public static List<TotalVenta> notasVenta = new List<TotalVenta>()
+        {
+             new TotalVenta(clientes[0], "NV1", "Efectivo", 20.25, "12/02/2022")
+        };   
+       
         public UC_Ventas()
         {
             InitializeComponent();
-            SBRealizarPago.Enabled = false;
+            especialidades = new List<Producto>
+            {
+                new Producto("TAM", "Tamal", 0.5, 1.25, "Especialidades", 0, null),
+                new Producto("HUM", "Humita", 0.5, 1.5, "Especialidades", 0, null),
+                new Producto("QUIM", "Quimbolito", 0.5, 1, "Especialidades", 0, null)
 
-            txtCC_ClienteVenta.MaxLength = limit_cc_length;
+            };
 
-            siticoneHtmlLabel_cc_valida.Hide();
-            siticoneHtmlLabel_cc_correct_length.Hide();
-
-            especialidades = new List<Producto>();
-            especialidades.Add(new Producto("TAM", "Tamal", 0.5, 1.25, "Especialidades", 0, null));
-            especialidades.Add(new Producto("HUM", "Humita", 0.5, 1.5, "Especialidades", 0, null));
-            especialidades.Add(new Producto("QUIM", "Quimbolito", 0.5, 1, "Especialidades", 0, null));
             /*
             especialidades.Add(new Producto("Tamal", "Tamal"));
             especialidades.Add(new Producto("Humita", "Humita"));
@@ -51,48 +54,18 @@ namespace SGV_CLP.GUI
             especialidades.Add(new Producto("Humita Frita", "HumitaFrita"));
             */
 
-            bebidasCalientes = new List<Producto>();
-            bebidasCalientes.Add(new Producto("CAFE", "Café", 0.5, 0.75, "Bebidas", 0, null));
-            bebidasCalientes.Add(new Producto("CHOC", "Chocolate", 0.5, 1.25, "Bebidas", 0, null));
-            bebidasCalientes.Add(new Producto("MORO", "Morocho", 0.5, 1, "Bebidas", 0, null));
+            bebidasCalientes = new List<Producto>()
+            {
+                new Producto("CAFE", "Café", 0.5, 0.75, "Bebidas", 0, null),
+                new Producto("CHOC", "Chocolate", 0.5, 1.25, "Bebidas", 0, null),
+                new Producto("MORO", "Morocho", 0.5, 1, "Bebidas", 0, null)
 
-
-
-            Cliente cliente = new Cliente("1725651518", "Paul", "Alexander", "Román", "Quimbiulco", "La kennedy", "0983472881", "paulroman3d@gmail.com");
-            Cliente cliente1 = new Cliente("1825651521", "Ernesto", "Alexander", "Perez", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com");
-            Cliente cliente2 = new Cliente("1715651521", "Maria", "Alexander", "Uribe", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com");
-            Cliente clienteVacio = new Cliente("0", "", "", "", "", "", "", "");
-
-            AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-            lista.Add(cliente.Cc_Cliente);
-            lista.Add(cliente1.Cc_Cliente);
-            lista.Add(cliente2.Cc_Cliente);
-            txtCC_ClienteVenta.AutoCompleteCustomSource = lista;
-            
-            notasDeVenta = new List<NotaVenta>();
+            };
         }
 
-        public void llenarTablaVentas()
+        private void siticoneButton4_Click(object sender, EventArgs e)
         {
-            if (notasDeVenta != null)
-            {
-                siticoneDataGridView1.Rows.Clear();
-                foreach (NotaVenta notaVenta in notasDeVenta)
-                {
-                    // dgvClientes
-                    siticoneDataGridView1.Rows.Add(notaVenta.Cc_Cliente, notaVenta.Total_Venta, notaVenta.Fecha);
-                }
-            }
-        }
-
-        private void SBRealizarPago_Click(object sender, EventArgs e)
-        {
-            if (notaDeVenta != null)
-            {
-                notasDeVenta.Add(notaDeVenta);
-            }
-
-            Checkout ventana = new Checkout(siticoneDataGridView2, ref notaDeVenta);
+            Checkout ventana = new Checkout(siticoneDataGridView2);
             ventana.ShowDialog();
         }
 
@@ -126,6 +99,17 @@ namespace SGV_CLP.GUI
             addRowInTable(siticoneNumericUpDown6, bebidasCalientes[2]);
         }
 
+        public void resetValues()
+        {
+            siticoneNumericUpDown1.Value= 0;
+            siticoneNumericUpDown2.Value = 0;
+            siticoneNumericUpDown3.Value = 0;
+            siticoneNumericUpDown4.Value = 0;
+            siticoneNumericUpDown5.Value = 0;
+            siticoneNumericUpDown6.Value = 0;
+            siticoneDataGridView2.Rows.Clear();
+            siticoneHtmlLabel11.Visible = false;
+        }
         public void addRowInTable(SiticoneNumericUpDown cantidad, Producto producto)
         {
             bool flag = false;
@@ -154,6 +138,7 @@ namespace SGV_CLP.GUI
                 row.Cells[2].Value = producto.PVP * (int)cantidad.Value;
                 siticoneDataGridView2.Rows.Add(row);
             }
+            siticoneHtmlLabel11.Visible = true;
             setTotal(siticoneDataGridView2);
 
         }
@@ -173,7 +158,7 @@ namespace SGV_CLP.GUI
                 }
             }
 
-            siticoneHtmlLabel11.Text = "Total:      $" + total.ToString();
+            siticoneHtmlLabel11.Text = "Total:      $"+ total.ToString();
 
         }
 
@@ -183,11 +168,11 @@ namespace SGV_CLP.GUI
             switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
                 case 0:
-                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
                         SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Ingrese únicamente letras y números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                     break;
@@ -233,10 +218,13 @@ namespace SGV_CLP.GUI
             }
         }
 
-
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtConsultarVenta.Text = System.String.Empty;
+            if (ComboBox_ConsultarVentaPor.SelectedIndex != -1)
+            {
+                siticoneHtmlLabel_buscarCliente_sin_campo.Hide();
+            }
         }
 
         private void siticoneHtmlLabel9_Click(object sender, EventArgs e)
@@ -254,149 +242,112 @@ namespace SGV_CLP.GUI
 
         }
 
-        private void txtCC_ClienteVenta_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtConsultarVenta_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-                SystemSounds.Beep.Play();
-                MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+
         }
-
-        private void validateFieldsCounter()
+        private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SBRealizarPago.Enabled = count_correct_fields >= num_atributos && ValidarCedula(txtCC_ClienteVenta.Text);
-        }
-
-        private void txtCC_ClienteVenta_TextChanged(object sender, EventArgs e)
-        {
-            // comprueba que la cc == 10 y muesta mensaje de correcto
-            if (txtCC_ClienteVenta.Text.Length == limit_cc_length && control_cc)
+            bool flag = false;
+            List<string> codFacturaList =new List<string>();
+            foreach (DataGridViewRow rowItem in siticoneDataGridView1.Rows)
             {
-                control_cc = false;
-                count_correct_fields++;
-                siticoneHtmlLabel_cc_wrong_length.Hide();
-                
-                siticoneHtmlLabel_cc_correct_length.Show();
-            }
-            else if (txtCC_ClienteVenta.Text.Length < limit_cc_length && !control_cc)
-            {
-                // Borro 1 char de la cc teniendo ya completos los 10 previamente
-                control_cc = true;
-                count_correct_fields--;
-                siticoneHtmlLabel_cc_invalida.Show();
-                siticoneHtmlLabel_cc_wrong_length.Show();
-
-                siticoneHtmlLabel_cc_correct_length.Hide();
-                siticoneHtmlLabel_cc_valida.Hide();
-            }
-
-            validateFieldsCounter();
-
-            /*if (txtCC_ClienteVenta.Text.Equals("1725651518"))
-            {
-                loadCustomerFields(cliente);
-            }
-            else
-            if (txtCC_ClienteVenta.Text.Equals("1825651521"))
-            {
-                loadCustomerFields(cliente1);
-            }
-            else
-            if (txtCC_ClienteVenta.Text.Equals("1715651521"))
-            {
-                loadCustomerFields(cliente2);
-            }
-            else
-            {
-                loadCustomerFields(clienteVacio);
-            }*/
-        }
-
-        public void controlCedula()
-        {
-            if (ValidarCedula(txtCC_ClienteVenta.Text))
-            {
-                siticoneHtmlLabel_cc_invalida.Hide();
-                siticoneHtmlLabel_cc_valida.Show();
-            }
-            validateFieldsCounter();
-        }
-
-        private void txtCC_ClienteVenta_KeyUp(object sender, KeyEventArgs e)
-        {
-            controlCedula();
-
-            if (ValidarCedula(txtCC_ClienteVenta.Text) && txtCC_ClienteVenta.Text.Length == limit_cc_length)
-            {
-                SBRealizarPago.Enabled = true;
-            }
-            else
-            {
-                SBRealizarPago.Enabled = false;
-            }
-        }
-
-        public static bool ValidarCedula(string cedula)
-        {
-            // Verificar que la cédula tenga 10 dígitos
-            if (cedula.Length != 10)
-            {
-                return false;
-            }
-
-            int tercerDigito = int.Parse(cedula[2].ToString());
-
-            // Verificar que el tercer dígito sea entre 0 y 5
-            if (tercerDigito < 0 || tercerDigito > 5)
-            {
-                return false;
-            }
-
-            // Verificar el último dígito de la cédula
-            int ultimoDigito = int.Parse(cedula[9].ToString());
-
-            int suma = 0;
-
-            for (int i = 0; i < 9; i++)
-            {
-                int digito = int.Parse(cedula[i].ToString());
-
-                if (i % 2 == 0)
+                if (rowItem.Cells[0].Value != null)
                 {
-                    digito *= 2;
-
-                    if (digito > 9)
-                    {
-                        digito -= 9;
-                    }
+                    codFacturaList.Add((string)rowItem.Cells[0].Value);
                 }
 
-                suma += digito;
             }
 
-            int digitoVerificador = 10 - (suma % 10);
 
-            if (digitoVerificador == 10)
+            foreach (TotalVenta totalVenta in notasVenta)
             {
-                digitoVerificador = 0;
+                if (!codFacturaList.Contains(totalVenta.codFactura))
+                {
+                    DataGridViewRow row = (DataGridViewRow)siticoneDataGridView1.Rows[0].Clone();
+                    row.Cells[0].Value = totalVenta.codFactura;
+                    row.Cells[1].Value = totalVenta.cliente.Cc_Cliente;
+                    row.Cells[2].Value = totalVenta.cliente.Primer_Nombre;
+                    row.Cells[3].Value = totalVenta.cliente.Primer_Apellido;
+                    row.Cells[4].Value = totalVenta.cliente.Telefono;
+                    row.Cells[5].Value = totalVenta.formaPago;
+                    row.Cells[6].Value = totalVenta.precioFinal;
+                    row.Cells[7].Value = totalVenta.fechaVenta;
+                    siticoneDataGridView1.Rows.Add(row);
+                }
+                
             }
-
-            return ultimoDigito == digitoVerificador;
         }
 
-        /*private void loadCustomerFields(Cliente cliente)
+        private void siticoneTabControl1_TabIndexChanged(object sender, EventArgs e)
         {
-            txtNombre1Venta.Text = cliente.Primer_Nombre;
-            txtNombre2Venta.Text = cliente.Segundo_Nombre;
-            txtApellido1Venta.Text = cliente.Primer_Apellido;
-            txtApellido2Venta.Text = cliente.Segundo_Apellido;
-            txtDireccionVenta.Text = cliente.Direccion_Domicilio;
-            txtTelefVenta.Text = cliente.Telefono;
-            txtCorreoVenta.Text = cliente.Correo_Electronico;
 
-        }*/
+        }
+
+        private void txtConsultarVenta_KeyUp(object sender, KeyEventArgs e)
+        {
+            string filtro = txtConsultarVenta.Text;
+
+            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
+            {
+                case 0:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[0].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 1:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[7].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[7].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 2:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[1].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[1].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 3:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[2].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[2].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 4:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[4].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[4].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+            }
+
+
+        }
     }
 }
