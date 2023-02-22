@@ -26,7 +26,7 @@
         /// Método necesario para admitir el Diseñador. No se puede modificar
         /// el contenido de este método con el editor de código.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -71,6 +71,7 @@
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton4 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.Editar = new System.Windows.Forms.TabPage();
+            this.siticoneHtmlLabel_buscarCliente_sin_campo = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -540,9 +541,9 @@
             this.siticoneGradientPanel1.Controls.Add(this.siticoneHtmlLabel4);
             this.siticoneGradientPanel1.Controls.Add(this.siticoneButton4);
             this.siticoneGradientPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.siticoneGradientPanel1.Location = new System.Drawing.Point(711, 4);
+            this.siticoneGradientPanel1.Location = new System.Drawing.Point(658, 4);
             this.siticoneGradientPanel1.Name = "siticoneGradientPanel1";
-            this.siticoneGradientPanel1.Size = new System.Drawing.Size(318, 704);
+            this.siticoneGradientPanel1.Size = new System.Drawing.Size(371, 704);
             this.siticoneGradientPanel1.TabIndex = 5;
             // 
             // siticoneHtmlLabel11
@@ -550,7 +551,7 @@
             this.siticoneHtmlLabel11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel11.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel11.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel11.Location = new System.Drawing.Point(105, 461);
+            this.siticoneHtmlLabel11.Location = new System.Drawing.Point(131, 461);
             this.siticoneHtmlLabel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siticoneHtmlLabel11.MinimumSize = new System.Drawing.Size(131, 30);
             this.siticoneHtmlLabel11.Name = "siticoneHtmlLabel11";
@@ -586,13 +587,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.siticoneDataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             this.siticoneDataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView2.Location = new System.Drawing.Point(15, 53);
+            this.siticoneDataGridView2.Location = new System.Drawing.Point(16, 53);
             this.siticoneDataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siticoneDataGridView2.Name = "siticoneDataGridView2";
             this.siticoneDataGridView2.RowHeadersVisible = false;
             this.siticoneDataGridView2.RowHeadersWidth = 51;
             this.siticoneDataGridView2.RowTemplate.Height = 25;
-            this.siticoneDataGridView2.Size = new System.Drawing.Size(290, 232);
+            this.siticoneDataGridView2.Size = new System.Drawing.Size(342, 232);
             this.siticoneDataGridView2.TabIndex = 55;
             this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.siticoneDataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -638,7 +639,7 @@
             // 
             this.siticoneHtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(15, 16);
+            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(41, 16);
             this.siticoneHtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
             this.siticoneHtmlLabel4.Size = new System.Drawing.Size(87, 17);
@@ -656,7 +657,7 @@
             this.siticoneButton4.FillColor = System.Drawing.Color.Black;
             this.siticoneButton4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneButton4.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton4.Location = new System.Drawing.Point(85, 525);
+            this.siticoneButton4.Location = new System.Drawing.Point(111, 525);
             this.siticoneButton4.Name = "siticoneButton4";
             this.siticoneButton4.Size = new System.Drawing.Size(172, 40);
             this.siticoneButton4.TabIndex = 4;
@@ -665,6 +666,7 @@
             // 
             // Editar
             // 
+            this.Editar.Controls.Add(this.siticoneHtmlLabel_buscarCliente_sin_campo);
             this.Editar.Controls.Add(this.siticoneDataGridView1);
             this.Editar.Controls.Add(this.ComboBox_ConsultarVentaPor);
             this.Editar.Controls.Add(this.txtConsultarVenta);
@@ -676,6 +678,17 @@
             this.Editar.TabIndex = 1;
             this.Editar.Text = "Consultar Venta";
             this.Editar.UseVisualStyleBackColor = true;
+            // 
+            // siticoneHtmlLabel_buscarCliente_sin_campo
+            // 
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.ForeColor = System.Drawing.Color.Red;
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.Location = new System.Drawing.Point(220, 81);
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.Name = "siticoneHtmlLabel_buscarCliente_sin_campo";
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.Size = new System.Drawing.Size(122, 17);
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.TabIndex = 24;
+            this.siticoneHtmlLabel_buscarCliente_sin_campo.Text = "¡Seleccione un campo!";
             // 
             // siticoneDataGridView1
             // 
@@ -937,6 +950,7 @@
             this.siticoneGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView2)).EndInit();
             this.Editar.ResumeLayout(false);
+            this.Editar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1003,5 +1017,6 @@
         private DataGridViewTextBoxColumn Contras;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel11;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;
     }
 }

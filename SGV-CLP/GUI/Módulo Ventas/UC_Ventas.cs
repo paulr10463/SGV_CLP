@@ -20,14 +20,18 @@ namespace SGV_CLP.GUI
     {
         List<Producto> especialidades;
         List<Producto> bebidasCalientes;
+        public static int reset = 0;
         public UC_Ventas()
         {
             InitializeComponent();
+            especialidades = new List<Producto>
+            {
+                new Producto("TAM", "Tamal", 0.5, 1.25, "Especialidades", 0, null),
+                new Producto("HUM", "Humita", 0.5, 1.5, "Especialidades", 0, null),
+                new Producto("QUIM", "Quimbolito", 0.5, 1, "Especialidades", 0, null)
 
-            especialidades = new List<Producto>();
-            especialidades.Add(new Producto("TAM", "Tamal", 0.5, 1.25, "Especialidades", 0, null));
-            especialidades.Add(new Producto("HUM", "Humita", 0.5, 1.5, "Especialidades", 0, null));
-            especialidades.Add(new Producto("QUIM", "Quimbolito", 0.5, 1, "Especialidades", 0, null));
+            };
+
             /*
             especialidades.Add(new Producto("Tamal", "Tamal"));
             especialidades.Add(new Producto("Humita", "Humita"));
@@ -35,13 +39,13 @@ namespace SGV_CLP.GUI
             especialidades.Add(new Producto("Humita Frita", "HumitaFrita"));
             */
 
-            bebidasCalientes = new List<Producto>();
-            bebidasCalientes.Add(new Producto("CAFE", "Café", 0.5, 0.75, "Bebidas", 0, null));
-            bebidasCalientes.Add(new Producto("CHOC", "Chocolate", 0.5, 1.25, "Bebidas", 0, null));
-            bebidasCalientes.Add(new Producto("MORO", "Morocho", 0.5, 1, "Bebidas", 0, null));
+            bebidasCalientes = new List<Producto>()
+            {
+                new Producto("CAFE", "Café", 0.5, 0.75, "Bebidas", 0, null),
+                new Producto("CHOC", "Chocolate", 0.5, 1.25, "Bebidas", 0, null),
+                new Producto("MORO", "Morocho", 0.5, 1, "Bebidas", 0, null)
 
-
-
+            };
         }
 
         private void siticoneButton4_Click(object sender, EventArgs e)
@@ -80,6 +84,17 @@ namespace SGV_CLP.GUI
             addRowInTable(siticoneNumericUpDown6, bebidasCalientes[2]);
         }
 
+        public void resetValues()
+        {
+            siticoneNumericUpDown1.Value= 0;
+            siticoneNumericUpDown2.Value = 0;
+            siticoneNumericUpDown3.Value = 0;
+            siticoneNumericUpDown4.Value = 0;
+            siticoneNumericUpDown5.Value = 0;
+            siticoneNumericUpDown6.Value = 0;
+            siticoneDataGridView2.Rows.Clear();
+            siticoneHtmlLabel11.Visible = false;
+        }
         public void addRowInTable(SiticoneNumericUpDown cantidad, Producto producto)
         {
             bool flag = false;
@@ -108,6 +123,7 @@ namespace SGV_CLP.GUI
                 row.Cells[2].Value = producto.PVP * (int)cantidad.Value;
                 siticoneDataGridView2.Rows.Add(row);
             }
+            siticoneHtmlLabel11.Visible = true;
             setTotal(siticoneDataGridView2);
 
         }
@@ -190,6 +206,10 @@ namespace SGV_CLP.GUI
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtConsultarVenta.Text = System.String.Empty;
+            if (ComboBox_ConsultarVentaPor.SelectedIndex != -1)
+            {
+                siticoneHtmlLabel_buscarCliente_sin_campo.Hide();
+            }
         }
 
         private void siticoneHtmlLabel9_Click(object sender, EventArgs e)
