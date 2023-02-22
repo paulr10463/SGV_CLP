@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SGV_CLP.GUI
 {
@@ -167,11 +168,11 @@ namespace SGV_CLP.GUI
             switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
                 case 0:
-                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
                         SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Ingrese únicamente letras y números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                     break;
@@ -244,7 +245,6 @@ namespace SGV_CLP.GUI
         private void txtConsultarVenta_TextChanged(object sender, EventArgs e)
         {
 
-
         }
         private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -281,6 +281,72 @@ namespace SGV_CLP.GUI
 
         private void siticoneTabControl1_TabIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void txtConsultarVenta_KeyUp(object sender, KeyEventArgs e)
+        {
+            string filtro = txtConsultarVenta.Text;
+
+            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
+            {
+                case 0:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[0].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 1:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[7].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[7].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 2:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[1].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[1].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 3:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[2].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[2].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+                case 4:
+                    // Filtrar los datos del DataGridView
+                    foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
+                    {
+                        if (row.Cells[4].Value != null)
+                        {
+                            // Ocultar las filas que no cumplan con el filtro
+                            row.Visible = row.Cells[4].Value.ToString().Contains(filtro);
+                        }
+                    }
+                    break;
+            }
+
 
         }
     }
