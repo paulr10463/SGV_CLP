@@ -33,10 +33,10 @@ namespace SGV_CLP.GUI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Productos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Productos));
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.Añadir = new System.Windows.Forms.TabPage();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -58,6 +58,14 @@ namespace SGV_CLP.GUI
             this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.SDGVProducto = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.ColumnaCódigoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaPVP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaCantidadProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaEditarProducto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnaEliminarProducto = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.siticoneGroupBox1 = new Siticone.Desktop.UI.WinForms.SiticoneGroupBox();
             this.SRBFechaActual = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
@@ -71,22 +79,14 @@ namespace SGV_CLP.GUI
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             this.SDGVLote = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
-            this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.ColumnaCodLote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaCodProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColunmaCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaFechayHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnaEditarLote = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColumnaEliminarLote = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnaCódigoProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaPVP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaCantidadProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnaEditarProducto = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ColumnaEliminarProducto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneTabControl1.SuspendLayout();
             this.Añadir.SuspendLayout();
             this.Editar.SuspendLayout();
@@ -135,6 +135,7 @@ namespace SGV_CLP.GUI
             // 
             // Añadir
             // 
+            this.Añadir.BackColor = System.Drawing.Color.White;
             this.Añadir.Controls.Add(this.siticoneHtmlLabel1);
             this.Añadir.Controls.Add(this.txtIDProd);
             this.Añadir.Controls.Add(this.siticoneButton3);
@@ -157,7 +158,6 @@ namespace SGV_CLP.GUI
             this.Añadir.Size = new System.Drawing.Size(1281, 1012);
             this.Añadir.TabIndex = 0;
             this.Añadir.Text = "Registrar Producto";
-            this.Añadir.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel1
             // 
@@ -405,6 +405,7 @@ namespace SGV_CLP.GUI
             // 
             // Editar
             // 
+            this.Editar.BackColor = System.Drawing.Color.White;
             this.Editar.Controls.Add(this.siticoneComboBox6);
             this.Editar.Controls.Add(this.siticoneTextBox6);
             this.Editar.Controls.Add(this.siticonePanel1);
@@ -416,7 +417,6 @@ namespace SGV_CLP.GUI
             this.Editar.Size = new System.Drawing.Size(1281, 1012);
             this.Editar.TabIndex = 1;
             this.Editar.Text = "Editar/Eliminar Producto";
-            this.Editar.UseVisualStyleBackColor = true;
             // 
             // siticoneComboBox6
             // 
@@ -538,8 +538,85 @@ namespace SGV_CLP.GUI
             this.SDGVProducto.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.SDGVProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SDGVProducto_CellClick);
             // 
+            // ColumnaCódigoProd
+            // 
+            this.ColumnaCódigoProd.FillWeight = 75F;
+            this.ColumnaCódigoProd.HeaderText = "Código";
+            this.ColumnaCódigoProd.MinimumWidth = 6;
+            this.ColumnaCódigoProd.Name = "ColumnaCódigoProd";
+            this.ColumnaCódigoProd.ReadOnly = true;
+            this.ColumnaCódigoProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaNombreProd
+            // 
+            this.ColumnaNombreProd.FillWeight = 150F;
+            this.ColumnaNombreProd.HeaderText = "Nombre";
+            this.ColumnaNombreProd.MinimumWidth = 6;
+            this.ColumnaNombreProd.Name = "ColumnaNombreProd";
+            this.ColumnaNombreProd.ReadOnly = true;
+            this.ColumnaNombreProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaPE
+            // 
+            this.ColumnaPE.FillWeight = 50F;
+            this.ColumnaPE.HeaderText = "P.E";
+            this.ColumnaPE.MinimumWidth = 6;
+            this.ColumnaPE.Name = "ColumnaPE";
+            this.ColumnaPE.ReadOnly = true;
+            this.ColumnaPE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaPVP
+            // 
+            this.ColumnaPVP.FillWeight = 50F;
+            this.ColumnaPVP.HeaderText = "P.V.P";
+            this.ColumnaPVP.MinimumWidth = 6;
+            this.ColumnaPVP.Name = "ColumnaPVP";
+            this.ColumnaPVP.ReadOnly = true;
+            this.ColumnaPVP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaCategoria
+            // 
+            this.ColumnaCategoria.FillWeight = 150F;
+            this.ColumnaCategoria.HeaderText = "Categoría";
+            this.ColumnaCategoria.MinimumWidth = 6;
+            this.ColumnaCategoria.Name = "ColumnaCategoria";
+            this.ColumnaCategoria.ReadOnly = true;
+            this.ColumnaCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaCantidadProd
+            // 
+            this.ColumnaCantidadProd.FillWeight = 75F;
+            this.ColumnaCantidadProd.HeaderText = "Cantidad";
+            this.ColumnaCantidadProd.MinimumWidth = 6;
+            this.ColumnaCantidadProd.Name = "ColumnaCantidadProd";
+            this.ColumnaCantidadProd.ReadOnly = true;
+            this.ColumnaCantidadProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnaEditarProducto
+            // 
+            this.ColumnaEditarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnaEditarProducto.HeaderText = "";
+            this.ColumnaEditarProducto.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEditarProducto.Image")));
+            this.ColumnaEditarProducto.MinimumWidth = 6;
+            this.ColumnaEditarProducto.Name = "ColumnaEditarProducto";
+            this.ColumnaEditarProducto.ReadOnly = true;
+            this.ColumnaEditarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnaEditarProducto.Width = 182;
+            // 
+            // ColumnaEliminarProducto
+            // 
+            this.ColumnaEliminarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnaEliminarProducto.HeaderText = "";
+            this.ColumnaEliminarProducto.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEliminarProducto.Image")));
+            this.ColumnaEliminarProducto.MinimumWidth = 6;
+            this.ColumnaEliminarProducto.Name = "ColumnaEliminarProducto";
+            this.ColumnaEliminarProducto.ReadOnly = true;
+            this.ColumnaEliminarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnaEliminarProducto.Width = 182;
+            // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.siticoneGroupBox1);
             this.tabPage1.Controls.Add(this.SBAniadirLote);
             this.tabPage1.Controls.Add(this.SCBProductoLote);
@@ -552,7 +629,6 @@ namespace SGV_CLP.GUI
             this.tabPage1.Size = new System.Drawing.Size(1281, 1012);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Añadir Lote";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // siticoneGroupBox1
             // 
@@ -722,6 +798,7 @@ namespace SGV_CLP.GUI
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.siticoneGradientPanel1);
             this.tabPage2.Controls.Add(this.siticoneComboBox1);
             this.tabPage2.Controls.Add(this.siticoneTextBox1);
@@ -731,7 +808,6 @@ namespace SGV_CLP.GUI
             this.tabPage2.Size = new System.Drawing.Size(1281, 1012);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Editar/Eliminar Lote";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // siticoneGradientPanel1
             // 
@@ -807,48 +883,6 @@ namespace SGV_CLP.GUI
             this.SDGVLote.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.SDGVLote.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SDGVLote_CellClick);
             // 
-            // siticoneComboBox1
-            // 
-            this.siticoneComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox1.BorderRadius = 20;
-            this.siticoneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox1.ItemHeight = 40;
-            this.siticoneComboBox1.Items.AddRange(new object[] {
-            "Código lote",
-            "Código producto"});
-            this.siticoneComboBox1.Location = new System.Drawing.Point(642, 143);
-            this.siticoneComboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneComboBox1.Name = "siticoneComboBox1";
-            this.siticoneComboBox1.Size = new System.Drawing.Size(311, 46);
-            this.siticoneComboBox1.TabIndex = 24;
-            // 
-            // siticoneTextBox1
-            // 
-            this.siticoneTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneTextBox1.BorderRadius = 20;
-            this.siticoneTextBox1.DefaultText = "";
-            this.siticoneTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Location = new System.Drawing.Point(313, 143);
-            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.siticoneTextBox1.Name = "siticoneTextBox1";
-            this.siticoneTextBox1.PasswordChar = '\0';
-            this.siticoneTextBox1.PlaceholderText = "Buscar...";
-            this.siticoneTextBox1.SelectedText = "";
-            this.siticoneTextBox1.Size = new System.Drawing.Size(312, 61);
-            this.siticoneTextBox1.TabIndex = 23;
-            // 
             // ColumnaCodLote
             // 
             this.ColumnaCodLote.HeaderText = "Código lote";
@@ -899,81 +933,47 @@ namespace SGV_CLP.GUI
             this.ColumnaEliminarLote.ReadOnly = true;
             this.ColumnaEliminarLote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // ColumnaCódigoProd
+            // siticoneComboBox1
             // 
-            this.ColumnaCódigoProd.FillWeight = 75F;
-            this.ColumnaCódigoProd.HeaderText = "Código";
-            this.ColumnaCódigoProd.MinimumWidth = 6;
-            this.ColumnaCódigoProd.Name = "ColumnaCódigoProd";
-            this.ColumnaCódigoProd.ReadOnly = true;
-            this.ColumnaCódigoProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.siticoneComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneComboBox1.BorderRadius = 20;
+            this.siticoneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.siticoneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.siticoneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.siticoneComboBox1.ItemHeight = 40;
+            this.siticoneComboBox1.Items.AddRange(new object[] {
+            "Código lote",
+            "Código producto"});
+            this.siticoneComboBox1.Location = new System.Drawing.Point(642, 143);
+            this.siticoneComboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneComboBox1.Name = "siticoneComboBox1";
+            this.siticoneComboBox1.Size = new System.Drawing.Size(311, 46);
+            this.siticoneComboBox1.TabIndex = 24;
             // 
-            // ColumnaNombreProd
+            // siticoneTextBox1
             // 
-            this.ColumnaNombreProd.FillWeight = 150F;
-            this.ColumnaNombreProd.HeaderText = "Nombre";
-            this.ColumnaNombreProd.MinimumWidth = 6;
-            this.ColumnaNombreProd.Name = "ColumnaNombreProd";
-            this.ColumnaNombreProd.ReadOnly = true;
-            this.ColumnaNombreProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnaPE
-            // 
-            this.ColumnaPE.FillWeight = 50F;
-            this.ColumnaPE.HeaderText = "P.E";
-            this.ColumnaPE.MinimumWidth = 6;
-            this.ColumnaPE.Name = "ColumnaPE";
-            this.ColumnaPE.ReadOnly = true;
-            this.ColumnaPE.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnaPVP
-            // 
-            this.ColumnaPVP.FillWeight = 50F;
-            this.ColumnaPVP.HeaderText = "P.V.P";
-            this.ColumnaPVP.MinimumWidth = 6;
-            this.ColumnaPVP.Name = "ColumnaPVP";
-            this.ColumnaPVP.ReadOnly = true;
-            this.ColumnaPVP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnaCategoria
-            // 
-            this.ColumnaCategoria.FillWeight = 150F;
-            this.ColumnaCategoria.HeaderText = "Categoría";
-            this.ColumnaCategoria.MinimumWidth = 6;
-            this.ColumnaCategoria.Name = "ColumnaCategoria";
-            this.ColumnaCategoria.ReadOnly = true;
-            this.ColumnaCategoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnaCantidadProd
-            // 
-            this.ColumnaCantidadProd.FillWeight = 75F;
-            this.ColumnaCantidadProd.HeaderText = "Cantidad";
-            this.ColumnaCantidadProd.MinimumWidth = 6;
-            this.ColumnaCantidadProd.Name = "ColumnaCantidadProd";
-            this.ColumnaCantidadProd.ReadOnly = true;
-            this.ColumnaCantidadProd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnaEditarProducto
-            // 
-            this.ColumnaEditarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnaEditarProducto.HeaderText = "";
-            this.ColumnaEditarProducto.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEditarProducto.Image")));
-            this.ColumnaEditarProducto.MinimumWidth = 6;
-            this.ColumnaEditarProducto.Name = "ColumnaEditarProducto";
-            this.ColumnaEditarProducto.ReadOnly = true;
-            this.ColumnaEditarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnaEditarProducto.Width = 182;
-            // 
-            // ColumnaEliminarProducto
-            // 
-            this.ColumnaEliminarProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnaEliminarProducto.HeaderText = "";
-            this.ColumnaEliminarProducto.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEliminarProducto.Image")));
-            this.ColumnaEliminarProducto.MinimumWidth = 6;
-            this.ColumnaEliminarProducto.Name = "ColumnaEliminarProducto";
-            this.ColumnaEliminarProducto.ReadOnly = true;
-            this.ColumnaEliminarProducto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnaEliminarProducto.Width = 182;
+            this.siticoneTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneTextBox1.BorderRadius = 20;
+            this.siticoneTextBox1.DefaultText = "";
+            this.siticoneTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.siticoneTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.siticoneTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.siticoneTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneTextBox1.Location = new System.Drawing.Point(313, 143);
+            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.siticoneTextBox1.Name = "siticoneTextBox1";
+            this.siticoneTextBox1.PasswordChar = '\0';
+            this.siticoneTextBox1.PlaceholderText = "Buscar...";
+            this.siticoneTextBox1.SelectedText = "";
+            this.siticoneTextBox1.Size = new System.Drawing.Size(312, 61);
+            this.siticoneTextBox1.TabIndex = 23;
             // 
             // UC_Productos
             // 

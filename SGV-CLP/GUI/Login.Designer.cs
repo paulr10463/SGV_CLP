@@ -110,7 +110,7 @@
             this.siticoneGradientButton2.FillColor2 = System.Drawing.Color.Black;
             this.siticoneGradientButton2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneGradientButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneGradientButton2.Location = new System.Drawing.Point(362, 915);
+            this.siticoneGradientButton2.Location = new System.Drawing.Point(343, 862);
             this.siticoneGradientButton2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneGradientButton2.MaximumSize = new System.Drawing.Size(286, 93);
             this.siticoneGradientButton2.MinimumSize = new System.Drawing.Size(171, 80);
@@ -160,7 +160,7 @@
             this.siticoneGradientButton1.FillColor2 = System.Drawing.Color.Black;
             this.siticoneGradientButton1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneGradientButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneGradientButton1.Location = new System.Drawing.Point(119, 915);
+            this.siticoneGradientButton1.Location = new System.Drawing.Point(100, 862);
             this.siticoneGradientButton1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.siticoneGradientButton1.MaximumSize = new System.Drawing.Size(286, 93);
             this.siticoneGradientButton1.MinimumSize = new System.Drawing.Size(171, 80);
