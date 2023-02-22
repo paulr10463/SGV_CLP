@@ -53,7 +53,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             lista.Add(cliente.Cc_Cliente);
             lista.Add(cliente1.Cc_Cliente);
             lista.Add(cliente2.Cc_Cliente);
-            siticoneTextBox1.AutoCompleteCustomSource = lista;
+            txtCC_ClienteVenta.AutoCompleteCustomSource = lista;
 
             txtCC_ClienteVenta.MaxLength = limit_cc_length;
             txtNombre1Venta.MaxLength = max_nombre_length;
@@ -112,6 +112,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             txtDireccionVenta.Enabled = true;
             txtTelefVenta.Enabled = true;
             txtCorreoVenta.Enabled = true;
+          
 
             siticoneHtmlLabel_wrong_email.Show();
             siticoneHtmlLabel_wrong_length_telef.Show();
@@ -153,29 +154,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            // comprueba que la cc == 10 y muesta mensaje de correcto
-            if (txtCC_ClienteVenta.Text.Length + 1 == limit_cc_length && control_cc && e.KeyChar != '\b')
-            {
-                control_cc = false;
-                count_correct_fields++;
-                siticoneHtmlLabel_cc_wrong_length.Hide();
-
-                siticoneHtmlLabel_cc_correct_length.Show();
-            }
-            else if (txtCC_ClienteVenta.Text.Length - 1 < limit_cc_length && !control_cc && e.KeyChar == '\b')
-            {
-                // Borro 1 char de la cc teniendo ya completos los 10 previamente
-                control_cc = true;
-                count_correct_fields--;
-                siticoneHtmlLabel_cc_invalida.Show();
-                siticoneHtmlLabel_cc_wrong_length.Show();
-
-                siticoneHtmlLabel_cc_correct_length.Hide();
-                siticoneHtmlLabel_cc_valida.Hide();
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtCC_ClienteVenta_KeyUp(object sender, KeyEventArgs e)
@@ -347,7 +325,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void txtDireccionVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar!=Convert.ToChar(Keys.Space))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -422,14 +400,62 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             }
         }
 
+        private void txtCC_ClienteVenta_TextChanged(object sender, EventArgs e)
+        {
+            // comprueba que la cc == 10 y muesta mensaje de correcto
+            if (txtCC_ClienteVenta.Text.Length == limit_cc_length && control_cc )
+            {
+                control_cc = false;
+                count_correct_fields++;
+                siticoneHtmlLabel_cc_wrong_length.Hide();
+
+                siticoneHtmlLabel_cc_correct_length.Show();
+            }
+            else if (txtCC_ClienteVenta.Text.Length < limit_cc_length && !control_cc )
+            {
+                // Borro 1 char de la cc teniendo ya completos los 10 previamente
+                control_cc = true;
+                count_correct_fields--;
+                siticoneHtmlLabel_cc_invalida.Show();
+                siticoneHtmlLabel_cc_wrong_length.Show();
+
+                siticoneHtmlLabel_cc_correct_length.Hide();
+                siticoneHtmlLabel_cc_valida.Hide();
+            }
+
+            validateFieldsCounter();
+
+            if (txtCC_ClienteVenta.Text.Equals("1725651518"))
+            {
+                loadCustomerFields(cliente);
+            }
+            else
+            if (txtCC_ClienteVenta.Text.Equals("1825651521"))
+            {
+                loadCustomerFields(cliente1);
+            }
+            else
+            if (txtCC_ClienteVenta.Text.Equals("1715651521"))
+            {
+                loadCustomerFields(cliente2);
+            }
+            else
+            {
+                loadCustomerFields(clienteVacio);
+            }
+
+        }
+
         private void txtRecibidoVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            if (e.KeyChar == Convert.ToChar(Keys.Enter) && txtRecibidoVenta.Text != null)
+            {
+                txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text) - Convert.ToDouble(txtTotalVenta.Text)).ToString();
+            }else if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != Convert.ToChar(Keys.Back))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Ingrese únicamente números o \".\" !", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
         }
 
@@ -510,49 +536,21 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 }
             }
 
-            siticoneTextBox2.Text = total.ToString();
+            txtTotalVenta.Text = total.ToString();
 
         }
 
-        private void siticoneTextBox3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                siticoneTextBox4.Text = (Convert.ToDouble(siticoneTextBox3.Text) - Convert.ToDouble(siticoneTextBox2.Text)).ToString();
-            }
-        }
 
         private void loadCustomerFields(Cliente cliente)
         {
-            siticoneTextBox12.Text = cliente.Primer_Nombre;
-            siticoneTextBox10.Text = cliente.Segundo_Nombre;
-            siticoneTextBox11.Text = cliente.Primer_Apellido;
-            siticoneTextBox9.Text = cliente.Segundo_Apellido;
-            siticoneTextBox6.Text = cliente.Direccion_Domicilio;
-            siticoneTextBox5.Text = cliente.Telefono;
-            siticoneTextBox7.Text = cliente.Correo_Electronico;
+            txtNombre1Venta.Text = cliente.Primer_Nombre;
+            txtNombre2Venta.Text = cliente.Segundo_Nombre;
+            txtApellido1Venta.Text = cliente.Primer_Apellido;
+            txtApellido2Venta.Text = cliente.Segundo_Apellido;
+            txtDireccionVenta.Text = cliente.Direccion_Domicilio;
+            txtTelefVenta.Text = cliente.Telefono;
+            txtCorreoVenta.Text = cliente.Correo_Electronico;
 
-        }
-
-
-        private void siticoneTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (siticoneTextBox1.Text.Equals("1725651518"))
-            {
-                loadCustomerFields(cliente);
-            }else
-            if (siticoneTextBox1.Text.Equals("1825651521"))
-            {
-                loadCustomerFields(cliente1);
-            }else
-            if (siticoneTextBox1.Text.Equals("1715651521"))
-            {
-                loadCustomerFields(cliente2);
-            }
-            else
-            {
-                loadCustomerFields(clienteVacio);
-            }
         }
     }
 }

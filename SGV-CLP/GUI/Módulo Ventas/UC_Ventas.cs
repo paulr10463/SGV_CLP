@@ -189,7 +189,22 @@ namespace SGV_CLP.GUI
 
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtConsultarVenta.Text = String.Empty;
+            txtConsultarVenta.Text = System.String.Empty;
+        }
+
+        private void siticoneHtmlLabel9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siticoneHtmlLabel8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
