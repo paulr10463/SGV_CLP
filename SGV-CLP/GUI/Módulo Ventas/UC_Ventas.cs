@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Modulo_Ventas;
 using SGV_CLP.GUI.Módulo_Ventas;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
@@ -18,9 +19,22 @@ namespace SGV_CLP.GUI
 {
     public partial class UC_Ventas : UserControl
     {
+        public static int numeroFactura = 2;
+        
+        
         List<Producto> especialidades;
         List<Producto> bebidasCalientes;
-        public static int reset = 0;
+        public static List<Cliente> clientes = new List<Cliente>
+        {
+            new Cliente("1725656431", "Paul", "Alexander", "Román", "Quimbiulco", "La kennedy", "0983472881", "paulroman3d@gmail.com"),
+            new Cliente("1714818299", "Ernesto", "Alexander", "Perez", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com"),
+            new Cliente("1713627071", "Maria", "Alexander", "Uribe", "Quimbiulco", "La Rumiñahui", "0983421213", "ernestoperez@gmail.com"),
+        };
+        public static List<TotalVenta> notasVenta = new List<TotalVenta>()
+        {
+             new TotalVenta(clientes[0], "NV1", "Efectivo", 20.25, "12/02/2022")
+        };   
+       
         public UC_Ventas()
         {
             InitializeComponent();
@@ -223,6 +237,49 @@ namespace SGV_CLP.GUI
         }
 
         private void siticoneHtmlLabel8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtConsultarVenta_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+        private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool flag = false;
+            List<string> codFacturaList =new List<string>();
+            foreach (DataGridViewRow rowItem in siticoneDataGridView1.Rows)
+            {
+                if (rowItem.Cells[0].Value != null)
+                {
+                    codFacturaList.Add((string)rowItem.Cells[0].Value);
+                }
+
+            }
+
+
+            foreach (TotalVenta totalVenta in notasVenta)
+            {
+                if (!codFacturaList.Contains(totalVenta.codFactura))
+                {
+                    DataGridViewRow row = (DataGridViewRow)siticoneDataGridView1.Rows[0].Clone();
+                    row.Cells[0].Value = totalVenta.codFactura;
+                    row.Cells[1].Value = totalVenta.cliente.Cc_Cliente;
+                    row.Cells[2].Value = totalVenta.cliente.Primer_Nombre;
+                    row.Cells[3].Value = totalVenta.cliente.Primer_Apellido;
+                    row.Cells[4].Value = totalVenta.cliente.Telefono;
+                    row.Cells[5].Value = totalVenta.formaPago;
+                    row.Cells[6].Value = totalVenta.precioFinal;
+                    row.Cells[7].Value = totalVenta.fechaVenta;
+                    siticoneDataGridView1.Rows.Add(row);
+                }
+                
+            }
+        }
+
+        private void siticoneTabControl1_TabIndexChanged(object sender, EventArgs e)
         {
 
         }

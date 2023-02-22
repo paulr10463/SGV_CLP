@@ -79,7 +79,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ComboBox_ConsultarVentaPor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
@@ -144,6 +143,8 @@
             this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(160, 75);
             this.siticoneTabControl1.TabIndex = 2;
             this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.Black;
+            this.siticoneTabControl1.SelectedIndexChanged += new System.EventHandler(this.siticoneTabControl1_SelectedIndexChanged);
+            this.siticoneTabControl1.TabIndexChanged += new System.EventHandler(this.siticoneTabControl1_TabIndexChanged);
             // 
             // Añadir
             // 
@@ -711,7 +712,6 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6,
             this.Column7,
             this.Column8});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -789,12 +789,6 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Productos";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            // 
             // Column7
             // 
             this.Column7.HeaderText = "Precio final";
@@ -851,6 +845,7 @@
             this.txtConsultarVenta.SelectedText = "";
             this.txtConsultarVenta.Size = new System.Drawing.Size(273, 46);
             this.txtConsultarVenta.TabIndex = 19;
+            this.txtConsultarVenta.TextChanged += new System.EventHandler(this.txtConsultarVenta_TextChanged);
             this.txtConsultarVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultarVenta_KeyPress);
             // 
             // richTextBox1
@@ -976,15 +971,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
         private DataGridViewTextBoxColumn codFactura;
-        private DataGridViewTextBoxColumn column0;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
         private RichTextBox richTextBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
@@ -1018,5 +1004,13 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel11;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;
+        private DataGridViewTextBoxColumn column0;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn Column8;
     }
 }
