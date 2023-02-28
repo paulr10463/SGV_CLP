@@ -18,7 +18,7 @@ namespace SGV_CLP.Classes
             this.Cc_Cliente = cc_Cliente;
             this.Primer_Nombre = primer_Nombre;
             this.Segundo_Nombre = segundo_Nombre;
-            this.Primer_Apellido = segundo_Apellido;
+            this.Primer_Apellido = primer_Apellido;
             this.Segundo_Apellido = segundo_Apellido;
             this.Direccion_Domicilio = direccion_Domicilio;
             this.Telefono = telefono;

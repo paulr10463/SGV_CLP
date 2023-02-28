@@ -18,12 +18,14 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 {
     public partial class Checkout : Form
     {
+        public static List<Cliente> clientes = ClienteMapper.ConsultarClientes();
         AutoCompleteStringCollection listaDeSugerenciasdeAutompletacion;
 
         int limit_cc_length = 10;
         int max_nombre_length = 50, max_apell_length = 50;
         int limit_nombre_length = 50, limit_apellido_length = 50,
             limit_direccion_length = 100, limit_telef_length = 10, limit_fechanac_length = 10, limit_correo_length = 100;
+
         bool control_cc = true;
         bool control_apell1 = true, control_apell2 = true;
         bool control_nombre1 = true, control_nombre2 = true, control_direc = true;
@@ -70,7 +72,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void actulizarListadeSugerenciasdeAutocompletacion()
         {
-            foreach (Cliente cliente in UC_Ventas.clientes)
+            foreach (Cliente cliente in clientes)
             {
                 listaDeSugerenciasdeAutompletacion.Add(cliente.Cc_Cliente);
             }
@@ -80,13 +82,15 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         {
             Cliente clienteFinal = new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
             DateTime now = DateTime.Now;
-            TotalVenta tv = new TotalVenta(clienteFinal,"NV"+UC_Ventas.numeroFactura, "Efectivo",Convert.ToDouble(txtTotalVenta.Text), now.ToShortDateString());
-            UC_Ventas.notasVenta.Add(tv);
-            UC_Ventas.numeroFactura++;
+            //Classes.Modulo_Ventas.NotaVenta tv = new Classes.Modulo_Ventas.NotaVenta(clienteFinal, "NV" + UC_Ventas.numeroFactura, "Efectivo", Convert.ToDouble(txtTotalVenta.Text), now);
+            //UC_Ventas.notasVenta.Add(tv);
+            //UC_Ventas.numeroFactura++;
 
+            UC_Ventas.resetNumPickers();
             SystemSounds.Beep.Play();
             MessageBox.Show("Venta finalizada con éxito", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MainMenu.uC_Ventas1.resetValues();
+            
 
             this.Dispose();
         }
@@ -153,7 +157,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             txtCorreoVenta.Enabled = false;
             siticoneHtmlLabel_correct_length_telef.Visible= false;
             siticoneHtmlLabel_correct_email.Visible= false;
-            UC_Ventas.clientes.Add(new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text));
+            clientes.Add(new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text));
             actulizarListadeSugerenciasdeAutocompletacion();
         }
 
@@ -437,7 +441,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
             validateFieldsCounter();
             bool clienteEncontrado=false;
-            foreach (Cliente cliente in UC_Ventas.clientes)
+            foreach (Cliente cliente in clientes)
             {
                 if(cliente != null )
                 {

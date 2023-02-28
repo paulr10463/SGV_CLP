@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Módulo_Administración;
 using SGV_CLP.GUI.Módulo_Administración;
 using SGV_CLP.GUI.Módulo_Clientes;
 using System;
@@ -118,7 +119,7 @@ namespace SGV_CLP.GUI
                 foreach (Usuario usuario in UsuariosRegistrados)
                 {
                     // dgvClientes
-                    SDGVUsuario.Rows.Add(usuario.NombreUsuario, usuario.Cc_Usuario, usuario.Primer_Nombre + usuario.Segundo_Nombre, usuario.Primer_Apellido + usuario.Segundo_Apellido, usuario.Cargo);
+                    SDGVUsuario.Rows.Add(usuario.userName, usuario.cc_Usuario, usuario.primer_Nombre + usuario.segundo_Nombre, usuario.primer_Apellido + usuario.segundo_Apellido, usuario.cargo);
                 }
             }
         }
@@ -151,9 +152,18 @@ namespace SGV_CLP.GUI
 
         private void Button_aniadirUsuario_Click(object sender, EventArgs e)
         {
+
+            UsuarioMapper.IngresarUsuario(new Usuario(txtAniadirCCUsuario.Text,
+                txtAniadirNombreUsuario.Text,
+                txtAniadirContraseniaUsuario.Text,
+                txtAniadirNombre1Usuario.Text,
+                txtAniadirNombre2Usuario.Text,
+                txtAniadirApellido1Usuario.Text,
+                txtAniadirApellido2Usuario.Text,
+                siticoneComboBox_aniadirCargoUsuario.Text));
+
             SystemSounds.Beep.Play();
             MessageBox.Show("Usuario añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             vaciarCampos();
         }
 

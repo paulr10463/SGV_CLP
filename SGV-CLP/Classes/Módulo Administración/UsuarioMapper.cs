@@ -1,5 +1,5 @@
 ﻿using Npgsql;
-using Siticone.Desktop.UI.WinForms;
+using SGV_CLP.GUI;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,60 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SGV_CLP.Classes
+namespace SGV_CLP.Classes.Módulo_Administración
 {
-    public class ClienteMapper
+    internal class UsuarioMapper
     {
         private static readonly string _connectionString = "Host=localhost:5432;Username=postgres;Password=P@ssw0rd;Database=SGV-CLP";
-        //USAR using SGV_CLP.Classes
-        //--------
-        //CREATE
-        public static List<Cliente> ConsultarClientes()
-        {
-            List<Cliente> clientesRegistrados = new List<Cliente>();
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                using (var command = new NpgsqlCommand("SELECT * FROM \"Cliente\"", connection))
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        
-                        clientesRegistrados.Add(
-                            new Cliente(
-                                reader.GetString(0), 
-                                reader.GetString(1),
-                                !reader.IsDBNull(2)? reader.GetString(2):null, 
-                                reader.GetString(3),
-                                !reader.IsDBNull(4) ? reader.GetString(4) : null,
-                                reader.GetString(5), 
-                                reader.GetString(6), 
-                                reader.GetString(7)));
-                    }
-                }
-            }
-            return clientesRegistrados;
-        }
 
 
-        public static void IngresarCliente(Cliente cliente)
+        public static void IngresarUsuario(Usuario usuario)
         {
             // Conexión a BD
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
-            using (var cmd = new NpgsqlCommand("INSERT INTO public.\"Cliente\"(\"cc_Cliente\", \"primer_Nombre\", \"segundo_Nombre\", \"primer_Apellido\", \"segundo_Apellido\", \"direccion_Domicilio\", telefono, \"correo_Electronico\") VALUES (@CC_Cliente, @Primer_Nombre, @Segundo_Nombre, @Primer_Apellido, @Segundo_Apellido, @Direccion_Domicilio, @Telefono, @Correo_Electronico)", connection))
+            using (var cmd = new NpgsqlCommand("INSERT INTO public.\"Usuario\"(\"cc_Usuario\", \"userName\",\"contrasenia\",\"primer_Nombre\", \"segundo_Nombre\", \"primer_Apellido\", \"segundo_Apellido\", \"cargo\") VALUES (@cc_Usuario, @userName,@contrasenia, @primer_Nombre, @segundo_Nombre, @primer_Apellido, @segundo_Apellido, @cargo)", connection))
             {
-
-                cmd.Parameters.AddWithValue("@CC_Cliente", cliente.Cc_Cliente);
-                cmd.Parameters.AddWithValue("@Primer_Nombre", cliente.Primer_Nombre);
-                cmd.Parameters.AddWithValue("@Segundo_Nombre", cliente.Segundo_Nombre);
-                cmd.Parameters.AddWithValue("@Primer_Apellido", cliente.Primer_Apellido);
-                cmd.Parameters.AddWithValue("@Segundo_Apellido", cliente.Segundo_Apellido);
-                cmd.Parameters.AddWithValue("@Direccion_Domicilio", cliente.Direccion_Domicilio);
-                cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-                cmd.Parameters.AddWithValue("@Correo_Electronico", cliente.Correo_Electronico);
+                cmd.Parameters.AddWithValue("@cc_Usuario", usuario.cc_Usuario);
+                cmd.Parameters.AddWithValue("@userName", usuario.userName);
+                cmd.Parameters.AddWithValue("@contrasenia", usuario.contrasenia);
+                cmd.Parameters.AddWithValue("@primer_Nombre", usuario.primer_Nombre);
+                cmd.Parameters.AddWithValue("@segundo_Nombre", usuario.segundo_Nombre);
+                cmd.Parameters.AddWithValue("@primer_Apellido", usuario.primer_Apellido);
+                cmd.Parameters.AddWithValue("@segundo_Apellido", usuario.segundo_Apellido);
+                cmd.Parameters.AddWithValue("@cargo", usuario.cargo);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -68,29 +37,21 @@ namespace SGV_CLP.Classes
         //var idCliente = await ClienteMapper.IngresarCliente(cliente);
         //--------
         //READ
-        public static async Task<Cliente> MostrarClientes(string CC_Cliente)
+        public static bool checkUser(string userName, string contrasenia)
         {
-            await using NpgsqlConnection connection = new(_connectionString);
+            using NpgsqlConnection connection = new(_connectionString);
             connection.Open();
-            await using NpgsqlCommand command = connection.CreateCommand();
+            using NpgsqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT \"cc_Cliente\", \"primer_Nombre\", \"segundo_Nombre\", \"primer_Apellido\", \"segundo_Apellido\", \"direccion_Domicilio\", telefono, \"correo_Electronico\" FROM public.\"Cliente\" WHERE \"cc_Cliente\" = @ccCliente limit 1;";
-            command.Parameters.AddWithValue("@ccCliente", CC_Cliente);
-            NpgsqlDataReader reader = await command.ExecuteReaderAsync();
+            command.CommandText = "SELECT * FROM public.\"Usuario\" WHERE \"userName\" = @UserName and \"contrasenia\" = @Contrasenia ;";
+            command.Parameters.AddWithValue("@UserName", userName);
+            command.Parameters.AddWithValue("@Contrasenia", contrasenia);
+            NpgsqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
-                reader.Read();
-                string primerNombre = (string)reader["primer_Nombre"];
-                string segundoNombre = (string)reader["segundo_Nombre"];
-                string primerApellido = (string)reader["primer_Apellido"];
-                string segundoApellido = (string)reader["segundo_Apellido"];
-                string direccionDomicilio = (string)reader["direccion_Domicilio"];
-                string telefono = (string)reader["telefono"];
-                string correoElectronico = (string)reader["correo_Electronico"];
-                string ccCLiente = (string)reader["cc_Cliente"];
-                return new Cliente(ccCLiente, primerNombre, segundoNombre, primerApellido, segundoApellido, direccionDomicilio, telefono, correoElectronico);
+                return true;
             }
-            return null;
+            return false;
         }
         //var client = await ClienteMapper.MostrarClientes(idCliente);
         //Console.WriteLine($"{client.Id_Cliente} ,{client.Nombre},{client.Telefono},{client.Fecha_Ingreso} ");

@@ -1,4 +1,8 @@
-﻿namespace SGV_CLP
+﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Módulo_Administración;
+using System.Media;
+
+namespace SGV_CLP
 {
     public partial class Login : Form
     {
@@ -9,11 +13,20 @@
 
         private void siticoneGradientButton1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainMenu ventana = new MainMenu();
-            ventana.Owner = this;
-            ventana.ShowDialog();
-            this.Dispose();
+            if (UsuarioMapper.checkUser(siticoneTextBox1.Text, siticoneTextBox2.Text))
+            {
+                this.Hide();
+                MainMenu ventana = new MainMenu();
+                ventana.Owner = this;
+                ventana.ShowDialog();
+                this.Dispose();
+            }
+            else
+            {
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Credenciales erróneas. Intente nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
 
         }
 
@@ -22,15 +35,6 @@
             this.Close();
         }
 
-        private void siticoneHtmlLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneCustomCheckBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void siticoneSeparator2_Click(object sender, EventArgs e)
         {
