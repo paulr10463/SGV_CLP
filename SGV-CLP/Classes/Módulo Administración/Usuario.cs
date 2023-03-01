@@ -8,25 +8,27 @@ namespace SGV_CLP.Classes
 {
     public class Usuario
     {
-        public string? NombreUsuario { get; set; }
-        public string? Cc_Usuario { get; set; }
-        public string? Contraseña { get; set; }
-        public string? Primer_Nombre { get; set; }
-        public string? Segundo_Nombre { get; set; }
-        public string? Primer_Apellido { get; set; }
-        public string? Segundo_Apellido { get; set; }
-        public string? Cargo { get; set; }
+        public string? cc_Usuario { get; set; }
+        public string? userName { get; set; }
+        public string? contrasenia { get; set; }
+        public string? primer_Nombre { get; set; }
+        public string? segundo_Nombre { get; set; }
+        public string? primer_Apellido { get; set; }
+        public string? segundo_Apellido { get; set; }
+        public string? cargo { get; set; }
 
-        public Usuario(string nombreUsuario, string cc_Usuario, string contraseña, string primer_Nombre, string segundo_Nombre, string primer_Apellido, string segundo_Apellido, string cargo)
+        public Usuario(string? cc_Usuario, string? userName, string? contrasenia, string? primer_Nombre, string? segundo_Nombre, string? primer_Apellido, string? segundo_Apellido, string? cargo)
         {
-            NombreUsuario = nombreUsuario;
-            Cc_Usuario = cc_Usuario;
-            Contraseña = contraseña;
-            Primer_Nombre = primer_Nombre;
-            Segundo_Nombre = segundo_Nombre;
-            Primer_Apellido = primer_Apellido;
-            Segundo_Apellido = segundo_Apellido;
-            Cargo = cargo;
+            this.cc_Usuario = cc_Usuario;
+            this.userName = userName;
+            this.contrasenia = contrasenia;
+            this.primer_Nombre = primer_Nombre;
+            this.segundo_Nombre = segundo_Nombre;
+            this.primer_Apellido = primer_Apellido;
+            this.segundo_Apellido = segundo_Apellido;
+            this.cargo = cargo;
         }
+
+        public Usuario() { }
     }
 }
