@@ -27,8 +27,19 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             InitializeComponent();
             siticoneButton1.Enabled = false;
             ResourceManager rm = Resources.ResourceManager;
-            Image myImage = (Image)rm.GetObject(producto.Imagen);
-            this.siticonePictureBox1.Image = myImage;
+            //Para coger la imagen mediante la carpeta de resources del programa
+            //Image myImage = (Image)rm.GetObject(producto.Imagen);
+            //this.siticonePictureBox1.Image = myImage;
+
+            //En caso de coger la imagen a través de una ruta en la compu
+            try
+            {
+                Image myImage = Image.FromFile(Path.Combine(Application.StartupPath, producto.Imagen));
+                this.siticonePictureBox1.Image = myImage;
+            }
+            catch(Exception e) {
+                Console.WriteLine(e.Message);
+            }
             this.siticoneHtmlLabel1.Text = producto.Nombre;
         }
 
@@ -38,6 +49,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             detalleNotaVenta.subtotal = detalleNotaVenta.cantidad * _producto.PVP;
             UC_Ventas.notaVenta.addOrUpdateDetalleVenta(detalleNotaVenta);
             addRowInTable(detalleNotaVenta.cantidad, _producto);
+            UC_Ventas.totalVenta.Visible = true;
             UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.notaVenta.calcularTotalVentas().ToString();
         }
 

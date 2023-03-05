@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Módulo_Cliente;
 using SGV_CLP.Classes.Modulo_Ventas;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
@@ -16,24 +17,26 @@ using System.Windows.Forms;
 
 namespace SGV_CLP.GUI.Módulo_Ventas
 {
+
     public partial class Checkout : Form
     {
+        //ListaClientes listaClientes1 = new ListaClientes();
+        //listaClientes1.getClientes();
+            //.ConsultarClientes();
+        //listaClientes = ClienteMapper.ConsultarClientes();
         public static List<Cliente> clientes = ClienteMapper.ConsultarClientes();
         AutoCompleteStringCollection listaDeSugerenciasdeAutompletacion;
 
-        int limit_cc_length = 10;
-        int max_nombre_length = 50, max_apell_length = 50;
-        int limit_nombre_length = 50, limit_apellido_length = 50,
-            limit_direccion_length = 100, limit_telef_length = 10, limit_fechanac_length = 10, limit_correo_length = 100;
-
-        bool control_cc = true;
-        bool control_apell1 = true, control_apell2 = true;
-        bool control_nombre1 = true, control_nombre2 = true, control_direc = true;
-        bool control_telef = true;
-        bool control_correo = true;
-
-        int num_atributos = 8;
+        int num_atributos = 6;
         int count_correct_fields = 0;
+        bool editClientIsEnabled = false;
+
+        bool ccIsValid = false;
+        bool firsLastNameIsValid = false;
+        bool firstNameIsValid = false;
+        bool addressIsValid = false;
+        bool telefIsValid = false;
+        bool correoIsValid = false;
 
         public Checkout(SiticoneDataGridView siticoneDataGridView)
         {
@@ -49,15 +52,17 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
             txtCC_ClienteVenta.AutoCompleteCustomSource = listaDeSugerenciasdeAutompletacion;
 
-            txtCC_ClienteVenta.MaxLength = limit_cc_length;
-            txtNombre1Venta.MaxLength = max_nombre_length;
-            txtNombre2Venta.MaxLength= max_nombre_length;
-            txtApellido1Venta.MaxLength = max_apell_length;
-            txtApellido2Venta.MaxLength = max_apell_length;
-            txtDireccionVenta.MaxLength = limit_direccion_length;
-            txtTelefVenta.MaxLength = limit_telef_length;
-            txtCorreoVenta.MaxLength = limit_correo_length;
+            // Limitamos la longitud segun los requisitos
+            txtCC_ClienteVenta.MaxLength = Constants.LIMIT_CC_LENGTH;
+            txtNombre1Venta.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
+            txtNombre2Venta.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
+            txtApellido1Venta.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
+            txtApellido2Venta.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
+            txtDireccionVenta.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
+            txtTelefVenta.MaxLength = Constants.LIMIT_TELEF_LENGTH;
+            txtCorreoVenta.MaxLength = Constants.LIMIT_CORREO_LENGTH;
 
+            //Hide Validations Labels
             siticoneHtmlLabel_correct_email.Hide();
             siticoneHtmlLabel_cc_valida.Hide();
             siticoneHtmlLabel_cc_correct_length.Hide();
@@ -72,25 +77,26 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void actulizarListadeSugerenciasdeAutocompletacion()
         {
-            foreach (Cliente cliente in clientes)
-            {
-                listaDeSugerenciasdeAutompletacion.Add(cliente.Cc_Cliente);
-            }
+            clientes.ForEach(a => listaDeSugerenciasdeAutompletacion.Add(a.Cc_Cliente));
         }
+
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             Cliente clienteFinal = new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
-            DateTime now = DateTime.Now;
-            //Classes.Modulo_Ventas.NotaVenta tv = new Classes.Modulo_Ventas.NotaVenta(clienteFinal, "NV" + UC_Ventas.numeroFactura, "Efectivo", Convert.ToDouble(txtTotalVenta.Text), now);
-            //UC_Ventas.notasVenta.Add(tv);
-            //UC_Ventas.numeroFactura++;
+            UC_Ventas.notaVenta.cliente= clienteFinal;
+            UC_Ventas.notaVenta.usuario = MainMenu.UsuarioRegistrado;
+            UC_Ventas.notaVenta.fechaVenta = DateTime.Now;
+            NotaVentaMapper.IngresarNotaVenta(UC_Ventas.notaVenta);
+            UC_Ventas.notaVenta = new NotaVenta();
+
 
             UC_Ventas.resetNumPickers();
             SystemSounds.Beep.Play();
             MessageBox.Show("Venta finalizada con éxito", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainMenu.uC_Ventas1.resetValues();
-            
+            MainMenu.uc_ventas.resetValues();
+
+
 
             this.Dispose();
         }
@@ -100,38 +106,26 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             this.Dispose();
         }
 
-        private void siticoneButton3_Click(object sender, EventArgs e)
-        {
-            SystemSounds.Beep.Play();
-            if (MessageBox.Show("¿Desea continuar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-                == DialogResult.Yes)
-            {
-                MessageBox.Show("Proveedor eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Proveedor no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-     
+        //Se presiona el boton de añadir cliente
         private void siticoneButton4_Click(object sender, EventArgs e)
         {
             txtNombre2Venta.Enabled = true;
-            txtApellido1Venta.Enabled = true;   
+            txtApellido1Venta.Enabled = true;
             txtNombre1Venta.Enabled = true;
             txtApellido2Venta.Enabled = true;
             txtDireccionVenta.Enabled = true;
             txtTelefVenta.Enabled = true;
             txtCorreoVenta.Enabled = true;
-          
+            editClientIsEnabled = true;
+            ButtonConfirmarVenta.Visible = true;
 
-            siticoneHtmlLabel_wrong_email.Show();
-            siticoneHtmlLabel_wrong_length_telef.Show();
+            txtApellido1Venta_TextChanged(null, null);
+            txtNombre1Venta_TextChanged(null, null);
+            txtDireccionVenta_TextChanged(null, null);
+            txtTelefVenta_TextChanged(null, null);
+            txtCorreoVenta_TextChanged(null, null);
 
-            ButtonConfirmarVenta.Visible= true;
-
-            if (IsValidEmail(txtCorreoVenta.Text))
+            if (ValidationUtils.IsValidEmail(txtCorreoVenta.Text))
             {
                 siticoneHtmlLabel_wrong_email.Hide();
                 siticoneHtmlLabel_correct_email.Show();
@@ -146,6 +140,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void siticoneButton3_Click_1(object sender, EventArgs e)
         {
+            
             MessageBox.Show("Cliente Registrado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ButtonConfirmarVenta.Visible = false;
             txtNombre2Venta.Enabled = false;
@@ -155,10 +150,67 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             txtDireccionVenta.Enabled = false;
             txtTelefVenta.Enabled = false;
             txtCorreoVenta.Enabled = false;
+            editClientIsEnabled = false;
+
+            ccIsValid = false;
+            firsLastNameIsValid = false;
+            firstNameIsValid = false;
+            addressIsValid = false;
+            telefIsValid = false;
+            correoIsValid = false;
+
             siticoneHtmlLabel_correct_length_telef.Visible= false;
             siticoneHtmlLabel_correct_email.Visible= false;
-            clientes.Add(new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text));
+            Cliente clienteNuevo = new Cliente(txtCC_ClienteVenta.Text, 
+                txtNombre1Venta.Text, 
+                txtNombre2Venta.Text, 
+                txtApellido1Venta.Text, 
+                txtApellido2Venta.Text, 
+                txtDireccionVenta.Text, 
+                txtTelefVenta.Text, 
+                txtCorreoVenta.Text);
+
+            switch(ListaClientes.findExistentClient(clientes, clienteNuevo))
+            {
+                case 0:
+                    break;
+                case 1:
+                    ClienteMapper.ModificarCliente(clienteNuevo);
+                    clientes = ClienteMapper.ConsultarClientes();
+                    break;
+                case -1:
+                    ClienteMapper.IngresarCliente(clienteNuevo);
+                    clientes = ClienteMapper.ConsultarClientes();
+                    break;
+            }
+            
+            
             actulizarListadeSugerenciasdeAutocompletacion();
+        }
+
+
+        private void txtCC_ClienteVenta_KeyUp(object sender, KeyEventArgs e)
+        {
+            controlCedula();
+
+            if(ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text) && txtCC_ClienteVenta.Text.Length == Constants.LIMIT_CC_LENGTH)
+            {
+                ButtonAniadirClienteVenta.Enabled = true;
+            }
+            else
+            {
+                ButtonAniadirClienteVenta.Enabled = false;
+            }
+        }
+
+        public void controlCedula()
+        {
+            if (ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text))
+            {
+                siticoneHtmlLabel_cc_invalida.Hide();
+                siticoneHtmlLabel_cc_valida.Show();
+            }
+            validateFieldsCounter();
         }
 
         private void txtCC_ClienteVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -171,78 +223,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 return;
             }
         }
-
-        private void txtCC_ClienteVenta_KeyUp(object sender, KeyEventArgs e)
-        {
-            controlCedula();
-
-            if(ValidarCedula(txtCC_ClienteVenta.Text) && txtCC_ClienteVenta.Text.Length == limit_cc_length)
-            {
-                ButtonAniadirClienteVenta.Enabled = true;
-            }
-            else
-            {
-                ButtonAniadirClienteVenta.Enabled = false;
-            }
-        }
-
-        public void controlCedula()
-        {
-            if (ValidarCedula(txtCC_ClienteVenta.Text))
-            {
-                siticoneHtmlLabel_cc_invalida.Hide();
-                siticoneHtmlLabel_cc_valida.Show();
-            }
-            validateFieldsCounter();
-        }
-        public static bool ValidarCedula(string cedula)
-        {
-            // Verificar que la cédula tenga 10 dígitos
-            if (cedula.Length != 10)
-            {
-                return false;
-            }
-
-            int tercerDigito = int.Parse(cedula[2].ToString());
-
-            // Verificar que el tercer dígito sea entre 0 y 5
-            if (tercerDigito < 0 || tercerDigito > 5)
-            {
-                return false;
-            }
-
-            // Verificar el último dígito de la cédula
-            int ultimoDigito = int.Parse(cedula[9].ToString());
-
-            int suma = 0;
-
-            for (int i = 0; i < 9; i++)
-            {
-                int digito = int.Parse(cedula[i].ToString());
-
-                if (i % 2 == 0)
-                {
-                    digito *= 2;
-
-                    if (digito > 9)
-                    {
-                        digito -= 9;
-                    }
-                }
-
-                suma += digito;
-            }
-
-            int digitoVerificador = 10 - (suma % 10);
-
-            if (digitoVerificador == 10)
-            {
-                digitoVerificador = 0;
-            }
-
-            return ultimoDigito == digitoVerificador;
-        }
-
         private void txtNombre1Venta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
@@ -252,19 +232,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtNombre1Venta.Text.Length + 1 > 0 && control_nombre1 && e.KeyChar != '\b')
-            {
-                control_nombre1 = false;
-                count_correct_fields++;
-            }
-            else if (txtNombre1Venta.Text.Length - 1 == 0 && !control_nombre1 && e.KeyChar == '\b')
-            {
-                control_nombre1 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtNombre2Venta_KeyPress(object sender, KeyPressEventArgs e)
@@ -276,19 +243,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtNombre2Venta.Text.Length + 1 > 0 && control_nombre2 && e.KeyChar != '\b')
-            {
-                control_nombre2 = false;
-                count_correct_fields++;
-            }
-            else if (txtNombre2Venta.Text.Length - 1 == 0 && !control_nombre2 && e.KeyChar == '\b')
-            {
-                control_nombre2 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtApellido1Venta_KeyPress(object sender, KeyPressEventArgs e)
@@ -300,19 +254,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtApellido1Venta.Text.Length + 1 > 0 && control_apell1 && e.KeyChar != '\b')
-            {
-                control_apell1 = false;
-                count_correct_fields++;
-            }
-            else if (txtApellido1Venta.Text.Length - 1 == 0 && !control_apell1 && e.KeyChar == '\b')
-            {
-                control_apell1 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtApellido2Venta_KeyPress(object sender, KeyPressEventArgs e)
@@ -325,18 +266,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 return;
             }
 
-            if (txtApellido2Venta.Text.Length + 1 > 0 && control_apell2 && e.KeyChar != '\b')
-            {
-                control_apell2 = false;
-                count_correct_fields++;
-            }
-            else if (txtApellido2Venta.Text.Length - 1 == 0 && !control_apell2 && e.KeyChar == '\b')
-            {
-                control_apell2 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtDireccionVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -349,18 +278,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 return;
             }
 
-            if (txtDireccionVenta.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
-            {
-                control_direc = false;
-                count_correct_fields++;
-            }
-            else if (txtDireccionVenta.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
-            {
-                control_direc = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtTelefVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -372,23 +289,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtTelefVenta.Text.Length + 1 == limit_telef_length && control_telef && e.KeyChar != '\b')
-            {
-                control_telef = false;
-                count_correct_fields++;
-                siticoneHtmlLabel_wrong_length_telef.Hide();
-                siticoneHtmlLabel_correct_length_telef.Show();
-            }
-            else if (txtTelefVenta.Text.Length - 1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
-            {
-                control_telef = true;
-                count_correct_fields--;
-                siticoneHtmlLabel_wrong_length_telef.Show();
-                siticoneHtmlLabel_correct_length_telef.Hide();
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtCorreoVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -402,7 +302,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 return;
             }
 
-            validateFieldsCounter();
         }
 
         private void txtTotalVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -419,22 +318,20 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         private void txtCC_ClienteVenta_TextChanged(object sender, EventArgs e)
         {
             // comprueba que la cc == 10 y muesta mensaje de correcto
-            if (txtCC_ClienteVenta.Text.Length == limit_cc_length && control_cc )
+            if (txtCC_ClienteVenta.Text.Length == Constants.LIMIT_CC_LENGTH && !ccIsValid )
             {
-                control_cc = false;
+                ccIsValid = true;
                 count_correct_fields++;
                 siticoneHtmlLabel_cc_wrong_length.Hide();
-
                 siticoneHtmlLabel_cc_correct_length.Show();
             }
-            else if (txtCC_ClienteVenta.Text.Length < limit_cc_length && !control_cc )
+            else if (txtCC_ClienteVenta.Text.Length < Constants.LIMIT_CC_LENGTH && ccIsValid )
             {
                 // Borro 1 char de la cc teniendo ya completos los 10 previamente
-                control_cc = true;
+                ccIsValid = false;
                 count_correct_fields--;
                 siticoneHtmlLabel_cc_invalida.Show();
                 siticoneHtmlLabel_cc_wrong_length.Show();
-
                 siticoneHtmlLabel_cc_correct_length.Hide();
                 siticoneHtmlLabel_cc_valida.Hide();
             }
@@ -489,56 +386,9 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             }
         }
 
-        private void txtCorreoVenta_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (IsValidEmail(txtCorreoVenta.Text) && control_correo)
-            {
-                // El correo es valido por primera vez
-                siticoneHtmlLabel_wrong_email.Hide();
-                siticoneHtmlLabel_correct_email.Show();
-
-                count_correct_fields++;
-                control_correo = false;
-
-            }
-            else if (IsValidEmail(txtCorreoVenta.Text) && !control_correo)
-            {
-                // El correo es valido por mas de una vez
-                siticoneHtmlLabel_wrong_email.Hide();
-                siticoneHtmlLabel_correct_email.Show();
-            }
-            else if (!IsValidEmail(txtCorreoVenta.Text) && !control_correo)
-            {
-                // El correo es invalido un vez fue valido anteriormente
-                siticoneHtmlLabel_wrong_email.Show();
-                siticoneHtmlLabel_correct_email.Hide();
-
-                count_correct_fields--;
-                control_correo = true;
-            }
-            else
-            {
-                // El correo es invalido sin ser valido anteriormente
-            }
-
-            validateFieldsCounter();
-        }
-
-        public static bool IsValidEmail(string email)
-        {
-            // Define la expresión regular para validar un correo electrónico
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-
-            // Crea un objeto Regex con la expresión regular
-            Regex regex = new Regex(pattern);
-
-            // Valida el correo electrónico
-            return regex.IsMatch(email);
-        }
-
         private void validateFieldsCounter()
         {
-            ButtonConfirmarVenta.Enabled = count_correct_fields >= num_atributos && ValidarCedula(txtCC_ClienteVenta.Text);
+            ButtonConfirmarVenta.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text);
         }
         public void setTotal(SiticoneDataGridView tablaVenta)
         {
@@ -570,6 +420,117 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             txtTelefVenta.Text = cliente.Telefono;
             txtCorreoVenta.Text = cliente.Correo_Electronico;
 
+        }
+
+        private void txtApellido1Venta_TextChanged(object sender, EventArgs e)
+        {
+
+            if (txtApellido1Venta.Text.Length  > 0 && !firsLastNameIsValid && editClientIsEnabled)
+            {
+                firsLastNameIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtApellido1Venta.Text.Length == 0 && firsLastNameIsValid && editClientIsEnabled)
+            {
+                firsLastNameIsValid = false;
+                count_correct_fields--;
+            }
+
+            validateFieldsCounter();
+        }
+
+        private void txtDireccionVenta_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDireccionVenta.Text.Length > 0 && !addressIsValid && editClientIsEnabled)
+            {
+                addressIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtDireccionVenta.Text.Length == 0 && addressIsValid && editClientIsEnabled)
+            {
+                addressIsValid = false;
+                count_correct_fields--;
+            }
+
+            validateFieldsCounter();
+        }
+
+        private void txtTelefVenta_TextChanged(object sender, EventArgs e)
+        {
+
+            if (txtTelefVenta.Text.Length  == Constants.LIMIT_TELEF_LENGTH && !telefIsValid && editClientIsEnabled)
+            {
+                telefIsValid = true;
+                count_correct_fields++;
+                siticoneHtmlLabel_wrong_length_telef.Hide();
+                siticoneHtmlLabel_correct_length_telef.Show();
+            }
+            else if (txtTelefVenta.Text.Length != Constants.LIMIT_TELEF_LENGTH && telefIsValid && editClientIsEnabled)
+            {
+                telefIsValid = false;
+                count_correct_fields--;
+                siticoneHtmlLabel_wrong_length_telef.Show();
+                siticoneHtmlLabel_correct_length_telef.Hide();
+            }
+
+            validateFieldsCounter();
+        }
+
+        private void txtCorreoVenta_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidationUtils.IsValidEmail(txtCorreoVenta.Text) && !correoIsValid && editClientIsEnabled)
+            {
+                //El correo es válido
+                siticoneHtmlLabel_wrong_email.Hide();
+                siticoneHtmlLabel_correct_email.Show();
+                count_correct_fields++;
+                correoIsValid = true;
+
+            }
+            else if (!ValidationUtils.IsValidEmail(txtCorreoVenta.Text) && correoIsValid && editClientIsEnabled)
+            {
+                // El correo es invalido pero fue valido anteriormente
+                siticoneHtmlLabel_wrong_email.Show();
+                siticoneHtmlLabel_correct_email.Hide();
+                count_correct_fields--;
+                correoIsValid = false;
+            }
+            validateFieldsCounter();
+        }
+
+        private void txtNombre1Venta_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNombre1Venta.Text.Length > 0 && !firstNameIsValid && editClientIsEnabled)
+            {
+                firstNameIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtNombre1Venta.Text.Length == 0 && firstNameIsValid && editClientIsEnabled)
+            {
+                firstNameIsValid = false;
+                count_correct_fields--;
+            }
+
+            validateFieldsCounter();
+        }
+
+        private void siticoneCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (siticoneCheckBox1.Checked)
+            {
+                txtCC_ClienteVenta.Enabled = false;
+                txtCC_ClienteVenta.Text = "0000000000";
+                siticoneHtmlLabel_cc_valida.Visible= false;
+                siticoneHtmlLabel_cc_invalida.Visible = false;
+                siticoneHtmlLabel_cc_wrong_length.Visible = false;
+                siticoneHtmlLabel_cc_correct_length.Visible = false;
+            }
+            else
+            {
+                txtCC_ClienteVenta.Enabled = true;
+                txtCC_ClienteVenta.Text = string.Empty;
+                txtCC_ClienteVenta_TextChanged(null, null);
+            }
         }
     }
 }

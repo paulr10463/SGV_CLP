@@ -1,13 +1,30 @@
-﻿using SGV_CLP.GUI;
+﻿using SGV_CLP.Classes;
+using SGV_CLP.GUI;
 using System.Media;
 
 namespace SGV_CLP
 {
     public partial class MainMenu : Form
     {
-        public MainMenu()
+        public static Usuario UsuarioRegistrado;
+        public static UC_Ventas uc_ventas;
+        public MainMenu(Usuario user)
         {
             InitializeComponent();
+            UsuarioRegistrado = user; 
+            siticoneHtmlLabel2.Text = "Bienvenido " + UsuarioRegistrado.primer_Nombre + "!";
+            uc_ventas = uC_Ventas1;
+            if (user.cargo.Equals("Admin")){
+                siticoneButton4.Visible = false;
+                siticoneButton3.Visible = false;
+                siticoneButton6.Visible = false;
+            }
+            if (user.cargo.Equals("Cajero")){
+                siticoneButton1.Visible = false;
+                siticoneButton5.Visible = false;
+                siticoneButton2.Visible = false;
+                
+            }
         }
 
         private void siticoneButton1_CheckedChanged(object sender, EventArgs e)

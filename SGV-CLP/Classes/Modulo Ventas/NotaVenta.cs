@@ -12,29 +12,30 @@ namespace SGV_CLP.Classes.Modulo_Ventas
         public List<DetalleNotaVenta> listaDetalleNotaVenta;
         public Cliente? cliente;
         public Usuario? usuario;
-        public string? codFactura;
         public double precioFinal;
         public DateTime? fechaVenta;
+        public int codNotaVenta;
 
-        public NotaVenta(Cliente cliente, string codFactura, double precioFinal, DateTime fechaVenta)
+        public NotaVenta(int codNotaVenta, Cliente cliente, double precioFinal, DateTime fechaVenta)
         {
+            this.codNotaVenta = codNotaVenta;
             this.listaDetalleNotaVenta = new List<DetalleNotaVenta>();
             this.cliente = cliente;
-            this.codFactura = codFactura;
             this.precioFinal = precioFinal;
             this.fechaVenta = fechaVenta;
         }
 
-        public NotaVenta(string codFactura, string cc_cliente, string user_Name, double precioFinal, DateTime fechaVenta)
+        //Constructor getter BD
+        public NotaVenta(int codNotaVenta, string cc_cliente, string user_Name, double precioFinal, DateTime fechaVenta)
         {
             this.listaDetalleNotaVenta = new List<DetalleNotaVenta>();
             this.cliente = new Cliente();
             this.usuario = new Usuario();
             this.cliente.Cc_Cliente = cc_cliente;
-            this.codFactura = codFactura;
             this.usuario.userName = user_Name;
             this.precioFinal = precioFinal;
             this.fechaVenta = fechaVenta;
+            this.codNotaVenta = codNotaVenta;
         }
 
         public NotaVenta()
@@ -50,6 +51,7 @@ namespace SGV_CLP.Classes.Modulo_Ventas
             {
                 total += item.subtotal;
             }
+            this.precioFinal = (double)total;
             return total;
         }
         public void setTotalVentas()
@@ -68,7 +70,7 @@ namespace SGV_CLP.Classes.Modulo_Ventas
                     if (item.producto.Nombre.Equals(detalleNotaVenta.producto.Nombre))
                     {
                         listaDetalleNotaVenta[counter].cantidad = detalleNotaVenta.cantidad;
-                        this.setTotalVentas();
+                        calcularTotalVentas();
                         flag = true;
                     }
                 }

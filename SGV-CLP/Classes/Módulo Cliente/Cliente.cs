@@ -32,5 +32,17 @@ namespace SGV_CLP.Classes
         public string? Direccion_Domicilio { get; set; }
         public string? Telefono { get; set; }
         public string? Correo_Electronico { get; set; }
+
+        public bool isEqual(Cliente cliente)
+        {
+            return this.Cc_Cliente == cliente.Cc_Cliente &&
+                   this.Primer_Nombre == cliente.Primer_Nombre &&
+                   this.Segundo_Nombre == cliente.Segundo_Nombre &&
+                   this.Primer_Apellido == cliente.Primer_Apellido &&
+                   this.Segundo_Apellido == cliente.Segundo_Apellido &&
+                   this.Direccion_Domicilio == cliente.Direccion_Domicilio &&
+                   this.Telefono == cliente.Telefono &&
+                   this.Correo_Electronico == cliente.Correo_Electronico;
+        }
     }
 }

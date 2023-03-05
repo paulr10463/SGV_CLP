@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGV-CLP", "SGV-CLP\SGV-CLP.csproj", "{FD70A595-E7CF-4AB6-8703-75500A8D6D68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGV_CLP", "SGV_CLP\SGV_CLP.csproj", "{E3AB7ACD-93B0-43EE-AC85-F386A5FD3BEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FD70A595-E7CF-4AB6-8703-75500A8D6D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD70A595-E7CF-4AB6-8703-75500A8D6D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD70A595-E7CF-4AB6-8703-75500A8D6D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD70A595-E7CF-4AB6-8703-75500A8D6D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3AB7ACD-93B0-43EE-AC85-F386A5FD3BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3AB7ACD-93B0-43EE-AC85-F386A5FD3BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3AB7ACD-93B0-43EE-AC85-F386A5FD3BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3AB7ACD-93B0-43EE-AC85-F386A5FD3BEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D51272E3-7875-47EA-B449-D3D799F45E12}
+		SolutionGuid = {12330CE4-8A46-4D0A-B82C-77B08E9F8AD1}
 	EndGlobalSection
 EndGlobal

@@ -55,14 +55,16 @@
             // 
             // siticoneHtmlLabel1
             // 
+            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(59, 14);
-            this.siticoneHtmlLabel1.MinimumSize = new System.Drawing.Size(60, 25);
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(2, 17);
+            this.siticoneHtmlLabel1.MinimumSize = new System.Drawing.Size(170, 25);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(60, 25);
-            this.siticoneHtmlLabel1.TabIndex = 5;
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(170, 25);
+            this.siticoneHtmlLabel1.TabIndex = 6;
             this.siticoneHtmlLabel1.Text = null;
+            this.siticoneHtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siticoneNumericUpDown1
             // 

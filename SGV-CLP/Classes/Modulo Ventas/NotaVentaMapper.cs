@@ -16,18 +16,66 @@ namespace SGV_CLP.Classes.Modulo_Ventas
         //USAR using SGV_CLP.Classes
         //--------
         //CREATE
-        public static List<NotaVenta> ConsultarNotaVenta()
+
+        /*
+        * Permite consultar clientes en base a un párametro especifico  
+        * 
+        */
+
+        public static List<NotaVenta> ConsultarNotaVenta(string parameter, string value)
         {
             List<NotaVenta> notasDeVenta = new List<NotaVenta>();
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand("SELECT * FROM \"NotaVenta\"", connection))
+                var queryString = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"" + parameter + "\" LIKE '%" + value + "%'";
+                using (var command = new NpgsqlCommand(queryString, connection))
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        notasDeVenta.Add(new NotaVenta(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetDouble(3), reader.GetDateTime(4)));
+                        int codVenta = (int)reader["cod_NotaVenta"];
+                        string ccCliente = (string)reader["cc_Cliente"];
+                        string primerNombre = (string)reader["primer_Nombre"];
+                        string primerApellido = (string)reader["primer_Apellido"];
+                        string telefono = (string)reader["telefono"];
+                        double totalVenta = (double)reader["total_Venta"];
+                        DateTime fecha = (DateTime)reader["fecha_emision"];
+                        notasDeVenta.Add(new NotaVenta(
+                            codVenta,
+                            new Cliente(ccCliente, primerNombre, null, primerApellido, null, null, telefono, null),
+                            totalVenta,
+                            fecha));
+                    }
+                }
+            }
+            return notasDeVenta;
+        }
+
+        public static List<NotaVenta> ConsultarNotaVenta(string value)
+        {
+            List<NotaVenta> notasDeVenta = new List<NotaVenta>();
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                var queryString = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"NotaVenta\".\"cc_Cliente\" LIKE '%" + value + "%'";
+                using (var command = new NpgsqlCommand(queryString, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int codVenta = (int)reader["cod_NotaVenta"];
+                        string ccCliente = (string)reader["cc_Cliente"];
+                        string primerNombre = (string)reader["primer_Nombre"];
+                        string primerApellido = (string)reader["primer_Apellido"];
+                        string telefono = (string)reader["telefono"];
+                        double totalVenta = (double)reader["total_Venta"];
+                        DateTime fecha = (DateTime)reader["fecha_emision"];
+                        notasDeVenta.Add(new NotaVenta(
+                            codVenta,
+                            new Cliente(ccCliente,primerNombre,null,primerApellido,null,null,telefono,null),
+                            totalVenta,
+                            fecha));
                     }
                 }
             }
@@ -35,15 +83,75 @@ namespace SGV_CLP.Classes.Modulo_Ventas
         }
 
 
-        public static void IngresarNotaVenta(NotaVenta notaVenta)
+        public static List<NotaVenta> ConsultarNotaVentabyDate(string value)
+        {
+            List<NotaVenta> notasDeVenta = new List<NotaVenta>();
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                var queryString = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"fecha_emision\" = '" + value + "'";
+                using (var command = new NpgsqlCommand(queryString, connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int codVenta = (int)reader["cod_NotaVenta"];
+                        string ccCliente = (string)reader["cc_Cliente"];
+                        string primerNombre = (string)reader["primer_Nombre"];
+                        string primerApellido = (string)reader["primer_Apellido"];
+                        string telefono = (string)reader["telefono"];
+                        double totalVenta = (double)reader["total_Venta"];
+                        DateTime fecha = (DateTime)reader["fecha_emision"];
+                        notasDeVenta.Add(new NotaVenta(
+                            codVenta,
+                            new Cliente(ccCliente, primerNombre, null, primerApellido, null, null, telefono, null),
+                            totalVenta,
+                            fecha));
+                    }
+                }
+            }
+            return notasDeVenta;
+        }
+
+        public static List<NotaVenta> ConsultarNotaVenta(int codNotaVenta)
+        {
+            using NpgsqlConnection connection = new(_connectionString);
+            connection.Open();
+            using NpgsqlCommand command = connection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"cod_NotaVenta\" = @CodNotaVenta limit 1;";
+            command.Parameters.AddWithValue("@CodNotaVenta", codNotaVenta);
+            NpgsqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Read();
+                int codVenta = (int)reader["cod_NotaVenta"];
+                string ccCliente = (string)reader["cc_Cliente"];
+                string primerNombre = (string)reader["primer_Nombre"];
+                string primerApellido = (string)reader["primer_Apellido"];
+                string telefono = (string)reader["telefono"];
+                double totalVenta = (double)reader["total_Venta"];
+                DateTime fecha = (DateTime)reader["fecha_emision"];
+                return new List<NotaVenta> {
+                    new NotaVenta(
+                    codVenta,
+                    new Cliente(ccCliente, primerNombre, null, primerApellido, null, null, telefono, null),
+                    totalVenta,
+                    fecha)};
+            }
+            return null;
+                
+        }
+
+
+            public static void IngresarNotaVenta(NotaVenta notaVenta)
         {
             // Conexión a BD
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
-            using (var cmd = new NpgsqlCommand("INSERT INTO public.\"NotaVenta\"(\"cod_NotaVenta\", \"cc_Cliente\", \"userName\", \"total_Venta\", \"fecha_emision\") VALUES (@Cod_NotaVenta, @Cc_Cliente, @UserName, @Total_Venta, @Fecha_emision)", connection))
+            using (var cmd = new NpgsqlCommand("INSERT INTO public.\"NotaVenta\"(\"cc_Cliente\", \"userName\", \"total_Venta\", \"fecha_emision\") VALUES (@Cc_Cliente, @UserName, @Total_Venta, @Fecha_emision)", connection))
             {
-                cmd.Parameters.AddWithValue("@Cod_NotaVenta", notaVenta.codFactura);
                 cmd.Parameters.AddWithValue("@Cc_Cliente", notaVenta.cliente.Cc_Cliente);
                 cmd.Parameters.AddWithValue("@UserName", notaVenta.usuario.userName);
                 cmd.Parameters.AddWithValue("@Total_Venta", notaVenta.precioFinal);
@@ -51,6 +159,9 @@ namespace SGV_CLP.Classes.Modulo_Ventas
                 cmd.ExecuteNonQuery();
             }
         }
+
+
     }
+
         
 }

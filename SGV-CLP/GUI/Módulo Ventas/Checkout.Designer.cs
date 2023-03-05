@@ -71,6 +71,7 @@
             this.siticoneHtmlLabel_correct_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel9 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneHtmlLabel_wrong_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneCheckBox1 = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -468,6 +469,7 @@
             this.txtApellido1Venta.SelectedText = "";
             this.txtApellido1Venta.Size = new System.Drawing.Size(200, 36);
             this.txtApellido1Venta.TabIndex = 67;
+            this.txtApellido1Venta.TextChanged += new System.EventHandler(this.txtApellido1Venta_TextChanged);
             this.txtApellido1Venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido1Venta_KeyPress);
             // 
             // siticoneHtmlLabel17
@@ -502,6 +504,7 @@
             this.txtNombre1Venta.SelectedText = "";
             this.txtNombre1Venta.Size = new System.Drawing.Size(200, 36);
             this.txtNombre1Venta.TabIndex = 65;
+            this.txtNombre1Venta.TextChanged += new System.EventHandler(this.txtNombre1Venta_TextChanged);
             this.txtNombre1Venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre1Venta_KeyPress);
             // 
             // txtTelefVenta
@@ -525,6 +528,7 @@
             this.txtTelefVenta.SelectedText = "";
             this.txtTelefVenta.Size = new System.Drawing.Size(200, 36);
             this.txtTelefVenta.TabIndex = 64;
+            this.txtTelefVenta.TextChanged += new System.EventHandler(this.txtTelefVenta_TextChanged);
             this.txtTelefVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefVenta_KeyPress);
             // 
             // txtDireccionVenta
@@ -548,6 +552,7 @@
             this.txtDireccionVenta.SelectedText = "";
             this.txtDireccionVenta.Size = new System.Drawing.Size(200, 36);
             this.txtDireccionVenta.TabIndex = 63;
+            this.txtDireccionVenta.TextChanged += new System.EventHandler(this.txtDireccionVenta_TextChanged);
             this.txtDireccionVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccionVenta_KeyPress);
             // 
             // siticoneHtmlLabel6
@@ -656,8 +661,8 @@
             this.txtCorreoVenta.SelectedText = "";
             this.txtCorreoVenta.Size = new System.Drawing.Size(200, 36);
             this.txtCorreoVenta.TabIndex = 80;
+            this.txtCorreoVenta.TextChanged += new System.EventHandler(this.txtCorreoVenta_TextChanged);
             this.txtCorreoVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreoVenta_KeyPress);
-            this.txtCorreoVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCorreoVenta_KeyUp);
             // 
             // siticoneHtmlLabel_correct_email
             // 
@@ -716,12 +721,33 @@
             this.siticoneHtmlLabel_wrong_length_telef.TabIndex = 84;
             this.siticoneHtmlLabel_wrong_length_telef.Text = "¡Se necesitan 10 caract.!";
             // 
+            // siticoneCheckBox1
+            // 
+            this.siticoneCheckBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneCheckBox1.AutoSize = true;
+            this.siticoneCheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneCheckBox1.CheckedState.BorderRadius = 0;
+            this.siticoneCheckBox1.CheckedState.BorderThickness = 0;
+            this.siticoneCheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneCheckBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneCheckBox1.Location = new System.Drawing.Point(234, 133);
+            this.siticoneCheckBox1.Name = "siticoneCheckBox1";
+            this.siticoneCheckBox1.Size = new System.Drawing.Size(139, 21);
+            this.siticoneCheckBox1.TabIndex = 87;
+            this.siticoneCheckBox1.Text = "Consumidor Final";
+            this.siticoneCheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.siticoneCheckBox1.UncheckedState.BorderRadius = 0;
+            this.siticoneCheckBox1.UncheckedState.BorderThickness = 0;
+            this.siticoneCheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.siticoneCheckBox1.CheckedChanged += new System.EventHandler(this.siticoneCheckBox1_CheckedChanged);
+            // 
             // Checkout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1373, 773);
+            this.Controls.Add(this.siticoneCheckBox1);
             this.Controls.Add(this.siticoneHtmlLabel9);
             this.Controls.Add(this.siticoneHtmlLabel_correct_length_telef);
             this.Controls.Add(this.siticoneHtmlLabel_correct_email);
@@ -811,6 +837,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_length_telef;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_length_telef;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel9;
-        
+        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox siticoneCheckBox1;
     }
 }
