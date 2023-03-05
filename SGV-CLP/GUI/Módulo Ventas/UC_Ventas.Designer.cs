@@ -51,14 +51,14 @@
             this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton4 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.Editar = new System.Windows.Forms.TabPage();
+            this.dateTimePickerConsultarVenta = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
             this.siticoneHtmlLabel_buscarCliente_sin_campo = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.CodNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CICliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombresC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApellidosC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefonoC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaDeVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ComboBox_ConsultarVentaPor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
@@ -324,6 +324,7 @@
             // 
             // Editar
             // 
+            this.Editar.Controls.Add(this.dateTimePickerConsultarVenta);
             this.Editar.Controls.Add(this.siticoneHtmlLabel_buscarCliente_sin_campo);
             this.Editar.Controls.Add(this.siticoneDataGridView1);
             this.Editar.Controls.Add(this.ComboBox_ConsultarVentaPor);
@@ -336,6 +337,24 @@
             this.Editar.TabIndex = 1;
             this.Editar.Text = "Consultar Venta";
             this.Editar.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePickerConsultarVenta
+            // 
+            this.dateTimePickerConsultarVenta.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateTimePickerConsultarVenta.BorderRadius = 20;
+            this.dateTimePickerConsultarVenta.Checked = true;
+            this.dateTimePickerConsultarVenta.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePickerConsultarVenta.FillColor = System.Drawing.Color.White;
+            this.dateTimePickerConsultarVenta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePickerConsultarVenta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerConsultarVenta.Location = new System.Drawing.Point(220, 105);
+            this.dateTimePickerConsultarVenta.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateTimePickerConsultarVenta.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerConsultarVenta.Name = "dateTimePickerConsultarVenta";
+            this.dateTimePickerConsultarVenta.Size = new System.Drawing.Size(273, 46);
+            this.dateTimePickerConsultarVenta.TabIndex = 25;
+            this.dateTimePickerConsultarVenta.Value = new System.DateTime(2023, 3, 5, 4, 33, 33, 358);
+            this.dateTimePickerConsultarVenta.ValueChanged += new System.EventHandler(this.dateTimePickerConsultarVenta_ValueChanged);
             // 
             // siticoneHtmlLabel_buscarCliente_sin_campo
             // 
@@ -365,10 +384,9 @@
             this.siticoneDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodNV,
             this.CICliente,
-            this.NombresC,
-            this.ApellidosC,
-            this.TelefonoC,
-            this.Column5,
+            this.Column1,
+            this.Column2,
+            this.Column3,
             this.Column7,
             this.FechaDeVenta});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -418,33 +436,24 @@
             // 
             // CICliente
             // 
-            this.CICliente.HeaderText = "CI";
+            this.CICliente.HeaderText = "CC";
             this.CICliente.MinimumWidth = 6;
             this.CICliente.Name = "CICliente";
             // 
-            // NombresC
+            // Column1
             // 
-            this.NombresC.HeaderText = "Nombres";
-            this.NombresC.MinimumWidth = 6;
-            this.NombresC.Name = "NombresC";
+            this.Column1.HeaderText = "Nombre";
+            this.Column1.Name = "Column1";
             // 
-            // ApellidosC
+            // Column2
             // 
-            this.ApellidosC.HeaderText = "Apellidos";
-            this.ApellidosC.MinimumWidth = 6;
-            this.ApellidosC.Name = "ApellidosC";
+            this.Column2.HeaderText = "Apellido";
+            this.Column2.Name = "Column2";
             // 
-            // TelefonoC
+            // Column3
             // 
-            this.TelefonoC.HeaderText = "Teléfono";
-            this.TelefonoC.MinimumWidth = 6;
-            this.TelefonoC.Name = "TelefonoC";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Forma de pago";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
+            this.Column3.HeaderText = "Teléfono";
+            this.Column3.Name = "Column3";
             // 
             // Column7
             // 
@@ -471,12 +480,13 @@
             this.ComboBox_ConsultarVentaPor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.ComboBox_ConsultarVentaPor.ItemHeight = 40;
             this.ComboBox_ConsultarVentaPor.Items.AddRange(new object[] {
-            "Código NV",
-            "Fecha de venta",
-            "CI cliente",
-            "Nombre cliente",
-            "Teléfono cliente"});
-            this.ComboBox_ConsultarVentaPor.Location = new System.Drawing.Point(518, 105);
+            "Código Nota de Venta",
+            "CC Cliente",
+            "Nombre Cliente",
+            "Apellido Cliente",
+            "Teléfono Cliente",
+            "Fecha Venta"});
+            this.ComboBox_ConsultarVentaPor.Location = new System.Drawing.Point(526, 105);
             this.ComboBox_ConsultarVentaPor.Name = "ComboBox_ConsultarVentaPor";
             this.ComboBox_ConsultarVentaPor.Size = new System.Drawing.Size(273, 46);
             this.ComboBox_ConsultarVentaPor.TabIndex = 20;
@@ -502,6 +512,7 @@
             this.txtConsultarVenta.SelectedText = "";
             this.txtConsultarVenta.Size = new System.Drawing.Size(273, 46);
             this.txtConsultarVenta.TabIndex = 19;
+            this.txtConsultarVenta.TextChanged += new System.EventHandler(this.txtConsultarVenta_TextChanged);
             this.txtConsultarVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultarVenta_KeyPress);
             // 
             // richTextBox1
@@ -621,14 +632,6 @@
         
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel11;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;
-        private DataGridViewTextBoxColumn CodNV;
-        private DataGridViewTextBoxColumn CICliente;
-        private DataGridViewTextBoxColumn NombresC;
-        private DataGridViewTextBoxColumn ApellidosC;
-        private DataGridViewTextBoxColumn TelefonoC;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn FechaDeVenta;
         private DataGridViewTextBoxColumn CC;
         private DataGridViewTextBoxColumn Contras;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -636,5 +639,13 @@
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
         public Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView2;
+        private DataGridViewTextBoxColumn CodNV;
+        private DataGridViewTextBoxColumn CICliente;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn FechaDeVenta;
+        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker dateTimePickerConsultarVenta;
     }
 }

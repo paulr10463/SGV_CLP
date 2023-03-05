@@ -6,11 +6,14 @@ namespace SGV_CLP
 {
     public partial class MainMenu : Form
     {
-        public static Usuario user;
-        public MainMenu()
+        public static Usuario UsuarioRegistrado;
+        public static UC_Ventas uc_ventas;
+        public MainMenu(Usuario user)
         {
             InitializeComponent();
-            //siticoneHtmlLabel2.Text = "Bienvenido " + user.userName;
+            UsuarioRegistrado = user; 
+            siticoneHtmlLabel2.Text = "Bienvenido " + UsuarioRegistrado.primer_Nombre + "!";
+            uc_ventas = uC_Ventas1;
         }
 
         private void siticoneButton1_CheckedChanged(object sender, EventArgs e)

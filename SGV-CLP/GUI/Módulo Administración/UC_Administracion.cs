@@ -20,7 +20,6 @@ namespace SGV_CLP.GUI
     {
         List<Usuario> UsuariosRegistrados = new List<Usuario>();
         List<ParametroPorUnidad> ParamsPURegistrados = new List<ParametroPorUnidad>();
-        List<ParametroPorcentaje> ParamsPORegistrados = new List<ParametroPorcentaje>();
         int count_correct_fields = 0, num_atributos = 8;
 
         // Nombre de usuario

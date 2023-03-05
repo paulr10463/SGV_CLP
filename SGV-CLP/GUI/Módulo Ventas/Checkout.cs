@@ -85,15 +85,18 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         {
             Cliente clienteFinal = new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
             UC_Ventas.notaVenta.cliente= clienteFinal;
-            
+            UC_Ventas.notaVenta.usuario = MainMenu.UsuarioRegistrado;
+            UC_Ventas.notaVenta.fechaVenta = DateTime.Now;
             NotaVentaMapper.IngresarNotaVenta(UC_Ventas.notaVenta);
+            UC_Ventas.notaVenta = new NotaVenta();
 
 
             UC_Ventas.resetNumPickers();
             SystemSounds.Beep.Play();
             MessageBox.Show("Venta finalizada con éxito", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainMenu.uC_Ventas1.resetValues();
-            
+            MainMenu.uc_ventas.resetValues();
+
+
 
             this.Dispose();
         }
@@ -509,6 +512,25 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             }
 
             validateFieldsCounter();
+        }
+
+        private void siticoneCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (siticoneCheckBox1.Checked)
+            {
+                txtCC_ClienteVenta.Enabled = false;
+                txtCC_ClienteVenta.Text = "0000000000";
+                siticoneHtmlLabel_cc_valida.Visible= false;
+                siticoneHtmlLabel_cc_invalida.Visible = false;
+                siticoneHtmlLabel_cc_wrong_length.Visible = false;
+                siticoneHtmlLabel_cc_correct_length.Visible = false;
+            }
+            else
+            {
+                txtCC_ClienteVenta.Enabled = true;
+                txtCC_ClienteVenta.Text = string.Empty;
+                txtCC_ClienteVenta_TextChanged(null, null);
+            }
         }
     }
 }

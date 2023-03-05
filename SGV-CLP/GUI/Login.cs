@@ -6,7 +6,7 @@ namespace SGV_CLP
 {
     public partial class Login : Form
     {
-        public static Usuario user;
+        public static Usuario user1;
         public Login()
         {
             InitializeComponent();
@@ -14,16 +14,13 @@ namespace SGV_CLP
 
         private void siticoneGradientButton1_Click(object sender, EventArgs e)
         {
-            if (UsuarioMapper.checkUser(siticoneTextBox1.Text, siticoneTextBox2.Text))
+            var user = UsuarioMapper.getUser(siticoneTextBox1.Text, siticoneTextBox2.Text);
+            if (user!=null)
             {
                 this.Hide();
-                user = new Usuario();
-                user.userName = siticoneTextBox1.Text;
-                MainMenu ventana = new MainMenu();
-                
+                MainMenu ventana = new MainMenu(user);
                 ventana.Owner = this;
                 ventana.ShowDialog();
-                //ventana.user = user;
                 this.Dispose();
                 
             }

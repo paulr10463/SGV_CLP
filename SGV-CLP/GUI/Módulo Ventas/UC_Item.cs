@@ -38,6 +38,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             detalleNotaVenta.subtotal = detalleNotaVenta.cantidad * _producto.PVP;
             UC_Ventas.notaVenta.addOrUpdateDetalleVenta(detalleNotaVenta);
             addRowInTable(detalleNotaVenta.cantidad, _producto);
+            UC_Ventas.totalVenta.Visible = true;
             UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.notaVenta.calcularTotalVentas().ToString();
         }
 

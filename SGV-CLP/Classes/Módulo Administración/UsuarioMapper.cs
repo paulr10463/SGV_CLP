@@ -37,69 +37,52 @@ namespace SGV_CLP.Classes.Módulo_Administración
         //var idCliente = await ClienteMapper.IngresarCliente(cliente);
         //--------
         //READ
-        public static bool checkUser(string userName, string contrasenia)
+        public static Usuario getUser(string userName, string contrasenia)
         {
             using NpgsqlConnection connection = new(_connectionString);
             connection.Open();
             using NpgsqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT * FROM public.\"Usuario\" WHERE \"userName\" = @UserName and \"contrasenia\" = @Contrasenia ;";
+            command.CommandText = "SELECT  \"primer_Nombre\" FROM public.\"Usuario\" WHERE \"userName\" = @UserName and \"contrasenia\" = @Contrasenia ;";
             command.Parameters.AddWithValue("@UserName", userName);
             command.Parameters.AddWithValue("@Contrasenia", contrasenia);
             NpgsqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
-                return true;
+                reader.Read();
+                string primerNombre = (string)reader["primer_Nombre"];
+                return new Usuario(null, userName, contrasenia, primerNombre, null, null,null,null);
             }
-            return false;
+            return null;
         }
-        //var client = await ClienteMapper.MostrarClientes(idCliente);
-        //Console.WriteLine($"{client.Id_Cliente} ,{client.Nombre},{client.Telefono},{client.Fecha_Ingreso} ");
+        //var cliente = new Cliente { Id_Cliente = 1, Nombre = "Joel", Telefono = "0995618466", Fecha_Ingreso = DateTime.Now };
+        //var idCliente = await ClienteMapper.IngresarCliente(cliente);
         //--------
-        //UPDATE
-        public static async Task<bool> ModificarCliente(Cliente cliente)
+        //READ
+        public static async Task<Cliente> getUserData(string CC_Cliente)
         {
-            int result = 0;
-            if (cliente.Cc_Cliente != null)
-            {
-                await using NpgsqlConnection connection = new NpgsqlConnection(_connectionString);
-                connection.Open();
-                await using NpgsqlCommand command = connection.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE public.\"CLiente\" SET  \"cc_Cliente\"=@CC_Cliente, \"primer_Nombre\"=@Primer_Nombre, \"segundo_Nombre\"=@Segundo_Nombre, \"primer_Apellido\"=@Primer_Apellido, \"segundo_Apellido\"=@Segundo_Apellido, \"direccion_Domicilio\"=@Direccion_Domicilio, telefono=@Telefono, \"correo_Electronico\"=@Correo_Electronico WHERE \"cc_Cliente\" = @CC_Cliente;";
-                command.Parameters.AddWithValue("@CC_Cliente", cliente.Cc_Cliente);
-                command.Parameters.AddWithValue("@Primer_Nombre", cliente.Primer_Nombre);
-                command.Parameters.AddWithValue("@Segundo_Nombre", cliente.Segundo_Nombre);
-                command.Parameters.AddWithValue("@Primer_Apellido", cliente.Primer_Apellido);
-                command.Parameters.AddWithValue("@Segundo_Apellido", cliente.Segundo_Apellido);
-                command.Parameters.AddWithValue("@Direccion_Domicilio", cliente.Direccion_Domicilio);
-                command.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-                command.Parameters.AddWithValue("@Correo_Electronico", cliente.Correo_Electronico);
-                command.Parameters.AddWithValue("@CC_Cliente", cliente.Cc_Cliente);
-                result = await command.ExecuteNonQueryAsync();
-            }
-            return result > 0;
-        }
-        //client.Id_Cliente += 1;
-        //client.Nombre += "Julian";
-        //client.Telefono += "0954186584";
-        //client.Fecha_Ingreso = DateTime.Now;
-        //await ClienteMapper.ModificarCliente(client);
-        //var client2 = await ClienteMapper.MostrarClientes(client.Id_Cliente);
-        //Console.WriteLine($"{client2.Id_Cliente} {client2.Nombre},{client2.Telefono},{client2.Fecha_Ingreso} ");
-        //--------
-        //DELETE
-        public static async Task<bool> EliminarCliente(string CC_Cliente)
-        {
-            await using var connection = new NpgsqlConnection(_connectionString);
+            await using NpgsqlConnection connection = new(_connectionString);
             connection.Open();
             await using NpgsqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM public.\"CLiente\" WHERE \"cc_Cliente\" = @CC_Cliente;";
-            command.Parameters.AddWithValue("@CC_Cliente", CC_Cliente);
-            var result = await command.ExecuteNonQueryAsync();
-            return result > 0;
+            command.CommandText = "SELECT  \"primer_Nombre\" FROM public.\"Cliente\" WHERE \"cc_Cliente\" = @ccCliente limit 1;";
+            command.Parameters.AddWithValue("@ccCliente", CC_Cliente);
+            NpgsqlDataReader reader = await command.ExecuteReaderAsync();
+            if (reader.HasRows)
+            {
+                reader.Read();
+                string primerNombre = (string)reader["primer_Nombre"];
+                string segundoNombre = (string)reader["segundo_Nombre"];
+                string primerApellido = (string)reader["primer_Apellido"];
+                string segundoApellido = (string)reader["segundo_Apellido"];
+                string direccionDomicilio = (string)reader["direccion_Domicilio"];
+                string telefono = (string)reader["telefono"];
+                string correoElectronico = (string)reader["correo_Electronico"];
+                string ccCLiente = (string)reader["cc_Cliente"];
+                return new Cliente(ccCLiente, primerNombre, segundoNombre, primerApellido, segundoApellido, direccionDomicilio, telefono, correoElectronico);
+            }
+            return null;
         }
-        //await ClienteMapper.EliminarCliente(1);
+
     }
 }

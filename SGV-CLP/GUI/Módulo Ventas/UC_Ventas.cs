@@ -14,6 +14,7 @@ namespace SGV_CLP.GUI
         public static SiticoneDataGridView detalleVentaTabla;
         public static SiticoneHtmlLabel totalVenta;
         public static List<UC_Item> productosUI = new List<UC_Item>();
+        public string Categoria = string.Empty;
         public UC_Ventas()
         {
             notaVenta = new NotaVenta();
@@ -35,26 +36,17 @@ namespace SGV_CLP.GUI
             InitializeComponent();
             detalleVentaTabla = siticoneDataGridView2;
             totalVenta = siticoneHtmlLabel11;
+            dateTimePickerConsultarVenta.Visible = false;
 
             List<UC_Item> especialidadesUI = new List<UC_Item>();
             List<UC_Item> bebidasUI = new List<UC_Item>();
 
-            foreach (Producto producto in especialidades)
-            {
-                especialidadesUI.Add(new UC_Item(producto));
-            }
-            foreach (Producto producto in bebidas)
-            {
-                bebidasUI.Add(new UC_Item(producto));
-            }
-            foreach (UC_Item item in especialidadesUI)
-            {
-                flowLayoutPanel1.Controls.Add(item);
-            }
-            foreach (UC_Item item in bebidasUI)
-            {
-                flowLayoutPanel2.Controls.Add(item);
-            }
+            especialidades.ForEach(producto => especialidadesUI.Add(new UC_Item(producto)));
+            bebidas.ForEach(bebida => bebidasUI.Add(new UC_Item(bebida)));
+
+            especialidadesUI.ForEach(item => flowLayoutPanel1.Controls.Add(item));
+            bebidasUI.ForEach(item => flowLayoutPanel2.Controls.Add(item));
+
             especialidadesUI.ForEach( item => productosUI.Add(item));
             bebidasUI.ForEach( item => productosUI.Add(item));
         }
@@ -103,60 +95,8 @@ namespace SGV_CLP.GUI
         }
 
         //Validaciones en el cuadro de Busqueda de ventas
-        private void txtConsultarVenta_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
-            {
-                case 0:
-                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                    {
-                        e.Handled = true;
-                        SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente letras y números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    break;
-                case 1:
-                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
-                    {
-                        e.Handled = true;
-                        SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente números o \"-\" (siga el formato aaaa-mm-dd)!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    break;
-                case 2:
-                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                    {
-                        e.Handled = true;
-                        SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    break;
-                case 3:
-                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
-                    {
-                        e.Handled = true;
-                        SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    break;
-                case 4:
-                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                    {
-                        e.Handled = true;
-                        SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    break;
-                default:
-                    if (ComboBox_ConsultarVentaPor.SelectedIndex == -1) e.Handled = true;
-                    break;
-            }
-        }
+
+        
 
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -165,91 +105,22 @@ namespace SGV_CLP.GUI
             {
                 siticoneHtmlLabel_buscarCliente_sin_campo.Hide();
             }
-        }
-
-
-        private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        { 
-            bool flag = false;
-            List<string> codFacturaList = new List<string>();
-            foreach (DataGridViewRow rowItem in siticoneDataGridView1.Rows)
+            dateTimePickerConsultarVenta.Visible = false;
+            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
-                if (rowItem.Cells[0].Value != null)
-                {
-                    codFacturaList.Add((string)rowItem.Cells[0].Value);
-                }
-
+                case 0: Categoria = "cod_NotaVenta"; txtConsultarVenta_TextChanged(null,null); break;
+                case 1: Categoria = "cc_Cliente"; txtConsultarVenta_TextChanged(null, null); break;
+                case 2: Categoria = "primer_Nombre"; txtConsultarVenta_TextChanged(null, null); break;
+                case 3: Categoria = "primer_Apellido"; txtConsultarVenta_TextChanged(null, null); break;
+                case 4: Categoria = "telefono"; txtConsultarVenta_TextChanged(null, null); break;
+                case 5: 
+                    Categoria = "fecha_emision";
+                    dateTimePickerConsultarVenta.Visible = true;
+                    dateTimePickerConsultarVenta_ValueChanged(null, null);
+                    break;
+            }
         }
 
-
-        
-    }
-
-    private void txtConsultarVenta_KeyUp(object sender, KeyEventArgs e)
-    {
-        string filtro = txtConsultarVenta.Text;
-
-        switch (ComboBox_ConsultarVentaPor.SelectedIndex)
-        {
-            case 0:
-                // Filtrar los datos del DataGridView
-                foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
-                {
-                    if (row.Cells[0].Value != null)
-                    {
-                        // Ocultar las filas que no cumplan con el filtro
-                        row.Visible = row.Cells[0].Value.ToString().Contains(filtro);
-                    }
-                }
-                break;
-            case 1:
-                // Filtrar los datos del DataGridView
-                foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
-                {
-                    if (row.Cells[7].Value != null)
-                    {
-                        // Ocultar las filas que no cumplan con el filtro
-                        row.Visible = row.Cells[7].Value.ToString().Contains(filtro);
-                    }
-                }
-                break;
-            case 2:
-                // Filtrar los datos del DataGridView
-                foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
-                {
-                    if (row.Cells[1].Value != null)
-                    {
-                        // Ocultar las filas que no cumplan con el filtro
-                        row.Visible = row.Cells[1].Value.ToString().Contains(filtro);
-                    }
-                }
-                break;
-            case 3:
-                // Filtrar los datos del DataGridView
-                foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
-                {
-                    if (row.Cells[2].Value != null)
-                    {
-                        // Ocultar las filas que no cumplan con el filtro
-                        row.Visible = row.Cells[2].Value.ToString().Contains(filtro);
-                    }
-                }
-                break;
-            case 4:
-                // Filtrar los datos del DataGridView
-                foreach (DataGridViewRow row in siticoneDataGridView1.Rows)
-                {
-                    if (row.Cells[4].Value != null)
-                    {
-                        // Ocultar las filas que no cumplan con el filtro
-                        row.Visible = row.Cells[4].Value.ToString().Contains(filtro);
-                    }
-                }
-                break;
-        }
-
-
-    }
     
         private void siticoneDataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -263,7 +134,6 @@ namespace SGV_CLP.GUI
                             notaVenta.deleteDetailbyProductName(row.Cells[0].Value.ToString());
                             siticoneDataGridView2.Rows.RemoveAt(e.RowIndex);
                             UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.notaVenta.calcularTotalVentas().ToString();
-                            UC_Ventas.notaVenta.setTotalVentas();
                         }
                     }
                 }
@@ -271,6 +141,85 @@ namespace SGV_CLP.GUI
         }
         public static void resetNumPickers(){
             productosUI.ForEach(item => item.resetComponents());
+        }
+
+        private void txtConsultarVenta_TextChanged(object sender, EventArgs e)
+        {
+            List<NotaVenta> notasVenta = new List<NotaVenta>();
+            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
+            {
+                case 0:
+                    if (!txtConsultarVenta.Text.Equals(string.Empty))
+                    notasVenta = NotaVentaMapper.ConsultarNotaVenta(Convert.ToInt32(txtConsultarVenta.Text));
+                    break;
+
+                case 1:
+                    notasVenta = NotaVentaMapper.ConsultarNotaVenta(txtConsultarVenta.Text);
+                    break;
+
+                case >=2 and <=4:
+                    notasVenta = NotaVentaMapper.ConsultarNotaVenta(Categoria, txtConsultarVenta.Text);
+                    break;
+
+            }
+                 
+                llenarTablaVenta(notasVenta);           
+        }
+
+        public void llenarTablaVenta(List<NotaVenta> notasVenta)
+        {
+            if (notasVenta != null)
+            {
+                siticoneDataGridView1.Rows.Clear();
+                notasVenta.ForEach(item => siticoneDataGridView1.Rows.Add(
+                    item.codNotaVenta, 
+                    item.cliente.Cc_Cliente, 
+                    item.cliente.Primer_Nombre,
+                    item.cliente.Primer_Apellido,
+                    item.cliente.Telefono,
+                    item.precioFinal,
+                    item.fechaVenta));
+            }
+        }
+
+        private void dateTimePickerConsultarVenta_ValueChanged(object sender, EventArgs e)
+        {
+            List<NotaVenta> notasVenta = new List<NotaVenta>();
+            notasVenta = NotaVentaMapper.ConsultarNotaVentabyDate(dateTimePickerConsultarVenta.Text);
+            llenarTablaVenta(notasVenta);
+        }
+
+        private void txtConsultarVenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (ComboBox_ConsultarVentaPor.SelectedIndex)
+            {
+                //case 0: "cod_NotaVenta, ccCliente y Telefono"
+                case 0 or 1 or 4:
+                    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                //case 2: "primer_Nombre y apellido"; 
+                case 2 or 3:
+                    if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+
+            }
+        }
+
+        private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox_ConsultarVentaPor_SelectedIndexChanged(null, null);
         }
     } 
 }

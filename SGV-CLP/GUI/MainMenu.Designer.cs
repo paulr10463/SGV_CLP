@@ -34,6 +34,7 @@ namespace SGV_CLP
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton7 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneCirclePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticoneCirclePictureBox();
             this.siticoneButton5 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -45,12 +46,11 @@ namespace SGV_CLP
             this.siticoneDragControl1 = new Siticone.Desktop.UI.WinForms.SiticoneDragControl(this.components);
             this.siticoneCustomGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel();
             this.uC_Clientes1 = new SGV_CLP.GUI.UC_Clientes();
-            uC_Ventas1 = new SGV_CLP.GUI.UC_Ventas();
+            this.uC_Ventas1 = new SGV_CLP.GUI.UC_Ventas();
             this.uC_Compras1 = new SGV_CLP.GUI.UC_Compras();
             this.uC_Productos1 = new SGV_CLP.GUI.UC_Productos();
             this.uC_Proveedores1 = new SGV_CLP.GUI.UC_Proveedores();
             this.uC_Administracion1 = new SGV_CLP.GUI.UC_Administracion();
-            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneCirclePictureBox1)).BeginInit();
             this.siticoneCustomGradientPanel1.SuspendLayout();
@@ -72,6 +72,17 @@ namespace SGV_CLP
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.Size = new System.Drawing.Size(227, 1033);
             this.siticonePanel1.TabIndex = 3;
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(52, 21);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(14, 23);
+            this.siticoneHtmlLabel2.TabIndex = 13;
+            this.siticoneHtmlLabel2.Text = "a";
             // 
             // siticoneButton7
             // 
@@ -263,7 +274,7 @@ namespace SGV_CLP
             // siticoneCustomGradientPanel1
             // 
             this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Clientes1);
-            this.siticoneCustomGradientPanel1.Controls.Add(uC_Ventas1);
+            this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Ventas1);
             this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Compras1);
             this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Productos1);
             this.siticoneCustomGradientPanel1.Controls.Add(this.uC_Proveedores1);
@@ -285,12 +296,12 @@ namespace SGV_CLP
             // 
             // uC_Ventas1
             // 
-            uC_Ventas1.Dock = System.Windows.Forms.DockStyle.Fill;
-            uC_Ventas1.Location = new System.Drawing.Point(0, 0);
-            uC_Ventas1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            uC_Ventas1.Name = "uC_Ventas1";
-            uC_Ventas1.Size = new System.Drawing.Size(1675, 1033);
-            uC_Ventas1.TabIndex = 4;
+            this.uC_Ventas1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Ventas1.Location = new System.Drawing.Point(0, 0);
+            this.uC_Ventas1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uC_Ventas1.Name = "uC_Ventas1";
+            this.uC_Ventas1.Size = new System.Drawing.Size(1675, 1033);
+            this.uC_Ventas1.TabIndex = 4;
             // 
             // uC_Compras1
             // 
@@ -328,16 +339,6 @@ namespace SGV_CLP
             this.uC_Administracion1.Size = new System.Drawing.Size(1675, 1033);
             this.uC_Administracion1.TabIndex = 0;
             // 
-            // siticoneHtmlLabel2
-            // 
-            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(37, 25);
-            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(3, 2);
-            this.siticoneHtmlLabel2.TabIndex = 13;
-            // 
             // MainMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -374,7 +375,7 @@ namespace SGV_CLP
         private GUI.UC_Productos uC_Productos1;
         private GUI.UC_Proveedores uC_Proveedores1;
         private GUI.UC_Administracion uC_Administracion1;
-        public static UC_Ventas uC_Ventas1;
+        private UC_Ventas uC_Ventas1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
     }
 }
