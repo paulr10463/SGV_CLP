@@ -98,14 +98,14 @@ namespace SGV_CLP.GUI
                 Convert.ToDouble(txtPVP.Text), 
                 txtCategoria.Text, 
                 txtImagen.Text);
-        
+            
            ProductoMapper.IngresarProducto(producto);
             llenarTablaProducto();
             llenarComboBoxProductos();
 
             SystemSounds.Beep.Play();
             MessageBox.Show("Producto añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            MainMenu.uc_ventas.loadProducts();
             vaciarCampos();
         }
 

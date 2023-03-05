@@ -43,7 +43,7 @@ namespace SGV_CLP.Classes.Módulo_Administración
             connection.Open();
             using NpgsqlCommand command = connection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "SELECT  \"primer_Nombre\" FROM public.\"Usuario\" WHERE \"userName\" = @UserName and \"contrasenia\" = @Contrasenia ;";
+            command.CommandText = "SELECT  \"primer_Nombre\",\"cargo\" FROM public.\"Usuario\" WHERE \"userName\" = @UserName and \"contrasenia\" = @Contrasenia ;";
             command.Parameters.AddWithValue("@UserName", userName);
             command.Parameters.AddWithValue("@Contrasenia", contrasenia);
             NpgsqlDataReader reader = command.ExecuteReader();
@@ -51,7 +51,8 @@ namespace SGV_CLP.Classes.Módulo_Administración
             {
                 reader.Read();
                 string primerNombre = (string)reader["primer_Nombre"];
-                return new Usuario(null, userName, contrasenia, primerNombre, null, null,null,null);
+                string cargo = (string)reader["cargo"];
+                return new Usuario(null, userName, contrasenia, primerNombre, null, null,null,cargo);
             }
             return null;
         }

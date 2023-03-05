@@ -3,13 +3,16 @@ using SGV_CLP.Classes.Modulo_Ventas;
 using SGV_CLP.GUI.Módulo_Ventas;
 using Siticone.Desktop.UI.WinForms;
 using System.Media;
+using System.Windows.Forms;
 
 
 namespace SGV_CLP.GUI
 {
     public partial class UC_Ventas : UserControl
     {
-
+        List<Producto> productos;
+        List<Producto> especialidades;
+        List<Producto> bebidas;
         public static NotaVenta notaVenta;
         public static SiticoneDataGridView detalleVentaTabla;
         public static SiticoneHtmlLabel totalVenta;
@@ -18,10 +21,20 @@ namespace SGV_CLP.GUI
         public UC_Ventas()
         {
             notaVenta = new NotaVenta();
-            List<Producto> productos = ProductoMapper.ConsultarProductos();
-            List<Producto> especialidades = new List<Producto>();
-            List<Producto> bebidas = new List<Producto>();
-            
+
+            InitializeComponent();
+            detalleVentaTabla = siticoneDataGridView2;
+            totalVenta = siticoneHtmlLabel11;
+            dateTimePickerConsultarVenta.Visible = false;
+            loadProducts();
+
+        }
+
+        public void loadProducts()
+        {
+            productos = ProductoMapper.ConsultarProductos();
+            especialidades = new List<Producto>();
+            bebidas = new List<Producto>();
             foreach (Producto producto in productos)
             {
                 if (producto.Categoria.Equals("Bebidas"))
@@ -33,24 +46,20 @@ namespace SGV_CLP.GUI
                     especialidades.Add(producto);
                 }
             }
-            InitializeComponent();
-            detalleVentaTabla = siticoneDataGridView2;
-            totalVenta = siticoneHtmlLabel11;
-            dateTimePickerConsultarVenta.Visible = false;
-
             List<UC_Item> especialidadesUI = new List<UC_Item>();
             List<UC_Item> bebidasUI = new List<UC_Item>();
 
             especialidades.ForEach(producto => especialidadesUI.Add(new UC_Item(producto)));
             bebidas.ForEach(bebida => bebidasUI.Add(new UC_Item(bebida)));
 
+            flowLayoutPanel1.Controls.Remove(flowLayoutPanel1);
+            flowLayoutPanel2.Controls.Remove(flowLayoutPanel2);
             especialidadesUI.ForEach(item => flowLayoutPanel1.Controls.Add(item));
             bebidasUI.ForEach(item => flowLayoutPanel2.Controls.Add(item));
 
-            especialidadesUI.ForEach( item => productosUI.Add(item));
-            bebidasUI.ForEach( item => productosUI.Add(item));
+            especialidadesUI.ForEach(item => productosUI.Add(item));
+            bebidasUI.ForEach(item => productosUI.Add(item));
         }
-
         //Se verifica que la siticoneDataGridView2 tenga algun producto para poder abrir el checkout
         private void siticoneButton4_Click(object sender, EventArgs e)
         {
