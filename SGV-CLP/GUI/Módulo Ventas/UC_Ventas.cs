@@ -52,8 +52,9 @@ namespace SGV_CLP.GUI
             especialidades.ForEach(producto => especialidadesUI.Add(new UC_Item(producto)));
             bebidas.ForEach(bebida => bebidasUI.Add(new UC_Item(bebida)));
 
-            flowLayoutPanel1.Controls.Remove(flowLayoutPanel1);
-            flowLayoutPanel2.Controls.Remove(flowLayoutPanel2);
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel2.Controls.Clear();
+
             especialidadesUI.ForEach(item => flowLayoutPanel1.Controls.Add(item));
             bebidasUI.ForEach(item => flowLayoutPanel2.Controls.Add(item));
 
@@ -230,5 +231,6 @@ namespace SGV_CLP.GUI
         {
             ComboBox_ConsultarVentaPor_SelectedIndexChanged(null, null);
         }
+
     } 
 }
