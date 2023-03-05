@@ -468,6 +468,7 @@
             this.txtApellido1Venta.SelectedText = "";
             this.txtApellido1Venta.Size = new System.Drawing.Size(200, 36);
             this.txtApellido1Venta.TabIndex = 67;
+            this.txtApellido1Venta.TextChanged += new System.EventHandler(this.txtApellido1Venta_TextChanged);
             this.txtApellido1Venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido1Venta_KeyPress);
             // 
             // siticoneHtmlLabel17
@@ -502,6 +503,7 @@
             this.txtNombre1Venta.SelectedText = "";
             this.txtNombre1Venta.Size = new System.Drawing.Size(200, 36);
             this.txtNombre1Venta.TabIndex = 65;
+            this.txtNombre1Venta.TextChanged += new System.EventHandler(this.txtNombre1Venta_TextChanged);
             this.txtNombre1Venta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre1Venta_KeyPress);
             // 
             // txtTelefVenta
@@ -525,6 +527,7 @@
             this.txtTelefVenta.SelectedText = "";
             this.txtTelefVenta.Size = new System.Drawing.Size(200, 36);
             this.txtTelefVenta.TabIndex = 64;
+            this.txtTelefVenta.TextChanged += new System.EventHandler(this.txtTelefVenta_TextChanged);
             this.txtTelefVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefVenta_KeyPress);
             // 
             // txtDireccionVenta
@@ -548,6 +551,7 @@
             this.txtDireccionVenta.SelectedText = "";
             this.txtDireccionVenta.Size = new System.Drawing.Size(200, 36);
             this.txtDireccionVenta.TabIndex = 63;
+            this.txtDireccionVenta.TextChanged += new System.EventHandler(this.txtDireccionVenta_TextChanged);
             this.txtDireccionVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccionVenta_KeyPress);
             // 
             // siticoneHtmlLabel6
@@ -656,8 +660,8 @@
             this.txtCorreoVenta.SelectedText = "";
             this.txtCorreoVenta.Size = new System.Drawing.Size(200, 36);
             this.txtCorreoVenta.TabIndex = 80;
+            this.txtCorreoVenta.TextChanged += new System.EventHandler(this.txtCorreoVenta_TextChanged);
             this.txtCorreoVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreoVenta_KeyPress);
-            this.txtCorreoVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCorreoVenta_KeyUp);
             // 
             // siticoneHtmlLabel_correct_email
             // 

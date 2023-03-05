@@ -35,6 +35,7 @@ namespace SGV_CLP.GUI
             txtSegundoApellidoCliente.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
             txtDireccionCliente.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
             txtTelefonoCliente.MaxLength = Constants.LIMIT_TELEF_LENGTH;
+            txtCorreoCliente.MaxLength = Constants.LIMIT_CORREO_LENGTH;
 
             //Hide Labels
             siticoneHtmlLabel_cc_correct_length.Hide();
@@ -143,7 +144,7 @@ namespace SGV_CLP.GUI
 
         public void controlCedula()
         {
-            if (ValidarCedula(txtCedulaCliente.Text))
+            if (ValidationUtils.ValidarCedula(txtCedulaCliente.Text))
             {
                 siticoneHtmlLabel_cc_invalida.Hide();
                 siticoneHtmlLabel_cc_valida.Show();
@@ -288,12 +289,12 @@ namespace SGV_CLP.GUI
         }
         private void validateFieldsCounter()
         {
-            Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidarCedula(txtCedulaCliente.Text);   
+            Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCedulaCliente.Text);   
         }
 
         private void txtCorreoCliente_TextChanged(object sender, EventArgs e)
         {
-            if (IsValidEmail(txtCorreoCliente.Text) && !correoIsValid)
+            if (ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && !correoIsValid)
             {
                 //El correo es válido
                 siticoneHtmlLabel_wrong_email.Hide();
@@ -302,7 +303,7 @@ namespace SGV_CLP.GUI
                 correoIsValid = true;
 
             }
-            else if (!IsValidEmail(txtCorreoCliente.Text) && correoIsValid)
+            else if (!ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && correoIsValid)
             {
                 // El correo es invalido pero fue valido anteriormente
                 siticoneHtmlLabel_wrong_email.Show();
@@ -351,53 +352,7 @@ namespace SGV_CLP.GUI
             validateFieldsCounter();
         }
 
-        public static bool ValidarCedula(string cedula)
-        {
-            // Verificar que la cédula tenga 10 dígitos
-            if (cedula.Length != 10)
-            {
-                return false;
-            }
-
-            int tercerDigito = int.Parse(cedula[2].ToString());
-
-            // Verificar que el tercer dígito sea entre 0 y 5
-            if (tercerDigito < 0 || tercerDigito > 5)
-            {
-                return false;
-            }
-
-            // Verificar el último dígito de la cédula
-            int ultimoDigito = int.Parse(cedula[9].ToString());
-
-            int suma = 0;
-
-            for (int i = 0; i < 9; i++)
-            {
-                int digito = int.Parse(cedula[i].ToString());
-
-                if (i % 2 == 0)
-                {
-                    digito *= 2;
-
-                    if (digito > 9)
-                    {
-                        digito -= 9;
-                    }
-                }
-
-                suma += digito;
-            }
-
-            int digitoVerificador = 10 - (suma % 10);
-
-            if (digitoVerificador == 10)
-            {
-                digitoVerificador = 0;
-            }
-
-            return ultimoDigito == digitoVerificador;
-        }
+        
 
         private void txtPrimerNombreCliente_TextChanged(object sender, EventArgs e)
         {
@@ -415,17 +370,7 @@ namespace SGV_CLP.GUI
             validateFieldsCounter();
         }
 
-        public static bool IsValidEmail(string email)
-        {
-            // Define la expresión regular para validar un correo electrónico
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
-            // Crea un objeto Regex con la expresión regular
-            Regex regex = new Regex(pattern);
-
-            // Valida el correo electrónico
-            return regex.IsMatch(email);
-        }
 
 
         private void txtPrimerApellidoCliente_TextChanged(object sender, EventArgs e)

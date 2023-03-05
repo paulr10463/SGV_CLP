@@ -169,36 +169,21 @@ namespace SGV_CLP.GUI
 
 
         private void siticoneTabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        { }
-        /*bool flag = false;
-        List<string> codFacturaList = new List<string>();
-        foreach (DataGridViewRow rowItem in siticoneDataGridView1.Rows)
-        {
-            if (rowItem.Cells[0].Value != null)
+        { 
+            bool flag = false;
+            List<string> codFacturaList = new List<string>();
+            foreach (DataGridViewRow rowItem in siticoneDataGridView1.Rows)
             {
-                codFacturaList.Add((string)rowItem.Cells[0].Value);
-            }
+                if (rowItem.Cells[0].Value != null)
+                {
+                    codFacturaList.Add((string)rowItem.Cells[0].Value);
+                }
 
         }
 
 
-        foreach (NotaVenta totalVenta in notav)
-        {
-            if (!codFacturaList.Contains(totalVenta.codFactura))
-            {
-                DataGridViewRow row = (DataGridViewRow)siticoneDataGridView1.Rows[0].Clone();
-                row.Cells[0].Value = totalVenta.codFactura;
-                row.Cells[1].Value = totalVenta.cliente.Cc_Cliente;
-                row.Cells[2].Value = totalVenta.cliente.Primer_Nombre;
-                row.Cells[3].Value = totalVenta.cliente.Primer_Apellido;
-                row.Cells[4].Value = totalVenta.cliente.Telefono;
-                row.Cells[5].Value = totalVenta.precioFinal;
-                row.Cells[6].Value = totalVenta.fechaVenta;
-                siticoneDataGridView1.Rows.Add(row);
-            }
-
-        }
-    }*/
+        
+    }
 
     private void txtConsultarVenta_KeyUp(object sender, KeyEventArgs e)
     {

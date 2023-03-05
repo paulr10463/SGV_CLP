@@ -1,13 +1,16 @@
-﻿using SGV_CLP.GUI;
+﻿using SGV_CLP.Classes;
+using SGV_CLP.GUI;
 using System.Media;
 
 namespace SGV_CLP
 {
     public partial class MainMenu : Form
     {
+        public static Usuario user;
         public MainMenu()
         {
             InitializeComponent();
+            //siticoneHtmlLabel2.Text = "Bienvenido " + user.userName;
         }
 
         private void siticoneButton1_CheckedChanged(object sender, EventArgs e)

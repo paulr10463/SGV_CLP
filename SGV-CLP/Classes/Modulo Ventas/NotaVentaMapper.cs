@@ -41,9 +41,8 @@ namespace SGV_CLP.Classes.Modulo_Ventas
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
-            using (var cmd = new NpgsqlCommand("INSERT INTO public.\"NotaVenta\"(\"cod_NotaVenta\", \"cc_Cliente\", \"userName\", \"total_Venta\", \"fecha_emision\") VALUES (@Cod_NotaVenta, @Cc_Cliente, @UserName, @Total_Venta, @Fecha_emision)", connection))
+            using (var cmd = new NpgsqlCommand("INSERT INTO public.\"NotaVenta\"(\"cc_Cliente\", \"userName\", \"total_Venta\", \"fecha_emision\") VALUES (@Cc_Cliente, @UserName, @Total_Venta, @Fecha_emision)", connection))
             {
-                cmd.Parameters.AddWithValue("@Cod_NotaVenta", notaVenta.codFactura);
                 cmd.Parameters.AddWithValue("@Cc_Cliente", notaVenta.cliente.Cc_Cliente);
                 cmd.Parameters.AddWithValue("@UserName", notaVenta.usuario.userName);
                 cmd.Parameters.AddWithValue("@Total_Venta", notaVenta.precioFinal);

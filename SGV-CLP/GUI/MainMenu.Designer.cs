@@ -50,6 +50,7 @@ namespace SGV_CLP
             this.uC_Productos1 = new SGV_CLP.GUI.UC_Productos();
             this.uC_Proveedores1 = new SGV_CLP.GUI.UC_Proveedores();
             this.uC_Administracion1 = new SGV_CLP.GUI.UC_Administracion();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneCirclePictureBox1)).BeginInit();
             this.siticoneCustomGradientPanel1.SuspendLayout();
@@ -57,6 +58,7 @@ namespace SGV_CLP
             // 
             // siticonePanel1
             // 
+            this.siticonePanel1.Controls.Add(this.siticoneHtmlLabel2);
             this.siticonePanel1.Controls.Add(this.siticoneButton7);
             this.siticonePanel1.Controls.Add(this.siticoneCirclePictureBox1);
             this.siticonePanel1.Controls.Add(this.siticoneButton5);
@@ -93,7 +95,7 @@ namespace SGV_CLP
             // 
             this.siticoneCirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("siticoneCirclePictureBox1.Image")));
             this.siticoneCirclePictureBox1.ImageRotate = 0F;
-            this.siticoneCirclePictureBox1.Location = new System.Drawing.Point(25, 43);
+            this.siticoneCirclePictureBox1.Location = new System.Drawing.Point(25, 63);
             this.siticoneCirclePictureBox1.Name = "siticoneCirclePictureBox1";
             this.siticoneCirclePictureBox1.ShadowDecoration.Mode = Siticone.Desktop.UI.WinForms.Enums.ShadowMode.Circle;
             this.siticoneCirclePictureBox1.Size = new System.Drawing.Size(174, 161);
@@ -326,6 +328,16 @@ namespace SGV_CLP
             this.uC_Administracion1.Size = new System.Drawing.Size(1675, 1033);
             this.uC_Administracion1.TabIndex = 0;
             // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(37, 25);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(3, 2);
+            this.siticoneHtmlLabel2.TabIndex = 13;
+            // 
             // MainMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -338,6 +350,7 @@ namespace SGV_CLP
             this.Text = "SGV-CLP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.siticonePanel1.ResumeLayout(false);
+            this.siticonePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneCirclePictureBox1)).EndInit();
             this.siticoneCustomGradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -357,11 +370,11 @@ namespace SGV_CLP
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton7;
         private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel1;
         private GUI.UC_Clientes uC_Clientes1;
-        public static GUI.UC_Ventas uC_Ventas1;
         private GUI.UC_Compras uC_Compras1;
         private GUI.UC_Productos uC_Productos1;
         private GUI.UC_Proveedores uC_Proveedores1;
         private GUI.UC_Administracion uC_Administracion1;
-       
+        public static UC_Ventas uC_Ventas1;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
     }
 }

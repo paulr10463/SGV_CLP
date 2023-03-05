@@ -30,5 +30,6 @@ namespace SGV_CLP.Classes
         }
 
         public Usuario() { }
+
     }
 }
