@@ -15,14 +15,15 @@ namespace SGV_CLP
             siticoneHtmlLabel2.Text = "Bienvenido " + UsuarioRegistrado.primer_Nombre + "!";
             uc_ventas = uC_Ventas1;
             if (user.cargo.Equals("Admin")){
-                siticoneButton1.Visible= false;
-                siticoneButton5.Visible = false;
-                siticoneButton2.Visible = false;
-            }
-            if (user.cargo.Equals("Cajero")){
                 siticoneButton4.Visible = false;
                 siticoneButton3.Visible = false;
                 siticoneButton6.Visible = false;
+            }
+            if (user.cargo.Equals("Cajero")){
+                siticoneButton1.Visible = false;
+                siticoneButton5.Visible = false;
+                siticoneButton2.Visible = false;
+                
             }
         }
 
