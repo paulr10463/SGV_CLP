@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -20,6 +21,41 @@ namespace SGV_CLP.Classes
             // Valida el correo electrónico
             return regex.IsMatch(email);
         }
+
+        public static bool IsValidDouble(string doubleNumber)
+        {
+            // Define la expresión regular para validar un double con dos decinales como máximo
+            string pattern = @"^\d+(\.\d{1,2})?$";
+
+            // Crea un objeto Regex con la expresión regular
+            Regex regex = new Regex(pattern);
+
+            // Valida el double
+            return regex.IsMatch(doubleNumber);
+        }
+
+        public static bool IsValidPath(string path)
+        {
+            // Define la expresión regular para validar un path
+            string pattern = @"^(?:[a-zA-Z]:|\\\\[a-zA-Z0-9_.$-]+\\[a-zA-Z0-9_.$-]+)(?:\\(?:[^\\/:*?""<>|]+))*\\?$";
+
+            // Crea un objeto Regex con la expresión regular
+            Regex regex = new Regex(pattern);
+
+            // Valida el path
+            return regex.IsMatch(path);
+        }
+
+        public static bool ValidarPvpMayorIgualPe(string pvp, string pe)
+        {
+            bool isValid = false;
+            if (IsValidDouble(pvp) && IsValidDouble(pe) && pe != String.Empty && pvp != String.Empty && (Convert.ToDouble(pvp, CultureInfo.InvariantCulture) >= Convert.ToDouble(pe, CultureInfo.InvariantCulture)))
+            {
+                isValid = true;
+            }
+            return isValid;
+        }
+
         public static bool ValidarCedula(string cedula)
         {
             // Verificar que la cédula tenga 10 dígitos

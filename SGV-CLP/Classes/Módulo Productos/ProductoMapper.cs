@@ -136,6 +136,48 @@ namespace SGV_CLP.Classes
             return LotesRegistrados;
         }
 
+        public static bool IDproductoExiste(string id)
+        {
+            bool existe = false;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM \"Producto\" WHERE \"cod_Producto\" ILIKE @cod_Producto", connection))
+                {
+                    command.Parameters.AddWithValue("@cod_Producto", id);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+            }
+            return existe;
+        }
+
+        public static bool NombreProductoExiste(string nombre)
+        {
+            bool existe = false;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM \"Producto\" WHERE \"nombre_Producto\" ILIKE @nombre_Producto", connection))
+                {
+                    command.Parameters.AddWithValue("@nombre_Producto", nombre);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+            }
+            return existe;
+        }
+
         //--------
         //UPDATE
         public static async Task<bool> ModificarCliente(Cliente cliente)

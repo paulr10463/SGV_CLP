@@ -18,6 +18,11 @@ namespace SGV_CLP.Classes
         public const int LIMIT_TELEF_LENGTH = 10;
         public const int LIMIT_FECHANAC_LENGTH = 10;
         public const int LIMIT_CORREO_LENGTH = 100;
+        
+        // Constantes de módulo Productos
+        public const int LIMIT_IDPROD_LENGTH = 7;
+        public const int LIMIT_NOMBREPROD_LENGTH = 50;
+
 
     }
 }
