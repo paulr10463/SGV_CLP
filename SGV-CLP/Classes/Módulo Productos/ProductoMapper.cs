@@ -35,6 +35,38 @@ namespace SGV_CLP.Classes
             }
         }
 
+        // ELIMINAR PRODUCTO
+
+        public static void EliminarProducto(string cod_Producto)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("DELETE FROM public.\"Producto\" WHERE \"cod_Producto\" = @cod_Producto", connection))
+            {
+                cmd.Parameters.AddWithValue("@cod_Producto", cod_Producto);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        //  EDITAR 
+        public static void EditarProducto(string cod_Producto, string categoria, double precio_Elaboracion, double precio_Unitario, string ruta_Imagen)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("UPDATE \"Producto\" SET \"categoria\" = @categoria, \"precio_Elaboracion\" = @precio_Elaboracion, \"precio_Unitario\" = @precio_Unitario, \"ruta_Imagen\" = @ruta_Imagen WHERE \"cod_Producto\" = @cod_Producto", connection))
+            {
+                cmd.Parameters.AddWithValue("@categoria", categoria);
+                cmd.Parameters.AddWithValue("@precio_Elaboracion", precio_Elaboracion);
+                cmd.Parameters.AddWithValue("@precio_Unitario", precio_Unitario);
+                cmd.Parameters.AddWithValue("@ruta_Imagen", ruta_Imagen);
+                cmd.Parameters.AddWithValue("@cod_Producto", cod_Producto);
+                cmd.ExecuteNonQuery();  
+
+            }
+        }
+
         //--------
         // CONSULTAR PRODUCTOS
         public static List<Producto> ConsultarProductos()
@@ -203,7 +235,7 @@ namespace SGV_CLP.Classes
             }
             return result > 0;
         }
-        
+
         //--------
         //DELETE
         public static async Task<bool> EliminarCliente(string CC_Cliente)

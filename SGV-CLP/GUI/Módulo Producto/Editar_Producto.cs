@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SGV_CLP.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -14,36 +16,60 @@ namespace SGV_CLP.GUI
 {
     public partial class Editar_Producto : Form
     {
-        public Editar_Producto()
+        string cod_Producto;
+        bool isValidCategoria, isValidPE, isValidPVP, isValidRutaImg; // Para validar los campos de los productos
+        public Editar_Producto(string cod_Producto)
         {
             InitializeComponent();
+            this.cod_Producto = cod_Producto;
+            isValidCategoria = false;
+            isValidPE = false;
+            isValidPVP = false;
+            isValidRutaImg = false;
+
+            categoria_not_choose_label.Show();
         }
 
-        private void siticoneButton1_Click(object sender, EventArgs e)
+        private void SBEditarProd_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
+            ProductoMapper.EditarProducto(cod_Producto, cBoxCategoria.Text, Convert.ToDouble(txtPE.Text, CultureInfo.InvariantCulture), Convert.ToDouble(txtPVP.Text, CultureInfo.InvariantCulture), txtImagen.Text);
             MessageBox.Show("Producto editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MainMenu.uc_ventas.loadProducts();
             this.Dispose();
         }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
-             this.Dispose();
+            this.Dispose();
         }
 
-        private void siticoneButton3_Click(object sender, EventArgs e)
+        // Validaciones de atributos
+        private void ValidateProductFields()
         {
-            SystemSounds.Beep.Play();
-            if (MessageBox.Show("¿Desea continuar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-                == DialogResult.Yes)
+            if (isValidPE && isValidPVP && isValidCategoria && isValidRutaImg)
             {
-                MessageBox.Show("Producto eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
+                SBEditarProd.Enabled = ValidationUtils.ValidarPvpMayorIgualPe(txtPVP.Text, txtPE.Text);
             }
             else
             {
-                MessageBox.Show("Producto no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SBEditarProd.Enabled = false;
             }
+        }
+
+        private void cBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxCategoria.SelectedIndex >= 0)
+            {
+                categoria_not_choose_label.Hide();
+                isValidCategoria = true;
+            }
+            else
+            {
+                categoria_not_choose_label.Show();
+                isValidCategoria = false;
+            }
+           // ValidateProductFields();
         }
     }
 }

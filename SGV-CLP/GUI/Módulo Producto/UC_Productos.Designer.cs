@@ -75,16 +75,19 @@ namespace SGV_CLP.GUI
             ColumnaEditarProducto = new DataGridViewImageColumn();
             ColumnaEliminarProducto = new DataGridViewImageColumn();
             tabPage1 = new TabPage();
+            siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            Producto_not_choose_in_Lote_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneGroupBox1 = new Siticone.Desktop.UI.WinForms.SiticoneGroupBox();
             SRBFechaActual = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
             SRBElegirFecha = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
             siticoneDateTimePicker1 = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
             SBAniadirLote = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            SCBProductoLote = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            ComboBox_ProductoLote = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             txtCantidad = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             tabPage2 = new TabPage();
+            siticoneDateTimePicker2 = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
             siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             SDGVLote = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             ColumnaCodLote = new DataGridViewTextBoxColumn();
@@ -305,8 +308,8 @@ namespace SGV_CLP.GUI
             txtIDProd.Size = new Size(229, 55);
             txtIDProd.TabIndex = 51;
             txtIDProd.TextOffset = new Point(5, 0);
-            txtIDProd.TextChanged += txtIDProd_TextChanged;
-            txtIDProd.KeyPress += txtIDProd_KeyPress;
+            txtIDProd.TextChanged += TxtIDProd_TextChanged;
+            txtIDProd.KeyPress += TxtIDProd_KeyPress;
             // 
             // siticoneButton3
             // 
@@ -348,7 +351,7 @@ namespace SGV_CLP.GUI
             txtImagen.Size = new Size(515, 55);
             txtImagen.TabIndex = 49;
             txtImagen.TextOffset = new Point(5, 0);
-            txtImagen.TextChanged += txtImagen_TextChanged;
+            txtImagen.TextChanged += TxtImagen_TextChanged;
             // 
             // siticoneHtmlLabel11
             // 
@@ -393,14 +396,14 @@ namespace SGV_CLP.GUI
             cBoxCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cBoxCategoria.ForeColor = Color.FromArgb(68, 88, 112);
             cBoxCategoria.ItemHeight = 35;
-            cBoxCategoria.Items.AddRange(new object[] { "Especialidades", "Bebidas" });
+            cBoxCategoria.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
             cBoxCategoria.Location = new Point(421, 300);
             cBoxCategoria.Margin = new Padding(3, 5, 3, 5);
             cBoxCategoria.Name = "cBoxCategoria";
             cBoxCategoria.Size = new Size(228, 41);
             cBoxCategoria.TabIndex = 44;
             cBoxCategoria.TextOffset = new Point(5, 0);
-            cBoxCategoria.SelectedIndexChanged += cBoxCategoria_SelectedIndexChanged;
+            cBoxCategoria.SelectedIndexChanged += CBoxCategoria_SelectedIndexChanged;
             // 
             // siticoneHtmlLabel6
             // 
@@ -435,8 +438,8 @@ namespace SGV_CLP.GUI
             txtPVP.Size = new Size(229, 55);
             txtPVP.TabIndex = 42;
             txtPVP.TextOffset = new Point(5, 0);
-            txtPVP.TextChanged += txtPVP_TextChanged;
-            txtPVP.KeyPress += txtPVP_KeyPress;
+            txtPVP.TextChanged += TxtPVP_TextChanged;
+            txtPVP.KeyPress += TxtPVP_KeyPress;
             // 
             // siticoneHtmlLabel8
             // 
@@ -471,8 +474,8 @@ namespace SGV_CLP.GUI
             txtPE.Size = new Size(229, 55);
             txtPE.TabIndex = 40;
             txtPE.TextOffset = new Point(5, 0);
-            txtPE.TextChanged += txtPE_TextChanged;
-            txtPE.KeyPress += txtPE_KeyPress;
+            txtPE.TextChanged += TxtPE_TextChanged;
+            txtPE.KeyPress += TxtPE_KeyPress;
             // 
             // siticoneHtmlLabel7
             // 
@@ -519,8 +522,8 @@ namespace SGV_CLP.GUI
             txtNombreProducto.Size = new Size(229, 55);
             txtNombreProducto.TabIndex = 27;
             txtNombreProducto.TextOffset = new Point(5, 0);
-            txtNombreProducto.TextChanged += txtNombreProducto_TextChanged;
-            txtNombreProducto.KeyPress += txtNombreProducto_KeyPress;
+            txtNombreProducto.TextChanged += TxtNombreProducto_TextChanged;
+            txtNombreProducto.KeyPress += TxtNombreProducto_KeyPress;
             // 
             // Editar
             // 
@@ -593,7 +596,7 @@ namespace SGV_CLP.GUI
             txtConsultarProducto.SelectedText = "";
             txtConsultarProducto.Size = new Size(312, 61);
             txtConsultarProducto.TabIndex = 19;
-            txtConsultarProducto.TextChanged += txtConsultarProducto_TextChanged;
+            txtConsultarProducto.TextChanged += TxtConsultarProducto_TextChanged;
             // 
             // siticonePanel1
             // 
@@ -742,9 +745,11 @@ namespace SGV_CLP.GUI
             // tabPage1
             // 
             tabPage1.BackColor = Color.White;
+            tabPage1.Controls.Add(siticoneHtmlLabel2);
+            tabPage1.Controls.Add(Producto_not_choose_in_Lote_label);
             tabPage1.Controls.Add(siticoneGroupBox1);
             tabPage1.Controls.Add(SBAniadirLote);
-            tabPage1.Controls.Add(SCBProductoLote);
+            tabPage1.Controls.Add(ComboBox_ProductoLote);
             tabPage1.Controls.Add(siticoneHtmlLabel3);
             tabPage1.Controls.Add(txtCantidad);
             tabPage1.Controls.Add(siticoneHtmlLabel4);
@@ -755,6 +760,34 @@ namespace SGV_CLP.GUI
             tabPage1.TabIndex = 2;
             tabPage1.Text = "Añadir Lote";
             // 
+            // siticoneHtmlLabel2
+            // 
+            siticoneHtmlLabel2.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel2.BackColor = Color.Transparent;
+            siticoneHtmlLabel2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel2.ForeColor = Color.Red;
+            siticoneHtmlLabel2.Location = new Point(880, 427);
+            siticoneHtmlLabel2.Margin = new Padding(3, 4, 3, 4);
+            siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            siticoneHtmlLabel2.Size = new Size(234, 22);
+            siticoneHtmlLabel2.TabIndex = 65;
+            siticoneHtmlLabel2.Text = "Debe tener una fecha y hora válida";
+            siticoneHtmlLabel2.Visible = false;
+            // 
+            // Producto_not_choose_in_Lote_label
+            // 
+            Producto_not_choose_in_Lote_label.Anchor = AnchorStyles.None;
+            Producto_not_choose_in_Lote_label.BackColor = Color.Transparent;
+            Producto_not_choose_in_Lote_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Producto_not_choose_in_Lote_label.ForeColor = Color.Red;
+            Producto_not_choose_in_Lote_label.Location = new Point(880, 173);
+            Producto_not_choose_in_Lote_label.Margin = new Padding(3, 4, 3, 4);
+            Producto_not_choose_in_Lote_label.Name = "Producto_not_choose_in_Lote_label";
+            Producto_not_choose_in_Lote_label.Size = new Size(274, 22);
+            Producto_not_choose_in_Lote_label.TabIndex = 64;
+            Producto_not_choose_in_Lote_label.Text = "Debe pertenecer a un producto existente";
+            Producto_not_choose_in_Lote_label.Visible = false;
+            // 
             // siticoneGroupBox1
             // 
             siticoneGroupBox1.Anchor = AnchorStyles.None;
@@ -764,7 +797,7 @@ namespace SGV_CLP.GUI
             siticoneGroupBox1.Controls.Add(siticoneDateTimePicker1);
             siticoneGroupBox1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneGroupBox1.ForeColor = Color.Black;
-            siticoneGroupBox1.Location = new Point(433, 349);
+            siticoneGroupBox1.Location = new Point(378, 347);
             siticoneGroupBox1.Margin = new Padding(3, 4, 3, 4);
             siticoneGroupBox1.Name = "siticoneGroupBox1";
             siticoneGroupBox1.Size = new Size(473, 204);
@@ -817,7 +850,7 @@ namespace SGV_CLP.GUI
             // 
             siticoneDateTimePicker1.BorderRadius = 10;
             siticoneDateTimePicker1.Checked = true;
-            siticoneDateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            siticoneDateTimePicker1.CustomFormat = "dd-MM-yyyy HH:mm";
             siticoneDateTimePicker1.FillColor = Color.White;
             siticoneDateTimePicker1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneDateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -844,7 +877,7 @@ namespace SGV_CLP.GUI
             SBAniadirLote.FillColor = Color.Black;
             SBAniadirLote.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             SBAniadirLote.ForeColor = Color.White;
-            SBAniadirLote.Location = new Point(535, 635);
+            SBAniadirLote.Location = new Point(480, 633);
             SBAniadirLote.Margin = new Padding(3, 4, 3, 4);
             SBAniadirLote.Name = "SBAniadirLote";
             SBAniadirLote.Size = new Size(206, 60);
@@ -852,32 +885,32 @@ namespace SGV_CLP.GUI
             SBAniadirLote.Text = "Añadir";
             SBAniadirLote.Click += SBAniadirLote_Click;
             // 
-            // SCBProductoLote
+            // ComboBox_ProductoLote
             // 
-            SCBProductoLote.Anchor = AnchorStyles.None;
-            SCBProductoLote.AutoCompleteCustomSource.AddRange(new string[] { "Humita de sal", "Humita de Dulce", "Tamal" });
-            SCBProductoLote.BackColor = Color.Transparent;
-            SCBProductoLote.BorderRadius = 20;
-            SCBProductoLote.DrawMode = DrawMode.OwnerDrawFixed;
-            SCBProductoLote.DropDownStyle = ComboBoxStyle.DropDownList;
-            SCBProductoLote.FocusedColor = Color.FromArgb(94, 148, 255);
-            SCBProductoLote.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            SCBProductoLote.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            SCBProductoLote.ForeColor = Color.FromArgb(68, 88, 112);
-            SCBProductoLote.ItemHeight = 35;
-            SCBProductoLote.Location = new Point(678, 168);
-            SCBProductoLote.Margin = new Padding(3, 4, 3, 4);
-            SCBProductoLote.Name = "SCBProductoLote";
-            SCBProductoLote.Size = new Size(228, 41);
-            SCBProductoLote.TabIndex = 53;
-            SCBProductoLote.TextOffset = new Point(5, 0);
+            ComboBox_ProductoLote.Anchor = AnchorStyles.None;
+            ComboBox_ProductoLote.AutoCompleteCustomSource.AddRange(new string[] { "Humita de sal", "Humita de Dulce", "Tamal" });
+            ComboBox_ProductoLote.BackColor = Color.Transparent;
+            ComboBox_ProductoLote.BorderRadius = 20;
+            ComboBox_ProductoLote.DrawMode = DrawMode.OwnerDrawFixed;
+            ComboBox_ProductoLote.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBox_ProductoLote.FocusedColor = Color.FromArgb(94, 148, 255);
+            ComboBox_ProductoLote.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ComboBox_ProductoLote.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            ComboBox_ProductoLote.ForeColor = Color.FromArgb(68, 88, 112);
+            ComboBox_ProductoLote.ItemHeight = 35;
+            ComboBox_ProductoLote.Location = new Point(623, 166);
+            ComboBox_ProductoLote.Margin = new Padding(3, 4, 3, 4);
+            ComboBox_ProductoLote.Name = "ComboBox_ProductoLote";
+            ComboBox_ProductoLote.Size = new Size(228, 41);
+            ComboBox_ProductoLote.TabIndex = 53;
+            ComboBox_ProductoLote.TextOffset = new Point(5, 0);
             // 
             // siticoneHtmlLabel3
             // 
             siticoneHtmlLabel3.Anchor = AnchorStyles.None;
             siticoneHtmlLabel3.BackColor = Color.Transparent;
             siticoneHtmlLabel3.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel3.Location = new Point(402, 175);
+            siticoneHtmlLabel3.Location = new Point(347, 173);
             siticoneHtmlLabel3.Margin = new Padding(3, 5, 3, 5);
             siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
             siticoneHtmlLabel3.Size = new Size(119, 34);
@@ -896,7 +929,7 @@ namespace SGV_CLP.GUI
             txtCantidad.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCantidad.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtCantidad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCantidad.Location = new Point(678, 251);
+            txtCantidad.Location = new Point(623, 249);
             txtCantidad.Margin = new Padding(3, 7, 3, 7);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.PasswordChar = '\0';
@@ -911,7 +944,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel4.Anchor = AnchorStyles.None;
             siticoneHtmlLabel4.BackColor = Color.Transparent;
             siticoneHtmlLabel4.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel4.Location = new Point(403, 251);
+            siticoneHtmlLabel4.Location = new Point(348, 249);
             siticoneHtmlLabel4.Margin = new Padding(3, 5, 3, 5);
             siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
             siticoneHtmlLabel4.Size = new Size(126, 34);
@@ -921,6 +954,7 @@ namespace SGV_CLP.GUI
             // tabPage2
             // 
             tabPage2.BackColor = Color.White;
+            tabPage2.Controls.Add(siticoneDateTimePicker2);
             tabPage2.Controls.Add(siticoneGradientPanel1);
             tabPage2.Controls.Add(siticoneComboBox1);
             tabPage2.Controls.Add(siticoneTextBox1);
@@ -930,6 +964,26 @@ namespace SGV_CLP.GUI
             tabPage2.Size = new Size(1281, 1012);
             tabPage2.TabIndex = 3;
             tabPage2.Text = "Editar/Eliminar Lote";
+            // 
+            // siticoneDateTimePicker2
+            // 
+            siticoneDateTimePicker2.BorderRadius = 10;
+            siticoneDateTimePicker2.Checked = true;
+            siticoneDateTimePicker2.CustomFormat = "dd-MM-yyyy HH:mm";
+            siticoneDateTimePicker2.FillColor = Color.White;
+            siticoneDateTimePicker2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneDateTimePicker2.Format = DateTimePickerFormat.Custom;
+            siticoneDateTimePicker2.Location = new Point(313, 73);
+            siticoneDateTimePicker2.Margin = new Padding(3, 4, 3, 4);
+            siticoneDateTimePicker2.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            siticoneDateTimePicker2.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            siticoneDateTimePicker2.Name = "siticoneDateTimePicker2";
+            siticoneDateTimePicker2.ShowUpDown = true;
+            siticoneDateTimePicker2.Size = new Size(312, 61);
+            siticoneDateTimePicker2.TabIndex = 59;
+            siticoneDateTimePicker2.TextOffset = new Point(5, 0);
+            siticoneDateTimePicker2.Value = new DateTime(2023, 2, 6, 1, 19, 20, 716);
+            siticoneDateTimePicker2.Visible = false;
             // 
             // siticoneGradientPanel1
             // 
@@ -1138,7 +1192,7 @@ namespace SGV_CLP.GUI
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel5;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtNombreProducto;
         private Siticone.Desktop.UI.WinForms.SiticoneButton SBAniadirLote;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox SCBProductoLote;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox ComboBox_ProductoLote;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCantidad;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
@@ -1174,5 +1228,8 @@ namespace SGV_CLP.GUI
         private DataGridViewImageColumn ColumnaEditarProducto;
         private DataGridViewImageColumn ColumnaEliminarProducto;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarProducto_sin_campo;
+        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker siticoneDateTimePicker2;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Producto_not_choose_in_Lote_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
     }
 }

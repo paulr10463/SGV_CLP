@@ -22,42 +22,48 @@ namespace SGV_CLP.GUI
         List<Producto> ProductosRegistrados = ProductoMapper.ConsultarProductos();
         List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
         List<Lote> LoteRegistrados = ProductoMapper.ConsultarLotes();
-        int num_atributos, count_correct_fields;
-        bool isValidIdProd, isValidNombreProd, isValidCategoria, isValidPE, isValidPVP, isValidRutaImg;
+        bool isValidIdProd, isValidNombreProd, isValidCategoria, isValidPE, isValidPVP, isValidRutaImg; // Para validar los campos de los productos
+        bool isValidNombProdEnLote, isValidCantidadLote, isValidFechaElabLote; // Para validar los campos de los lotes
 
         public UC_Productos()
         {
             InitializeComponent();
-            llenarTablaProducto();
-            llenarTablaLote();
-            llenarComboBoxProductos();
-            num_atributos = 6;
-            count_correct_fields = 0;
+            LlenarTablaProducto();
+            LlenarTablaLote();
+            LlenarComboBoxProductos();
             isValidIdProd = false;
             isValidNombreProd = false;
             isValidCategoria = false;
             isValidPE = false;
             isValidPVP = false;
             isValidRutaImg = false;
+
+            isValidNombProdEnLote = false;
+            isValidCantidadLote = false;
+            isValidFechaElabLote = false;
+
             SBAniadirProd.Enabled = false;
+            SBAniadirLote.Enabled = false;
+
             categoria_not_choose_label.Show();
+            Producto_not_choose_in_Lote_label.Show();
         }
 
-        private void vaciarCampos()
+        private void VaciarCamposProd()
         {
             txtIDProd.Text = string.Empty;
             txtNombreProducto.Text = string.Empty;
             txtPE.Text = string.Empty;
             txtPVP.Text = string.Empty;
             txtImagen.Text = string.Empty;
-            cBoxCategoria.Text = string.Empty;
+            cBoxCategoria.SelectedIndex = 0;
             categoria_not_choose_label.Show();
             PVP_not_valid_label.Hide();
             PE_not_valid_label.Hide();
             rutaImagen_not_valid_label.Hide();
         }
 
-        public void llenarTablaProducto()
+        public void LlenarTablaProducto()
         {
             if (ProductosRegistrados != null)
             {
@@ -65,13 +71,12 @@ namespace SGV_CLP.GUI
                 ProductosRegistrados = ProductoMapper.ConsultarProductos();
                 foreach (Producto producto in ProductosRegistrados)
                 {
-                    // dgvClientes
                     SDGVProducto.Rows.Add(producto.Id, producto.Nombre, producto.PrecioElaboracion, producto.PVP, producto.Categoria, producto.CantidadTotal);
                 }
             }
         }
 
-        public void llenarTablaLote()
+        public void LlenarTablaLote()
         {
             if (LoteRegistrados != null)
             {
@@ -84,16 +89,15 @@ namespace SGV_CLP.GUI
             }
         }
 
-        public void llenarComboBoxProductos()
+        public void LlenarComboBoxProductos()
         {
             if (NombresProductosRegistrados != null)
             {
-                SCBProductoLote.Items.Clear();
+                ComboBox_ProductoLote.Items.Clear();
                 NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
                 foreach (string nombreProd in NombresProductosRegistrados)
                 {
-                    // dgvClientes
-                    SCBProductoLote.Items.Add(nombreProd);
+                    ComboBox_ProductoLote.Items.Add(nombreProd);
                 }
             }
         }
@@ -119,25 +123,37 @@ namespace SGV_CLP.GUI
                 txtImagen.Text);
 
             ProductoMapper.IngresarProducto(producto);
-            llenarTablaProducto();
-            llenarComboBoxProductos();
+            LlenarTablaProducto();
+            LlenarComboBoxProductos();
 
             SystemSounds.Beep.Play();
             MessageBox.Show("Producto añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MainMenu.uc_ventas.loadProducts();
-            vaciarCampos();
+            VaciarCamposProd();
         }
 
         private void SBAniadirLote_Click(object sender, EventArgs e)
         {
-            var Lote = new Lote(
-                ProductoMapper.ConsultarIdProducto(SCBProductoLote.SelectedItem.ToString()) + siticoneDateTimePicker1.Value.ToString("ddMM"),
-                ProductoMapper.ConsultarIdProducto(SCBProductoLote.SelectedItem.ToString()),
+            if (SRBFechaActual.Checked)
+            {
+
+                var LoteConFechaActual = new Lote(
+                ProductoMapper.ConsultarIdProducto(ComboBox_ProductoLote.SelectedItem.ToString()) + siticoneDateTimePicker1.Value.ToString("ddMM"),
+                ProductoMapper.ConsultarIdProducto(ComboBox_ProductoLote.SelectedItem.ToString()),
+                Convert.ToInt32(txtCantidad.Text),
+                DateTime.Now);
+                ProductoMapper.IngresarLote(LoteConFechaActual);
+            }
+            else
+            {
+                var LoteConDateTimePicker = new Lote(
+                ProductoMapper.ConsultarIdProducto(ComboBox_ProductoLote.SelectedItem.ToString()) + siticoneDateTimePicker1.Value.ToString("ddMM"),
+                ProductoMapper.ConsultarIdProducto(ComboBox_ProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
                 siticoneDateTimePicker1.Value);
-
-            ProductoMapper.IngresarLote(Lote);
-            llenarTablaLote();
+                ProductoMapper.IngresarLote(LoteConDateTimePicker);
+            }
+            LlenarTablaLote();
 
             //siticoneDateTimePicker1.Value.Year.ToString();
             SystemSounds.Beep.Play();
@@ -158,30 +174,33 @@ namespace SGV_CLP.GUI
 
         private void SDGVProducto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // CLICK EN CELDA ELIMINAR PRODUCTO
             if (SDGVProducto.Columns[e.ColumnIndex].Name == "ColumnaEliminarProducto")
             {
                 if (e.RowIndex >= 0)
                 {
                     if (MessageBox.Show("¿Está seguro de eliminar este producto?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        /*clientes.RemoveAt(e.RowIndex);
-                        siticoneDataGridView1.Rows.Clear();
-                        foreach (Cliente c in clientes)
-                        {
-                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
-                        }
-                        */
+                        string cod_Producto = SDGVProducto.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                        ProductoMapper.EliminarProducto(cod_Producto);
+                        MessageBox.Show("Producto eliminado con éxito");
+                        LlenarTablaProducto();
                     }
                 }
             }
 
+            // CLICK EN CELDA EDITAR PRODUCTO
             if (SDGVProducto.Columns[e.ColumnIndex].Name == "ColumnaEditarProducto")
             {
                 if (e.RowIndex >= 0)
                 {
-                    // String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
-                    Editar_Producto ventana = new Editar_Producto();
+
+                    String cod_Producto = SDGVProducto.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    Editar_Producto ventana = new Editar_Producto(cod_Producto);
                     ventana.ShowDialog();
+                    LlenarTablaProducto();
+                    MainMenu.uc_ventas.loadProducts();
                 }
             }
         }
@@ -216,7 +235,8 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void txtConsultarProducto_TextChanged(object sender, EventArgs e)
+        // Filtro de busqueda de productos
+        private void TxtConsultarProducto_TextChanged(object sender, EventArgs e)
         {
             // Obtener el valor del ComboBox
             string selectedItem = ComboBox_ConsultarProductoPor.SelectedItem.ToString();
@@ -260,7 +280,23 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void validateFields()
+        private void ComboBox_ConsultarProductoPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtConsultarProducto.Text = System.String.Empty;
+            if (ComboBox_ConsultarProductoPor.SelectedIndex != -1)
+            {
+                siticoneHtmlLabel_buscarProducto_sin_campo.Hide();
+                txtConsultarProducto.Enabled = true;
+            }
+            else
+            {
+                siticoneHtmlLabel_buscarProducto_sin_campo.Show();
+                txtConsultarProducto.Enabled = false;
+            }
+        }
+
+        // Validaciones de Pestaña producto
+        private void ValidateProductFields()
         {
             if (isValidIdProd && isValidNombreProd && isValidPE && isValidPVP && isValidCategoria && isValidRutaImg)
             {
@@ -272,7 +308,7 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void txtIDProd_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtIDProd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
             {
@@ -283,7 +319,7 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void txtIDProd_TextChanged(object sender, EventArgs e)
+        private void TxtIDProd_TextChanged(object sender, EventArgs e)
         {
             // No permite ingresar más de 7 caracteres
             if (txtIDProd.Text.Length > Constants.LIMIT_IDPROD_LENGTH)
@@ -302,10 +338,10 @@ namespace SGV_CLP.GUI
                 IDProd_not_unique_label.Hide();
                 isValidIdProd = true;
             }
-            validateFields();
+            ValidateProductFields();
         }
 
-        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
             {
@@ -316,7 +352,7 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void txtNombreProducto_TextChanged(object sender, EventArgs e)
+        private void TxtNombreProducto_TextChanged(object sender, EventArgs e)
         {
             // No permite ingresar más de 7 caracteres
             if (txtNombreProducto.Text.Length > Constants.LIMIT_NOMBREPROD_LENGTH)
@@ -335,12 +371,12 @@ namespace SGV_CLP.GUI
                 nombreProducto_not_unique_label.Hide();
                 isValidNombreProd = true;
             }
-            validateFields();
+            ValidateProductFields();
         }
 
-        private void cBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        private void CBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBoxCategoria.SelectedIndex >= 0)
+            if (cBoxCategoria.SelectedIndex > 0)
             {
                 categoria_not_choose_label.Hide();
                 isValidCategoria = true;
@@ -350,10 +386,10 @@ namespace SGV_CLP.GUI
                 categoria_not_choose_label.Show();
                 isValidCategoria = false;
             }
-            validateFields();
+            ValidateProductFields();
         }
 
-        private void txtPE_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtPE_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
@@ -364,7 +400,7 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void txtPE_TextChanged(object sender, EventArgs e)
+        private void TxtPE_TextChanged(object sender, EventArgs e)
         {
             if (ValidationUtils.IsValidDouble(txtPE.Text))
             {
@@ -385,12 +421,10 @@ namespace SGV_CLP.GUI
                 PE_not_valid_label.Show();
                 isValidPE = false;
             }
-            validateFields();
+            ValidateProductFields();
         }
 
-
-
-        private void txtPVP_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtPVP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
@@ -401,7 +435,7 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void txtPVP_TextChanged(object sender, EventArgs e)
+        private void TxtPVP_TextChanged(object sender, EventArgs e)
         {
             if (ValidationUtils.IsValidDouble(txtPVP.Text))
             {
@@ -422,10 +456,10 @@ namespace SGV_CLP.GUI
                 PVP_not_valid_label.Show();
                 isValidPVP = false;
             }
-            validateFields();
+            ValidateProductFields();
         }
 
-        private void txtImagen_TextChanged(object sender, EventArgs e)
+        private void TxtImagen_TextChanged(object sender, EventArgs e)
         {
             if (ValidationUtils.IsValidPath(txtImagen.Text))
             {
@@ -437,21 +471,19 @@ namespace SGV_CLP.GUI
                 rutaImagen_not_valid_label.Show();
                 isValidRutaImg = false;
             }
-            validateFields();
+            ValidateProductFields();
         }
 
-        private void ComboBox_ConsultarProductoPor_SelectedIndexChanged(object sender, EventArgs e)
+        // Validaciones de pestana de Lote
+        private void ValidateLotFields()
         {
-            txtConsultarProducto.Text = System.String.Empty;
-            if (ComboBox_ConsultarProductoPor.SelectedIndex != -1)
+            if (isValidNombProdEnLote && isValidCantidadLote && isValidFechaElabLote)
             {
-                siticoneHtmlLabel_buscarProducto_sin_campo.Hide();
-                txtConsultarProducto.Enabled = true;
+                SBAniadirLote.Enabled = true;
             }
             else
             {
-                siticoneHtmlLabel_buscarProducto_sin_campo.Show();
-                txtConsultarProducto.Enabled = false;
+                SBAniadirLote.Enabled = false;
             }
         }
     }
