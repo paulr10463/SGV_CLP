@@ -35,7 +35,7 @@
             PVP_not_greater_than_PE_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             PVP_not_valid_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             categoria_not_choose_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            siticoneButton3 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            SBExaminar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             txtImagen = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel11 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             cBoxCategoria = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
@@ -82,7 +82,7 @@
             SBCancelarEditarProd.Size = new Size(206, 60);
             SBCancelarEditarProd.TabIndex = 41;
             SBCancelarEditarProd.Text = "Cancelar";
-            SBCancelarEditarProd.Click += siticoneButton2_Click;
+            SBCancelarEditarProd.Click += SBCancelarEditarProd_Click;
             // 
             // rutaImagen_not_valid_label
             // 
@@ -154,23 +154,24 @@
             categoria_not_choose_label.Text = "Debe pertenecer a una categoría válida";
             categoria_not_choose_label.Visible = false;
             // 
-            // siticoneButton3
+            // SBExaminar
             // 
-            siticoneButton3.Anchor = AnchorStyles.None;
-            siticoneButton3.BorderRadius = 20;
-            siticoneButton3.DisabledState.BorderColor = Color.DarkGray;
-            siticoneButton3.DisabledState.CustomBorderColor = Color.DarkGray;
-            siticoneButton3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            siticoneButton3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            siticoneButton3.FillColor = Color.Black;
-            siticoneButton3.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneButton3.ForeColor = Color.White;
-            siticoneButton3.Location = new Point(831, 334);
-            siticoneButton3.Margin = new Padding(3, 4, 3, 4);
-            siticoneButton3.Name = "siticoneButton3";
-            siticoneButton3.Size = new Size(206, 60);
-            siticoneButton3.TabIndex = 72;
-            siticoneButton3.Text = "Examinar...";
+            SBExaminar.Anchor = AnchorStyles.None;
+            SBExaminar.BorderRadius = 20;
+            SBExaminar.DisabledState.BorderColor = Color.DarkGray;
+            SBExaminar.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBExaminar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBExaminar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBExaminar.FillColor = Color.Black;
+            SBExaminar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBExaminar.ForeColor = Color.White;
+            SBExaminar.Location = new Point(831, 334);
+            SBExaminar.Margin = new Padding(3, 4, 3, 4);
+            SBExaminar.Name = "SBExaminar";
+            SBExaminar.Size = new Size(206, 60);
+            SBExaminar.TabIndex = 72;
+            SBExaminar.Text = "Examinar...";
+            SBExaminar.Click += SBExaminar_Click;
             // 
             // txtImagen
             // 
@@ -193,6 +194,7 @@
             txtImagen.Size = new Size(515, 55);
             txtImagen.TabIndex = 71;
             txtImagen.TextOffset = new Point(5, 0);
+            txtImagen.TextChanged += TxtImagen_TextChanged;
             // 
             // siticoneHtmlLabel11
             // 
@@ -218,7 +220,7 @@
             cBoxCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cBoxCategoria.ForeColor = Color.FromArgb(68, 88, 112);
             cBoxCategoria.ItemHeight = 35;
-            cBoxCategoria.Items.AddRange(new object[] { "Especialidades", "Bebidas" });
+            cBoxCategoria.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
             cBoxCategoria.Location = new Point(299, 17);
             cBoxCategoria.Margin = new Padding(3, 5, 3, 5);
             cBoxCategoria.Name = "cBoxCategoria";
@@ -260,6 +262,8 @@
             txtPVP.Size = new Size(229, 55);
             txtPVP.TabIndex = 67;
             txtPVP.TextOffset = new Point(5, 0);
+            txtPVP.TextChanged += TxtPVP_TextChanged;
+            txtPVP.KeyPress += TxtPVP_KeyPress;
             // 
             // siticoneHtmlLabel8
             // 
@@ -294,6 +298,8 @@
             txtPE.Size = new Size(229, 55);
             txtPE.TabIndex = 65;
             txtPE.TextOffset = new Point(5, 0);
+            txtPE.TextChanged += TxtPE_TextChanged;
+            txtPE.KeyPress += TxtPE_KeyPress;
             // 
             // siticoneHtmlLabel7
             // 
@@ -318,7 +324,7 @@
             Controls.Add(PVP_not_greater_than_PE_label);
             Controls.Add(PVP_not_valid_label);
             Controls.Add(categoria_not_choose_label);
-            Controls.Add(siticoneButton3);
+            Controls.Add(SBExaminar);
             Controls.Add(txtImagen);
             Controls.Add(siticoneHtmlLabel11);
             Controls.Add(cBoxCategoria);
@@ -344,7 +350,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel PVP_not_greater_than_PE_label;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel PVP_not_valid_label;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel categoria_not_choose_label;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton3;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton SBExaminar;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtImagen;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel11;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBoxCategoria;

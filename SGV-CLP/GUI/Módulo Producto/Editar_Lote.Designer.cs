@@ -28,243 +28,245 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.siticoneComboBox3 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneTextBox3 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneGroupBox1 = new Siticone.Desktop.UI.WinForms.SiticoneGroupBox();
-            this.SRBFechaActual = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
-            this.SRBElegirFecha = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
-            this.siticoneDateTimePicker1 = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
-            this.siticoneGroupBox1.SuspendLayout();
-            this.SuspendLayout();
+            SBCancelar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            SBAceptar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            FechaHora_not_choose_in_Lote_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            GBFechaHoraElab = new Siticone.Desktop.UI.WinForms.SiticoneGroupBox();
+            DTPHoraLote = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
+            SRBFechaActual = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
+            SRBElegirFecha = new Siticone.Desktop.UI.WinForms.SiticoneRadioButton();
+            DTPFechaLote = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
+            txtCantidad = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            GBFechaHoraElab.SuspendLayout();
+            SuspendLayout();
             // 
-            // siticoneComboBox3
+            // SBCancelar
             // 
-            this.siticoneComboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneComboBox3.AutoCompleteCustomSource.AddRange(new string[] {
-            "Humitas",
-            "Tamales",
-            "Batidos",
-            "Jugos"});
-            this.siticoneComboBox3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox3.BorderRadius = 20;
-            this.siticoneComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox3.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox3.ItemHeight = 30;
-            this.siticoneComboBox3.Items.AddRange(new object[] {
-            "Bebidas calientes",
-            "Bebidas Frías",
-            "Fritos",
-            "Extras"});
-            this.siticoneComboBox3.Location = new System.Drawing.Point(270, 18);
-            this.siticoneComboBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneComboBox3.Name = "siticoneComboBox3";
-            this.siticoneComboBox3.Size = new System.Drawing.Size(228, 36);
-            this.siticoneComboBox3.TabIndex = 68;
-            this.siticoneComboBox3.TextOffset = new System.Drawing.Point(5, 0);
+            SBCancelar.Anchor = AnchorStyles.None;
+            SBCancelar.BorderRadius = 20;
+            SBCancelar.DisabledState.BorderColor = Color.DarkGray;
+            SBCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBCancelar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBCancelar.FillColor = Color.Black;
+            SBCancelar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBCancelar.ForeColor = Color.White;
+            SBCancelar.Location = new Point(336, 424);
+            SBCancelar.Margin = new Padding(3, 4, 3, 4);
+            SBCancelar.Name = "SBCancelar";
+            SBCancelar.Size = new Size(206, 60);
+            SBCancelar.TabIndex = 72;
+            SBCancelar.Text = "Cancelar";
+            SBCancelar.Click += siticoneButton2_Click;
             // 
-            // siticoneHtmlLabel3
+            // SBAceptar
             // 
-            this.siticoneHtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(9, 18);
-            this.siticoneHtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(119, 34);
-            this.siticoneHtmlLabel3.TabIndex = 67;
-            this.siticoneHtmlLabel3.Text = "Producto";
+            SBAceptar.Anchor = AnchorStyles.None;
+            SBAceptar.BorderRadius = 20;
+            SBAceptar.DisabledState.BorderColor = Color.DarkGray;
+            SBAceptar.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBAceptar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBAceptar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBAceptar.FillColor = Color.Black;
+            SBAceptar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBAceptar.ForeColor = Color.White;
+            SBAceptar.Location = new Point(79, 424);
+            SBAceptar.Margin = new Padding(3, 4, 3, 4);
+            SBAceptar.Name = "SBAceptar";
+            SBAceptar.Size = new Size(206, 60);
+            SBAceptar.TabIndex = 71;
+            SBAceptar.Text = "Aceptar";
+            SBAceptar.Click += SBAceptar_Click;
             // 
-            // siticoneTextBox3
+            // FechaHora_not_choose_in_Lote_label
             // 
-            this.siticoneTextBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneTextBox3.BorderRadius = 20;
-            this.siticoneTextBox3.DefaultText = "";
-            this.siticoneTextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox3.Location = new System.Drawing.Point(270, 82);
-            this.siticoneTextBox3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.siticoneTextBox3.Name = "siticoneTextBox3";
-            this.siticoneTextBox3.PasswordChar = '\0';
-            this.siticoneTextBox3.PlaceholderText = "";
-            this.siticoneTextBox3.SelectedText = "";
-            this.siticoneTextBox3.Size = new System.Drawing.Size(229, 47);
-            this.siticoneTextBox3.TabIndex = 70;
-            this.siticoneTextBox3.TextOffset = new System.Drawing.Point(5, 0);
+            FechaHora_not_choose_in_Lote_label.Anchor = AnchorStyles.None;
+            FechaHora_not_choose_in_Lote_label.BackColor = Color.Transparent;
+            FechaHora_not_choose_in_Lote_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            FechaHora_not_choose_in_Lote_label.ForeColor = Color.Red;
+            FechaHora_not_choose_in_Lote_label.Location = new Point(189, 349);
+            FechaHora_not_choose_in_Lote_label.Margin = new Padding(3, 4, 3, 4);
+            FechaHora_not_choose_in_Lote_label.Name = "FechaHora_not_choose_in_Lote_label";
+            FechaHora_not_choose_in_Lote_label.Size = new Size(234, 22);
+            FechaHora_not_choose_in_Lote_label.TabIndex = 76;
+            FechaHora_not_choose_in_Lote_label.Text = "Debe tener una fecha y hora válida";
+            FechaHora_not_choose_in_Lote_label.Visible = false;
             // 
-            // siticoneHtmlLabel4
+            // GBFechaHoraElab
             // 
-            this.siticoneHtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(7, 94);
-            this.siticoneHtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
-            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(126, 34);
-            this.siticoneHtmlLabel4.TabIndex = 69;
-            this.siticoneHtmlLabel4.Text = "Cantidad";
+            GBFechaHoraElab.Anchor = AnchorStyles.None;
+            GBFechaHoraElab.BackColor = Color.Transparent;
+            GBFechaHoraElab.BorderColor = Color.Black;
+            GBFechaHoraElab.BorderRadius = 20;
+            GBFechaHoraElab.Controls.Add(DTPHoraLote);
+            GBFechaHoraElab.Controls.Add(SRBFechaActual);
+            GBFechaHoraElab.Controls.Add(SRBElegirFecha);
+            GBFechaHoraElab.Controls.Add(DTPFechaLote);
+            GBFechaHoraElab.CustomBorderColor = Color.Black;
+            GBFechaHoraElab.FillColor = Color.Transparent;
+            GBFechaHoraElab.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            GBFechaHoraElab.ForeColor = Color.White;
+            GBFechaHoraElab.Location = new Point(59, 132);
+            GBFechaHoraElab.Margin = new Padding(3, 4, 3, 4);
+            GBFechaHoraElab.Name = "GBFechaHoraElab";
+            GBFechaHoraElab.Size = new Size(504, 209);
+            GBFechaHoraElab.TabIndex = 75;
+            GBFechaHoraElab.Text = "Fecha y Hora";
+            GBFechaHoraElab.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
-            // siticoneButton2
+            // DTPHoraLote
             // 
-            this.siticoneButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneButton2.BorderRadius = 20;
-            this.siticoneButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton2.FillColor = System.Drawing.Color.Black;
-            this.siticoneButton2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton2.Location = new System.Drawing.Point(255, 411);
-            this.siticoneButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneButton2.Name = "siticoneButton2";
-            this.siticoneButton2.Size = new System.Drawing.Size(206, 60);
-            this.siticoneButton2.TabIndex = 72;
-            this.siticoneButton2.Text = "Cancelar";
-            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
-            // 
-            // siticoneButton1
-            // 
-            this.siticoneButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneButton1.BorderRadius = 20;
-            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.FillColor = System.Drawing.Color.Black;
-            this.siticoneButton1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.Location = new System.Drawing.Point(37, 411);
-            this.siticoneButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.Size = new System.Drawing.Size(206, 60);
-            this.siticoneButton1.TabIndex = 71;
-            this.siticoneButton1.Text = "Aceptar";
-            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
-            // 
-            // siticoneGroupBox1
-            // 
-            this.siticoneGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneGroupBox1.BorderRadius = 20;
-            this.siticoneGroupBox1.Controls.Add(this.SRBFechaActual);
-            this.siticoneGroupBox1.Controls.Add(this.SRBElegirFecha);
-            this.siticoneGroupBox1.Controls.Add(this.siticoneDateTimePicker1);
-            this.siticoneGroupBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.siticoneGroupBox1.Location = new System.Drawing.Point(12, 164);
-            this.siticoneGroupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneGroupBox1.Name = "siticoneGroupBox1";
-            this.siticoneGroupBox1.Size = new System.Drawing.Size(473, 204);
-            this.siticoneGroupBox1.TabIndex = 73;
-            this.siticoneGroupBox1.Text = "Fecha y Hora";
+            DTPHoraLote.Anchor = AnchorStyles.None;
+            DTPHoraLote.BorderRadius = 10;
+            DTPHoraLote.Checked = true;
+            DTPHoraLote.CustomFormat = "HH:mm:ss";
+            DTPHoraLote.FillColor = Color.Black;
+            DTPHoraLote.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            DTPHoraLote.Format = DateTimePickerFormat.Time;
+            DTPHoraLote.Location = new Point(361, 112);
+            DTPHoraLote.Margin = new Padding(3, 4, 3, 4);
+            DTPHoraLote.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            DTPHoraLote.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            DTPHoraLote.Name = "DTPHoraLote";
+            DTPHoraLote.ShowUpDown = true;
+            DTPHoraLote.Size = new Size(123, 37);
+            DTPHoraLote.TabIndex = 59;
+            DTPHoraLote.TextOffset = new Point(5, 0);
+            DTPHoraLote.Value = new DateTime(2023, 2, 6, 1, 19, 20, 716);
+            DTPHoraLote.Visible = false;
             // 
             // SRBFechaActual
             // 
-            this.SRBFechaActual.AutoSize = true;
-            this.SRBFechaActual.Checked = true;
-            this.SRBFechaActual.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SRBFechaActual.CheckedState.BorderThickness = 0;
-            this.SRBFechaActual.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SRBFechaActual.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.SRBFechaActual.CheckedState.InnerOffset = -4;
-            this.SRBFechaActual.Location = new System.Drawing.Point(15, 68);
-            this.SRBFechaActual.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SRBFechaActual.Name = "SRBFechaActual";
-            this.SRBFechaActual.Size = new System.Drawing.Size(112, 34);
-            this.SRBFechaActual.TabIndex = 56;
-            this.SRBFechaActual.TabStop = true;
-            this.SRBFechaActual.Text = "Actual";
-            this.SRBFechaActual.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.SRBFechaActual.UncheckedState.BorderThickness = 2;
-            this.SRBFechaActual.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.SRBFechaActual.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.SRBFechaActual.CheckedChanged += new System.EventHandler(this.SRBFechaActual_CheckedChanged);
+            SRBFechaActual.Anchor = AnchorStyles.None;
+            SRBFechaActual.AutoSize = true;
+            SRBFechaActual.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            SRBFechaActual.CheckedState.BorderThickness = 0;
+            SRBFechaActual.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            SRBFechaActual.CheckedState.InnerColor = Color.White;
+            SRBFechaActual.CheckedState.InnerOffset = -4;
+            SRBFechaActual.ForeColor = Color.Black;
+            SRBFechaActual.Location = new Point(21, 67);
+            SRBFechaActual.Margin = new Padding(3, 4, 3, 4);
+            SRBFechaActual.Name = "SRBFechaActual";
+            SRBFechaActual.Size = new Size(112, 34);
+            SRBFechaActual.TabIndex = 56;
+            SRBFechaActual.Text = "Actual";
+            SRBFechaActual.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            SRBFechaActual.UncheckedState.BorderThickness = 2;
+            SRBFechaActual.UncheckedState.FillColor = Color.Transparent;
+            SRBFechaActual.UncheckedState.InnerColor = Color.Transparent;
+            SRBFechaActual.CheckedChanged += SRBFechaActual_CheckedChanged;
             // 
             // SRBElegirFecha
             // 
-            this.SRBElegirFecha.AutoSize = true;
-            this.SRBElegirFecha.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SRBElegirFecha.CheckedState.BorderThickness = 0;
-            this.SRBElegirFecha.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SRBElegirFecha.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.SRBElegirFecha.CheckedState.InnerOffset = -4;
-            this.SRBElegirFecha.Location = new System.Drawing.Point(245, 68);
-            this.SRBElegirFecha.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SRBElegirFecha.Name = "SRBElegirFecha";
-            this.SRBElegirFecha.Size = new System.Drawing.Size(98, 34);
-            this.SRBElegirFecha.TabIndex = 57;
-            this.SRBElegirFecha.Text = "Elegir";
-            this.SRBElegirFecha.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.SRBElegirFecha.UncheckedState.BorderThickness = 2;
-            this.SRBElegirFecha.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.SRBElegirFecha.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.SRBElegirFecha.CheckedChanged += new System.EventHandler(this.SRBElegirFecha_CheckedChanged);
+            SRBElegirFecha.Anchor = AnchorStyles.None;
+            SRBElegirFecha.AutoSize = true;
+            SRBElegirFecha.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            SRBElegirFecha.CheckedState.BorderThickness = 0;
+            SRBElegirFecha.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            SRBElegirFecha.CheckedState.InnerColor = Color.White;
+            SRBElegirFecha.CheckedState.InnerOffset = -4;
+            SRBElegirFecha.ForeColor = Color.Black;
+            SRBElegirFecha.Location = new Point(165, 67);
+            SRBElegirFecha.Margin = new Padding(3, 4, 3, 4);
+            SRBElegirFecha.Name = "SRBElegirFecha";
+            SRBElegirFecha.Size = new Size(98, 34);
+            SRBElegirFecha.TabIndex = 57;
+            SRBElegirFecha.Text = "Elegir";
+            SRBElegirFecha.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            SRBElegirFecha.UncheckedState.BorderThickness = 2;
+            SRBElegirFecha.UncheckedState.FillColor = Color.Transparent;
+            SRBElegirFecha.UncheckedState.InnerColor = Color.Transparent;
+            SRBElegirFecha.CheckedChanged += SRBElegirFecha_CheckedChanged;
             // 
-            // siticoneDateTimePicker1
+            // DTPFechaLote
             // 
-            this.siticoneDateTimePicker1.BorderRadius = 10;
-            this.siticoneDateTimePicker1.Checked = true;
-            this.siticoneDateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.siticoneDateTimePicker1.FillColor = System.Drawing.Color.White;
-            this.siticoneDateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.siticoneDateTimePicker1.Location = new System.Drawing.Point(237, 127);
-            this.siticoneDateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneDateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.siticoneDateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.siticoneDateTimePicker1.Name = "siticoneDateTimePicker1";
-            this.siticoneDateTimePicker1.ShowUpDown = true;
-            this.siticoneDateTimePicker1.Size = new System.Drawing.Size(199, 37);
-            this.siticoneDateTimePicker1.TabIndex = 58;
-            this.siticoneDateTimePicker1.TextOffset = new System.Drawing.Point(5, 0);
-            this.siticoneDateTimePicker1.Value = new System.DateTime(2023, 2, 6, 1, 19, 20, 716);
-            this.siticoneDateTimePicker1.Visible = false;
+            DTPFechaLote.Anchor = AnchorStyles.None;
+            DTPFechaLote.BorderRadius = 10;
+            DTPFechaLote.Checked = true;
+            DTPFechaLote.CustomFormat = "yyyy-MM-dd";
+            DTPFechaLote.FillColor = Color.Black;
+            DTPFechaLote.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            DTPFechaLote.Format = DateTimePickerFormat.Custom;
+            DTPFechaLote.Location = new Point(165, 112);
+            DTPFechaLote.Margin = new Padding(3, 4, 3, 4);
+            DTPFechaLote.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            DTPFechaLote.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            DTPFechaLote.Name = "DTPFechaLote";
+            DTPFechaLote.Size = new Size(180, 37);
+            DTPFechaLote.TabIndex = 58;
+            DTPFechaLote.TextOffset = new Point(5, 0);
+            DTPFechaLote.Value = new DateTime(2023, 3, 10, 0, 0, 0, 0);
+            DTPFechaLote.Visible = false;
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.Anchor = AnchorStyles.None;
+            txtCantidad.BorderRadius = 20;
+            txtCantidad.DefaultText = "";
+            txtCantidad.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtCantidad.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtCantidad.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCantidad.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtCantidad.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCantidad.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCantidad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCantidad.Location = new Point(334, 38);
+            txtCantidad.Margin = new Padding(3, 7, 3, 7);
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.PasswordChar = '\0';
+            txtCantidad.PlaceholderText = "";
+            txtCantidad.SelectedText = "";
+            txtCantidad.Size = new Size(229, 55);
+            txtCantidad.TabIndex = 74;
+            txtCantidad.TextOffset = new Point(5, 0);
+            txtCantidad.TextChanged += txtCantidad_TextChanged;
+            txtCantidad.KeyPress += txtCantidad_KeyPress;
+            // 
+            // siticoneHtmlLabel4
+            // 
+            siticoneHtmlLabel4.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel4.BackColor = Color.Transparent;
+            siticoneHtmlLabel4.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel4.Location = new Point(59, 38);
+            siticoneHtmlLabel4.Margin = new Padding(3, 5, 3, 5);
+            siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
+            siticoneHtmlLabel4.Size = new Size(126, 34);
+            siticoneHtmlLabel4.TabIndex = 73;
+            siticoneHtmlLabel4.Text = "Cantidad";
             // 
             // Editar_Lote
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(508, 492);
-            this.Controls.Add(this.siticoneGroupBox1);
-            this.Controls.Add(this.siticoneButton2);
-            this.Controls.Add(this.siticoneButton1);
-            this.Controls.Add(this.siticoneTextBox3);
-            this.Controls.Add(this.siticoneHtmlLabel4);
-            this.Controls.Add(this.siticoneComboBox3);
-            this.Controls.Add(this.siticoneHtmlLabel3);
-            this.Name = "Editar_Lote";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar Lote";
-            this.siticoneGroupBox1.ResumeLayout(false);
-            this.siticoneGroupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(608, 546);
+            Controls.Add(SBCancelar);
+            Controls.Add(SBAceptar);
+            Controls.Add(FechaHora_not_choose_in_Lote_label);
+            Controls.Add(GBFechaHoraElab);
+            Controls.Add(txtCantidad);
+            Controls.Add(siticoneHtmlLabel4);
+            Name = "Editar_Lote";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Editar Lote";
+            GBFechaHoraElab.ResumeLayout(false);
+            GBFechaHoraElab.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox3;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox3;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
-        private Siticone.Desktop.UI.WinForms.SiticoneGroupBox siticoneGroupBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton SBCancelar;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton SBAceptar;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel FechaHora_not_choose_in_Lote_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneGroupBox GBFechaHoraElab;
+        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker DTPHoraLote;
         private Siticone.Desktop.UI.WinForms.SiticoneRadioButton SRBFechaActual;
         private Siticone.Desktop.UI.WinForms.SiticoneRadioButton SRBElegirFecha;
-        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker siticoneDateTimePicker1;
+        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker DTPFechaLote;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCantidad;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
     }
 }

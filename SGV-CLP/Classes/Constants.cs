@@ -22,6 +22,7 @@ namespace SGV_CLP.Classes
         // Constantes de módulo Productos
         public const int LIMIT_IDPROD_LENGTH = 7;
         public const int LIMIT_NOMBREPROD_LENGTH = 50;
+        public const int LIMIT_RUTAIMAGEN_LENGTH = 100;
 
 
     }

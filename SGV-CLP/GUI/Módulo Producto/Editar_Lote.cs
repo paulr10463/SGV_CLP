@@ -13,46 +13,87 @@ namespace SGV_CLP.GUI.Módulo_Producto
 {
     public partial class Editar_Lote : Form
     {
-        public Editar_Lote()
+        bool isValidCantidad, isValidFechaHora; // Para validar los campos de Lote
+        string cod_Lote;
+
+        public Editar_Lote(string cod_Lote)
         {
             InitializeComponent();
+            this.cod_Lote = cod_Lote;
+
+            isValidCantidad = false;
+            isValidFechaHora = false;
+
+            SBAceptar.Enabled = false;
+
+            FechaHora_not_choose_in_Lote_label.Show();
         }
 
-        private void siticoneButton1_Click(object sender, EventArgs e)
+        private void ValidateLotFields()
+        {
+            if (isValidCantidad && isValidFechaHora)
+            {
+                SBAceptar.Enabled = true;
+            }
+            else
+            {
+                SBAceptar.Enabled = false;
+            }
+        }
+
+        private void SBAceptar_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
             MessageBox.Show("Lote editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Dispose();
         }
 
-        private void siticoneButton3_Click(object sender, EventArgs e)
-        {
-            SystemSounds.Beep.Play();
-            if (MessageBox.Show("¿Desea continuar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-                == DialogResult.Yes)
-            {
-                MessageBox.Show("Lote eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Lote no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtCantidad.Text.Equals(string.Empty))
+            {
+                isValidCantidad = true;
+            }
+            else
+            {
+                isValidCantidad = false;
+            }
+            ValidateLotFields();
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Cantidad inválida – solo se permiten caracteres numéricos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
         private void SRBFechaActual_CheckedChanged(object sender, EventArgs e)
         {
-            siticoneDateTimePicker1.Visible = false;
+            DTPFechaLote.Visible = false;
+            DTPHoraLote.Visible = false;
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
         }
 
         private void SRBElegirFecha_CheckedChanged(object sender, EventArgs e)
         {
-            siticoneDateTimePicker1.Visible = true;
+            DTPFechaLote.Visible = true;
+            DTPHoraLote.Visible = true;
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
         }
     }
 }
