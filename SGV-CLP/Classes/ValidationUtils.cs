@@ -34,6 +34,18 @@ namespace SGV_CLP.Classes
             return regex.IsMatch(doubleNumber);
         }
 
+        public static bool IsValidPhoneNumber(string phoneNumber)
+        {
+            // Define la expresión regular para validar un número de celular
+            string pattern = @"^09[0-9]{8}$";
+
+            // Crea un objeto Regex con la expresión regular
+            Regex regex = new Regex(pattern);
+
+            // Valida el double
+            return regex.IsMatch(phoneNumber);
+        }
+
         public static bool IsValidPath(string path)
         {
             // Define la expresión regular para validar un path

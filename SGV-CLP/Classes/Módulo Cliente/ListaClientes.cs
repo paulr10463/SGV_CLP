@@ -20,7 +20,7 @@ namespace SGV_CLP.Classes.Módulo_Cliente
         {
             foreach(Cliente item in listaClientes)
             {
-                if (item.isEqual(cliente))
+                if (item.IsEqual(cliente))
                    return 0;
                 if (item.Cc_Cliente.Equals(cliente.Cc_Cliente))
                     return 1;  

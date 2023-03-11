@@ -10,7 +10,7 @@ namespace SGV_CLP.GUI
     public partial class UC_Clientes : UserControl
     {
         List<Cliente> clientesRegistrados = ClienteMapper.ConsultarClientes();
-        
+
         int count_correct_fields = 0;
         int num_atributos = 6;
 
@@ -57,7 +57,7 @@ namespace SGV_CLP.GUI
             txtTelefonoCliente.Text = string.Empty;
             txtCorreoCliente.Text = string.Empty;
         }
-        
+
         public void llenarTablaCliente()
         {
             if (clientesRegistrados != null)
@@ -71,18 +71,18 @@ namespace SGV_CLP.GUI
                 }
             }
         }
-        
+
         private void registrarCliente(object sender, EventArgs e)
         {
-            var cliente = new Cliente 
-            { 
-                Cc_Cliente = txtCedulaCliente.Text, 
-                Primer_Nombre = txtPrimerNombreCliente.Text, 
-                Segundo_Nombre = txtSegundoNombreCliente.Text, 
-                Primer_Apellido = txtPrimerApellidoCliente.Text, 
-                Segundo_Apellido = txtSegundoApellidoCliente.Text, 
-                Direccion_Domicilio = txtDireccionCliente.Text, 
-                Telefono = txtTelefonoCliente.Text, 
+            var cliente = new Cliente
+            {
+                Cc_Cliente = txtCedulaCliente.Text,
+                Primer_Nombre = txtPrimerNombreCliente.Text,
+                Segundo_Nombre = txtSegundoNombreCliente.Text,
+                Primer_Apellido = txtPrimerApellidoCliente.Text,
+                Segundo_Apellido = txtSegundoApellidoCliente.Text,
+                Direccion_Domicilio = txtDireccionCliente.Text,
+                Telefono = txtTelefonoCliente.Text,
                 Correo_Electronico = txtCorreoCliente.Text
             };
 
@@ -127,8 +127,9 @@ namespace SGV_CLP.GUI
 
         private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar)) {
+
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -267,11 +268,11 @@ namespace SGV_CLP.GUI
         }
         private void txtDireccionCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.KeyChar != '\b' && e.KeyChar != '.' && e.KeyChar != ';' && e.KeyChar != ' ' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
-                MessageBox.Show("Ingrese únicamente letras o números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese únicamente letras, números, \";\" o \".\"!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -285,11 +286,10 @@ namespace SGV_CLP.GUI
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
         }
         private void validateFieldsCounter()
         {
-            Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCedulaCliente.Text);   
+            Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCedulaCliente.Text);
         }
 
         private void txtCorreoCliente_TextChanged(object sender, EventArgs e)
@@ -316,7 +316,6 @@ namespace SGV_CLP.GUI
 
         private void txtTelefonoCliente_TextChanged(object sender, EventArgs e)
         {
-
             if (txtTelefonoCliente.Text.Length == Constants.LIMIT_TELEF_LENGTH && !telefIsValid)
             {
                 siticoneHtmlLabel_wrong_length_telef.Hide();
@@ -333,7 +332,6 @@ namespace SGV_CLP.GUI
             }
 
             validateFieldsCounter();
-
         }
 
         private void txtDireccionCliente_TextChanged(object sender, EventArgs e)
@@ -352,11 +350,11 @@ namespace SGV_CLP.GUI
             validateFieldsCounter();
         }
 
-        
+
 
         private void txtPrimerNombreCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtPrimerNombreCliente.Text.Length > 0 && !firstNameIsValid )
+            if (txtPrimerNombreCliente.Text.Length > 0 && !firstNameIsValid)
             {
                 firstNameIsValid = true;
                 count_correct_fields++;
@@ -375,7 +373,7 @@ namespace SGV_CLP.GUI
 
         private void txtPrimerApellidoCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtPrimerApellidoCliente.Text.Length  > 0 && !firsLastNameIsValid)
+            if (txtPrimerApellidoCliente.Text.Length > 0 && !firsLastNameIsValid)
             {
                 firsLastNameIsValid = true;
                 count_correct_fields++;
@@ -386,13 +384,13 @@ namespace SGV_CLP.GUI
                 count_correct_fields--;
             }
 
-           validateFieldsCounter();
+            validateFieldsCounter();
         }
 
         private void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
             // comprueba que la cc == 10 y muesta mensaje de correcto
-            if (txtCedulaCliente.Text.Length == Constants.LIMIT_CC_LENGTH && !ccIsValid )
+            if (txtCedulaCliente.Text.Length == Constants.LIMIT_CC_LENGTH && !ccIsValid)
             {
                 ccIsValid = true;
                 count_correct_fields++;

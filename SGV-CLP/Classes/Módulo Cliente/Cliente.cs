@@ -33,7 +33,7 @@ namespace SGV_CLP.Classes
         public string? Telefono { get; set; }
         public string? Correo_Electronico { get; set; }
 
-        public bool isEqual(Cliente cliente)
+        public bool IsEqual(Cliente cliente)
         {
             return this.Cc_Cliente == cliente.Cc_Cliente &&
                    this.Primer_Nombre == cliente.Primer_Nombre &&
