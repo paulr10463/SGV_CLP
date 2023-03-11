@@ -61,8 +61,10 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             txtNombreProducto = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             Editar = new TabPage();
+            categoria_not_choose_in_ConsultarProducto_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            cBoxConsultarProductoPorCategoria = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             siticoneHtmlLabel_buscarProducto_sin_campo = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            ComboBox_ConsultarProductoPor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            cBConsultarProductoPor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             txtConsultarProducto = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             SDGVProducto = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
@@ -88,7 +90,10 @@ namespace SGV_CLP.GUI
             txtCantidad = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             tabPage2 = new TabPage();
-            siticoneDateTimePicker2 = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
+            Producto_not_choose_in_ConsultarLote_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            cBoxConsultarLotePorProducto = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            siticoneHtmlLabel_buscarLote_sin_campo = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            DTPFConsultarLotePorFecha = new Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker();
             siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             SDGVLote = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             ColumnaCodLote = new DataGridViewTextBoxColumn();
@@ -97,8 +102,8 @@ namespace SGV_CLP.GUI
             ColumnaFechayHora = new DataGridViewTextBoxColumn();
             ColumnaEditarLote = new DataGridViewImageColumn();
             ColumnaEliminarLote = new DataGridViewImageColumn();
-            siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            cBConsultarLotePor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            txtConsultarLotePorCodigo = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneTabControl1.SuspendLayout();
             Añadir.SuspendLayout();
             Editar.SuspendLayout();
@@ -529,8 +534,10 @@ namespace SGV_CLP.GUI
             // Editar
             // 
             Editar.BackColor = Color.White;
+            Editar.Controls.Add(categoria_not_choose_in_ConsultarProducto_label);
+            Editar.Controls.Add(cBoxConsultarProductoPorCategoria);
             Editar.Controls.Add(siticoneHtmlLabel_buscarProducto_sin_campo);
-            Editar.Controls.Add(ComboBox_ConsultarProductoPor);
+            Editar.Controls.Add(cBConsultarProductoPor);
             Editar.Controls.Add(txtConsultarProducto);
             Editar.Controls.Add(siticonePanel1);
             Editar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -541,6 +548,42 @@ namespace SGV_CLP.GUI
             Editar.Size = new Size(1281, 1012);
             Editar.TabIndex = 1;
             Editar.Text = "Editar/Eliminar Producto";
+            // 
+            // categoria_not_choose_in_ConsultarProducto_label
+            // 
+            categoria_not_choose_in_ConsultarProducto_label.Anchor = AnchorStyles.None;
+            categoria_not_choose_in_ConsultarProducto_label.BackColor = Color.Transparent;
+            categoria_not_choose_in_ConsultarProducto_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            categoria_not_choose_in_ConsultarProducto_label.ForeColor = Color.Red;
+            categoria_not_choose_in_ConsultarProducto_label.Location = new Point(324, 209);
+            categoria_not_choose_in_ConsultarProducto_label.Margin = new Padding(3, 4, 3, 4);
+            categoria_not_choose_in_ConsultarProducto_label.Name = "categoria_not_choose_in_ConsultarProducto_label";
+            categoria_not_choose_in_ConsultarProducto_label.Size = new Size(265, 22);
+            categoria_not_choose_in_ConsultarProducto_label.TabIndex = 59;
+            categoria_not_choose_in_ConsultarProducto_label.Text = "Debe pertenecer a una categoría válida";
+            categoria_not_choose_in_ConsultarProducto_label.Visible = false;
+            // 
+            // cBoxConsultarProductoPorCategoria
+            // 
+            cBoxConsultarProductoPorCategoria.Anchor = AnchorStyles.None;
+            cBoxConsultarProductoPorCategoria.BackColor = Color.Transparent;
+            cBoxConsultarProductoPorCategoria.BorderRadius = 20;
+            cBoxConsultarProductoPorCategoria.DrawMode = DrawMode.OwnerDrawFixed;
+            cBoxConsultarProductoPorCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBoxConsultarProductoPorCategoria.FocusedColor = Color.FromArgb(94, 148, 255);
+            cBoxConsultarProductoPorCategoria.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBoxConsultarProductoPorCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            cBoxConsultarProductoPorCategoria.ForeColor = Color.FromArgb(68, 88, 112);
+            cBoxConsultarProductoPorCategoria.ItemHeight = 55;
+            cBoxConsultarProductoPorCategoria.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
+            cBoxConsultarProductoPorCategoria.Location = new Point(302, 139);
+            cBoxConsultarProductoPorCategoria.Margin = new Padding(3, 5, 3, 5);
+            cBoxConsultarProductoPorCategoria.Name = "cBoxConsultarProductoPorCategoria";
+            cBoxConsultarProductoPorCategoria.Size = new Size(312, 61);
+            cBoxConsultarProductoPorCategoria.TabIndex = 58;
+            cBoxConsultarProductoPorCategoria.TextOffset = new Point(5, 0);
+            cBoxConsultarProductoPorCategoria.Visible = false;
+            cBoxConsultarProductoPorCategoria.SelectedIndexChanged += cBoxConsultarProductoPorCategoria_SelectedIndexChanged;
             // 
             // siticoneHtmlLabel_buscarProducto_sin_campo
             // 
@@ -555,26 +598,26 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel_buscarProducto_sin_campo.TabIndex = 25;
             siticoneHtmlLabel_buscarProducto_sin_campo.Text = "¡Seleccione un campo!";
             // 
-            // ComboBox_ConsultarProductoPor
+            // CBConsultarProductoPor
             // 
-            ComboBox_ConsultarProductoPor.Anchor = AnchorStyles.None;
-            ComboBox_ConsultarProductoPor.AutoCompleteCustomSource.AddRange(new string[] { "Código", "Nombre", "Categoría" });
-            ComboBox_ConsultarProductoPor.BackColor = Color.Transparent;
-            ComboBox_ConsultarProductoPor.BorderRadius = 20;
-            ComboBox_ConsultarProductoPor.DrawMode = DrawMode.OwnerDrawFixed;
-            ComboBox_ConsultarProductoPor.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboBox_ConsultarProductoPor.FocusedColor = Color.FromArgb(94, 148, 255);
-            ComboBox_ConsultarProductoPor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            ComboBox_ConsultarProductoPor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            ComboBox_ConsultarProductoPor.ForeColor = Color.FromArgb(68, 88, 112);
-            ComboBox_ConsultarProductoPor.ItemHeight = 40;
-            ComboBox_ConsultarProductoPor.Items.AddRange(new object[] { "Código", "Nombre", "Categoría" });
-            ComboBox_ConsultarProductoPor.Location = new Point(631, 139);
-            ComboBox_ConsultarProductoPor.Margin = new Padding(3, 4, 3, 4);
-            ComboBox_ConsultarProductoPor.Name = "ComboBox_ConsultarProductoPor";
-            ComboBox_ConsultarProductoPor.Size = new Size(311, 46);
-            ComboBox_ConsultarProductoPor.TabIndex = 20;
-            ComboBox_ConsultarProductoPor.SelectedIndexChanged += ComboBox_ConsultarProductoPor_SelectedIndexChanged;
+            cBConsultarProductoPor.Anchor = AnchorStyles.None;
+            cBConsultarProductoPor.AutoCompleteCustomSource.AddRange(new string[] { "Código", "Nombre", "Categoría" });
+            cBConsultarProductoPor.BackColor = Color.Transparent;
+            cBConsultarProductoPor.BorderRadius = 20;
+            cBConsultarProductoPor.DrawMode = DrawMode.OwnerDrawFixed;
+            cBConsultarProductoPor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBConsultarProductoPor.FocusedColor = Color.FromArgb(94, 148, 255);
+            cBConsultarProductoPor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBConsultarProductoPor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cBConsultarProductoPor.ForeColor = Color.FromArgb(68, 88, 112);
+            cBConsultarProductoPor.ItemHeight = 40;
+            cBConsultarProductoPor.Items.AddRange(new object[] { "Seleccione...", "Código", "Nombre", "Categoría" });
+            cBConsultarProductoPor.Location = new Point(631, 139);
+            cBConsultarProductoPor.Margin = new Padding(3, 4, 3, 4);
+            cBConsultarProductoPor.Name = "CBConsultarProductoPor";
+            cBConsultarProductoPor.Size = new Size(311, 46);
+            cBConsultarProductoPor.TabIndex = 20;
+            cBConsultarProductoPor.SelectedIndexChanged += CBConsultarProductoPor_SelectedIndexChanged;
             // 
             // txtConsultarProducto
             // 
@@ -918,7 +961,6 @@ namespace SGV_CLP.GUI
             // cBoxProductoLote
             // 
             cBoxProductoLote.Anchor = AnchorStyles.None;
-            cBoxProductoLote.AutoCompleteCustomSource.AddRange(new string[] { "Humita de sal", "Humita de Dulce", "Tamal" });
             cBoxProductoLote.BackColor = Color.Transparent;
             cBoxProductoLote.BorderRadius = 20;
             cBoxProductoLote.DrawMode = DrawMode.OwnerDrawFixed;
@@ -934,7 +976,7 @@ namespace SGV_CLP.GUI
             cBoxProductoLote.Size = new Size(228, 41);
             cBoxProductoLote.TabIndex = 53;
             cBoxProductoLote.TextOffset = new Point(5, 0);
-            cBoxProductoLote.SelectedIndexChanged += cBoxProductoLote_SelectedIndexChanged;
+            cBoxProductoLote.SelectedIndexChanged += CBoxProductoLote_SelectedIndexChanged;
             // 
             // siticoneHtmlLabel3
             // 
@@ -969,8 +1011,8 @@ namespace SGV_CLP.GUI
             txtCantidad.Size = new Size(229, 55);
             txtCantidad.TabIndex = 51;
             txtCantidad.TextOffset = new Point(5, 0);
-            txtCantidad.TextChanged += txtCantidad_TextChanged;
-            txtCantidad.KeyPress += txtCantidad_KeyPress;
+            txtCantidad.TextChanged += TxtCantidad_TextChanged;
+            txtCantidad.KeyPress += TxtCantidad_KeyPress;
             // 
             // siticoneHtmlLabel4
             // 
@@ -987,10 +1029,13 @@ namespace SGV_CLP.GUI
             // tabPage2
             // 
             tabPage2.BackColor = Color.White;
-            tabPage2.Controls.Add(siticoneDateTimePicker2);
+            tabPage2.Controls.Add(Producto_not_choose_in_ConsultarLote_label);
+            tabPage2.Controls.Add(cBoxConsultarLotePorProducto);
+            tabPage2.Controls.Add(siticoneHtmlLabel_buscarLote_sin_campo);
+            tabPage2.Controls.Add(DTPFConsultarLotePorFecha);
             tabPage2.Controls.Add(siticoneGradientPanel1);
-            tabPage2.Controls.Add(siticoneComboBox1);
-            tabPage2.Controls.Add(siticoneTextBox1);
+            tabPage2.Controls.Add(cBConsultarLotePor);
+            tabPage2.Controls.Add(txtConsultarLotePorCodigo);
             tabPage2.Location = new Point(164, 4);
             tabPage2.Margin = new Padding(3, 4, 3, 4);
             tabPage2.Name = "tabPage2";
@@ -998,27 +1043,76 @@ namespace SGV_CLP.GUI
             tabPage2.TabIndex = 3;
             tabPage2.Text = "Editar/Eliminar Lote";
             // 
-            // siticoneDateTimePicker2
+            // Producto_not_choose_in_ConsultarLote_label
             // 
-            siticoneDateTimePicker2.BorderColor = Color.White;
-            siticoneDateTimePicker2.BorderRadius = 10;
-            siticoneDateTimePicker2.Checked = true;
-            siticoneDateTimePicker2.CustomFormat = "dd-MM-yyyy HH:mm";
-            siticoneDateTimePicker2.FillColor = Color.Black;
-            siticoneDateTimePicker2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneDateTimePicker2.ForeColor = Color.White;
-            siticoneDateTimePicker2.Format = DateTimePickerFormat.Custom;
-            siticoneDateTimePicker2.Location = new Point(313, 73);
-            siticoneDateTimePicker2.Margin = new Padding(3, 4, 3, 4);
-            siticoneDateTimePicker2.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            siticoneDateTimePicker2.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            siticoneDateTimePicker2.Name = "siticoneDateTimePicker2";
-            siticoneDateTimePicker2.ShowUpDown = true;
-            siticoneDateTimePicker2.Size = new Size(312, 61);
-            siticoneDateTimePicker2.TabIndex = 59;
-            siticoneDateTimePicker2.TextOffset = new Point(5, 0);
-            siticoneDateTimePicker2.Value = new DateTime(2023, 2, 6, 1, 19, 20, 716);
-            siticoneDateTimePicker2.Visible = false;
+            Producto_not_choose_in_ConsultarLote_label.Anchor = AnchorStyles.None;
+            Producto_not_choose_in_ConsultarLote_label.BackColor = Color.Transparent;
+            Producto_not_choose_in_ConsultarLote_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Producto_not_choose_in_ConsultarLote_label.ForeColor = Color.Red;
+            Producto_not_choose_in_ConsultarLote_label.Location = new Point(327, 213);
+            Producto_not_choose_in_ConsultarLote_label.Margin = new Padding(3, 4, 3, 4);
+            Producto_not_choose_in_ConsultarLote_label.Name = "Producto_not_choose_in_ConsultarLote_label";
+            Producto_not_choose_in_ConsultarLote_label.Size = new Size(274, 22);
+            Producto_not_choose_in_ConsultarLote_label.TabIndex = 65;
+            Producto_not_choose_in_ConsultarLote_label.Text = "Debe pertenecer a un producto existente";
+            Producto_not_choose_in_ConsultarLote_label.Visible = false;
+            // 
+            // cBoxConsultarLotePorProducto
+            // 
+            cBoxConsultarLotePorProducto.Anchor = AnchorStyles.None;
+            cBoxConsultarLotePorProducto.BackColor = Color.Transparent;
+            cBoxConsultarLotePorProducto.BorderRadius = 10;
+            cBoxConsultarLotePorProducto.DrawMode = DrawMode.OwnerDrawFixed;
+            cBoxConsultarLotePorProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBoxConsultarLotePorProducto.FocusedColor = Color.FromArgb(94, 148, 255);
+            cBoxConsultarLotePorProducto.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBoxConsultarLotePorProducto.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cBoxConsultarLotePorProducto.ForeColor = Color.FromArgb(68, 88, 112);
+            cBoxConsultarLotePorProducto.ItemHeight = 55;
+            cBoxConsultarLotePorProducto.Location = new Point(313, 143);
+            cBoxConsultarLotePorProducto.Margin = new Padding(3, 4, 3, 4);
+            cBoxConsultarLotePorProducto.Name = "cBoxConsultarLotePorProducto";
+            cBoxConsultarLotePorProducto.Size = new Size(312, 61);
+            cBoxConsultarLotePorProducto.TabIndex = 61;
+            cBoxConsultarLotePorProducto.TextOffset = new Point(5, 0);
+            cBoxConsultarLotePorProducto.Visible = false;
+            cBoxConsultarLotePorProducto.SelectedIndexChanged += CBoxConsultarLotePorProducto_SelectedIndexChanged;
+            // 
+            // siticoneHtmlLabel_buscarLote_sin_campo
+            // 
+            siticoneHtmlLabel_buscarLote_sin_campo.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel_buscarLote_sin_campo.BackColor = Color.Transparent;
+            siticoneHtmlLabel_buscarLote_sin_campo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel_buscarLote_sin_campo.ForeColor = Color.Red;
+            siticoneHtmlLabel_buscarLote_sin_campo.Location = new Point(313, 112);
+            siticoneHtmlLabel_buscarLote_sin_campo.Margin = new Padding(3, 4, 3, 4);
+            siticoneHtmlLabel_buscarLote_sin_campo.Name = "siticoneHtmlLabel_buscarLote_sin_campo";
+            siticoneHtmlLabel_buscarLote_sin_campo.Size = new Size(152, 22);
+            siticoneHtmlLabel_buscarLote_sin_campo.TabIndex = 60;
+            siticoneHtmlLabel_buscarLote_sin_campo.Text = "¡Seleccione un campo!";
+            // 
+            // DTPFConsultarLotePorFecha
+            // 
+            DTPFConsultarLotePorFecha.Anchor = AnchorStyles.None;
+            DTPFConsultarLotePorFecha.BorderColor = Color.White;
+            DTPFConsultarLotePorFecha.BorderRadius = 10;
+            DTPFConsultarLotePorFecha.Checked = true;
+            DTPFConsultarLotePorFecha.CustomFormat = "yyyy-MM-dd";
+            DTPFConsultarLotePorFecha.FillColor = Color.Black;
+            DTPFConsultarLotePorFecha.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            DTPFConsultarLotePorFecha.ForeColor = Color.White;
+            DTPFConsultarLotePorFecha.Format = DateTimePickerFormat.Custom;
+            DTPFConsultarLotePorFecha.Location = new Point(313, 143);
+            DTPFConsultarLotePorFecha.Margin = new Padding(3, 4, 3, 4);
+            DTPFConsultarLotePorFecha.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            DTPFConsultarLotePorFecha.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            DTPFConsultarLotePorFecha.Name = "DTPFConsultarLotePorFecha";
+            DTPFConsultarLotePorFecha.Size = new Size(312, 61);
+            DTPFConsultarLotePorFecha.TabIndex = 59;
+            DTPFConsultarLotePorFecha.TextOffset = new Point(5, 0);
+            DTPFConsultarLotePorFecha.Value = new DateTime(2023, 2, 6, 1, 19, 20, 716);
+            DTPFConsultarLotePorFecha.Visible = false;
+            DTPFConsultarLotePorFecha.ValueChanged += DTPFConsultarLotePorFecha_ValueChanged;
             // 
             // siticoneGradientPanel1
             // 
@@ -1060,8 +1154,7 @@ namespace SGV_CLP.GUI
             SDGVLote.Name = "SDGVLote";
             SDGVLote.RowHeadersVisible = false;
             SDGVLote.RowHeadersWidth = 50;
-            SDGVLote.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(231, 229, 255);
-            SDGVLote.RowTemplate.DividerHeight = 15;
+            SDGVLote.RowTemplate.DefaultCellStyle.BackColor = Color.White;
             SDGVLote.RowTemplate.Height = 50;
             SDGVLote.Size = new Size(1281, 667);
             SDGVLote.TabIndex = 27;
@@ -1138,45 +1231,48 @@ namespace SGV_CLP.GUI
             ColumnaEliminarLote.ReadOnly = true;
             ColumnaEliminarLote.Resizable = DataGridViewTriState.True;
             // 
-            // siticoneComboBox1
+            // CBConsultarLotePor
             // 
-            siticoneComboBox1.Anchor = AnchorStyles.None;
-            siticoneComboBox1.BackColor = Color.Transparent;
-            siticoneComboBox1.BorderRadius = 20;
-            siticoneComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            siticoneComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            siticoneComboBox1.FocusedColor = Color.FromArgb(94, 148, 255);
-            siticoneComboBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneComboBox1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneComboBox1.ForeColor = Color.FromArgb(68, 88, 112);
-            siticoneComboBox1.ItemHeight = 40;
-            siticoneComboBox1.Items.AddRange(new object[] { "Código lote", "Código producto" });
-            siticoneComboBox1.Location = new Point(642, 143);
-            siticoneComboBox1.Margin = new Padding(3, 4, 3, 4);
-            siticoneComboBox1.Name = "siticoneComboBox1";
-            siticoneComboBox1.Size = new Size(311, 46);
-            siticoneComboBox1.TabIndex = 24;
+            cBConsultarLotePor.Anchor = AnchorStyles.None;
+            cBConsultarLotePor.BackColor = Color.Transparent;
+            cBConsultarLotePor.BorderRadius = 20;
+            cBConsultarLotePor.DrawMode = DrawMode.OwnerDrawFixed;
+            cBConsultarLotePor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBConsultarLotePor.FocusedColor = Color.FromArgb(94, 148, 255);
+            cBConsultarLotePor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBConsultarLotePor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cBConsultarLotePor.ForeColor = Color.FromArgb(68, 88, 112);
+            cBConsultarLotePor.ItemHeight = 40;
+            cBConsultarLotePor.Items.AddRange(new object[] { "Seleccione...", "Código lote", "Código producto", "Fecha" });
+            cBConsultarLotePor.Location = new Point(642, 143);
+            cBConsultarLotePor.Margin = new Padding(3, 4, 3, 4);
+            cBConsultarLotePor.Name = "CBConsultarLotePor";
+            cBConsultarLotePor.Size = new Size(311, 46);
+            cBConsultarLotePor.TabIndex = 24;
+            cBConsultarLotePor.SelectedIndexChanged += CBConsultarLotePor_SelectedIndexChanged;
             // 
-            // siticoneTextBox1
+            // txtConsultarLotePorCodigo
             // 
-            siticoneTextBox1.Anchor = AnchorStyles.None;
-            siticoneTextBox1.BorderRadius = 20;
-            siticoneTextBox1.DefaultText = "";
-            siticoneTextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            siticoneTextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            siticoneTextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            siticoneTextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            siticoneTextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneTextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox1.Location = new Point(313, 143);
-            siticoneTextBox1.Margin = new Padding(3, 5, 3, 5);
-            siticoneTextBox1.Name = "siticoneTextBox1";
-            siticoneTextBox1.PasswordChar = '\0';
-            siticoneTextBox1.PlaceholderText = "Buscar...";
-            siticoneTextBox1.SelectedText = "";
-            siticoneTextBox1.Size = new Size(312, 61);
-            siticoneTextBox1.TabIndex = 23;
+            txtConsultarLotePorCodigo.Anchor = AnchorStyles.None;
+            txtConsultarLotePorCodigo.BorderRadius = 20;
+            txtConsultarLotePorCodigo.DefaultText = "";
+            txtConsultarLotePorCodigo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtConsultarLotePorCodigo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtConsultarLotePorCodigo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtConsultarLotePorCodigo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtConsultarLotePorCodigo.Enabled = false;
+            txtConsultarLotePorCodigo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtConsultarLotePorCodigo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtConsultarLotePorCodigo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtConsultarLotePorCodigo.Location = new Point(313, 143);
+            txtConsultarLotePorCodigo.Margin = new Padding(3, 5, 3, 5);
+            txtConsultarLotePorCodigo.Name = "txtConsultarLotePorCodigo";
+            txtConsultarLotePorCodigo.PasswordChar = '\0';
+            txtConsultarLotePorCodigo.PlaceholderText = "Buscar...";
+            txtConsultarLotePorCodigo.SelectedText = "";
+            txtConsultarLotePorCodigo.Size = new Size(312, 61);
+            txtConsultarLotePorCodigo.TabIndex = 23;
+            txtConsultarLotePorCodigo.TextChanged += TxtConsultarLotePorCodigo_TextChanged;
             // 
             // UC_Productos
             // 
@@ -1198,6 +1294,7 @@ namespace SGV_CLP.GUI
             GBFechaHoraElab.ResumeLayout(false);
             GBFechaHoraElab.PerformLayout();
             tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             siticoneGradientPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)SDGVLote).EndInit();
             ResumeLayout(false);
@@ -1210,13 +1307,13 @@ namespace SGV_CLP.GUI
         private TabPage Editar;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView SDGVProducto;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox ComboBox_ConsultarProductoPor;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBConsultarProductoPor;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtConsultarProducto;
         private TabPage tabPage1;
         private TabPage tabPage2;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView SDGVLote;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBConsultarLotePor;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtConsultarLotePorCodigo;
         private Siticone.Desktop.UI.WinForms.SiticoneButton SBAniadirProd;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBoxCategoria;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel6;
@@ -1263,9 +1360,14 @@ namespace SGV_CLP.GUI
         private DataGridViewImageColumn ColumnaEditarProducto;
         private DataGridViewImageColumn ColumnaEliminarProducto;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarProducto_sin_campo;
-        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker siticoneDateTimePicker2;
+        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker DTPFConsultarLotePorFecha;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Producto_not_choose_in_Lote_label;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel FechaHora_not_choose_in_Lote_label;
         private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker DTPHoraLote;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarLote_sin_campo;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBoxConsultarLotePorProducto;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel Producto_not_choose_in_ConsultarLote_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel categoria_not_choose_in_ConsultarProducto_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBoxConsultarProductoPorCategoria;
     }
 }

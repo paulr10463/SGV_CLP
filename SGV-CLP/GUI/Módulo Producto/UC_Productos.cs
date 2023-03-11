@@ -32,10 +32,13 @@ namespace SGV_CLP.GUI
             InitializeComponent();
             LlenarTablaProducto();
             LlenarTablaLote();
-            LlenarComboBoxProductos();
+            LlenarComboBoxesProductos();
+
+            cBoxCategoria.SelectedIndex = 0;
+            cBConsultarProductoPor.SelectedIndex = 0;
 
             cBoxProductoLote.SelectedIndex = 0;
-            cBoxCategoria.SelectedIndex = 0;
+            cBConsultarLotePor.SelectedIndex = 0;
 
             isValidIdProd = false;
             isValidNombreProd = false;
@@ -97,6 +100,7 @@ namespace SGV_CLP.GUI
                     SDGVProducto.Rows.Add(producto.Id, producto.Nombre, producto.PrecioElaboracion, producto.PVP, producto.Categoria, producto.CantidadTotal);
                 }
             }
+            LlenarComboBoxesProductos();
         }
 
         private void SBExaminar_Click(object sender, EventArgs e)
@@ -115,7 +119,7 @@ namespace SGV_CLP.GUI
         private void SBAniadirProducto_Click(object sender, EventArgs e)
         {
             var producto = new Producto(
-                txtIDProd.Text,
+                txtIDProd.Text.ToUpper(),
                 txtNombreProducto.Text,
                 Convert.ToDouble(txtPE.Text, CultureInfo.InvariantCulture),
                 Convert.ToDouble(txtPVP.Text, CultureInfo.InvariantCulture),
@@ -124,12 +128,10 @@ namespace SGV_CLP.GUI
 
             ProductoMapper.IngresarProducto(producto);
             LlenarTablaProducto();
-            LlenarComboBoxProductos();
-
+            VaciarCamposProd();
+            MainMenu.uc_ventas.loadProducts();
             SystemSounds.Beep.Play();
             MessageBox.Show("Producto añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            MainMenu.uc_ventas.loadProducts();
-            VaciarCamposProd();
         }
 
         // Editar y eliminar Producto
@@ -146,7 +148,6 @@ namespace SGV_CLP.GUI
 
                         ProductoMapper.EliminarProducto(cod_Producto);
                         MessageBox.Show("Producto eliminado con éxito");
-                        LlenarTablaProducto();
                     }
                 }
             }
@@ -156,21 +157,20 @@ namespace SGV_CLP.GUI
             {
                 if (e.RowIndex >= 0)
                 {
-
                     string cod_Producto = SDGVProducto.Rows[e.RowIndex].Cells[0].Value.ToString();
                     Editar_Producto ventana = new Editar_Producto(cod_Producto);
                     ventana.ShowDialog();
-                    LlenarTablaProducto();
-                    MainMenu.uc_ventas.loadProducts();
                 }
             }
+            LlenarTablaProducto();
+            MainMenu.uc_ventas.loadProducts();
         }
 
         // Filtro de busqueda de productos
         private void TxtConsultarProducto_TextChanged(object sender, EventArgs e)
         {
             // Obtener el valor del ComboBox
-            string selectedItem = ComboBox_ConsultarProductoPor.SelectedItem.ToString();
+            string selectedItem = cBConsultarProductoPor.SelectedItem.ToString();
 
             // Obtener el valor del TextBox
             string filterValue = txtConsultarProducto.Text;
@@ -183,7 +183,7 @@ namespace SGV_CLP.GUI
                     // Ocultar las filas que no cumplan con el filtro
                     if (row.Cells[0].Value != null)
                     {
-                        row.Visible = row.Cells[0].Value.ToString().Contains(filterValue);
+                        row.Visible = row.Cells[0].Value.ToString().ToLower().Equals(filterValue.ToLower());
                     }
                 }
             }
@@ -194,35 +194,59 @@ namespace SGV_CLP.GUI
                     // Ocultar las filas que no cumplan con el filtro
                     if (row.Cells[1].Value != null)
                     {
-                        row.Visible = row.Cells[1].Value.ToString().Contains(filterValue);
-                    }
-                }
-            }
-            else if (selectedItem == "Categoría")
-            {
-                foreach (DataGridViewRow row in SDGVProducto.Rows)
-                {
-                    // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[4].Value != null)
-                    {
-                        row.Visible = row.Cells[4].Value.ToString().Contains(filterValue);
+                        row.Visible = row.Cells[1].Value.ToString().ToLower().Equals(filterValue.ToLower());
                     }
                 }
             }
         }
 
-        private void ComboBox_ConsultarProductoPor_SelectedIndexChanged(object sender, EventArgs e)
+        private void cBoxConsultarProductoPorCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtConsultarProducto.Text = System.String.Empty;
-            if (ComboBox_ConsultarProductoPor.SelectedIndex != -1)
+            // Valida que el item seleccionado es "> 0"
+            if (cBoxConsultarProductoPorCategoria.SelectedIndex > 0)
+            {
+                categoria_not_choose_in_ConsultarProducto_label.Hide();
+                string filterValue = cBoxConsultarProductoPorCategoria.Text;
+                foreach (DataGridViewRow row in SDGVProducto.Rows)
+                {
+                    // Ocultar las filas que no cumplan con el filtro
+                    if (row.Cells[4].Value != null)
+                    {
+                        row.Visible = row.Cells[4].Value.ToString().Equals(filterValue);
+                    }
+                }
+            }
+            else
+            {
+                categoria_not_choose_in_ConsultarProducto_label.Show();
+            }
+        }
+
+        private void CBConsultarProductoPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LlenarTablaProducto();
+            txtConsultarProducto.Text = string.Empty;
+            if (cBConsultarProductoPor.SelectedIndex > 0)
             {
                 siticoneHtmlLabel_buscarProducto_sin_campo.Hide();
-                txtConsultarProducto.Enabled = true;
+                if (cBConsultarProductoPor.SelectedItem.ToString() == "Categoría")
+                {
+                    txtConsultarProducto.Visible = false;
+                    cBoxConsultarProductoPorCategoria.Visible = true;
+                    cBoxConsultarProductoPorCategoria.SelectedIndex = 0;
+                }
+                else
+                {
+                    txtConsultarProducto.Visible = true;
+                    txtConsultarProducto.Enabled = true;
+                    cBoxConsultarProductoPorCategoria.Visible = false;
+                }
             }
             else
             {
                 siticoneHtmlLabel_buscarProducto_sin_campo.Show();
                 txtConsultarProducto.Enabled = false;
+                cBoxConsultarProductoPorCategoria.Visible = false;
             }
         }
 
@@ -439,22 +463,29 @@ namespace SGV_CLP.GUI
                 LoteRegistrados = ProductoMapper.ConsultarLotes();
                 foreach (Lote lote in LoteRegistrados)
                 {
-                    SDGVLote.Rows.Add(lote.Cod_Lote, lote.Cod_Producto, lote.Cantidad, lote.FechaElaboracion);
+                    SDGVLote.Rows.Add(
+                        lote.Cod_Lote,
+                        lote.Cod_Producto,
+                        lote.Cantidad,
+                        lote.FechaElaboracion.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                 }
             }
         }
 
         // Llenar  ComboBox Productos
-        public void LlenarComboBoxProductos()
+        public void LlenarComboBoxesProductos()
         {
             if (NombresProductosRegistrados != null)
             {
                 cBoxProductoLote.Items.Clear();
+                cBoxConsultarLotePorProducto.Items.Clear();
                 NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
                 cBoxProductoLote.Items.Add("Seleccione...");
+                cBoxConsultarLotePorProducto.Items.Add("Seleccione...");
                 foreach (string nombreProd in NombresProductosRegistrados)
                 {
                     cBoxProductoLote.Items.Add(nombreProd);
+                    cBoxConsultarLotePorProducto.Items.Add(ProductoMapper.ConsultarIdProducto(nombreProd));
                 }
             }
         }
@@ -483,9 +514,9 @@ namespace SGV_CLP.GUI
 
             LlenarTablaLote();
             LlenarTablaProducto();
-
+            VaciarCamposLote();
             SystemSounds.Beep.Play();
-            MessageBox.Show("Lote añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Lote de producto registrado con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // Editar y eliminar Lote
@@ -495,15 +526,11 @@ namespace SGV_CLP.GUI
             {
                 if (e.RowIndex >= 0)
                 {
-                    if (MessageBox.Show("¿Está seguro de eliminar este Lote?", "Eliminar Lote", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("¿Está seguro de eliminar este lote?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        /*clientes.RemoveAt(e.RowIndex);
-                        siticoneDataGridView1.Rows.Clear();
-                        foreach (Cliente c in clientes)
-                        {
-                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
-                        }
-                        */
+                        string cod_Lote = SDGVLote.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        ProductoMapper.EliminarLote(cod_Lote);
+                        MessageBox.Show("Lote de producto eliminado con éxito");
                     }
                 }
             }
@@ -516,6 +543,98 @@ namespace SGV_CLP.GUI
                     Editar_Lote ventana = new Editar_Lote(cod_Lote);
                     ventana.ShowDialog();
                 }
+            }
+            LlenarTablaLote();
+        }
+
+        private void TxtConsultarLotePorCodigo_TextChanged(object sender, EventArgs e)
+        {
+            // Obtener el valor del 
+            string filterValue = txtConsultarLotePorCodigo.Text;
+
+            // Filtrar los datos del DataGridView en función del valor del ComboBox y del TextBox
+            foreach (DataGridViewRow row in SDGVLote.Rows)
+            {
+                // Ocultar las filas que no cumplan con el filtro
+                if (row.Cells[0].Value != null)
+                {
+                    row.Visible = row.Cells[0].Value.ToString().ToLower().Contains(filterValue.ToLower());
+                }
+            }
+
+        }
+
+        private void CBoxConsultarLotePorProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxConsultarLotePorProducto.SelectedIndex > 0)
+            {
+                Producto_not_choose_in_ConsultarLote_label.Hide();
+                string filterValue = cBoxConsultarLotePorProducto.SelectedItem.ToString();
+
+                foreach (DataGridViewRow row in SDGVLote.Rows)
+                {
+                    // Ocultar las filas que no cumplan con el filtro
+                    if (row.Cells[1].Value != null)
+                    {
+                        row.Visible = row.Cells[1].Value.ToString().Equals(filterValue);
+                    }
+                }
+            }
+            else
+            {
+                Producto_not_choose_in_ConsultarLote_label.Show();
+            }
+        }
+
+        private void DTPFConsultarLotePorFecha_ValueChanged(object sender, EventArgs e)
+        {
+            string filterValue = DTPFConsultarLotePorFecha.Value.ToString("yyyy-MM-dd");
+            foreach (DataGridViewRow row in SDGVLote.Rows)
+            {
+                // Ocultar las filas que no cumplan con el filtro
+                if (row.Cells[3].Value != null)
+                {
+                    row.Visible = row.Cells[3].Value.ToString().Contains(filterValue);
+                }
+            }
+        }
+
+
+        private void CBConsultarLotePor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LlenarTablaLote();
+            txtConsultarLotePorCodigo.Text = string.Empty;
+            if (cBConsultarLotePor.SelectedIndex > 0)
+            {
+                siticoneHtmlLabel_buscarLote_sin_campo.Hide();
+
+                if (cBConsultarLotePor.SelectedItem.ToString() == "Fecha")
+                {
+                    txtConsultarLotePorCodigo.Visible = false;
+                    cBoxConsultarLotePorProducto.Visible = false;
+                    DTPFConsultarLotePorFecha.Visible = true;
+                }
+                else if (cBConsultarLotePor.SelectedItem.ToString() == "Código producto")
+                {
+                    txtConsultarLotePorCodigo.Visible = false;
+                    cBoxConsultarLotePorProducto.Visible = true;
+                    cBoxConsultarLotePorProducto.SelectedIndex = 0;
+                    DTPFConsultarLotePorFecha.Visible = false;
+                }
+                else
+                {
+                    txtConsultarLotePorCodigo.Visible = true;
+                    txtConsultarLotePorCodigo.Enabled = true;
+                    cBoxConsultarLotePorProducto.Visible = false;
+                    DTPFConsultarLotePorFecha.Visible = false;
+                }
+            }
+            else
+            {
+                siticoneHtmlLabel_buscarLote_sin_campo.Show();
+                txtConsultarLotePorCodigo.Enabled = false;
+                cBoxConsultarLotePorProducto.Visible = false;
+                DTPFConsultarLotePorFecha.Visible = false;
             }
         }
 
@@ -532,7 +651,7 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void cBoxProductoLote_SelectedIndexChanged(object sender, EventArgs e)
+        private void CBoxProductoLote_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cBoxProductoLote.SelectedIndex > 0)
             {
@@ -547,7 +666,7 @@ namespace SGV_CLP.GUI
             ValidateLotFields();
         }
 
-        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        private void TxtCantidad_TextChanged(object sender, EventArgs e)
         {
             if (!txtCantidad.Text.Equals(string.Empty))
             {
@@ -560,7 +679,7 @@ namespace SGV_CLP.GUI
             ValidateLotFields();
         }
 
-        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
             {
@@ -588,6 +707,5 @@ namespace SGV_CLP.GUI
             isValidFechaHora = true;
             ValidateLotFields();
         }
-
     }
 }

@@ -3,6 +3,7 @@ using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,7 @@ namespace SGV_CLP.Classes
                 cmd.Parameters.AddWithValue("@precio_Elaboracion", precio_Elaboracion);
                 cmd.Parameters.AddWithValue("@precio_Unitario", precio_Unitario);
                 cmd.Parameters.AddWithValue("@ruta_Imagen", ruta_Imagen);
-                cmd.ExecuteNonQuery();  
+                cmd.ExecuteNonQuery();
             }
         }
 
@@ -173,6 +174,8 @@ namespace SGV_CLP.Classes
         public static bool NombreProductoExiste(string nombre)
         {
             bool existe = false;
+            nombre = nombre.Trim();
+
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
@@ -222,7 +225,7 @@ namespace SGV_CLP.Classes
         }
 
         //  Editar Lote 
-        public static void EditarLote(string cod_Lote, string cantidad, DateTime fecha)
+        public static void EditarLote(string cod_Lote, int cantidad, DateTime fecha)
         {
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
@@ -248,11 +251,48 @@ namespace SGV_CLP.Classes
                 {
                     while (reader.Read())
                     {
-                        LotesRegistrados.Add(new Lote(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3).Date + reader.GetDateTime(3).TimeOfDay));
+                        LotesRegistrados.Add(new Lote(
+                            reader.GetString(0),
+                            reader.GetString(1),
+                            reader.GetInt32(2),
+                            reader.GetDateTime(3).Date + reader.GetDateTime(3).TimeOfDay)
+                            );
                     }
                 }
             }
             return LotesRegistrados;
+        }
+
+        // Consultar un atributo de un Lote
+        public static string ConsultarAtributoLote(string cod_Lote, string atributo)
+        {
+            string valorAtributo = string.Empty;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var cmd = new NpgsqlCommand($"SELECT \"{atributo}\" FROM \"Lote\" WHERE \"cod_Lote\" = @cod_Lote", connection))
+                {
+                    cmd.Parameters.AddWithValue("@cod_Lote", cod_Lote);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (atributo == "fecha")
+                        {
+                            if (reader.Read())
+                            {
+                                valorAtributo = reader.GetDateTime(0).ToString("yyyy-MM-dd HH:mm:ss");
+                            }
+                        }
+                        else
+                        {
+                            if (reader.Read())
+                            {
+                                valorAtributo = reader.GetValue(0).ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            return valorAtributo;
         }
 
     }
