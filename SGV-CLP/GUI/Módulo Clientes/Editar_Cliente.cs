@@ -84,54 +84,6 @@ namespace SGV_CLP.GUI.Módulo_Clientes
             }
         }
 
-        private void txtEditarEliminarCliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-                SystemSounds.Beep.Play();
-                MessageBox.Show("Ingrese únicamente letras o números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (txtDirecCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
-            {
-                control_direc = false;
-                count_correct_fields++;
-            }
-            else if (txtDirecCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
-            {
-                control_direc = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
-        }
-
-        private void txtEditarEliminarTelef_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-                SystemSounds.Beep.Play();
-                MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (txtClienteTelef.Text.Length + 1 == limit_telef_length && control_telef && e.KeyChar != '\b')
-            {
-                control_telef = false;
-                count_correct_fields++;
-            }
-            else if (txtClienteTelef.Text.Length - 1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
-            {
-                control_telef = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
-        }
-
         private void validateFieldsCounter()
         {
             button_AceptarEditarEliminarCliente.Enabled = count_correct_fields >= num_atributos;
