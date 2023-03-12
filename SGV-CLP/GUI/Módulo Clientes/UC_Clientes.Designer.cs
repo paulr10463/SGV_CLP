@@ -35,6 +35,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Clientes));
             siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             TabRegistrar = new TabPage();
+            siticoneHtmlLabel_valid_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            siticoneHtmlLabel_invalid_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel_correct_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel_wrong_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -117,6 +119,8 @@
             // 
             // TabRegistrar
             // 
+            TabRegistrar.Controls.Add(siticoneHtmlLabel_valid_telef);
+            TabRegistrar.Controls.Add(siticoneHtmlLabel_invalid_telef);
             TabRegistrar.Controls.Add(siticoneHtmlLabel_correct_email);
             TabRegistrar.Controls.Add(siticoneHtmlLabel_wrong_email);
             TabRegistrar.Controls.Add(siticoneHtmlLabel2);
@@ -153,6 +157,33 @@
             TabRegistrar.TabIndex = 0;
             TabRegistrar.Text = "Registrar Cliente";
             TabRegistrar.UseVisualStyleBackColor = true;
+            // 
+            // siticoneHtmlLabel_valid_telef
+            // 
+            siticoneHtmlLabel_valid_telef.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel_valid_telef.BackColor = Color.Transparent;
+            siticoneHtmlLabel_valid_telef.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel_valid_telef.ForeColor = Color.SpringGreen;
+            siticoneHtmlLabel_valid_telef.Location = new Point(752, 816);
+            siticoneHtmlLabel_valid_telef.Margin = new Padding(3, 5, 3, 5);
+            siticoneHtmlLabel_valid_telef.Name = "siticoneHtmlLabel_valid_telef";
+            siticoneHtmlLabel_valid_telef.Size = new Size(163, 22);
+            siticoneHtmlLabel_valid_telef.TabIndex = 87;
+            siticoneHtmlLabel_valid_telef.Text = "¡Teléfono celular válido!";
+            siticoneHtmlLabel_valid_telef.Visible = false;
+            // 
+            // siticoneHtmlLabel_invalid_telef
+            // 
+            siticoneHtmlLabel_invalid_telef.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel_invalid_telef.BackColor = Color.Transparent;
+            siticoneHtmlLabel_invalid_telef.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel_invalid_telef.ForeColor = Color.Red;
+            siticoneHtmlLabel_invalid_telef.Location = new Point(752, 816);
+            siticoneHtmlLabel_invalid_telef.Margin = new Padding(3, 5, 3, 5);
+            siticoneHtmlLabel_invalid_telef.Name = "siticoneHtmlLabel_invalid_telef";
+            siticoneHtmlLabel_invalid_telef.Size = new Size(175, 22);
+            siticoneHtmlLabel_invalid_telef.TabIndex = 86;
+            siticoneHtmlLabel_invalid_telef.Text = "¡Teléfono celular inválido!";
             // 
             // siticoneHtmlLabel_correct_email
             // 
@@ -516,7 +547,7 @@
             txtTelefonoCliente.AutoSize = true;
             txtTelefonoCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             txtTelefonoCliente.BorderRadius = 20;
-            txtTelefonoCliente.DefaultText = "09";
+            txtTelefonoCliente.DefaultText = "";
             txtTelefonoCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtTelefonoCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtTelefonoCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -531,7 +562,6 @@
             txtTelefonoCliente.PasswordChar = '\0';
             txtTelefonoCliente.PlaceholderText = "";
             txtTelefonoCliente.SelectedText = "";
-            txtTelefonoCliente.SelectionStart = 2;
             txtTelefonoCliente.Size = new Size(229, 60);
             txtTelefonoCliente.TabIndex = 43;
             txtTelefonoCliente.TextOffset = new Point(5, 0);
@@ -890,5 +920,7 @@
         private DataGridViewTextBoxColumn ColumnaCorreo;
         private DataGridViewImageColumn ColumnaEditar;
         private DataGridViewImageColumn ColumnaEliminar;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_valid_telef;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_invalid_telef;
     }
 }

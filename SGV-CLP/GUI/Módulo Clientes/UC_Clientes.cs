@@ -320,17 +320,28 @@ namespace SGV_CLP.GUI
             {
                 siticoneHtmlLabel_wrong_length_telef.Hide();
                 siticoneHtmlLabel_correct_length_telef.Show();
-                telefIsValid = true;
-                count_correct_fields++;
+                if (ValidationUtils.IsValidPhoneNumber(txtTelefonoCliente.Text))
+                {
+                    siticoneHtmlLabel_valid_telef.Show();
+                    siticoneHtmlLabel_invalid_telef.Hide();
+                    telefIsValid = true;
+                    count_correct_fields++;
+                }
+                else
+                {
+                    siticoneHtmlLabel_valid_telef.Hide();
+                    siticoneHtmlLabel_invalid_telef.Show();
+                    telefIsValid = false;
+                    count_correct_fields--;
+                }
             }
-            else if (txtTelefonoCliente.Text.Length != Constants.LIMIT_TELEF_LENGTH && telefIsValid)
+            else if (txtTelefonoCliente.Text.Length < Constants.LIMIT_TELEF_LENGTH && telefIsValid)
             {
                 siticoneHtmlLabel_wrong_length_telef.Show();
                 siticoneHtmlLabel_correct_length_telef.Hide();
                 telefIsValid = false;
                 count_correct_fields--;
             }
-
             validateFieldsCounter();
         }
 
