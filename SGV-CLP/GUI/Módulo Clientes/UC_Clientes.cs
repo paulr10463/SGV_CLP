@@ -11,8 +11,7 @@ namespace SGV_CLP.GUI
     {
         List<Cliente> clientesRegistrados = ClienteMapper.ConsultarClientes();
 
-        int count_correct_fields = 0;
-        int num_atributos = 6;
+        int count_correct_fields = 0, num_atributos = 6;
 
         bool ccIsValid, firsLastNameIsValid, firstNameIsValid, addressIsValid, telefIsValid, correoIsValid;
 
@@ -45,6 +44,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel_cc_correct_length.Hide();
             siticoneHtmlLabel_cc_valida.Hide();
             siticoneHtmlLabel_correct_length_telef.Hide();
+            siticoneHtmlLabel_valid_telef.Hide();
             siticoneHtmlLabel_correct_email.Hide();
 
             Button_aniadirCliente.Enabled = false;
@@ -99,34 +99,34 @@ namespace SGV_CLP.GUI
             MessageBox.Show("Cliente añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void SDGVCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // CLICK EN CELDA ELIMINAR CLIENTE
             if (SDGVCliente.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
             {
                 if (e.RowIndex >= 0)
                 {
                     if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Eliminar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        /*clientes.RemoveAt(e.RowIndex);
-                        siticoneDataGridView1.Rows.Clear();
-                        foreach (Cliente c in clientes)
-                        {
-                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
-                        }
-                        */
+                        string cc_Cliente = SDGVCliente.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                        ClienteMapper.EliminarCliente(cc_Cliente);
+                        MessageBox.Show("Producto eliminado con éxito");
                     }
                 }
             }
 
+            // CLICK EN CELDA EDITAR CLIENTE
             if (SDGVCliente.Columns[e.ColumnIndex].Name == "ColumnaEditar")
             {
                 if (e.RowIndex >= 0)
                 {
-                    String cedula = SDGVCliente.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
-                    Editar_Cliente ventana = new Editar_Cliente(cedula);
+                    string cc_Cliente = SDGVCliente.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Cliente ventana = new Editar_Cliente(cc_Cliente);
                     ventana.ShowDialog();
                 }
             }
+            llenarTablaCliente();
         }
 
         private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -240,7 +240,6 @@ namespace SGV_CLP.GUI
                 MessageBox.Show("Ingrese únicamente letras o números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
         }
 
         private void txtPrimerApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -372,8 +371,6 @@ namespace SGV_CLP.GUI
             validateFieldsCounter();
         }
 
-
-
         private void txtPrimerNombreCliente_TextChanged(object sender, EventArgs e)
         {
             if (txtPrimerNombreCliente.Text.Length > 0 && !firstNameIsValid)
@@ -389,9 +386,6 @@ namespace SGV_CLP.GUI
 
             validateFieldsCounter();
         }
-
-
-
 
         private void txtPrimerApellidoCliente_TextChanged(object sender, EventArgs e)
         {

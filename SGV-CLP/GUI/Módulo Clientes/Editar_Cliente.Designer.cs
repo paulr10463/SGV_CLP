@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            button_AceptarEditarEliminarCliente = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            buttonCancelar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            button_EditarCliente = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             siticoneHtmlLabel20 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtDirecCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            txtDireccionCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtClienteTelef = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            txtTelefonoCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            txtCorreoCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel_correct_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel_wrong_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel_valid_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -44,43 +44,43 @@
             siticoneHtmlLabel_wrong_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             SuspendLayout();
             // 
-            // siticoneButton2
+            // buttonCancelar
             // 
-            siticoneButton2.Anchor = AnchorStyles.None;
-            siticoneButton2.BorderRadius = 20;
-            siticoneButton2.DisabledState.BorderColor = Color.DarkGray;
-            siticoneButton2.DisabledState.CustomBorderColor = Color.DarkGray;
-            siticoneButton2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            siticoneButton2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            siticoneButton2.FillColor = Color.Black;
-            siticoneButton2.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneButton2.ForeColor = Color.White;
-            siticoneButton2.Location = new Point(426, 315);
-            siticoneButton2.Margin = new Padding(3, 4, 3, 4);
-            siticoneButton2.Name = "siticoneButton2";
-            siticoneButton2.Size = new Size(206, 60);
-            siticoneButton2.TabIndex = 47;
-            siticoneButton2.Text = "Cancelar";
-            siticoneButton2.Click += siticoneButton2_Click;
+            buttonCancelar.Anchor = AnchorStyles.None;
+            buttonCancelar.BorderRadius = 20;
+            buttonCancelar.DisabledState.BorderColor = Color.DarkGray;
+            buttonCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
+            buttonCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            buttonCancelar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            buttonCancelar.FillColor = Color.Black;
+            buttonCancelar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonCancelar.ForeColor = Color.White;
+            buttonCancelar.Location = new Point(426, 315);
+            buttonCancelar.Margin = new Padding(3, 4, 3, 4);
+            buttonCancelar.Name = "buttonCancelar";
+            buttonCancelar.Size = new Size(206, 60);
+            buttonCancelar.TabIndex = 47;
+            buttonCancelar.Text = "Cancelar";
+            buttonCancelar.Click += buttonCancelar_Click;
             // 
-            // button_AceptarEditarEliminarCliente
+            // button_EditarCliente
             // 
-            button_AceptarEditarEliminarCliente.Anchor = AnchorStyles.None;
-            button_AceptarEditarEliminarCliente.BorderRadius = 20;
-            button_AceptarEditarEliminarCliente.DisabledState.BorderColor = Color.DarkGray;
-            button_AceptarEditarEliminarCliente.DisabledState.CustomBorderColor = Color.DarkGray;
-            button_AceptarEditarEliminarCliente.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            button_AceptarEditarEliminarCliente.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            button_AceptarEditarEliminarCliente.FillColor = Color.Black;
-            button_AceptarEditarEliminarCliente.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            button_AceptarEditarEliminarCliente.ForeColor = Color.White;
-            button_AceptarEditarEliminarCliente.Location = new Point(164, 315);
-            button_AceptarEditarEliminarCliente.Margin = new Padding(3, 4, 3, 4);
-            button_AceptarEditarEliminarCliente.Name = "button_AceptarEditarEliminarCliente";
-            button_AceptarEditarEliminarCliente.Size = new Size(206, 60);
-            button_AceptarEditarEliminarCliente.TabIndex = 46;
-            button_AceptarEditarEliminarCliente.Text = "Aceptar";
-            button_AceptarEditarEliminarCliente.Click += siticoneButton1_Click;
+            button_EditarCliente.Anchor = AnchorStyles.None;
+            button_EditarCliente.BorderRadius = 20;
+            button_EditarCliente.DisabledState.BorderColor = Color.DarkGray;
+            button_EditarCliente.DisabledState.CustomBorderColor = Color.DarkGray;
+            button_EditarCliente.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            button_EditarCliente.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            button_EditarCliente.FillColor = Color.Black;
+            button_EditarCliente.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button_EditarCliente.ForeColor = Color.White;
+            button_EditarCliente.Location = new Point(164, 315);
+            button_EditarCliente.Margin = new Padding(3, 4, 3, 4);
+            button_EditarCliente.Name = "button_EditarCliente";
+            button_EditarCliente.Size = new Size(206, 60);
+            button_EditarCliente.TabIndex = 46;
+            button_EditarCliente.Text = "Aceptar";
+            button_EditarCliente.Click += button_EditarCliente_Click;
             // 
             // siticoneHtmlLabel20
             // 
@@ -94,28 +94,29 @@
             siticoneHtmlLabel20.TabIndex = 49;
             siticoneHtmlLabel20.Text = "Dirección";
             // 
-            // txtDirecCliente
+            // txtDireccionCliente
             // 
-            txtDirecCliente.Anchor = AnchorStyles.None;
-            txtDirecCliente.BorderRadius = 20;
-            txtDirecCliente.DefaultText = "";
-            txtDirecCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtDirecCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtDirecCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtDirecCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtDirecCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDirecCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDirecCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDirecCliente.Location = new Point(226, 33);
-            txtDirecCliente.Margin = new Padding(3, 7, 3, 7);
-            txtDirecCliente.Name = "txtDirecCliente";
-            txtDirecCliente.PasswordChar = '\0';
-            txtDirecCliente.PlaceholderText = "";
-            txtDirecCliente.SelectedText = "";
-            txtDirecCliente.Size = new Size(451, 53);
-            txtDirecCliente.TabIndex = 48;
-            txtDirecCliente.TextOffset = new Point(5, 0);
-            txtDirecCliente.TextChanged += txtDirecCliente_TextChanged;
+            txtDireccionCliente.Anchor = AnchorStyles.None;
+            txtDireccionCliente.BorderRadius = 20;
+            txtDireccionCliente.DefaultText = "";
+            txtDireccionCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtDireccionCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtDireccionCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtDireccionCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtDireccionCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDireccionCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDireccionCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtDireccionCliente.Location = new Point(226, 33);
+            txtDireccionCliente.Margin = new Padding(3, 7, 3, 7);
+            txtDireccionCliente.Name = "txtDireccionCliente";
+            txtDireccionCliente.PasswordChar = '\0';
+            txtDireccionCliente.PlaceholderText = "";
+            txtDireccionCliente.SelectedText = "";
+            txtDireccionCliente.Size = new Size(451, 53);
+            txtDireccionCliente.TabIndex = 48;
+            txtDireccionCliente.TextOffset = new Point(5, 0);
+            txtDireccionCliente.TextChanged += txtDireccionCliente_TextChanged;
+            txtDireccionCliente.KeyPress += txtDireccionCliente_KeyPress;
             // 
             // siticoneHtmlLabel1
             // 
@@ -129,27 +130,29 @@
             siticoneHtmlLabel1.TabIndex = 51;
             siticoneHtmlLabel1.Text = "Teléfono";
             // 
-            // txtClienteTelef
+            // txtTelefonoCliente
             // 
-            txtClienteTelef.Anchor = AnchorStyles.None;
-            txtClienteTelef.BorderRadius = 20;
-            txtClienteTelef.DefaultText = "";
-            txtClienteTelef.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtClienteTelef.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtClienteTelef.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtClienteTelef.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtClienteTelef.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtClienteTelef.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtClienteTelef.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtClienteTelef.Location = new Point(226, 218);
-            txtClienteTelef.Margin = new Padding(3, 7, 3, 7);
-            txtClienteTelef.Name = "txtClienteTelef";
-            txtClienteTelef.PasswordChar = '\0';
-            txtClienteTelef.PlaceholderText = "";
-            txtClienteTelef.SelectedText = "";
-            txtClienteTelef.Size = new Size(218, 53);
-            txtClienteTelef.TabIndex = 50;
-            txtClienteTelef.TextOffset = new Point(5, 0);
+            txtTelefonoCliente.Anchor = AnchorStyles.None;
+            txtTelefonoCliente.BorderRadius = 20;
+            txtTelefonoCliente.DefaultText = "";
+            txtTelefonoCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtTelefonoCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtTelefonoCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtTelefonoCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtTelefonoCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTelefonoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefonoCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTelefonoCliente.Location = new Point(226, 218);
+            txtTelefonoCliente.Margin = new Padding(3, 7, 3, 7);
+            txtTelefonoCliente.Name = "txtTelefonoCliente";
+            txtTelefonoCliente.PasswordChar = '\0';
+            txtTelefonoCliente.PlaceholderText = "";
+            txtTelefonoCliente.SelectedText = "";
+            txtTelefonoCliente.Size = new Size(218, 53);
+            txtTelefonoCliente.TabIndex = 50;
+            txtTelefonoCliente.TextOffset = new Point(5, 0);
+            txtTelefonoCliente.TextChanged += txtTelefonoCliente_TextChanged;
+            txtTelefonoCliente.KeyPress += txtTelefonoCliente_KeyPress;
             // 
             // siticoneHtmlLabel2
             // 
@@ -163,27 +166,29 @@
             siticoneHtmlLabel2.TabIndex = 53;
             siticoneHtmlLabel2.Text = "eMail";
             // 
-            // siticoneTextBox1
+            // txtCorreoCliente
             // 
-            siticoneTextBox1.Anchor = AnchorStyles.None;
-            siticoneTextBox1.BorderRadius = 20;
-            siticoneTextBox1.DefaultText = "";
-            siticoneTextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            siticoneTextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            siticoneTextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            siticoneTextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            siticoneTextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneTextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox1.Location = new Point(226, 124);
-            siticoneTextBox1.Margin = new Padding(3, 7, 3, 7);
-            siticoneTextBox1.Name = "siticoneTextBox1";
-            siticoneTextBox1.PasswordChar = '\0';
-            siticoneTextBox1.PlaceholderText = "";
-            siticoneTextBox1.SelectedText = "";
-            siticoneTextBox1.Size = new Size(451, 53);
-            siticoneTextBox1.TabIndex = 52;
-            siticoneTextBox1.TextOffset = new Point(5, 0);
+            txtCorreoCliente.Anchor = AnchorStyles.None;
+            txtCorreoCliente.BorderRadius = 20;
+            txtCorreoCliente.DefaultText = "";
+            txtCorreoCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtCorreoCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtCorreoCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtCorreoCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtCorreoCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCorreoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCorreoCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtCorreoCliente.Location = new Point(226, 124);
+            txtCorreoCliente.Margin = new Padding(3, 7, 3, 7);
+            txtCorreoCliente.Name = "txtCorreoCliente";
+            txtCorreoCliente.PasswordChar = '\0';
+            txtCorreoCliente.PlaceholderText = "";
+            txtCorreoCliente.SelectedText = "";
+            txtCorreoCliente.Size = new Size(451, 53);
+            txtCorreoCliente.TabIndex = 52;
+            txtCorreoCliente.TextOffset = new Point(5, 0);
+            txtCorreoCliente.TextChanged += txtCorreoCliente_TextChanged;
+            txtCorreoCliente.KeyPress += txtCorreoCliente_KeyPress;
             // 
             // siticoneHtmlLabel_correct_email
             // 
@@ -277,13 +282,13 @@
             Controls.Add(siticoneHtmlLabel_correct_email);
             Controls.Add(siticoneHtmlLabel_wrong_email);
             Controls.Add(siticoneHtmlLabel2);
-            Controls.Add(siticoneTextBox1);
+            Controls.Add(txtCorreoCliente);
             Controls.Add(siticoneHtmlLabel1);
-            Controls.Add(txtClienteTelef);
+            Controls.Add(txtTelefonoCliente);
             Controls.Add(siticoneHtmlLabel20);
-            Controls.Add(txtDirecCliente);
-            Controls.Add(siticoneButton2);
-            Controls.Add(button_AceptarEditarEliminarCliente);
+            Controls.Add(txtDireccionCliente);
+            Controls.Add(buttonCancelar);
+            Controls.Add(button_EditarCliente);
             Name = "Editar_Cliente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Editar Cliente";
@@ -292,14 +297,14 @@
         }
 
         #endregion
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton button_AceptarEditarEliminarCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton buttonCancelar;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton button_EditarCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel20;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtDirecCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtDireccionCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtClienteTelef;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTelefonoCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCorreoCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_email;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_email;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_valid_telef;

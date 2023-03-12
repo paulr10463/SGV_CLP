@@ -788,7 +788,7 @@
             SDGVCliente.ThemeStyle.RowsStyle.Height = 50;
             SDGVCliente.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             SDGVCliente.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            SDGVCliente.CellClick += siticoneDataGridView1_CellClick;
+            SDGVCliente.CellClick += SDGVCliente_CellClick;
             // 
             // ColumnaCedula
             // 

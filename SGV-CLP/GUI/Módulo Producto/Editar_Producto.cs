@@ -22,6 +22,7 @@ namespace SGV_CLP.GUI
         public Editar_Producto(string cod_Producto)
         {
             InitializeComponent();
+
             this.cod_Producto = cod_Producto;
 
             txtPE.Text = ProductoMapper.ConsultarAtributoProducto(cod_Producto, "precio_Elaboracion").Replace(",", ".");
