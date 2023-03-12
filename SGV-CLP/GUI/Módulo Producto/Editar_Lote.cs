@@ -32,7 +32,7 @@ namespace SGV_CLP.GUI.Módulo_Producto
             DTPFechaLote.Value = DateTime.ParseExact(fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             DTPHoraLote.Value = DateTime.ParseExact(hora, "HH:mm:ss", CultureInfo.InvariantCulture);
 
-            SRBElegirFecha.Checked = false;
+            SRBElegirFecha.Checked = true;
             SBAceptar.Enabled = false;
         }
 
@@ -113,6 +113,20 @@ namespace SGV_CLP.GUI.Módulo_Producto
         {
             DTPFechaLote.Visible = true;
             DTPHoraLote.Visible = true;
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
+        }
+
+        private void DTPFechaLote_ValueChanged(object sender, EventArgs e)
+        {
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
+        }
+
+        private void DTPHoraLote_ValueChanged(object sender, EventArgs e)
+        {
             FechaHora_not_choose_in_Lote_label.Visible = false;
             isValidFechaHora = true;
             ValidateLotFields();
