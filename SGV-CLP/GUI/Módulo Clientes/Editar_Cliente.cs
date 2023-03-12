@@ -15,8 +15,7 @@ namespace SGV_CLP.GUI.Módulo_Clientes
     {
         String cedulaCliente;
         int limit_telef_length = 10, limit_direc_length = 100;
-        bool control_direc = true;
-        bool control_telef = true;
+        bool addressIsValid, telefIsValid, correoIsValid;
 
         int count_correct_fields = 0;
 
@@ -26,8 +25,12 @@ namespace SGV_CLP.GUI.Módulo_Clientes
             InitializeComponent();
             cedulaCliente = cedula;
 
-            txtEditarDirecCliente.MaxLength = limit_direc_length;
-            txtEditarClienteTelef.MaxLength = limit_telef_length;
+            addressIsValid = false;
+            telefIsValid = false;
+            correoIsValid = false;
+
+            txtDirecCliente.MaxLength = limit_direc_length;
+            txtClienteTelef.MaxLength = limit_telef_length;
 
             button_AceptarEditarEliminarCliente.Enabled = false;
         }
@@ -44,9 +47,46 @@ namespace SGV_CLP.GUI.Módulo_Clientes
             this.Dispose();
         }
 
+        private void txtDirecCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && e.KeyChar != '.' && e.KeyChar != ';' && e.KeyChar != ' ' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Ingrese únicamente letras, números, \";\" o \".\"!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
+        private void txtDirecCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDirecCliente.Text.Length > 0 && !addressIsValid)
+            {
+                addressIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtDirecCliente.Text.Length == 0 && addressIsValid)
+            {
+                addressIsValid = false;
+                count_correct_fields--;
+            }
+            validateFieldsCounter();
+        }
+
+        private void txtClienteTelef_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
         private void txtEditarEliminarCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-           if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -54,12 +94,12 @@ namespace SGV_CLP.GUI.Módulo_Clientes
                 return;
             }
 
-            if (txtEditarDirecCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
+            if (txtDirecCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
             {
                 control_direc = false;
                 count_correct_fields++;
             }
-            else if (txtEditarDirecCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
+            else if (txtDirecCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
             {
                 control_direc = true;
                 count_correct_fields--;
@@ -78,12 +118,12 @@ namespace SGV_CLP.GUI.Módulo_Clientes
                 return;
             }
 
-            if (txtEditarClienteTelef.Text.Length + 1 == limit_telef_length && control_telef && e.KeyChar != '\b')
+            if (txtClienteTelef.Text.Length + 1 == limit_telef_length && control_telef && e.KeyChar != '\b')
             {
                 control_telef = false;
                 count_correct_fields++;
             }
-            else if (txtEditarClienteTelef.Text.Length - 1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
+            else if (txtClienteTelef.Text.Length - 1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
             {
                 control_telef = true;
                 count_correct_fields--;
@@ -96,5 +136,8 @@ namespace SGV_CLP.GUI.Módulo_Clientes
         {
             button_AceptarEditarEliminarCliente.Enabled = count_correct_fields >= num_atributos;
         }
+
+
+
     }
 }

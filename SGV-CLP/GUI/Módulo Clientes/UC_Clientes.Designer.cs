@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Clientes));
             siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             TabRegistrar = new TabPage();
@@ -66,10 +66,10 @@
             siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             TabEditar = new TabPage();
             siticoneHtmlLabel_buscarCliente_sin_campo = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            siticoneComboBox_EliminarEditarCliente = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            cBConsultarClientePor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             txtBuscarClientePor = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            SDGVCliente = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             ColumnaCedula = new DataGridViewTextBoxColumn();
             ColumnaNombres = new DataGridViewTextBoxColumn();
             ColumnaApellidos = new DataGridViewTextBoxColumn();
@@ -82,7 +82,7 @@
             TabRegistrar.SuspendLayout();
             TabEditar.SuspendLayout();
             siticonePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)siticoneDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SDGVCliente).BeginInit();
             SuspendLayout();
             // 
             // siticoneTabControl1
@@ -646,7 +646,7 @@
             // TabEditar
             // 
             TabEditar.Controls.Add(siticoneHtmlLabel_buscarCliente_sin_campo);
-            TabEditar.Controls.Add(siticoneComboBox_EliminarEditarCliente);
+            TabEditar.Controls.Add(cBConsultarClientePor);
             TabEditar.Controls.Add(txtBuscarClientePor);
             TabEditar.Controls.Add(siticonePanel1);
             TabEditar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -672,27 +672,27 @@
             siticoneHtmlLabel_buscarCliente_sin_campo.TabIndex = 19;
             siticoneHtmlLabel_buscarCliente_sin_campo.Text = "¡Seleccione un campo!";
             // 
-            // siticoneComboBox_EliminarEditarCliente
+            // cBConsultarClientePor
             // 
-            siticoneComboBox_EliminarEditarCliente.Anchor = AnchorStyles.None;
-            siticoneComboBox_EliminarEditarCliente.BackColor = Color.Transparent;
-            siticoneComboBox_EliminarEditarCliente.BorderRadius = 20;
-            siticoneComboBox_EliminarEditarCliente.DrawMode = DrawMode.OwnerDrawFixed;
-            siticoneComboBox_EliminarEditarCliente.DropDownStyle = ComboBoxStyle.DropDownList;
-            siticoneComboBox_EliminarEditarCliente.FocusedColor = Color.FromArgb(94, 148, 255);
-            siticoneComboBox_EliminarEditarCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneComboBox_EliminarEditarCliente.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneComboBox_EliminarEditarCliente.ForeColor = Color.FromArgb(68, 88, 112);
-            siticoneComboBox_EliminarEditarCliente.ItemHeight = 40;
-            siticoneComboBox_EliminarEditarCliente.Items.AddRange(new object[] { "CI", "Nombres", "Apellidos", "Teléfono" });
-            siticoneComboBox_EliminarEditarCliente.Location = new Point(719, 221);
-            siticoneComboBox_EliminarEditarCliente.Margin = new Padding(3, 5, 3, 5);
-            siticoneComboBox_EliminarEditarCliente.MinimumSize = new Size(228, 0);
-            siticoneComboBox_EliminarEditarCliente.Name = "siticoneComboBox_EliminarEditarCliente";
-            siticoneComboBox_EliminarEditarCliente.Size = new Size(314, 46);
-            siticoneComboBox_EliminarEditarCliente.TabIndex = 16;
-            siticoneComboBox_EliminarEditarCliente.TextOffset = new Point(5, 0);
-            siticoneComboBox_EliminarEditarCliente.SelectedIndexChanged += siticoneComboBox_EliminarEditarCliente_SelectedIndexChanged;
+            cBConsultarClientePor.Anchor = AnchorStyles.None;
+            cBConsultarClientePor.BackColor = Color.Transparent;
+            cBConsultarClientePor.BorderRadius = 20;
+            cBConsultarClientePor.DrawMode = DrawMode.OwnerDrawFixed;
+            cBConsultarClientePor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBConsultarClientePor.FocusedColor = Color.FromArgb(94, 148, 255);
+            cBConsultarClientePor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBConsultarClientePor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cBConsultarClientePor.ForeColor = Color.FromArgb(68, 88, 112);
+            cBConsultarClientePor.ItemHeight = 40;
+            cBConsultarClientePor.Items.AddRange(new object[] { "Seleccionar...", "CI", "Nombres", "Apellidos", "Teléfono" });
+            cBConsultarClientePor.Location = new Point(719, 221);
+            cBConsultarClientePor.Margin = new Padding(3, 5, 3, 5);
+            cBConsultarClientePor.MinimumSize = new Size(228, 0);
+            cBConsultarClientePor.Name = "cBConsultarClientePor";
+            cBConsultarClientePor.Size = new Size(314, 46);
+            cBConsultarClientePor.TabIndex = 16;
+            cBConsultarClientePor.TextOffset = new Point(5, 0);
+            cBConsultarClientePor.SelectedIndexChanged += cBConsultarClientePor_SelectedIndexChanged;
             // 
             // txtBuscarClientePor
             // 
@@ -703,6 +703,7 @@
             txtBuscarClientePor.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtBuscarClientePor.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtBuscarClientePor.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtBuscarClientePor.Enabled = false;
             txtBuscarClientePor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtBuscarClientePor.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             txtBuscarClientePor.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
@@ -716,11 +717,12 @@
             txtBuscarClientePor.Size = new Size(312, 61);
             txtBuscarClientePor.TabIndex = 15;
             txtBuscarClientePor.TextOffset = new Point(5, 0);
+            txtBuscarClientePor.TextChanged += txtBuscarClientePor_TextChanged;
             txtBuscarClientePor.KeyPress += txtBuscarClientePor_KeyPress;
             // 
             // siticonePanel1
             // 
-            siticonePanel1.Controls.Add(siticoneDataGridView1);
+            siticonePanel1.Controls.Add(SDGVCliente);
             siticonePanel1.Dock = DockStyle.Bottom;
             siticonePanel1.Location = new Point(3, 447);
             siticonePanel1.Margin = new Padding(3, 5, 3, 5);
@@ -728,65 +730,65 @@
             siticonePanel1.Size = new Size(1479, 667);
             siticonePanel1.TabIndex = 1;
             // 
-            // siticoneDataGridView1
+            // SDGVCliente
             // 
-            dataGridViewCellStyle1.BackColor = Color.White;
-            siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            siticoneDataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            siticoneDataGridView1.ColumnHeadersHeight = 60;
-            siticoneDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            siticoneDataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumnaCedula, ColumnaNombres, ColumnaApellidos, ColumnaDireccion, ColumnaTelefono, ColumnaCorreo, ColumnaEditar, ColumnaEliminar });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            siticoneDataGridView1.Dock = DockStyle.Fill;
-            siticoneDataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            siticoneDataGridView1.Location = new Point(0, 0);
-            siticoneDataGridView1.Margin = new Padding(3, 4, 3, 4);
-            siticoneDataGridView1.Name = "siticoneDataGridView1";
-            siticoneDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            siticoneDataGridView1.RowHeadersVisible = false;
-            siticoneDataGridView1.RowHeadersWidth = 50;
-            siticoneDataGridView1.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(231, 229, 255);
-            siticoneDataGridView1.RowTemplate.DividerHeight = 15;
-            siticoneDataGridView1.RowTemplate.Height = 50;
-            siticoneDataGridView1.Size = new Size(1479, 667);
-            siticoneDataGridView1.TabIndex = 0;
-            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            siticoneDataGridView1.ThemeStyle.BackColor = Color.White;
-            siticoneDataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            siticoneDataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            siticoneDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            siticoneDataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneDataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            siticoneDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            siticoneDataGridView1.ThemeStyle.HeaderStyle.Height = 60;
-            siticoneDataGridView1.ThemeStyle.ReadOnly = false;
-            siticoneDataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            siticoneDataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            siticoneDataGridView1.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneDataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 50;
-            siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            siticoneDataGridView1.CellClick += siticoneDataGridView1_CellClick;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            SDGVCliente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            SDGVCliente.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle6.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            SDGVCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            SDGVCliente.ColumnHeadersHeight = 60;
+            SDGVCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            SDGVCliente.Columns.AddRange(new DataGridViewColumn[] { ColumnaCedula, ColumnaNombres, ColumnaApellidos, ColumnaDireccion, ColumnaTelefono, ColumnaCorreo, ColumnaEditar, ColumnaEliminar });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            SDGVCliente.DefaultCellStyle = dataGridViewCellStyle8;
+            SDGVCliente.Dock = DockStyle.Fill;
+            SDGVCliente.GridColor = Color.FromArgb(231, 229, 255);
+            SDGVCliente.Location = new Point(0, 0);
+            SDGVCliente.Margin = new Padding(3, 4, 3, 4);
+            SDGVCliente.Name = "SDGVCliente";
+            SDGVCliente.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            SDGVCliente.RowHeadersVisible = false;
+            SDGVCliente.RowHeadersWidth = 50;
+            SDGVCliente.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(231, 229, 255);
+            SDGVCliente.RowTemplate.DividerHeight = 15;
+            SDGVCliente.RowTemplate.Height = 50;
+            SDGVCliente.Size = new Size(1479, 667);
+            SDGVCliente.TabIndex = 0;
+            SDGVCliente.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            SDGVCliente.ThemeStyle.AlternatingRowsStyle.Font = null;
+            SDGVCliente.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            SDGVCliente.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            SDGVCliente.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            SDGVCliente.ThemeStyle.BackColor = Color.White;
+            SDGVCliente.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            SDGVCliente.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            SDGVCliente.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            SDGVCliente.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SDGVCliente.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            SDGVCliente.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            SDGVCliente.ThemeStyle.HeaderStyle.Height = 60;
+            SDGVCliente.ThemeStyle.ReadOnly = false;
+            SDGVCliente.ThemeStyle.RowsStyle.BackColor = Color.White;
+            SDGVCliente.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            SDGVCliente.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SDGVCliente.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            SDGVCliente.ThemeStyle.RowsStyle.Height = 50;
+            SDGVCliente.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            SDGVCliente.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            SDGVCliente.CellClick += siticoneDataGridView1_CellClick;
             // 
             // ColumnaCedula
             // 
@@ -838,10 +840,10 @@
             // ColumnaEditar
             // 
             ColumnaEditar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.Padding = new Padding(5);
-            ColumnaEditar.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.Padding = new Padding(5);
+            ColumnaEditar.DefaultCellStyle = dataGridViewCellStyle7;
             ColumnaEditar.HeaderText = "";
             ColumnaEditar.Image = (Image)resources.GetObject("ColumnaEditar.Image");
             ColumnaEditar.MinimumWidth = 45;
@@ -871,7 +873,7 @@
             TabEditar.ResumeLayout(false);
             TabEditar.PerformLayout();
             siticonePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)siticoneDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SDGVCliente).EndInit();
             ResumeLayout(false);
         }
 
@@ -881,7 +883,7 @@
         private TabPage TabRegistrar;
         private TabPage TabEditar;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
+        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView SDGVCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTelefonoCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtDireccionCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
@@ -889,7 +891,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton Button_aniadirCliente;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel7;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox_EliminarEditarCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBConsultarClientePor;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtBuscarClientePor;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel12;

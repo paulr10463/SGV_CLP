@@ -14,18 +14,22 @@ namespace SGV_CLP.GUI
         int count_correct_fields = 0;
         int num_atributos = 6;
 
-        bool ccIsValid = false;
-        bool firsLastNameIsValid = false;
-        bool firstNameIsValid = false;
-        bool addressIsValid = false;
-        bool telefIsValid = false;
-        bool correoIsValid = false;
+        bool ccIsValid, firsLastNameIsValid, firstNameIsValid, addressIsValid, telefIsValid, correoIsValid;
 
         public UC_Clientes()
         {
             InitializeComponent();
             // Llenamos la tabla Clientes
             llenarTablaCliente();
+
+            cBConsultarClientePor.SelectedIndex = 0;
+
+            ccIsValid = false;
+            firsLastNameIsValid = false;
+            firstNameIsValid = false;
+            addressIsValid = false;
+            telefIsValid = false;
+            correoIsValid = false;
 
             // Limitamos la longitud segun los requisitos
             txtCedulaCliente.MaxLength = Constants.LIMIT_CC_LENGTH;
@@ -62,12 +66,12 @@ namespace SGV_CLP.GUI
         {
             if (clientesRegistrados != null)
             {
-                siticoneDataGridView1.Rows.Clear();
+                SDGVCliente.Rows.Clear();
                 clientesRegistrados = ClienteMapper.ConsultarClientes();
                 foreach (Cliente cliente in clientesRegistrados)
                 {
                     // dgvClientes
-                    siticoneDataGridView1.Rows.Add(cliente.Cc_Cliente, cliente.Primer_Nombre + cliente.Segundo_Nombre, cliente.Primer_Apellido + cliente.Segundo_Apellido, cliente.Direccion_Domicilio, cliente.Telefono, cliente.Correo_Electronico);
+                    SDGVCliente.Rows.Add(cliente.Cc_Cliente, cliente.Primer_Nombre + cliente.Segundo_Nombre, cliente.Primer_Apellido + cliente.Segundo_Apellido, cliente.Direccion_Domicilio, cliente.Telefono, cliente.Correo_Electronico);
                 }
             }
         }
@@ -87,17 +91,17 @@ namespace SGV_CLP.GUI
             };
 
             ClienteMapper.IngresarCliente(cliente);
+
             llenarTablaCliente();
+            vaciarCampos();
 
             SystemSounds.Beep.Play();
             MessageBox.Show("Cliente añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            vaciarCampos();
         }
 
         private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (siticoneDataGridView1.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
+            if (SDGVCliente.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
             {
                 if (e.RowIndex >= 0)
                 {
@@ -114,11 +118,11 @@ namespace SGV_CLP.GUI
                 }
             }
 
-            if (siticoneDataGridView1.Columns[e.ColumnIndex].Name == "ColumnaEditar")
+            if (SDGVCliente.Columns[e.ColumnIndex].Name == "ColumnaEditar")
             {
                 if (e.RowIndex >= 0)
                 {
-                    String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    String cedula = SDGVCliente.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
                     Editar_Cliente ventana = new Editar_Cliente(cedula);
                     ventana.ShowDialog();
                 }
@@ -155,23 +159,14 @@ namespace SGV_CLP.GUI
 
         private void txtBuscarClientePor_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (siticoneComboBox_EliminarEditarCliente.SelectedIndex)
+            switch (cBConsultarClientePor.SelectedIndex)
             {
-                case 0:
+                case 1:
                     if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
                         SystemSounds.Beep.Play();
                         MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    break;
-                case 1:
-                    if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
-                    {
-                        e.Handled = true;
-                        SystemSounds.Beep.Play();
-                        MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
                     break;
@@ -185,6 +180,15 @@ namespace SGV_CLP.GUI
                     }
                     break;
                 case 3:
+                    if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
+                    {
+                        e.Handled = true;
+                        SystemSounds.Beep.Play();
+                        MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    break;
+                case 4:
                     if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
@@ -194,17 +198,24 @@ namespace SGV_CLP.GUI
                     }
                     break;
                 default:
-                    if (siticoneComboBox_EliminarEditarCliente.SelectedIndex == -1) e.Handled = true;
+                    if (cBConsultarClientePor.SelectedIndex == -1) e.Handled = true;
                     break;
             }
         }
 
-        private void siticoneComboBox_EliminarEditarCliente_SelectedIndexChanged(object sender, EventArgs e)
+        private void cBConsultarClientePor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtBuscarClientePor.Text = String.Empty;
-            if (siticoneComboBox_EliminarEditarCliente.SelectedIndex != -1)
+            llenarTablaCliente();
+            txtBuscarClientePor.Text = string.Empty;
+            if (cBConsultarClientePor.SelectedIndex > 0)
             {
                 siticoneHtmlLabel_buscarCliente_sin_campo.Hide();
+                txtBuscarClientePor.Enabled = true;
+            }
+            else
+            {
+                siticoneHtmlLabel_buscarCliente_sin_campo.Show();
+                txtBuscarClientePor.Enabled = false;
             }
         }
 
@@ -287,6 +298,7 @@ namespace SGV_CLP.GUI
                 return;
             }
         }
+
         private void validateFieldsCounter()
         {
             Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCedulaCliente.Text);
@@ -357,7 +369,6 @@ namespace SGV_CLP.GUI
                 addressIsValid = false;
                 count_correct_fields--;
             }
-
             validateFieldsCounter();
         }
 
@@ -421,6 +432,67 @@ namespace SGV_CLP.GUI
             }
 
             validateFieldsCounter();
+        }
+
+        private void txtBuscarClientePor_TextChanged(object sender, EventArgs e)
+        {
+            // Obtener el valor del ComboBox
+            string selectedItem = cBConsultarClientePor.SelectedItem.ToString();
+
+            // Obtener el valor del TextBox
+            string filterValue = txtBuscarClientePor.Text;
+            // Filtrar los datos del DataGridView en función del valor del ComboBox y del TextBox
+            if (selectedItem == "CI")
+            {
+                txtBuscarClientePor.MaxLength = Constants.LIMIT_CC_LENGTH;
+
+                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                {
+                    // Ocultar las filas que no cumplan con el filtro
+                    if (row.Cells[0].Value != null)
+                    {
+                        row.Visible = row.Cells[0].Value.ToString().ToLower().Equals(filterValue.ToLower());
+                    }
+                }
+            }
+            else if (selectedItem == "Nombres")
+            {
+                txtBuscarClientePor.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
+
+                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                {
+                    // Ocultar las filas que no cumplan con el filtro
+                    if (row.Cells[1].Value != null)
+                    {
+                        row.Visible = row.Cells[1].Value.ToString().ToLower().Contains(filterValue.ToLower());
+                    }
+                }
+            }
+            else if (selectedItem == "Apellidos")
+            {
+                txtBuscarClientePor.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
+
+                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                {
+                    // Ocultar las filas que no cumplan con el filtro
+                    if (row.Cells[2].Value != null)
+                    {
+                        row.Visible = row.Cells[2].Value.ToString().ToLower().Contains(filterValue.ToLower());
+                    }
+                }
+            }
+            else if (selectedItem == "Teléfono")
+            {
+                txtBuscarClientePor.MaxLength = Constants.LIMIT_TELEF_LENGTH;
+                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                {
+                    // Ocultar las filas que no cumplan con el filtro
+                    if (row.Cells[4].Value != null)
+                    {
+                        row.Visible = row.Cells[4].Value.ToString().ToLower().Contains(filterValue.ToLower());
+                    }
+                }
+            }
         }
     }
 }
