@@ -24,6 +24,7 @@ namespace SGV_CLP.GUI
         List<Producto> ProductosRegistrados = ProductoMapper.ConsultarProductos();
         List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
         List<Lote> LoteRegistrados = ProductoMapper.ConsultarLotes();
+
         bool isValidIdProd, isValidNombreProd, isValidCategoria, isValidPE, isValidPVP, isValidRutaImg; // Para validar los campos de Producto
         bool isValidNombProdEnLote, isValidCantidad, isValidFechaHora; // Para validar los campos de Lote
 
@@ -55,14 +56,13 @@ namespace SGV_CLP.GUI
             txtNombreProducto.MaxLength = Constants.LIMIT_NOMBREPROD_LENGTH;
             txtImagen.MaxLength = Constants.LIMIT_RUTAIMAGEN_LENGTH;
 
-
-            SBAniadirProd.Enabled = false;
-            SBAniadirLote.Enabled = false;
-
             categoria_not_choose_label.Show();
 
             Producto_not_choose_in_Lote_label.Show();
             FechaHora_not_choose_in_Lote_label.Show();
+
+            SBAniadirProd.Enabled = false;
+            SBAniadirLote.Enabled = false;
         }
 
         // Métodos de pestaña de Producto
@@ -127,9 +127,11 @@ namespace SGV_CLP.GUI
                 txtImagen.Text);
 
             ProductoMapper.IngresarProducto(producto);
+
             LlenarTablaProducto();
             VaciarCamposProd();
             MainMenu.uc_ventas.loadProducts();
+
             SystemSounds.Beep.Play();
             MessageBox.Show("Producto añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -496,7 +498,7 @@ namespace SGV_CLP.GUI
             if (SRBFechaActual.Checked)
             {
                 var LoteConFechaActual = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("ddMM"),
+                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DateTime.Now.ToString("yyyyMMddHHmmss"),
                 ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
                 DateTime.Now);
@@ -505,7 +507,7 @@ namespace SGV_CLP.GUI
             else
             {
                 var LoteConDateTimePicker = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("ddMM"),
+                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("yyyyMMdd") + DTPHoraLote.Value.ToString("HHmmss"),
                 ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
                 DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);

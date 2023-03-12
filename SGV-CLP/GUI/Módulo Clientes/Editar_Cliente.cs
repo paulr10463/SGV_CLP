@@ -5,96 +5,166 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Media;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SGV_CLP.Classes;
 
 namespace SGV_CLP.GUI.Módulo_Clientes
 {
     public partial class Editar_Cliente : Form
     {
-        String cedulaCliente;
-        int limit_telef_length = 10, limit_direc_length = 100;
-        bool control_direc = true;
-        bool control_telef = true;
+        string cc_Cliente;
 
-        int count_correct_fields = 0;
+        int count_correct_fields = 0, num_atributos = 3;
 
-        int num_atributos = 2;
-        public Editar_Cliente(String cedula)
+        bool addressIsValid, telefIsValid, correoIsValid;
+
+        public Editar_Cliente(String cc_Cliente)
         {
             InitializeComponent();
-            cedulaCliente = cedula;
+            this.cc_Cliente = cc_Cliente;
 
-            txtEditarDirecCliente.MaxLength = limit_direc_length;
-            txtEditarClienteTelef.MaxLength = limit_telef_length;
+            addressIsValid = false;
+            telefIsValid = false;
+            correoIsValid = false;
 
-            button_AceptarEditarEliminarCliente.Enabled = false;
+            txtCorreoCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "correo_Electronico");
+            txtDireccionCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "direccion_Domicilio");
+            txtTelefonoCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "telefono");
+
+            txtDireccionCliente.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
+            txtTelefonoCliente.MaxLength = Constants.LIMIT_TELEF_LENGTH;
+            txtCorreoCliente.MaxLength = Constants.LIMIT_CORREO_LENGTH;
+
+            siticoneHtmlLabel_correct_length_telef.Hide();
+            siticoneHtmlLabel_valid_telef.Hide();
+            siticoneHtmlLabel_correct_email.Hide();
+
+            button_EditarCliente.Enabled = false;
         }
 
-        private void siticoneButton1_Click(object sender, EventArgs e)
+        private void button_EditarCliente_Click(object sender, EventArgs e)
         {
+            ClienteMapper.EditarCliente(cc_Cliente, txtDireccionCliente.Text, txtCorreoCliente.Text, txtTelefonoCliente.Text);
             SystemSounds.Beep.Play();
             MessageBox.Show("Cliente editado con éxito", "Editar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Dispose();
+            Dispose();
         }
 
-        private void siticoneButton2_Click(object sender, EventArgs e)
+        private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
         }
 
-        private void txtEditarEliminarCliente_KeyPress(object sender, KeyPressEventArgs e)
+        private void validateFieldsCounter()
         {
-           if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            button_EditarCliente.Enabled = count_correct_fields >= num_atributos;
+        }
+
+        private void txtDireccionCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && e.KeyChar != '.' && e.KeyChar != ';' && e.KeyChar != ' ' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Ingrese únicamente letras, números, \";\" o \".\"!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+
+        private void txtDireccionCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDireccionCliente.Text.Length > 0 && !addressIsValid)
+            {
+                addressIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtDireccionCliente.Text.Length == 0 && addressIsValid)
+            {
+                addressIsValid = false;
+                count_correct_fields--;
+            }
+            validateFieldsCounter();
+        }
+
+        private void txtCorreoCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                && e.KeyChar != '_' && e.KeyChar != '@' && e.KeyChar != '.')
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Ingrese únicamente letras o números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+        }
 
-            if (txtEditarDirecCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
+        private void txtCorreoCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && !correoIsValid)
             {
-                control_direc = false;
+                //El correo es válido
+                siticoneHtmlLabel_wrong_email.Hide();
+                siticoneHtmlLabel_correct_email.Show();
                 count_correct_fields++;
-            }
-            else if (txtEditarDirecCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
-            {
-                control_direc = true;
-                count_correct_fields--;
-            }
+                correoIsValid = true;
 
+            }
+            else if (!ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && correoIsValid)
+            {
+                // El correo es invalido pero fue valido anteriormente
+                siticoneHtmlLabel_wrong_email.Show();
+                siticoneHtmlLabel_correct_email.Hide();
+                count_correct_fields--;
+                correoIsValid = false;
+            }
             validateFieldsCounter();
         }
 
-        private void txtEditarEliminarTelef_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTelefonoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtEditarClienteTelef.Text.Length + 1 == limit_telef_length && control_telef && e.KeyChar != '\b')
-            {
-                control_telef = false;
-                count_correct_fields++;
-            }
-            else if (txtEditarClienteTelef.Text.Length - 1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
-            {
-                control_telef = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
-        private void validateFieldsCounter()
+        private void txtTelefonoCliente_TextChanged(object sender, EventArgs e)
         {
-            button_AceptarEditarEliminarCliente.Enabled = count_correct_fields >= num_atributos;
+            if (txtTelefonoCliente.Text.Length == Constants.LIMIT_TELEF_LENGTH && !telefIsValid)
+            {
+                siticoneHtmlLabel_wrong_length_telef.Hide();
+                siticoneHtmlLabel_correct_length_telef.Show();
+                if (ValidationUtils.IsValidPhoneNumber(txtTelefonoCliente.Text))
+                {
+                    siticoneHtmlLabel_valid_telef.Show();
+                    siticoneHtmlLabel_invalid_telef.Hide();
+                    telefIsValid = true;
+                    count_correct_fields++;
+                }
+                else
+                {
+                    siticoneHtmlLabel_valid_telef.Hide();
+                    siticoneHtmlLabel_invalid_telef.Show();
+                    telefIsValid = false;
+                    count_correct_fields--;
+                }
+            }
+            else if (txtTelefonoCliente.Text.Length < Constants.LIMIT_TELEF_LENGTH && telefIsValid)
+            {
+                siticoneHtmlLabel_valid_telef.Hide();
+                siticoneHtmlLabel_invalid_telef.Show();
+                siticoneHtmlLabel_wrong_length_telef.Show();
+                siticoneHtmlLabel_correct_length_telef.Hide();
+                telefIsValid = false;
+                count_correct_fields--;
+            }
+            validateFieldsCounter();
         }
     }
 }

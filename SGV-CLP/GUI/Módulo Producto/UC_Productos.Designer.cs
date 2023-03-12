@@ -598,7 +598,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel_buscarProducto_sin_campo.TabIndex = 25;
             siticoneHtmlLabel_buscarProducto_sin_campo.Text = "¡Seleccione un campo!";
             // 
-            // CBConsultarProductoPor
+            // cBConsultarProductoPor
             // 
             cBConsultarProductoPor.Anchor = AnchorStyles.None;
             cBConsultarProductoPor.AutoCompleteCustomSource.AddRange(new string[] { "Código", "Nombre", "Categoría" });
@@ -614,7 +614,7 @@ namespace SGV_CLP.GUI
             cBConsultarProductoPor.Items.AddRange(new object[] { "Seleccione...", "Código", "Nombre", "Categoría" });
             cBConsultarProductoPor.Location = new Point(631, 139);
             cBConsultarProductoPor.Margin = new Padding(3, 4, 3, 4);
-            cBConsultarProductoPor.Name = "CBConsultarProductoPor";
+            cBConsultarProductoPor.Name = "cBConsultarProductoPor";
             cBConsultarProductoPor.Size = new Size(311, 46);
             cBConsultarProductoPor.TabIndex = 20;
             cBConsultarProductoPor.SelectedIndexChanged += CBConsultarProductoPor_SelectedIndexChanged;
@@ -813,9 +813,9 @@ namespace SGV_CLP.GUI
             FechaHora_not_choose_in_Lote_label.Location = new Point(801, 505);
             FechaHora_not_choose_in_Lote_label.Margin = new Padding(3, 4, 3, 4);
             FechaHora_not_choose_in_Lote_label.Name = "FechaHora_not_choose_in_Lote_label";
-            FechaHora_not_choose_in_Lote_label.Size = new Size(234, 22);
+            FechaHora_not_choose_in_Lote_label.Size = new Size(240, 22);
             FechaHora_not_choose_in_Lote_label.TabIndex = 65;
-            FechaHora_not_choose_in_Lote_label.Text = "Debe tener una fecha y hora válida";
+            FechaHora_not_choose_in_Lote_label.Text = "Debe tener una fecha y hora válidas";
             FechaHora_not_choose_in_Lote_label.Visible = false;
             // 
             // Producto_not_choose_in_Lote_label
@@ -1231,7 +1231,7 @@ namespace SGV_CLP.GUI
             ColumnaEliminarLote.ReadOnly = true;
             ColumnaEliminarLote.Resizable = DataGridViewTriState.True;
             // 
-            // CBConsultarLotePor
+            // cBConsultarLotePor
             // 
             cBConsultarLotePor.Anchor = AnchorStyles.None;
             cBConsultarLotePor.BackColor = Color.Transparent;
@@ -1246,7 +1246,7 @@ namespace SGV_CLP.GUI
             cBConsultarLotePor.Items.AddRange(new object[] { "Seleccione...", "Código lote", "Código producto", "Fecha" });
             cBConsultarLotePor.Location = new Point(642, 143);
             cBConsultarLotePor.Margin = new Padding(3, 4, 3, 4);
-            cBConsultarLotePor.Name = "CBConsultarLotePor";
+            cBConsultarLotePor.Name = "cBConsultarLotePor";
             cBConsultarLotePor.Size = new Size(311, 46);
             cBConsultarLotePor.TabIndex = 24;
             cBConsultarLotePor.SelectedIndexChanged += CBConsultarLotePor_SelectedIndexChanged;
