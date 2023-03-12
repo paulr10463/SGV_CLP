@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SGV_CLP.Classes.Módulo_Productos
+namespace SGV_CLP.Classes
 {
     public class LoteMapper
     {

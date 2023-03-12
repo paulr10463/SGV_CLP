@@ -23,7 +23,7 @@ namespace SGV_CLP.GUI
     {
         List<Producto> ProductosRegistrados = ProductoMapper.ConsultarProductos();
         List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
-        List<Lote> LoteRegistrados = ProductoMapper.ConsultarLotes();
+        List<Lote> LoteRegistrados = LoteMapper.ConsultarLotes();
 
         bool isValidIdProd, isValidNombreProd, isValidCategoria, isValidPE, isValidPVP, isValidRutaImg; // Para validar los campos de Producto
         bool isValidNombProdEnLote, isValidCantidad, isValidFechaHora; // Para validar los campos de Lote
@@ -463,7 +463,7 @@ namespace SGV_CLP.GUI
             if (LoteRegistrados != null)
             {
                 SDGVLote.Rows.Clear();
-                LoteRegistrados = ProductoMapper.ConsultarLotes();
+                LoteRegistrados = LoteMapper.ConsultarLotes();
                 foreach (Lote lote in LoteRegistrados)
                 {
                     SDGVLote.Rows.Add(
@@ -503,7 +503,7 @@ namespace SGV_CLP.GUI
                 ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
                 DateTime.Now);
-                ProductoMapper.IngresarLote(LoteConFechaActual);
+                LoteMapper.IngresarLote(LoteConFechaActual);
             }
             else
             {
@@ -512,7 +512,7 @@ namespace SGV_CLP.GUI
                 ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
                 DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
-                ProductoMapper.IngresarLote(LoteConDateTimePicker);
+                LoteMapper.IngresarLote(LoteConDateTimePicker);
             }
 
             LlenarTablaLote();
@@ -532,7 +532,7 @@ namespace SGV_CLP.GUI
                     if (MessageBox.Show("¿Está seguro de eliminar este lote?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         string cod_Lote = SDGVLote.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        ProductoMapper.EliminarLote(cod_Lote);
+                        LoteMapper.EliminarLote(cod_Lote);
                         MessageBox.Show("Lote de producto eliminado con éxito");
                     }
                 }
