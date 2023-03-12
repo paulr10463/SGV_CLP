@@ -32,7 +32,7 @@ namespace SGV_CLP.GUI.Módulo_Clientes
 
             txtCorreoCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "correo_Electronico");
             txtDireccionCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "direccion_Domicilio");
-            txtTelefonoCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "telefonos");
+            txtTelefonoCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "telefono");
 
             txtDireccionCliente.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
             txtTelefonoCliente.MaxLength = Constants.LIMIT_TELEF_LENGTH;
@@ -157,6 +157,8 @@ namespace SGV_CLP.GUI.Módulo_Clientes
             }
             else if (txtTelefonoCliente.Text.Length < Constants.LIMIT_TELEF_LENGTH && telefIsValid)
             {
+                siticoneHtmlLabel_valid_telef.Hide();
+                siticoneHtmlLabel_invalid_telef.Show();
                 siticoneHtmlLabel_wrong_length_telef.Show();
                 siticoneHtmlLabel_correct_length_telef.Hide();
                 telefIsValid = false;

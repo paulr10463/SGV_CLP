@@ -282,7 +282,7 @@ namespace SGV_CLP.GUI
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
-                MessageBox.Show("Ingrese únicamente letras, números, \";\" o \".\"!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese únicamente letras, números, \" \", \";\" o \".\"!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -348,6 +348,8 @@ namespace SGV_CLP.GUI
             }
             else if (txtTelefonoCliente.Text.Length < Constants.LIMIT_TELEF_LENGTH && telefIsValid)
             {
+                siticoneHtmlLabel_valid_telef.Hide();
+                siticoneHtmlLabel_invalid_telef.Show();
                 siticoneHtmlLabel_wrong_length_telef.Show();
                 siticoneHtmlLabel_correct_length_telef.Hide();
                 telefIsValid = false;
