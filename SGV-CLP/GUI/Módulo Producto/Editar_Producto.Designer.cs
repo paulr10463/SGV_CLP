@@ -28,182 +28,336 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticoneTextBox2 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneComboBox1 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.SuspendLayout();
+            SBEditarProd = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            SBCancelarEditarProd = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            rutaImagen_not_valid_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            PE_not_valid_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            PVP_not_greater_than_PE_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            PVP_not_valid_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            categoria_not_choose_label = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            SBExaminar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            txtImagen = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            siticoneHtmlLabel11 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            cBoxCategoria = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            siticoneHtmlLabel6 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            txtPVP = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            siticoneHtmlLabel8 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            txtPE = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            SuspendLayout();
             // 
-            // siticoneHtmlLabel1
+            // SBEditarProd
             // 
-            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(27, 18);
-            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(290, 34);
-            this.siticoneHtmlLabel1.TabIndex = 0;
-            this.siticoneHtmlLabel1.Text = "Precio de elaboración";
+            SBEditarProd.Anchor = AnchorStyles.None;
+            SBEditarProd.BorderRadius = 20;
+            SBEditarProd.DisabledState.BorderColor = Color.DarkGray;
+            SBEditarProd.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBEditarProd.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBEditarProd.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBEditarProd.FillColor = Color.Black;
+            SBEditarProd.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBEditarProd.ForeColor = Color.White;
+            SBEditarProd.Location = new Point(299, 453);
+            SBEditarProd.Margin = new Padding(3, 4, 3, 4);
+            SBEditarProd.Name = "SBEditarProd";
+            SBEditarProd.Size = new Size(206, 60);
+            SBEditarProd.TabIndex = 40;
+            SBEditarProd.Text = "Aceptar";
+            SBEditarProd.Click += SBEditarProd_Click;
             // 
-            // siticoneTextBox1
+            // SBCancelarEditarProd
             // 
-            this.siticoneTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneTextBox1.BorderRadius = 20;
-            this.siticoneTextBox1.DefaultText = "";
-            this.siticoneTextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox1.Location = new System.Drawing.Point(336, 18);
-            this.siticoneTextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.siticoneTextBox1.Name = "siticoneTextBox1";
-            this.siticoneTextBox1.PasswordChar = '\0';
-            this.siticoneTextBox1.PlaceholderText = "";
-            this.siticoneTextBox1.SelectedText = "";
-            this.siticoneTextBox1.Size = new System.Drawing.Size(152, 48);
-            this.siticoneTextBox1.TabIndex = 1;
+            SBCancelarEditarProd.Anchor = AnchorStyles.None;
+            SBCancelarEditarProd.BorderRadius = 20;
+            SBCancelarEditarProd.DisabledState.BorderColor = Color.DarkGray;
+            SBCancelarEditarProd.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBCancelarEditarProd.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBCancelarEditarProd.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBCancelarEditarProd.FillColor = Color.Black;
+            SBCancelarEditarProd.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBCancelarEditarProd.ForeColor = Color.White;
+            SBCancelarEditarProd.Location = new Point(549, 453);
+            SBCancelarEditarProd.Margin = new Padding(3, 4, 3, 4);
+            SBCancelarEditarProd.Name = "SBCancelarEditarProd";
+            SBCancelarEditarProd.Size = new Size(206, 60);
+            SBCancelarEditarProd.TabIndex = 41;
+            SBCancelarEditarProd.Text = "Cancelar";
+            SBCancelarEditarProd.Click += SBCancelarEditarProd_Click;
             // 
-            // siticoneTextBox2
+            // rutaImagen_not_valid_label
             // 
-            this.siticoneTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneTextBox2.BorderRadius = 20;
-            this.siticoneTextBox2.DefaultText = "";
-            this.siticoneTextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.siticoneTextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.siticoneTextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.siticoneTextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneTextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneTextBox2.Location = new System.Drawing.Point(336, 87);
-            this.siticoneTextBox2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.siticoneTextBox2.Name = "siticoneTextBox2";
-            this.siticoneTextBox2.PasswordChar = '\0';
-            this.siticoneTextBox2.PlaceholderText = "";
-            this.siticoneTextBox2.SelectedText = "";
-            this.siticoneTextBox2.Size = new System.Drawing.Size(152, 48);
-            this.siticoneTextBox2.TabIndex = 3;
+            rutaImagen_not_valid_label.Anchor = AnchorStyles.None;
+            rutaImagen_not_valid_label.BackColor = Color.Transparent;
+            rutaImagen_not_valid_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            rutaImagen_not_valid_label.ForeColor = Color.Red;
+            rutaImagen_not_valid_label.Location = new Point(1052, 357);
+            rutaImagen_not_valid_label.Margin = new Padding(3, 4, 3, 4);
+            rutaImagen_not_valid_label.Name = "rutaImagen_not_valid_label";
+            rutaImagen_not_valid_label.Size = new Size(89, 22);
+            rutaImagen_not_valid_label.TabIndex = 77;
+            rutaImagen_not_valid_label.Text = "Ruta inválida";
+            rutaImagen_not_valid_label.Visible = false;
             // 
-            // siticoneHtmlLabel2
+            // PE_not_valid_label
             // 
-            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(27, 87);
-            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(66, 34);
-            this.siticoneHtmlLabel2.TabIndex = 2;
-            this.siticoneHtmlLabel2.Text = "P.V.P";
+            PE_not_valid_label.Anchor = AnchorStyles.None;
+            PE_not_valid_label.BackColor = Color.Transparent;
+            PE_not_valid_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PE_not_valid_label.ForeColor = Color.Red;
+            PE_not_valid_label.Location = new Point(549, 145);
+            PE_not_valid_label.Margin = new Padding(3, 4, 3, 4);
+            PE_not_valid_label.Name = "PE_not_valid_label";
+            PE_not_valid_label.Size = new Size(117, 22);
+            PE_not_valid_label.TabIndex = 76;
+            PE_not_valid_label.Text = "Máx. 2 decimales";
+            PE_not_valid_label.Visible = false;
             // 
-            // siticoneHtmlLabel3
+            // PVP_not_greater_than_PE_label
             // 
-            this.siticoneHtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(27, 158);
-            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(133, 34);
-            this.siticoneHtmlLabel3.TabIndex = 4;
-            this.siticoneHtmlLabel3.Text = "Categoria";
+            PVP_not_greater_than_PE_label.Anchor = AnchorStyles.None;
+            PVP_not_greater_than_PE_label.BackColor = Color.Transparent;
+            PVP_not_greater_than_PE_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PVP_not_greater_than_PE_label.ForeColor = Color.Red;
+            PVP_not_greater_than_PE_label.Location = new Point(549, 258);
+            PVP_not_greater_than_PE_label.Margin = new Padding(3, 4, 3, 4);
+            PVP_not_greater_than_PE_label.Name = "PVP_not_greater_than_PE_label";
+            PVP_not_greater_than_PE_label.Size = new Size(118, 22);
+            PVP_not_greater_than_PE_label.TabIndex = 75;
+            PVP_not_greater_than_PE_label.Text = "Debe ser >= a PE";
+            PVP_not_greater_than_PE_label.Visible = false;
             // 
-            // siticoneComboBox1
+            // PVP_not_valid_label
             // 
-            this.siticoneComboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneComboBox1.BorderRadius = 20;
-            this.siticoneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.siticoneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siticoneComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.siticoneComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.siticoneComboBox1.ItemHeight = 30;
-            this.siticoneComboBox1.Items.AddRange(new object[] {
-            "Bebidas calientes",
-            "Bebidas Frías",
-            "Fritos",
-            "Extras"});
-            this.siticoneComboBox1.Location = new System.Drawing.Point(336, 158);
-            this.siticoneComboBox1.Name = "siticoneComboBox1";
-            this.siticoneComboBox1.Size = new System.Drawing.Size(234, 36);
-            this.siticoneComboBox1.TabIndex = 5;
+            PVP_not_valid_label.Anchor = AnchorStyles.None;
+            PVP_not_valid_label.BackColor = Color.Transparent;
+            PVP_not_valid_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PVP_not_valid_label.ForeColor = Color.Red;
+            PVP_not_valid_label.Location = new Point(549, 228);
+            PVP_not_valid_label.Margin = new Padding(3, 4, 3, 4);
+            PVP_not_valid_label.Name = "PVP_not_valid_label";
+            PVP_not_valid_label.Size = new Size(117, 22);
+            PVP_not_valid_label.TabIndex = 74;
+            PVP_not_valid_label.Text = "Máx. 2 decimales";
+            PVP_not_valid_label.Visible = false;
             // 
-            // siticoneButton1
+            // categoria_not_choose_label
             // 
-            this.siticoneButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneButton1.BorderRadius = 20;
-            this.siticoneButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton1.FillColor = System.Drawing.Color.Black;
-            this.siticoneButton1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton1.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton1.Location = new System.Drawing.Point(77, 303);
-            this.siticoneButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneButton1.Name = "siticoneButton1";
-            this.siticoneButton1.Size = new System.Drawing.Size(206, 60);
-            this.siticoneButton1.TabIndex = 40;
-            this.siticoneButton1.Text = "Aceptar";
-            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
+            categoria_not_choose_label.Anchor = AnchorStyles.None;
+            categoria_not_choose_label.BackColor = Color.Transparent;
+            categoria_not_choose_label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            categoria_not_choose_label.ForeColor = Color.Red;
+            categoria_not_choose_label.Location = new Point(549, 23);
+            categoria_not_choose_label.Margin = new Padding(3, 4, 3, 4);
+            categoria_not_choose_label.Name = "categoria_not_choose_label";
+            categoria_not_choose_label.Size = new Size(265, 22);
+            categoria_not_choose_label.TabIndex = 73;
+            categoria_not_choose_label.Text = "Debe pertenecer a una categoría válida";
+            categoria_not_choose_label.Visible = false;
             // 
-            // siticoneButton2
+            // SBExaminar
             // 
-            this.siticoneButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneButton2.BorderRadius = 20;
-            this.siticoneButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.siticoneButton2.FillColor = System.Drawing.Color.Black;
-            this.siticoneButton2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneButton2.ForeColor = System.Drawing.Color.White;
-            this.siticoneButton2.Location = new System.Drawing.Point(305, 303);
-            this.siticoneButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneButton2.Name = "siticoneButton2";
-            this.siticoneButton2.Size = new System.Drawing.Size(206, 60);
-            this.siticoneButton2.TabIndex = 41;
-            this.siticoneButton2.Text = "Cancelar";
-            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
+            SBExaminar.Anchor = AnchorStyles.None;
+            SBExaminar.BorderRadius = 20;
+            SBExaminar.DisabledState.BorderColor = Color.DarkGray;
+            SBExaminar.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBExaminar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBExaminar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBExaminar.FillColor = Color.Black;
+            SBExaminar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBExaminar.ForeColor = Color.White;
+            SBExaminar.Location = new Point(831, 334);
+            SBExaminar.Margin = new Padding(3, 4, 3, 4);
+            SBExaminar.Name = "SBExaminar";
+            SBExaminar.Size = new Size(206, 60);
+            SBExaminar.TabIndex = 72;
+            SBExaminar.Text = "Examinar...";
+            SBExaminar.Click += SBExaminar_Click;
+            // 
+            // txtImagen
+            // 
+            txtImagen.Anchor = AnchorStyles.None;
+            txtImagen.BorderRadius = 20;
+            txtImagen.DefaultText = "";
+            txtImagen.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtImagen.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtImagen.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtImagen.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtImagen.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtImagen.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtImagen.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtImagen.Location = new Point(299, 334);
+            txtImagen.Margin = new Padding(3, 7, 3, 7);
+            txtImagen.Name = "txtImagen";
+            txtImagen.PasswordChar = '\0';
+            txtImagen.PlaceholderText = "";
+            txtImagen.SelectedText = "";
+            txtImagen.Size = new Size(515, 55);
+            txtImagen.TabIndex = 71;
+            txtImagen.TextOffset = new Point(5, 0);
+            txtImagen.TextChanged += TxtImagen_TextChanged;
+            // 
+            // siticoneHtmlLabel11
+            // 
+            siticoneHtmlLabel11.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel11.BackColor = Color.Transparent;
+            siticoneHtmlLabel11.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel11.Location = new Point(11, 345);
+            siticoneHtmlLabel11.Margin = new Padding(3, 4, 3, 4);
+            siticoneHtmlLabel11.Name = "siticoneHtmlLabel11";
+            siticoneHtmlLabel11.Size = new Size(166, 34);
+            siticoneHtmlLabel11.TabIndex = 70;
+            siticoneHtmlLabel11.Text = "Ruta imagen";
+            // 
+            // cBoxCategoria
+            // 
+            cBoxCategoria.Anchor = AnchorStyles.None;
+            cBoxCategoria.BackColor = Color.Transparent;
+            cBoxCategoria.BorderRadius = 20;
+            cBoxCategoria.DrawMode = DrawMode.OwnerDrawFixed;
+            cBoxCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBoxCategoria.FocusedColor = Color.FromArgb(94, 148, 255);
+            cBoxCategoria.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBoxCategoria.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            cBoxCategoria.ForeColor = Color.FromArgb(68, 88, 112);
+            cBoxCategoria.ItemHeight = 35;
+            cBoxCategoria.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
+            cBoxCategoria.Location = new Point(299, 17);
+            cBoxCategoria.Margin = new Padding(3, 5, 3, 5);
+            cBoxCategoria.Name = "cBoxCategoria";
+            cBoxCategoria.Size = new Size(228, 41);
+            cBoxCategoria.TabIndex = 69;
+            cBoxCategoria.TextOffset = new Point(5, 0);
+            cBoxCategoria.SelectedIndexChanged += cBoxCategoria_SelectedIndexChanged;
+            // 
+            // siticoneHtmlLabel6
+            // 
+            siticoneHtmlLabel6.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel6.BackColor = Color.Transparent;
+            siticoneHtmlLabel6.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel6.Location = new Point(11, 23);
+            siticoneHtmlLabel6.Margin = new Padding(3, 5, 3, 5);
+            siticoneHtmlLabel6.Name = "siticoneHtmlLabel6";
+            siticoneHtmlLabel6.Size = new Size(133, 34);
+            siticoneHtmlLabel6.TabIndex = 68;
+            siticoneHtmlLabel6.Text = "Categoría";
+            // 
+            // txtPVP
+            // 
+            txtPVP.Anchor = AnchorStyles.None;
+            txtPVP.BorderRadius = 20;
+            txtPVP.DefaultText = "";
+            txtPVP.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtPVP.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtPVP.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtPVP.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtPVP.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPVP.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPVP.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPVP.Location = new Point(299, 228);
+            txtPVP.Margin = new Padding(3, 8, 3, 8);
+            txtPVP.Name = "txtPVP";
+            txtPVP.PasswordChar = '\0';
+            txtPVP.PlaceholderText = "";
+            txtPVP.SelectedText = "";
+            txtPVP.Size = new Size(229, 55);
+            txtPVP.TabIndex = 67;
+            txtPVP.TextOffset = new Point(5, 0);
+            txtPVP.TextChanged += TxtPVP_TextChanged;
+            txtPVP.KeyPress += TxtPVP_KeyPress;
+            // 
+            // siticoneHtmlLabel8
+            // 
+            siticoneHtmlLabel8.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel8.BackColor = Color.Transparent;
+            siticoneHtmlLabel8.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel8.Location = new Point(11, 246);
+            siticoneHtmlLabel8.Margin = new Padding(3, 5, 3, 5);
+            siticoneHtmlLabel8.Name = "siticoneHtmlLabel8";
+            siticoneHtmlLabel8.Size = new Size(73, 34);
+            siticoneHtmlLabel8.TabIndex = 66;
+            siticoneHtmlLabel8.Text = "P.V.P.";
+            // 
+            // txtPE
+            // 
+            txtPE.Anchor = AnchorStyles.None;
+            txtPE.BorderRadius = 20;
+            txtPE.DefaultText = "";
+            txtPE.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtPE.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtPE.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtPE.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtPE.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPE.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPE.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPE.Location = new Point(299, 123);
+            txtPE.Margin = new Padding(3, 8, 3, 8);
+            txtPE.Name = "txtPE";
+            txtPE.PasswordChar = '\0';
+            txtPE.PlaceholderText = "";
+            txtPE.SelectedText = "";
+            txtPE.Size = new Size(229, 55);
+            txtPE.TabIndex = 65;
+            txtPE.TextOffset = new Point(5, 0);
+            txtPE.TextChanged += TxtPE_TextChanged;
+            txtPE.KeyPress += TxtPE_KeyPress;
+            // 
+            // siticoneHtmlLabel7
+            // 
+            siticoneHtmlLabel7.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel7.BackColor = Color.Transparent;
+            siticoneHtmlLabel7.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel7.Location = new Point(11, 133);
+            siticoneHtmlLabel7.Margin = new Padding(3, 5, 3, 5);
+            siticoneHtmlLabel7.Name = "siticoneHtmlLabel7";
+            siticoneHtmlLabel7.Size = new Size(245, 34);
+            siticoneHtmlLabel7.TabIndex = 64;
+            siticoneHtmlLabel7.Text = "Precio Elaboración";
             // 
             // Editar_Producto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(593, 394);
-            this.Controls.Add(this.siticoneButton2);
-            this.Controls.Add(this.siticoneButton1);
-            this.Controls.Add(this.siticoneComboBox1);
-            this.Controls.Add(this.siticoneHtmlLabel3);
-            this.Controls.Add(this.siticoneTextBox2);
-            this.Controls.Add(this.siticoneHtmlLabel2);
-            this.Controls.Add(this.siticoneTextBox1);
-            this.Controls.Add(this.siticoneHtmlLabel1);
-            this.Name = "Editar_Producto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar Producto";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1149, 533);
+            Controls.Add(rutaImagen_not_valid_label);
+            Controls.Add(PE_not_valid_label);
+            Controls.Add(PVP_not_greater_than_PE_label);
+            Controls.Add(PVP_not_valid_label);
+            Controls.Add(categoria_not_choose_label);
+            Controls.Add(SBExaminar);
+            Controls.Add(txtImagen);
+            Controls.Add(siticoneHtmlLabel11);
+            Controls.Add(cBoxCategoria);
+            Controls.Add(siticoneHtmlLabel6);
+            Controls.Add(txtPVP);
+            Controls.Add(siticoneHtmlLabel8);
+            Controls.Add(txtPE);
+            Controls.Add(siticoneHtmlLabel7);
+            Controls.Add(SBCancelarEditarProd);
+            Controls.Add(SBEditarProd);
+            Name = "Editar_Producto";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Editar Producto";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox2;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox siticoneComboBox1;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton SBEditarProd;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton SBCancelarEditarProd;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel rutaImagen_not_valid_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel PE_not_valid_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel PVP_not_greater_than_PE_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel PVP_not_valid_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel categoria_not_choose_label;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton SBExaminar;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtImagen;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel11;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBoxCategoria;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel6;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPVP;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel8;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPE;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel7;
     }
 }

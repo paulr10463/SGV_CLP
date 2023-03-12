@@ -51,21 +51,25 @@
             this.siticoneButton1.Size = new System.Drawing.Size(71, 36);
             this.siticoneButton1.TabIndex = 7;
             this.siticoneButton1.Text = "Añadir";
+            this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
             // 
             // siticoneHtmlLabel1
             // 
+            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(59, 14);
-            this.siticoneHtmlLabel1.MinimumSize = new System.Drawing.Size(60, 25);
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(2, 17);
+            this.siticoneHtmlLabel1.MinimumSize = new System.Drawing.Size(170, 25);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(60, 25);
-            this.siticoneHtmlLabel1.TabIndex = 5;
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(170, 25);
+            this.siticoneHtmlLabel1.TabIndex = 6;
             this.siticoneHtmlLabel1.Text = null;
+            this.siticoneHtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siticoneNumericUpDown1
             // 
             this.siticoneNumericUpDown1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneNumericUpDown1.BorderRadius = 10;
             this.siticoneNumericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneNumericUpDown1.Location = new System.Drawing.Point(19, 154);
             this.siticoneNumericUpDown1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -73,6 +77,8 @@
             this.siticoneNumericUpDown1.Size = new System.Drawing.Size(56, 36);
             this.siticoneNumericUpDown1.TabIndex = 6;
             this.siticoneNumericUpDown1.UpDownButtonFillColor = System.Drawing.Color.Black;
+            this.siticoneNumericUpDown1.UpDownButtonForeColor = System.Drawing.Color.White;
+            this.siticoneNumericUpDown1.ValueChanged += new System.EventHandler(this.siticoneNumericUpDown1_ValueChanged);
             // 
             // siticonePictureBox1
             // 

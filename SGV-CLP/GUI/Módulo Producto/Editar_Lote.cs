@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SGV_CLP.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -13,46 +15,107 @@ namespace SGV_CLP.GUI.Módulo_Producto
 {
     public partial class Editar_Lote : Form
     {
-        public Editar_Lote()
+        bool isValidCantidad, isValidFechaHora; // Para validar los campos de Lote
+        string cod_Lote, fecha, hora;
+
+        public Editar_Lote(string cod_Lote)
         {
             InitializeComponent();
+
+            this.cod_Lote = cod_Lote;
+
+            isValidCantidad = false;
+            isValidFechaHora = false;
+
+            SepararFechayHora();
+            txtCantidad.Text = ProductoMapper.ConsultarAtributoLote(cod_Lote, "cantidad");
+            DTPFechaLote.Value = DateTime.ParseExact(fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            DTPHoraLote.Value = DateTime.ParseExact(hora, "HH:mm:ss", CultureInfo.InvariantCulture);
+
+            SRBElegirFecha.Checked = true;
+            SBAceptar.Enabled = false;
         }
 
-        private void siticoneButton1_Click(object sender, EventArgs e)
+        private void SepararFechayHora() 
         {
-            SystemSounds.Beep.Play();
-            MessageBox.Show("Lote editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Dispose();
+            string[] fechaHora = ProductoMapper.ConsultarAtributoLote(cod_Lote, "fecha").Split(' ');
+            fecha = fechaHora[0];
+            hora = fechaHora[1];
         }
 
-        private void siticoneButton3_Click(object sender, EventArgs e)
+        private void ValidateLotFields()
         {
-            SystemSounds.Beep.Play();
-            if (MessageBox.Show("¿Desea continuar?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-                == DialogResult.Yes)
+            if (isValidCantidad && isValidFechaHora)
             {
-                MessageBox.Show("Lote eliminado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
+                SBAceptar.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Lote no eliminado", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SBAceptar.Enabled = false;
             }
         }
 
+        private void SBAceptar_Click(object sender, EventArgs e)
+        {
+            if (SRBFechaActual.Checked)
+            {
+                ProductoMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DateTime.Now);
+            }
+            else
+            {
+                ProductoMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
+            }
+            SystemSounds.Beep.Play();
+            MessageBox.Show("Lote de producto editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Dispose();
+        }
+
+
         private void siticoneButton2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            Dispose();
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtCantidad.Text.Equals(string.Empty))
+            {
+                isValidCantidad = true;
+            }
+            else
+            {
+                isValidCantidad = false;
+            }
+            ValidateLotFields();
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+                MessageBox.Show("Cantidad inválida – solo se permiten caracteres numéricos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
 
         private void SRBFechaActual_CheckedChanged(object sender, EventArgs e)
         {
-            siticoneDateTimePicker1.Visible = false;
+            DTPFechaLote.Visible = false;
+            DTPHoraLote.Visible = false;
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
         }
 
         private void SRBElegirFecha_CheckedChanged(object sender, EventArgs e)
         {
-            siticoneDateTimePicker1.Visible = true;
+            DTPFechaLote.Visible = true;
+            DTPHoraLote.Visible = true;
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
         }
     }
 }

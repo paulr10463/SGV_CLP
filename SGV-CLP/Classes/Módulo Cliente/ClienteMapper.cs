@@ -26,7 +26,17 @@ namespace SGV_CLP.Classes
                 {
                     while (reader.Read())
                     {
-                        clientesRegistrados.Add(new Cliente(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7)));
+                        
+                        clientesRegistrados.Add(
+                            new Cliente(
+                                reader.GetString(0), 
+                                reader.GetString(1),
+                                !reader.IsDBNull(2)? reader.GetString(2):null, 
+                                reader.GetString(3),
+                                !reader.IsDBNull(4) ? reader.GetString(4) : null,
+                                reader.GetString(5), 
+                                reader.GetString(6), 
+                                reader.GetString(7)));
                     }
                 }
             }

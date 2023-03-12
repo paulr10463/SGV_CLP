@@ -3,6 +3,7 @@ using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,11 @@ namespace SGV_CLP.Classes
 {
     public class ProductoMapper
     {
+        // String de conexión a la BD
         private static readonly string _connectionString = "Host=localhost:5432;Username=postgres;Password=P@ssw0rd;Database=SGV-CLP";
 
-        //--------
-        // INGRESAR PRODUCTO
+        // Métodos en tabla Producto
+        // Ingresar Producto
         public static void IngresarProducto(Producto producto)
         {
             // Conexión a BD
@@ -23,7 +25,6 @@ namespace SGV_CLP.Classes
 
             using (var cmd = new NpgsqlCommand("INSERT INTO public.\"Producto\"(\"cod_Producto\", \"nombre_Producto\", \"precio_Elaboracion\", \"precio_Unitario\", \"categoria\", \"cantidad_Total\", \"ruta_Imagen\") VALUES (@cod_Producto, @nombre_Producto, @precio_Elaboracion, @precio_Unitario, @categoria, @cantidad_Total, @ruta_Imagen)", connection))
             {
-
                 cmd.Parameters.AddWithValue("@cod_Producto", producto.Id);
                 cmd.Parameters.AddWithValue("@nombre_Producto", producto.Nombre);
                 cmd.Parameters.AddWithValue("@precio_Elaboracion", producto.PrecioElaboracion);
@@ -35,8 +36,37 @@ namespace SGV_CLP.Classes
             }
         }
 
-        //--------
-        // CONSULTAR PRODUCTOS
+        // Eliminar Producto
+        public static void EliminarProducto(string cod_Producto)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("DELETE FROM public.\"Producto\" WHERE \"cod_Producto\" = @cod_Producto", connection))
+            {
+                cmd.Parameters.AddWithValue("@cod_Producto", cod_Producto);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        //  Editar Producto 
+        public static void EditarProducto(string cod_Producto, string categoria, double precio_Elaboracion, double precio_Unitario, string ruta_Imagen)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("UPDATE \"Producto\" SET \"categoria\" = @categoria, \"precio_Elaboracion\" = @precio_Elaboracion, \"precio_Unitario\" = @precio_Unitario, \"ruta_Imagen\" = @ruta_Imagen WHERE \"cod_Producto\" = @cod_Producto", connection))
+            {
+                cmd.Parameters.AddWithValue("@cod_Producto", cod_Producto);
+                cmd.Parameters.AddWithValue("@categoria", categoria);
+                cmd.Parameters.AddWithValue("@precio_Elaboracion", precio_Elaboracion);
+                cmd.Parameters.AddWithValue("@precio_Unitario", precio_Unitario);
+                cmd.Parameters.AddWithValue("@ruta_Imagen", ruta_Imagen);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Consultar Productos
         public static List<Producto> ConsultarProductos()
         {
             List<Producto> ProductosRegistrados = new List<Producto>();
@@ -55,8 +85,7 @@ namespace SGV_CLP.Classes
             return ProductosRegistrados;
         }
 
-        //--------
-        // CONSULTAR NOMBRES PRODUCTOS
+        // Consultar nombres de los Productos
         public static List<string> ConsultarNombresProductos()
         {
             List<string> NombresProductosRegistrados = new List<string>();
@@ -75,11 +104,10 @@ namespace SGV_CLP.Classes
             return NombresProductosRegistrados;
         }
 
-        //--------
-        // CONSULTAR ID PRODUCTO
+        // Consultar id de un Producto
         public static string ConsultarIdProducto(string nombreProducto)
         {
-            string IdProductoRegistrado = "";
+            string IdProductoRegistrado = string.Empty;
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
@@ -98,11 +126,78 @@ namespace SGV_CLP.Classes
             return IdProductoRegistrado;
         }
 
-        //--------
-        // INGRESAR LOTE
+        // Consultar un atributo de un Producto
+        public static string ConsultarAtributoProducto(string cod_Producto, string atributo)
+        {
+            string valorAtributo = string.Empty;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var cmd = new NpgsqlCommand($"SELECT \"{atributo}\" FROM \"Producto\" WHERE \"cod_Producto\" = @cod_Producto", connection))
+                {
+                    cmd.Parameters.AddWithValue("@cod_Producto", cod_Producto);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            valorAtributo = reader.GetValue(0).ToString();
+                        }
+                    }
+                }
+            }
+            return valorAtributo;
+        }
+
+        // Verificar existencia de un Producto con un id
+        public static bool IDproductoExiste(string id)
+        {
+            bool existe = false;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM \"Producto\" WHERE \"cod_Producto\" ILIKE @cod_Producto", connection))
+                {
+                    command.Parameters.AddWithValue("@cod_Producto", id);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+            }
+            return existe;
+        }
+
+        // Verificar existencia de un Producto con un nombre
+        public static bool NombreProductoExiste(string nombre)
+        {
+            bool existe = false;
+            nombre = nombre.Trim();
+
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM \"Producto\" WHERE \"nombre_Producto\" ILIKE @nombre_Producto", connection))
+                {
+                    command.Parameters.AddWithValue("@nombre_Producto", nombre);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+            }
+            return existe;
+        }
+
+        // Métodos en tabla Lote
+        // Ingresar Lote
         public static void IngresarLote(Lote lote)
         {
-            // Conexión a BD
             using var connection = new NpgsqlConnection(_connectionString);
             connection.Open();
 
@@ -116,8 +211,35 @@ namespace SGV_CLP.Classes
             }
         }
 
-        //--------
-        // CONSULTAR LOTES
+        // Eliminar Lote
+        public static void EliminarLote(string cod_Lote)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("DELETE FROM public.\"Lote\" WHERE \"cod_Lote\" = @cod_Lote", connection))
+            {
+                cmd.Parameters.AddWithValue("@cod_Lote", cod_Lote);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        //  Editar Lote 
+        public static void EditarLote(string cod_Lote, int cantidad, DateTime fecha)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("UPDATE \"Lote\" SET \"cantidad\" = @cantidad, \"fecha\" = @fecha WHERE \"cod_Lote\" = @cod_Lote ", connection))
+            {
+                cmd.Parameters.AddWithValue("@cod_Lote", cod_Lote);
+                cmd.Parameters.AddWithValue("@cantidad", cantidad);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Consultar Lotes
         public static List<Lote> ConsultarLotes()
         {
             List<Lote> LotesRegistrados = new List<Lote>();
@@ -129,51 +251,48 @@ namespace SGV_CLP.Classes
                 {
                     while (reader.Read())
                     {
-                        LotesRegistrados.Add(new Lote(reader.GetString(0), reader.GetString(1), reader.GetInt32(2), reader.GetDateTime(3)));
+                        LotesRegistrados.Add(new Lote(
+                            reader.GetString(0),
+                            reader.GetString(1),
+                            reader.GetInt32(2),
+                            reader.GetDateTime(3).Date + reader.GetDateTime(3).TimeOfDay)
+                            );
                     }
                 }
             }
             return LotesRegistrados;
         }
 
-        //--------
-        //UPDATE
-        public static async Task<bool> ModificarCliente(Cliente cliente)
+        // Consultar un atributo de un Lote
+        public static string ConsultarAtributoLote(string cod_Lote, string atributo)
         {
-            int result = 0;
-            if (cliente.Cc_Cliente != null)
+            string valorAtributo = string.Empty;
+            using (var connection = new NpgsqlConnection(_connectionString))
             {
-                await using NpgsqlConnection connection = new NpgsqlConnection(_connectionString);
                 connection.Open();
-                await using NpgsqlCommand command = connection.CreateCommand();
-                command.CommandType = CommandType.Text;
-                command.CommandText = "UPDATE public.\"CLiente\" SET  \"cc_Cliente\"=@CC_Cliente, \"primer_Nombre\"=@Primer_Nombre, \"segundo_Nombre\"=@Segundo_Nombre, \"primer_Apellido\"=@Primer_Apellido, \"segundo_Apellido\"=@Segundo_Apellido, \"direccion_Domicilio\"=@Direccion_Domicilio, telefono=@Telefono, \"correo_Electronico\"=@Correo_Electronico WHERE \"cc_Cliente\" = @CC_Cliente;";
-                command.Parameters.AddWithValue("@CC_Cliente", cliente.Cc_Cliente);
-                command.Parameters.AddWithValue("@Primer_Nombre", cliente.Primer_Nombre);
-                command.Parameters.AddWithValue("@Segundo_Nombre", cliente.Segundo_Nombre);
-                command.Parameters.AddWithValue("@Primer_Apellido", cliente.Primer_Apellido);
-                command.Parameters.AddWithValue("@Segundo_Apellido", cliente.Segundo_Apellido);
-                command.Parameters.AddWithValue("@Direccion_Domicilio", cliente.Direccion_Domicilio);
-                command.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-                command.Parameters.AddWithValue("@Correo_Electronico", cliente.Correo_Electronico);
-                command.Parameters.AddWithValue("@CC_Cliente", cliente.Cc_Cliente);
-                result = await command.ExecuteNonQueryAsync();
+                using (var cmd = new NpgsqlCommand($"SELECT \"{atributo}\" FROM \"Lote\" WHERE \"cod_Lote\" = @cod_Lote", connection))
+                {
+                    cmd.Parameters.AddWithValue("@cod_Lote", cod_Lote);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (atributo == "fecha")
+                        {
+                            if (reader.Read())
+                            {
+                                valorAtributo = reader.GetDateTime(0).ToString("yyyy-MM-dd HH:mm:ss");
+                            }
+                        }
+                        else
+                        {
+                            if (reader.Read())
+                            {
+                                valorAtributo = reader.GetValue(0).ToString();
+                            }
+                        }
+                    }
+                }
             }
-            return result > 0;
-        }
-        
-        //--------
-        //DELETE
-        public static async Task<bool> EliminarCliente(string CC_Cliente)
-        {
-            await using var connection = new NpgsqlConnection(_connectionString);
-            connection.Open();
-            await using NpgsqlCommand command = connection.CreateCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "DELETE FROM public.\"CLiente\" WHERE \"cc_Cliente\" = @CC_Cliente;";
-            command.Parameters.AddWithValue("@CC_Cliente", CC_Cliente);
-            var result = await command.ExecuteNonQueryAsync();
-            return result > 0;
+            return valorAtributo;
         }
 
     }

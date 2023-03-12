@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Módulo_Administración;
 using SGV_CLP.GUI.Módulo_Administración;
 using SGV_CLP.GUI.Módulo_Clientes;
 using System;
@@ -19,7 +20,6 @@ namespace SGV_CLP.GUI
     {
         List<Usuario> UsuariosRegistrados = new List<Usuario>();
         List<ParametroPorUnidad> ParamsPURegistrados = new List<ParametroPorUnidad>();
-        List<ParametroPorcentaje> ParamsPORegistrados = new List<ParametroPorcentaje>();
         int count_correct_fields = 0, num_atributos = 8;
 
         // Nombre de usuario
@@ -84,13 +84,6 @@ namespace SGV_CLP.GUI
 
             llenarTablaParamUnidad();
 
-            ParametroPorcentaje paramP1 = new ParametroPorcentaje("1", "Humita", 10);
-            ParametroPorcentaje paramP2 = new ParametroPorcentaje("2", "Tamal", 20);
-
-            ParamsPORegistrados.Add(paramP1);
-            ParamsPORegistrados.Add(paramP2);
-
-            llenarTablaParamPorcentaje();
         }
 
         public void vaciarCampos()
@@ -118,7 +111,7 @@ namespace SGV_CLP.GUI
                 foreach (Usuario usuario in UsuariosRegistrados)
                 {
                     // dgvClientes
-                    SDGVUsuario.Rows.Add(usuario.NombreUsuario, usuario.Cc_Usuario, usuario.Primer_Nombre + usuario.Segundo_Nombre, usuario.Primer_Apellido + usuario.Segundo_Apellido, usuario.Cargo);
+                    SDGVUsuario.Rows.Add(usuario.userName, usuario.cc_Usuario, usuario.primer_Nombre + usuario.segundo_Nombre, usuario.primer_Apellido + usuario.segundo_Apellido, usuario.cargo);
                 }
             }
         }
@@ -137,23 +130,23 @@ namespace SGV_CLP.GUI
         }
 
         public void llenarTablaParamPorcentaje()
-        {
-            if (ParamsPORegistrados != null)
-            {
-                SDGVParamPorcen.Rows.Clear();
-                // UsuariosRegistrados = ClienteMapper.ConsultarClientes();
-                foreach (ParametroPorcentaje paraP in ParamsPORegistrados)
-                {
-                    SDGVParamPorcen.Rows.Add(paraP.IdParametro, paraP.Producto, paraP.Porcentaje);
-                }
-            }
+        {           
         }
 
         private void Button_aniadirUsuario_Click(object sender, EventArgs e)
         {
+
+            UsuarioMapper.IngresarUsuario(new Usuario(txtAniadirCCUsuario.Text,
+                txtAniadirNombreUsuario.Text,
+                txtAniadirContraseniaUsuario.Text,
+                txtAniadirNombre1Usuario.Text,
+                txtAniadirNombre2Usuario.Text,
+                txtAniadirApellido1Usuario.Text,
+                txtAniadirApellido2Usuario.Text,
+                siticoneComboBox_aniadirCargoUsuario.Text));
+
             SystemSounds.Beep.Play();
             MessageBox.Show("Usuario añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             vaciarCampos();
         }
 
@@ -404,35 +397,6 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void SDGVParamPorcen_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (SDGVParamPorcen.Columns[e.ColumnIndex].Name == "ColumnaEliminarParPor")
-            {
-                if (e.RowIndex >= 0)
-                {
-                    if (MessageBox.Show("¿Está seguro de eliminar este parámetro?", "Eliminar parámetro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        /*clientes.RemoveAt(e.RowIndex);
-                        siticoneDataGridView1.Rows.Clear();
-                        foreach (Cliente c in clientes)
-                        {
-                            //siticoneDataGridView1.Rows.Add(c.cedula, c.nombres, c.apellidos, c.direccion, c.telefono);
-                        }
-                        */
-                    }
-                }
-            }
-
-            if (SDGVParamPorcen.Columns[e.ColumnIndex].Name == "ColumnaEditarParPor")
-            {
-                if (e.RowIndex >= 0)
-                {
-                    //String cedula = siticoneDataGridView1.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
-                    Editar_Parametro_Por_Porcentaje ventana = new Editar_Parametro_Por_Porcentaje();
-                    ventana.ShowDialog();
-                }
-            }
-        }
 
         private void txtAniadirNombre2Usuario_KeyPress(object sender, KeyPressEventArgs e)
         {

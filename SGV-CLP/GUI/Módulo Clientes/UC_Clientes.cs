@@ -1,19 +1,7 @@
-﻿using Npgsql;
-using SGV_CLP.Classes;
+﻿using SGV_CLP.Classes;
 using SGV_CLP.GUI.Módulo_Clientes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Media;
-using System.Reflection.PortableExecutable;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace SGV_CLP.GUI
@@ -22,19 +10,16 @@ namespace SGV_CLP.GUI
     public partial class UC_Clientes : UserControl
     {
         List<Cliente> clientesRegistrados = ClienteMapper.ConsultarClientes();
-        
-        int limit_cc_length = 10, limit_nombre_length = 50, limit_apellido_length = 50,
-            limit_direccion_length = 100, limit_telef_length = 10, limit_fechanac_length = 10;
 
         int count_correct_fields = 0;
+        int num_atributos = 6;
 
-        int num_atributos = 8;
-
-        bool control_cc = true;
-        bool control_apell1 = true, control_apell2 = true;
-        bool control_nombre1 = true, control_nombre2 = true, control_direc = true;
-        bool control_telef = true;
-        bool control_correo = true;
+        bool ccIsValid = false;
+        bool firsLastNameIsValid = false;
+        bool firstNameIsValid = false;
+        bool addressIsValid = false;
+        bool telefIsValid = false;
+        bool correoIsValid = false;
 
         public UC_Clientes()
         {
@@ -42,19 +27,19 @@ namespace SGV_CLP.GUI
             // Llenamos la tabla Clientes
             llenarTablaCliente();
 
-
             // Limitamos la longitud segun los requisitos
-            txtCedulaCliente.MaxLength = limit_cc_length;
-            txtPrimerNombreCliente.MaxLength = limit_nombre_length;
-            txtSegundoNombreCliente.MaxLength = limit_nombre_length;
-            txtPrimerApellidoCliente.MaxLength = limit_apellido_length;
-            txtSegundoApellidoCliente.MaxLength = limit_apellido_length;
-            txtDireccionCliente.MaxLength = limit_direccion_length;
-            txtTelefonoCliente.MaxLength = limit_telef_length;
+            txtCedulaCliente.MaxLength = Constants.LIMIT_CC_LENGTH;
+            txtPrimerNombreCliente.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
+            txtSegundoNombreCliente.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
+            txtPrimerApellidoCliente.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
+            txtSegundoApellidoCliente.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
+            txtDireccionCliente.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
+            txtTelefonoCliente.MaxLength = Constants.LIMIT_TELEF_LENGTH;
+            txtCorreoCliente.MaxLength = Constants.LIMIT_CORREO_LENGTH;
 
+            //Hide Labels
             siticoneHtmlLabel_cc_correct_length.Hide();
             siticoneHtmlLabel_cc_valida.Hide();
-
             siticoneHtmlLabel_correct_length_telef.Hide();
             siticoneHtmlLabel_correct_email.Hide();
 
@@ -70,8 +55,9 @@ namespace SGV_CLP.GUI
             txtSegundoApellidoCliente.Text = string.Empty;
             txtDireccionCliente.Text = string.Empty;
             txtTelefonoCliente.Text = string.Empty;
+            txtCorreoCliente.Text = string.Empty;
         }
-        
+
         public void llenarTablaCliente()
         {
             if (clientesRegistrados != null)
@@ -85,18 +71,18 @@ namespace SGV_CLP.GUI
                 }
             }
         }
-        
+
         private void registrarCliente(object sender, EventArgs e)
         {
-            var cliente = new Cliente 
-            { 
-                Cc_Cliente = txtCedulaCliente.Text, 
-                Primer_Nombre = txtPrimerNombreCliente.Text, 
-                Segundo_Nombre = txtSegundoNombreCliente.Text, 
-                Primer_Apellido = txtPrimerApellidoCliente.Text, 
-                Segundo_Apellido = txtSegundoApellidoCliente.Text, 
-                Direccion_Domicilio = txtDireccionCliente.Text, 
-                Telefono = txtTelefonoCliente.Text, 
+            var cliente = new Cliente
+            {
+                Cc_Cliente = txtCedulaCliente.Text,
+                Primer_Nombre = txtPrimerNombreCliente.Text,
+                Segundo_Nombre = txtSegundoNombreCliente.Text,
+                Primer_Apellido = txtPrimerApellidoCliente.Text,
+                Segundo_Apellido = txtSegundoApellidoCliente.Text,
+                Direccion_Domicilio = txtDireccionCliente.Text,
+                Telefono = txtTelefonoCliente.Text,
                 Correo_Electronico = txtCorreoCliente.Text
             };
 
@@ -141,36 +127,15 @@ namespace SGV_CLP.GUI
 
         private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar)) {
+
+            if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // comprueba que la cc == 10 y muesta mensaje de correcto
-            if (txtCedulaCliente.Text.Length + 1 == limit_cc_length && control_cc && e.KeyChar != '\b')
-            {
-                control_cc = false;
-                count_correct_fields++;
-                siticoneHtmlLabel_cc_wrong_length.Hide();
-
-                siticoneHtmlLabel_cc_correct_length.Show();
-            }
-            else if(txtCedulaCliente.Text.Length - 1 < limit_cc_length && !control_cc && e.KeyChar == '\b')
-            {
-                // Borro 1 char de la cc teniendo ya completos los 10 previamente
-                control_cc = true;
-                count_correct_fields--;
-                siticoneHtmlLabel_cc_invalida.Show();
-                siticoneHtmlLabel_cc_wrong_length.Show();
-
-                siticoneHtmlLabel_cc_correct_length.Hide();
-                siticoneHtmlLabel_cc_valida.Hide();
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtCedulaCliente_KeyUp(object sender, KeyEventArgs e)
@@ -180,7 +145,7 @@ namespace SGV_CLP.GUI
 
         public void controlCedula()
         {
-            if (ValidarCedula(txtCedulaCliente.Text))
+            if (ValidationUtils.ValidarCedula(txtCedulaCliente.Text))
             {
                 siticoneHtmlLabel_cc_invalida.Hide();
                 siticoneHtmlLabel_cc_valida.Show();
@@ -243,90 +208,6 @@ namespace SGV_CLP.GUI
             }
         }
 
-        private void txtSegundoNombreCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSegundoApellidoCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneHtmlLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneHtmlLabel13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneHtmlLabel_cc_correct_length_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneHtmlLabel_cc_valida_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TabRegistrar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneHtmlLabel_cc_wrong_length_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneHtmlLabel_correct_length_telef_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void siticoneHtmlLabel_wrong_length_telef_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCorreoCliente_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (IsValidEmail(txtCorreoCliente.Text) && control_correo)
-            {
-                // El correo es valido por primera vez
-                siticoneHtmlLabel_wrong_email.Hide();
-                siticoneHtmlLabel_correct_email.Show();
-
-                count_correct_fields++;
-                control_correo = false;
-
-            }
-            else if(IsValidEmail(txtCorreoCliente.Text) && !control_correo)
-            {
-                // El correo es valido por mas de una vez
-                siticoneHtmlLabel_wrong_email.Hide();
-                siticoneHtmlLabel_correct_email.Show();
-            }else if (!IsValidEmail(txtCorreoCliente.Text) && !control_correo)
-            {
-                // El correo es invalido un vez fue valido anteriormente
-                siticoneHtmlLabel_wrong_email.Show();
-                siticoneHtmlLabel_correct_email.Hide();
-
-                count_correct_fields--;
-                control_correo = true;
-            }
-            else
-            {
-                // El correo es invalido sin ser valido anteriormente
-            }
-
-            validateFieldsCounter();
-        }
-
         private void txtSegundoApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar))
@@ -336,19 +217,6 @@ namespace SGV_CLP.GUI
                 MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtSegundoApellidoCliente.Text.Length + 1 > 0 && control_apell2 && e.KeyChar != '\b')
-            {
-                control_apell2 = false;
-                count_correct_fields++;
-            }
-            else if (txtSegundoApellidoCliente.Text.Length - 1 == 0 && !control_apell2 && e.KeyChar == '\b')
-            {
-                control_apell2 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtCorreoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -361,17 +229,7 @@ namespace SGV_CLP.GUI
                 MessageBox.Show("Ingrese únicamente letras o números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (txtCorreoCliente.Text.Length + 1 > 0 && control_direc && e.KeyChar != '\b')
-            {
-                control_direc = false;
-                count_correct_fields++;
-            }
-            else if (txtCorreoCliente.Text.Length - 1 == 0 && !control_direc && e.KeyChar == '\b')
-            {
-                control_direc = true;
-                count_correct_fields--;
-            }
-            validateFieldsCounter();
+
         }
 
         private void txtPrimerApellidoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -384,18 +242,6 @@ namespace SGV_CLP.GUI
                 return;
             }
 
-            if (txtPrimerApellidoCliente.Text.Length + 1 > 0 && control_apell1 && e.KeyChar != '\b')
-            {
-                control_apell1 = false;
-                count_correct_fields++;
-            }
-            else if (txtPrimerApellidoCliente.Text.Length - 1 == 0 && !control_apell1 && e.KeyChar == '\b')
-            {
-                control_apell1 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtSegundoNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -407,19 +253,6 @@ namespace SGV_CLP.GUI
                 MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtSegundoNombreCliente.Text.Length + 1> 0 && control_nombre2 && e.KeyChar != '\b') 
-            {
-                control_nombre2 = false;
-                count_correct_fields++;
-            }
-            else if (txtSegundoNombreCliente.Text.Length - 1== 0 && !control_nombre2 && e.KeyChar == '\b')
-            {
-                control_nombre2 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtPrimerNombreCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -432,41 +265,16 @@ namespace SGV_CLP.GUI
                 return;
             }
 
-            if (txtPrimerNombreCliente.Text.Length + 1 > 0 && control_nombre1 && e.KeyChar != '\b')
-            {
-                control_nombre1 = false;
-                count_correct_fields++;
-            }
-            else if (txtPrimerNombreCliente.Text.Length - 1 == 0 && !control_nombre1 && e.KeyChar == '\b')
-            {
-                control_nombre1 = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
         private void txtDireccionCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (e.KeyChar != '\b' && e.KeyChar != '.' && e.KeyChar != ';' && e.KeyChar != ' ' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
-                MessageBox.Show("Ingrese únicamente letras o números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese únicamente letras, números, \";\" o \".\"!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
-            if (txtDireccionCliente.Text.Length +1 > 0 && control_direc && e.KeyChar != '\b')
-            {
-                control_direc = false;
-                count_correct_fields++;
-            }
-            else if (txtDireccionCliente.Text.Length -1 == 0 && !control_direc && e.KeyChar == '\b')
-            {
-                control_direc = true;
-                count_correct_fields--;
-            }
-
-            validateFieldsCounter();
         }
 
         private void txtTelefonoCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -478,87 +286,141 @@ namespace SGV_CLP.GUI
                 MessageBox.Show("Ingrese únicamente números!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+        }
+        private void validateFieldsCounter()
+        {
+            Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCedulaCliente.Text);
+        }
 
-            if (txtTelefonoCliente.Text.Length +1 == limit_telef_length && control_telef && e.KeyChar != '\b')
+        private void txtCorreoCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && !correoIsValid)
             {
-                control_telef = false;
+                //El correo es válido
+                siticoneHtmlLabel_wrong_email.Hide();
+                siticoneHtmlLabel_correct_email.Show();
                 count_correct_fields++;
+                correoIsValid = true;
+
+            }
+            else if (!ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && correoIsValid)
+            {
+                // El correo es invalido pero fue valido anteriormente
+                siticoneHtmlLabel_wrong_email.Show();
+                siticoneHtmlLabel_correct_email.Hide();
+                count_correct_fields--;
+                correoIsValid = false;
+            }
+            validateFieldsCounter();
+        }
+
+        private void txtTelefonoCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTelefonoCliente.Text.Length == Constants.LIMIT_TELEF_LENGTH && !telefIsValid)
+            {
                 siticoneHtmlLabel_wrong_length_telef.Hide();
                 siticoneHtmlLabel_correct_length_telef.Show();
+                if (ValidationUtils.IsValidPhoneNumber(txtTelefonoCliente.Text))
+                {
+                    siticoneHtmlLabel_valid_telef.Show();
+                    siticoneHtmlLabel_invalid_telef.Hide();
+                    telefIsValid = true;
+                    count_correct_fields++;
+                }
+                else
+                {
+                    siticoneHtmlLabel_valid_telef.Hide();
+                    siticoneHtmlLabel_invalid_telef.Show();
+                    telefIsValid = false;
+                    count_correct_fields--;
+                }
             }
-            else if (txtTelefonoCliente.Text.Length -1 != limit_telef_length && !control_telef && e.KeyChar == '\b')
+            else if (txtTelefonoCliente.Text.Length < Constants.LIMIT_TELEF_LENGTH && telefIsValid)
             {
-                control_telef = true;
-                count_correct_fields--;
                 siticoneHtmlLabel_wrong_length_telef.Show();
                 siticoneHtmlLabel_correct_length_telef.Hide();
+                telefIsValid = false;
+                count_correct_fields--;
+            }
+            validateFieldsCounter();
+        }
+
+        private void txtDireccionCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDireccionCliente.Text.Length > 0 && !addressIsValid)
+            {
+                addressIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtDireccionCliente.Text.Length == 0 && addressIsValid)
+            {
+                addressIsValid = false;
+                count_correct_fields--;
             }
 
             validateFieldsCounter();
         }
-        private void validateFieldsCounter()
+
+
+
+        private void txtPrimerNombreCliente_TextChanged(object sender, EventArgs e)
         {
-            Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidarCedula(txtCedulaCliente.Text);   
+            if (txtPrimerNombreCliente.Text.Length > 0 && !firstNameIsValid)
+            {
+                firstNameIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtPrimerNombreCliente.Text.Length == 0 && firstNameIsValid)
+            {
+                firstNameIsValid = false;
+                count_correct_fields--;
+            }
+
+            validateFieldsCounter();
         }
 
-        public static bool ValidarCedula(string cedula)
+
+
+
+        private void txtPrimerApellidoCliente_TextChanged(object sender, EventArgs e)
         {
-            // Verificar que la cédula tenga 10 dígitos
-            if (cedula.Length != 10)
+            if (txtPrimerApellidoCliente.Text.Length > 0 && !firsLastNameIsValid)
             {
-                return false;
+                firsLastNameIsValid = true;
+                count_correct_fields++;
+            }
+            else if (txtPrimerApellidoCliente.Text.Length == 0 && firsLastNameIsValid)
+            {
+                firsLastNameIsValid = false;
+                count_correct_fields--;
             }
 
-            int tercerDigito = int.Parse(cedula[2].ToString());
-
-            // Verificar que el tercer dígito sea entre 0 y 5
-            if (tercerDigito < 0 || tercerDigito > 5)
-            {
-                return false;
-            }
-
-            // Verificar el último dígito de la cédula
-            int ultimoDigito = int.Parse(cedula[9].ToString());
-
-            int suma = 0;
-
-            for (int i = 0; i < 9; i++)
-            {
-                int digito = int.Parse(cedula[i].ToString());
-
-                if (i % 2 == 0)
-                {
-                    digito *= 2;
-
-                    if (digito > 9)
-                    {
-                        digito -= 9;
-                    }
-                }
-
-                suma += digito;
-            }
-
-            int digitoVerificador = 10 - (suma % 10);
-
-            if (digitoVerificador == 10)
-            {
-                digitoVerificador = 0;
-            }
-
-            return ultimoDigito == digitoVerificador;
+            validateFieldsCounter();
         }
 
-        public static bool IsValidEmail(string email)
+        private void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
-            // Define la expresión regular para validar un correo electrónico
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            // comprueba que la cc == 10 y muesta mensaje de correcto
+            if (txtCedulaCliente.Text.Length == Constants.LIMIT_CC_LENGTH && !ccIsValid)
+            {
+                ccIsValid = true;
+                count_correct_fields++;
+                siticoneHtmlLabel_cc_wrong_length.Hide();
+                siticoneHtmlLabel_cc_correct_length.Show();
+            }
+            else if (txtCedulaCliente.Text.Length < Constants.LIMIT_CC_LENGTH && ccIsValid)
+            {
+                // Borro 1 char de la cc teniendo ya completos los 10 previamente
+                ccIsValid = false;
+                count_correct_fields--;
+                siticoneHtmlLabel_cc_invalida.Show();
+                siticoneHtmlLabel_cc_wrong_length.Show();
 
-            // Crea un objeto Regex con la expresión regular
-            Regex regex = new Regex(pattern);
+                siticoneHtmlLabel_cc_correct_length.Hide();
+                siticoneHtmlLabel_cc_valida.Hide();
+            }
 
-            // Valida el correo electrónico
-            return regex.IsMatch(email);
+            validateFieldsCounter();
         }
     }
 }

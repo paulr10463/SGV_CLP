@@ -1,4 +1,6 @@
 ﻿
+using SGV_CLP.GUI;
+
 namespace SGV_CLP
 {
     partial class MainMenu
@@ -32,6 +34,7 @@ namespace SGV_CLP
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton7 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneCirclePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticoneCirclePictureBox();
             this.siticoneButton5 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -48,26 +51,35 @@ namespace SGV_CLP
             this.uC_Productos1 = new SGV_CLP.GUI.UC_Productos();
             this.uC_Proveedores1 = new SGV_CLP.GUI.UC_Proveedores();
             this.uC_Administracion1 = new SGV_CLP.GUI.UC_Administracion();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneCirclePictureBox1)).BeginInit();
             this.siticoneCustomGradientPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticonePanel1
             // 
+            this.siticonePanel1.Controls.Add(this.flowLayoutPanel1);
+            this.siticonePanel1.Controls.Add(this.siticoneHtmlLabel2);
             this.siticonePanel1.Controls.Add(this.siticoneButton7);
             this.siticonePanel1.Controls.Add(this.siticoneCirclePictureBox1);
-            this.siticonePanel1.Controls.Add(this.siticoneButton5);
-            this.siticonePanel1.Controls.Add(this.siticoneButton6);
-            this.siticonePanel1.Controls.Add(this.siticoneButton4);
-            this.siticonePanel1.Controls.Add(this.siticoneButton3);
-            this.siticonePanel1.Controls.Add(this.siticoneButton2);
-            this.siticonePanel1.Controls.Add(this.siticoneButton1);
             this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.siticonePanel1.Location = new System.Drawing.Point(0, 0);
             this.siticonePanel1.Name = "siticonePanel1";
             this.siticonePanel1.Size = new System.Drawing.Size(227, 1033);
             this.siticonePanel1.TabIndex = 3;
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(52, 21);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(14, 23);
+            this.siticoneHtmlLabel2.TabIndex = 13;
+            this.siticoneHtmlLabel2.Text = "a";
             // 
             // siticoneButton7
             // 
@@ -91,7 +103,7 @@ namespace SGV_CLP
             // 
             this.siticoneCirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("siticoneCirclePictureBox1.Image")));
             this.siticoneCirclePictureBox1.ImageRotate = 0F;
-            this.siticoneCirclePictureBox1.Location = new System.Drawing.Point(25, 43);
+            this.siticoneCirclePictureBox1.Location = new System.Drawing.Point(25, 63);
             this.siticoneCirclePictureBox1.Name = "siticoneCirclePictureBox1";
             this.siticoneCirclePictureBox1.ShadowDecoration.Mode = Siticone.Desktop.UI.WinForms.Enums.ShadowMode.Circle;
             this.siticoneCirclePictureBox1.Size = new System.Drawing.Size(174, 161);
@@ -114,7 +126,7 @@ namespace SGV_CLP
             this.siticoneButton5.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton5.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton5.Location = new System.Drawing.Point(-2, 473);
+            this.siticoneButton5.Location = new System.Drawing.Point(3, 207);
             this.siticoneButton5.Name = "siticoneButton5";
             this.siticoneButton5.PressedDepth = 0;
             this.siticoneButton5.Size = new System.Drawing.Size(226, 45);
@@ -139,7 +151,7 @@ namespace SGV_CLP
             this.siticoneButton6.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton6.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton6.Location = new System.Drawing.Point(-2, 422);
+            this.siticoneButton6.Location = new System.Drawing.Point(3, 156);
             this.siticoneButton6.Name = "siticoneButton6";
             this.siticoneButton6.PressedDepth = 0;
             this.siticoneButton6.Size = new System.Drawing.Size(226, 45);
@@ -165,7 +177,7 @@ namespace SGV_CLP
             this.siticoneButton4.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton4.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton4.Location = new System.Drawing.Point(3, 269);
+            this.siticoneButton4.Location = new System.Drawing.Point(3, 3);
             this.siticoneButton4.Name = "siticoneButton4";
             this.siticoneButton4.PressedDepth = 0;
             this.siticoneButton4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -191,7 +203,7 @@ namespace SGV_CLP
             this.siticoneButton3.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton3.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton3.Location = new System.Drawing.Point(0, 320);
+            this.siticoneButton3.Location = new System.Drawing.Point(3, 54);
             this.siticoneButton3.Name = "siticoneButton3";
             this.siticoneButton3.PressedDepth = 0;
             this.siticoneButton3.Size = new System.Drawing.Size(226, 45);
@@ -216,7 +228,7 @@ namespace SGV_CLP
             this.siticoneButton2.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton2.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton2.Location = new System.Drawing.Point(-2, 371);
+            this.siticoneButton2.Location = new System.Drawing.Point(3, 105);
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.PressedDepth = 0;
             this.siticoneButton2.Size = new System.Drawing.Size(226, 45);
@@ -241,7 +253,7 @@ namespace SGV_CLP
             this.siticoneButton1.ForeColor = System.Drawing.Color.Black;
             this.siticoneButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton1.ImageOffset = new System.Drawing.Point(10, 0);
-            this.siticoneButton1.Location = new System.Drawing.Point(-2, 524);
+            this.siticoneButton1.Location = new System.Drawing.Point(3, 258);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.PressedDepth = 0;
             this.siticoneButton1.Size = new System.Drawing.Size(226, 45);
@@ -324,6 +336,20 @@ namespace SGV_CLP
             this.uC_Administracion1.Size = new System.Drawing.Size(1675, 1033);
             this.uC_Administracion1.TabIndex = 0;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.siticoneButton4);
+            this.flowLayoutPanel1.Controls.Add(this.siticoneButton3);
+            this.flowLayoutPanel1.Controls.Add(this.siticoneButton2);
+            this.flowLayoutPanel1.Controls.Add(this.siticoneButton6);
+            this.flowLayoutPanel1.Controls.Add(this.siticoneButton5);
+            this.flowLayoutPanel1.Controls.Add(this.siticoneButton1);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 255);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(221, 323);
+            this.flowLayoutPanel1.TabIndex = 14;
+            // 
             // MainMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -336,8 +362,10 @@ namespace SGV_CLP
             this.Text = "SGV-CLP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.siticonePanel1.ResumeLayout(false);
+            this.siticonePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticoneCirclePictureBox1)).EndInit();
             this.siticoneCustomGradientPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -355,10 +383,12 @@ namespace SGV_CLP
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton7;
         private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel1;
         private GUI.UC_Clientes uC_Clientes1;
-        private GUI.UC_Ventas uC_Ventas1;
         private GUI.UC_Compras uC_Compras1;
         private GUI.UC_Productos uC_Productos1;
         private GUI.UC_Proveedores uC_Proveedores1;
         private GUI.UC_Administracion uC_Administracion1;
+        private UC_Ventas uC_Ventas1;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
