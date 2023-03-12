@@ -88,9 +88,9 @@
             FechaHora_not_choose_in_Lote_label.Location = new Point(189, 349);
             FechaHora_not_choose_in_Lote_label.Margin = new Padding(3, 4, 3, 4);
             FechaHora_not_choose_in_Lote_label.Name = "FechaHora_not_choose_in_Lote_label";
-            FechaHora_not_choose_in_Lote_label.Size = new Size(234, 22);
+            FechaHora_not_choose_in_Lote_label.Size = new Size(240, 22);
             FechaHora_not_choose_in_Lote_label.TabIndex = 76;
-            FechaHora_not_choose_in_Lote_label.Text = "Debe tener una fecha y hora válida";
+            FechaHora_not_choose_in_Lote_label.Text = "Debe tener una fecha y hora válidas";
             FechaHora_not_choose_in_Lote_label.Visible = false;
             // 
             // GBFechaHoraElab

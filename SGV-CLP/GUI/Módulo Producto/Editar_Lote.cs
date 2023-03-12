@@ -36,7 +36,7 @@ namespace SGV_CLP.GUI.Módulo_Producto
             SBAceptar.Enabled = false;
         }
 
-        private void SepararFechayHora() 
+        private void SepararFechayHora()
         {
             string[] fechaHora = ProductoMapper.ConsultarAtributoLote(cod_Lote, "fecha").Split(' ');
             fecha = fechaHora[0];

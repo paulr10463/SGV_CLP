@@ -498,7 +498,7 @@ namespace SGV_CLP.GUI
             if (SRBFechaActual.Checked)
             {
                 var LoteConFechaActual = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("ddMM"),
+                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DateTime.Now.ToString("yyyyMMddHHmmss"),
                 ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
                 DateTime.Now);
@@ -507,7 +507,7 @@ namespace SGV_CLP.GUI
             else
             {
                 var LoteConDateTimePicker = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("ddMM"),
+                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("yyyyMMdd") + DTPHoraLote.Value.ToString("HHmmss"),
                 ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
                 Convert.ToInt32(txtCantidad.Text),
                 DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
