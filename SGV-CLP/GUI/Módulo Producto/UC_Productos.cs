@@ -101,6 +101,7 @@ namespace SGV_CLP.GUI
                 }
             }
             LlenarComboBoxesProductos();
+            // aquí debería llamar a método de llenar comboboxes de Administración hechos por DAVID
         }
 
         private void SBExaminar_Click(object sender, EventArgs e)
