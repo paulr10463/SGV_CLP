@@ -1,5 +1,5 @@
 ﻿using SGV_CLP.Classes;
-using SGV_CLP.GUI.Módulo_Clientes;
+using SGV_CLP.GUI.Customers_Module;
 using SGV_CLP.GUI.Módulo_Proveedores;
 using Siticone.Desktop.UI.WinForms;
 using System;

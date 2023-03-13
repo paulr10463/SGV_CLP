@@ -1,7 +1,7 @@
 ﻿using SGV_CLP.Classes;
 using SGV_CLP.Classes.Módulo_Administración;
 using SGV_CLP.GUI.Módulo_Administración;
-using SGV_CLP.GUI.Módulo_Clientes;
+using SGV_CLP.GUI.Customers_Module;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

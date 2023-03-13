@@ -19,7 +19,7 @@
     <Compile Update="GUI\Módulo Administración\UC_Administracion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\Customers_Module\UC_Customer.cs">
+    <Compile Update="GUI\Customers Module\UC_Customer.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Producto\UC_Productos.cs">
