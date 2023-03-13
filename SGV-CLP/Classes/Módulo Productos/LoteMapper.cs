@@ -112,5 +112,23 @@ namespace SGV_CLP.Classes
             return valorAtributo;
         }
 
+        public static string ConsultarUltimoCodLote(string cod_Producto)
+        {
+            string codLote = string.Empty;
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand($"SELECT \"cod_Lote\" FROM public.\"Lote\" WHERE \"cod_Lote\" ~* '^{cod_Producto}[0-9]+.*$' ORDER BY \"cod_Lote\" DESC LIMIT 1", connection))
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        codLote = reader["cod_Lote"].ToString();
+                    }
+                }
+            }
+            return codLote;
+        }
+
     }
 }

@@ -21,9 +21,9 @@ namespace SGV_CLP.GUI
 {
     public partial class UC_Productos : UserControl
     {
-        List<Producto> ProductosRegistrados = ProductoMapper.ConsultarProductos();
-        List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
-        List<Lote> LoteRegistrados = LoteMapper.ConsultarLotes();
+        List<Producto> ProductosRegistrados;
+        List<string> NombresProductosRegistrados;
+        List<Lote> LoteRegistrados;
 
         bool isValidIdProd, isValidNombreProd, isValidCategoria, isValidPE, isValidPVP, isValidRutaImg; // Para validar los campos de Producto
         bool isValidNombProdEnLote, isValidCantidad, isValidFechaHora; // Para validar los campos de Lote
@@ -31,6 +31,11 @@ namespace SGV_CLP.GUI
         public UC_Productos()
         {
             InitializeComponent();
+
+            ProductosRegistrados = ProductoMapper.ConsultarProductos();
+            NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+            LoteRegistrados = LoteMapper.ConsultarLotes();
+
             LlenarTablaProducto();
             LlenarTablaLote();
             LlenarComboBoxesProductos();
@@ -87,7 +92,6 @@ namespace SGV_CLP.GUI
             rutaImagen_not_valid_label.Hide();
         }
 
-
         // Llenar tabla Producto
         public void LlenarTablaProducto()
         {
@@ -100,8 +104,6 @@ namespace SGV_CLP.GUI
                     SDGVProducto.Rows.Add(producto.Id, producto.Nombre, producto.PrecioElaboracion, producto.PVP, producto.Categoria, producto.CantidadTotal);
                 }
             }
-            LlenarComboBoxesProductos();
-            // aquí debería llamar a método de llenar comboboxes de Administración hechos por DAVID
         }
 
         private void SBExaminar_Click(object sender, EventArgs e)
@@ -130,6 +132,7 @@ namespace SGV_CLP.GUI
             ProductoMapper.IngresarProducto(producto);
 
             LlenarTablaProducto();
+            LlenarComboBoxesProductos();
             VaciarCamposProd();
             MainMenu.uc_ventas.loadProducts();
 
@@ -166,6 +169,7 @@ namespace SGV_CLP.GUI
                 }
             }
             LlenarTablaProducto();
+            LlenarComboBoxesProductos();
             MainMenu.uc_ventas.loadProducts();
         }
 
@@ -496,11 +500,22 @@ namespace SGV_CLP.GUI
         // Añadir Lote
         private void SBAniadirLote_Click(object sender, EventArgs e)
         {
+            string codLote = string.Empty;
+            string codProducto = ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString());
+            string ultimoCodLote = LoteMapper.ConsultarUltimoCodLote(codProducto);
+            if (ultimoCodLote != string.Empty)
+            {
+                codLote = ultimoCodLote.Substring(0, 4) + (Convert.ToInt32(ultimoCodLote.Substring(4)) + 1).ToString("000");
+            }
+            else
+            {
+                codLote = codProducto + "0001";
+            }
             if (SRBFechaActual.Checked)
             {
                 var LoteConFechaActual = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DateTime.Now.ToString("yyyyMMddHHmmss"),
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
+                codLote,
+                codProducto,
                 Convert.ToInt32(txtCantidad.Text),
                 DateTime.Now);
                 LoteMapper.IngresarLote(LoteConFechaActual);
@@ -508,8 +523,8 @@ namespace SGV_CLP.GUI
             else
             {
                 var LoteConDateTimePicker = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("yyyyMMdd") + DTPHoraLote.Value.ToString("HHmmss"),
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
+                codLote,
+                codProducto,
                 Convert.ToInt32(txtCantidad.Text),
                 DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
                 LoteMapper.IngresarLote(LoteConDateTimePicker);

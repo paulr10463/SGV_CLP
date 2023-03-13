@@ -407,6 +407,7 @@ namespace SGV_CLP.GUI
             cBoxCategoria.Margin = new Padding(3, 5, 3, 5);
             cBoxCategoria.Name = "cBoxCategoria";
             cBoxCategoria.Size = new Size(228, 41);
+            cBoxCategoria.StartIndex = 0;
             cBoxCategoria.TabIndex = 44;
             cBoxCategoria.TextOffset = new Point(5, 0);
             cBoxCategoria.SelectedIndexChanged += CBoxCategoria_SelectedIndexChanged;
@@ -616,6 +617,7 @@ namespace SGV_CLP.GUI
             cBConsultarProductoPor.Margin = new Padding(3, 4, 3, 4);
             cBConsultarProductoPor.Name = "cBConsultarProductoPor";
             cBConsultarProductoPor.Size = new Size(311, 46);
+            cBConsultarProductoPor.StartIndex = 0;
             cBConsultarProductoPor.TabIndex = 20;
             cBConsultarProductoPor.SelectedIndexChanged += CBConsultarProductoPor_SelectedIndexChanged;
             // 
@@ -802,7 +804,7 @@ namespace SGV_CLP.GUI
             tabPage1.Name = "tabPage1";
             tabPage1.Size = new Size(1281, 1012);
             tabPage1.TabIndex = 2;
-            tabPage1.Text = "Añadir Lote";
+            tabPage1.Text = "Registrar Lote";
             // 
             // FechaHora_not_choose_in_Lote_label
             // 
@@ -970,10 +972,12 @@ namespace SGV_CLP.GUI
             cBoxProductoLote.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             cBoxProductoLote.ForeColor = Color.FromArgb(68, 88, 112);
             cBoxProductoLote.ItemHeight = 35;
+            cBoxProductoLote.Items.AddRange(new object[] { "Seleccione..." });
             cBoxProductoLote.Location = new Point(544, 232);
             cBoxProductoLote.Margin = new Padding(3, 4, 3, 4);
             cBoxProductoLote.Name = "cBoxProductoLote";
             cBoxProductoLote.Size = new Size(228, 41);
+            cBoxProductoLote.StartIndex = 0;
             cBoxProductoLote.TabIndex = 53;
             cBoxProductoLote.TextOffset = new Point(5, 0);
             cBoxProductoLote.SelectedIndexChanged += CBoxProductoLote_SelectedIndexChanged;
@@ -1248,6 +1252,7 @@ namespace SGV_CLP.GUI
             cBConsultarLotePor.Margin = new Padding(3, 4, 3, 4);
             cBConsultarLotePor.Name = "cBConsultarLotePor";
             cBConsultarLotePor.Size = new Size(311, 46);
+            cBConsultarLotePor.StartIndex = 0;
             cBConsultarLotePor.TabIndex = 24;
             cBConsultarLotePor.SelectedIndexChanged += CBConsultarLotePor_SelectedIndexChanged;
             // 
