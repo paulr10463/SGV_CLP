@@ -120,8 +120,6 @@ namespace SGV_CLP.GUI.Módulo_Administración
                 count_correct_fields--;
             }
 
-            MessageBox.Show("" + count_correct_fields);
-
             validateFieldsCounter_Usuario();
         }
 
