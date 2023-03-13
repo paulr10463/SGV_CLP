@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using SGV_CLP.Classes.Customers_Module;
 using SGV_CLP.GUI;
 using System;
 using System.Collections.Generic;
@@ -13,8 +12,7 @@ namespace SGV_CLP.Classes.Módulo_Administración
     internal class UsuarioMapper
     {
         private static readonly string _connectionString = "Host=localhost:5432;Username=postgres;Password=P@ssw0rd;Database=SGV-CLP";
-
-
+        
         public static void IngresarUsuario(Usuario usuario)
         {
             // Conexión a BD
@@ -34,9 +32,7 @@ namespace SGV_CLP.Classes.Módulo_Administración
                 cmd.ExecuteNonQuery();
             }
         }
-        //var cliente = new Cliente { Id_Cliente = 1, Nombre = "Joel", Telefono = "0995618466", Fecha_Ingreso = DateTime.Now };
-        //var idCliente = await ClienteMapper.IngresarCliente(cliente);
-        //--------
+
         //READ
         public static Usuario getUser(string userName, string contrasenia)
         {
@@ -57,11 +53,9 @@ namespace SGV_CLP.Classes.Módulo_Administración
             }
             return null;
         }
-        //var cliente = new Cliente { Id_Cliente = 1, Nombre = "Joel", Telefono = "0995618466", Fecha_Ingreso = DateTime.Now };
-        //var idCliente = await ClienteMapper.IngresarCliente(cliente);
-        //--------
-        //READ
-        public static async Task<Customer> getUserData(string CC_Cliente)
+
+        //READ --- NO SE USA
+        /*public static async Task<Cliente> getUserData(string CC_Cliente)
         {
             await using NpgsqlConnection connection = new(_connectionString);
             connection.Open();
@@ -81,9 +75,138 @@ namespace SGV_CLP.Classes.Módulo_Administración
                 string telefono = (string)reader["telefono"];
                 string correoElectronico = (string)reader["correo_Electronico"];
                 string ccCLiente = (string)reader["cc_Cliente"];
-                return new Customer(ccCLiente, primerNombre, segundoNombre, primerApellido, segundoApellido, direccionDomicilio, telefono, correoElectronico);
+                return new Cliente(ccCLiente, primerNombre, segundoNombre, primerApellido, segundoApellido, direccionDomicilio, telefono, correoElectronico);
             }
             return null;
+        }*/
+
+        // ###########################################################################
+        // Eliminar Usuario
+        public static void EliminarUsuario(string cc_User)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("DELETE FROM public.\"Usuario\" WHERE \"cc_Usuario\" = @cc_Usuario", connection))
+            {
+                cmd.Parameters.AddWithValue("@cc_Usuario", cc_User);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        //  Editar Usuario 
+        public static void EditarUsuario(string cc_User, string userName, string passw, string primerNomb, string segNomb,
+            string primerApell, string segApell, string cargo)
+        {
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+
+            using (var cmd = new NpgsqlCommand("UPDATE \"Usuario\" SET \"userName\" = @username, \"contrasenia\" = @passw, \"primer_Nombre\" = @primerNomb, " +
+                "\"segundo_Nombre\" = @segNomb, \"primer_Apellido\" = @primerApell, \"segundo_Apellido\" = @segApell, \"cargo\" = @cargo " +
+                "WHERE \"cc_Usuario\" = @cc_Usuario", connection))
+            {
+                cmd.Parameters.AddWithValue("@cc_Usuario", cc_User);
+                cmd.Parameters.AddWithValue("@username", userName);
+                cmd.Parameters.AddWithValue("@passw", passw);
+                cmd.Parameters.AddWithValue("@primerNomb", primerNomb);
+                cmd.Parameters.AddWithValue("@segNomb", segNomb);
+                cmd.Parameters.AddWithValue("@primerApell", primerApell);
+                cmd.Parameters.AddWithValue("@segApell", segApell);
+                cmd.Parameters.AddWithValue("@cargo", cargo);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Consultar Usuarios (PARA LLENAR DATAGRID)
+        public static List<Usuario> ConsultarUsuarios()
+        {
+            List<Usuario> usuariosRegistrados = new List<Usuario>();
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM \"Usuario\"", connection))
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        usuariosRegistrados.Add(new Usuario(
+                            reader.GetString(0), 
+                            reader.GetString(1), 
+                            reader.GetString(2), 
+                            reader.GetString(3),
+                            !reader.IsDBNull(4) ? reader.GetString(4):null, 
+                            reader.GetString(5),
+                            !reader.IsDBNull(4) ? reader.GetString(6) : null,
+                            reader.GetString(7)));
+                    }
+                }
+            }
+            return usuariosRegistrados;
+        }
+
+        // Consultar un atributo de un Usuario (PARA LLENAR CAMPOS EN PANTALLA EDITAR)
+        public static string ConsultarAtributoUsuario(string cc_User, string atributo)
+        {
+            string valorAtributo = string.Empty;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var cmd = new NpgsqlCommand($"SELECT \"{atributo}\" FROM \"Usuario\" WHERE \"cc_Usuario\" = @cc_Usuario", connection))
+                {
+                    cmd.Parameters.AddWithValue("@cc_Usuario", cc_User);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            valorAtributo = reader.GetValue(0).ToString();
+                        }
+                    }
+                }
+            }
+            return valorAtributo;
+        }
+
+        // Verificar existencia de un Usuario con un cc_Usuario (PARA MOSTRAR LABEL DE QUE EL USUARIO YA EXISTE)
+        public static bool UsernameExiste(string userName)
+        {
+            bool existe = false;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM public.\"Usuario\" WHERE \"userName\" ILIKE @userName", connection))
+                {
+                    command.Parameters.AddWithValue("@userName", userName);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+            }
+            return existe;
+        }
+
+        public static bool ccUserExiste(string cc)
+        {
+            bool existe = false;
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new NpgsqlCommand("SELECT * FROM public.\"Usuario\" WHERE \"cc_Usuario\" ILIKE @cc", connection))
+                {
+                    command.Parameters.AddWithValue("@cc", cc);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            existe = true;
+                        }
+                    }
+                }
+            }
+            return existe;
         }
 
     }
