@@ -267,6 +267,11 @@ namespace SGV_CLP.GUI.Módulo_Administración
             }
         }
 
+        private void siticoneHtmlLabel_correct_length_contra_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void txt_EditarApell1_TextChanged(object sender, EventArgs e)
         {
             if (txt_EditarApell1.Text.Length > 0 && control_apell1)

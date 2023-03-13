@@ -101,7 +101,7 @@ namespace SGV_CLP.GUI
             product_name_Selected = false;
 
             numUpDown_UnidadBase.Value = 0;
-            numUpDown_UnidadExtra.Value = 0;
+            numUpDown_UnidadExtra.Value = 0; 
 
             txt_FiltrarUsuarios.Enabled = false;
             txt_filtrarParametros.Enabled = false;
