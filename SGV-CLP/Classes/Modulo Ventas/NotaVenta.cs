@@ -96,5 +96,13 @@ namespace SGV_CLP.Classes.Modulo_Ventas
                 }
             }
         }
+        public void SetSaleDetail(int codNotaVenta)
+        {
+            for(int i = 0; i < listaDetalleNotaVenta.Count; i++)
+            {
+                listaDetalleNotaVenta[i].codNotaVenta = codNotaVenta;
+                listaDetalleNotaVenta[i].numDetalle = i+1;
+            }
+        }
     }
 }

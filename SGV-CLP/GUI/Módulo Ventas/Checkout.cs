@@ -1,5 +1,6 @@
 ﻿using SGV_CLP.Classes;
 using SGV_CLP.Classes.Módulo_Cliente;
+using SGV_CLP.Classes.Módulo_Ventas;
 using SGV_CLP.Classes.Modulo_Ventas;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
@@ -83,11 +84,14 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
+            
             Cliente clienteFinal = new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
             UC_Ventas.notaVenta.cliente= clienteFinal;
             UC_Ventas.notaVenta.usuario = MainMenu.UsuarioRegistrado;
             UC_Ventas.notaVenta.fechaVenta = DateTime.Now;
             NotaVentaMapper.IngresarNotaVenta(UC_Ventas.notaVenta);
+            UC_Ventas.notaVenta.SetSaleDetail(NotaVentaMapper.ConsultarUltimoID());
+            UC_Ventas.notaVenta.listaDetalleNotaVenta.ForEach(item => DetalleNotaVentaMapper.IngresarDetalleNotaVenta(item));
             UC_Ventas.notaVenta = new NotaVenta();
 
 

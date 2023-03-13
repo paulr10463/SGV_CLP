@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using SGV_CLP.Classes.Módulo_Ventas;
 using SGV_CLP.GUI;
 using System;
 using System.Collections.Generic;
@@ -73,7 +74,7 @@ namespace SGV_CLP.Classes.Modulo_Ventas
                         DateTime fecha = (DateTime)reader["fecha_emision"];
                         notasDeVenta.Add(new NotaVenta(
                             codVenta,
-                            new Cliente(ccCliente,primerNombre,null,primerApellido,null,null,telefono,null),
+                            new Cliente(ccCliente, primerNombre, null, primerApellido, null, null, telefono, null),
                             totalVenta,
                             fecha));
                     }
@@ -140,11 +141,11 @@ namespace SGV_CLP.Classes.Modulo_Ventas
                     fecha)};
             }
             return null;
-                
+
         }
 
 
-            public static void IngresarNotaVenta(NotaVenta notaVenta)
+        public static void IngresarNotaVenta(NotaVenta notaVenta)
         {
             // Conexión a BD
             using var connection = new NpgsqlConnection(_connectionString);
@@ -158,10 +159,29 @@ namespace SGV_CLP.Classes.Modulo_Ventas
                 cmd.Parameters.AddWithValue("@Fecha_emision", notaVenta.fechaVenta);
                 cmd.ExecuteNonQuery();
             }
+
+        }
+
+        public static int ConsultarUltimoID()
+        {
+            int codVenta = -1;
+            using var connection = new NpgsqlConnection(_connectionString);
+            connection.Open();
+            using (var cmd = new NpgsqlCommand("SELECT \"cod_NotaVenta\" FROM public.\"NotaVenta\" ORDER BY \"cod_NotaVenta\" DESC LIMIT 1", connection))
+            {
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        codVenta = (int)reader["cod_NotaVenta"];
+                    }
+                }
+            }
+            return codVenta;
         }
 
 
     }
 
-        
+
 }
