@@ -135,6 +135,7 @@
             DTPHoraLote.TextOffset = new Point(5, 0);
             DTPHoraLote.Value = new DateTime(2023, 2, 6, 1, 19, 20, 716);
             DTPHoraLote.Visible = false;
+            DTPHoraLote.ValueChanged += DTPHoraLote_ValueChanged;
             // 
             // SRBFechaActual
             // 
@@ -199,6 +200,7 @@
             DTPFechaLote.TextOffset = new Point(5, 0);
             DTPFechaLote.Value = new DateTime(2023, 3, 10, 0, 0, 0, 0);
             DTPFechaLote.Visible = false;
+            DTPFechaLote.ValueChanged += DTPFechaLote_ValueChanged;
             // 
             // txtCantidad
             // 

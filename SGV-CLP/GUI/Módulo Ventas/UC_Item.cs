@@ -56,13 +56,21 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         //Activa el boton de añadir si en numericUpDown.value > 0
         private void siticoneNumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if ((int)siticoneNumericUpDown1.Value > 0)
+            int cantidadProducto = int.Parse(ProductoMapper.ConsultarAtributoProducto(this._producto.Id, "cantidad_Total")); 
+            if ((int)siticoneNumericUpDown1.Value > cantidadProducto)
             {
-                siticoneButton1.Enabled = true;
+                MessageBox.Show("Cantidad en inventario de " + _producto.Nombre + " es escasa");
+                siticoneButton1.Enabled = false;
+                siticoneNumericUpDown1.Value -= 1;
+                
             }
-            else
+            else if ((int)siticoneNumericUpDown1.Value == 0 || cantidadProducto == 0)
             {
                 siticoneButton1.Enabled = false;
+            }
+            else if((int)siticoneNumericUpDown1.Value <= cantidadProducto && cantidadProducto > 0)
+            {
+                siticoneButton1.Enabled = true;
             }
         }
 

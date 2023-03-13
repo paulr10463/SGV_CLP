@@ -106,7 +106,7 @@ namespace SGV_CLP.GUI
 
         //Validaciones en el cuadro de Busqueda de ventas
 
-        
+
 
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -118,12 +118,12 @@ namespace SGV_CLP.GUI
             dateTimePickerConsultarVenta.Visible = false;
             switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
-                case 0: Categoria = "cod_NotaVenta"; txtConsultarVenta_TextChanged(null,null); break;
+                case 0: Categoria = "cod_NotaVenta"; txtConsultarVenta_TextChanged(null, null); break;
                 case 1: Categoria = "cc_Cliente"; txtConsultarVenta_TextChanged(null, null); break;
                 case 2: Categoria = "primer_Nombre"; txtConsultarVenta_TextChanged(null, null); break;
                 case 3: Categoria = "primer_Apellido"; txtConsultarVenta_TextChanged(null, null); break;
                 case 4: Categoria = "telefono"; txtConsultarVenta_TextChanged(null, null); break;
-                case 5: 
+                case 5:
                     Categoria = "fecha_emision";
                     dateTimePickerConsultarVenta.Visible = true;
                     dateTimePickerConsultarVenta_ValueChanged(null, null);
@@ -131,25 +131,26 @@ namespace SGV_CLP.GUI
             }
         }
 
-    
+
         private void siticoneDataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-                if (siticoneDataGridView2.Columns[e.ColumnIndex].Name == "EliminarDetalle")
+            if (siticoneDataGridView2.Columns[e.ColumnIndex].Name == "EliminarDetalle")
+            {
+                if (e.RowIndex >= 0)
                 {
-                    if (e.RowIndex >= 0)
+                    if (MessageBox.Show("¿Está seguro de eliminar este detalle de nota de venta?", "Eliminar detalle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("¿Está seguro de eliminar este detalle de nota de venta?", "Eliminar detalle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            DataGridViewRow row = siticoneDataGridView2.Rows[e.RowIndex];
-                            notaVenta.deleteDetailbyProductName(row.Cells[0].Value.ToString());
-                            siticoneDataGridView2.Rows.RemoveAt(e.RowIndex);
-                            UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.notaVenta.calcularTotalVentas().ToString();
-                        }
+                        DataGridViewRow row = siticoneDataGridView2.Rows[e.RowIndex];
+                        notaVenta.deleteDetailbyProductName(row.Cells[0].Value.ToString());
+                        siticoneDataGridView2.Rows.RemoveAt(e.RowIndex);
+                        UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.notaVenta.calcularTotalVentas().ToString();
                     }
                 }
+            }
 
         }
-        public static void resetNumPickers(){
+        public static void resetNumPickers()
+        {
             productosUI.ForEach(item => item.resetComponents());
         }
 
@@ -160,20 +161,20 @@ namespace SGV_CLP.GUI
             {
                 case 0:
                     if (!txtConsultarVenta.Text.Equals(string.Empty))
-                    notasVenta = NotaVentaMapper.ConsultarNotaVenta(Convert.ToInt32(txtConsultarVenta.Text));
+                        notasVenta = NotaVentaMapper.ConsultarNotaVenta(Convert.ToInt32(txtConsultarVenta.Text));
                     break;
 
                 case 1:
                     notasVenta = NotaVentaMapper.ConsultarNotaVenta(txtConsultarVenta.Text);
                     break;
 
-                case >=2 and <=4:
+                case >= 2 and <= 4:
                     notasVenta = NotaVentaMapper.ConsultarNotaVenta(Categoria, txtConsultarVenta.Text);
                     break;
 
             }
-                 
-                llenarTablaVenta(notasVenta);           
+
+            llenarTablaVenta(notasVenta);
         }
 
         public void llenarTablaVenta(List<NotaVenta> notasVenta)
@@ -182,8 +183,8 @@ namespace SGV_CLP.GUI
             {
                 siticoneDataGridView1.Rows.Clear();
                 notasVenta.ForEach(item => siticoneDataGridView1.Rows.Add(
-                    item.codNotaVenta, 
-                    item.cliente.Cc_Cliente, 
+                    item.codNotaVenta,
+                    item.cliente.Cc_Cliente,
                     item.cliente.Primer_Nombre,
                     item.cliente.Primer_Apellido,
                     item.cliente.Telefono,
@@ -232,5 +233,6 @@ namespace SGV_CLP.GUI
             ComboBox_ConsultarVentaPor_SelectedIndexChanged(null, null);
         }
 
-    } 
+
+    }
 }

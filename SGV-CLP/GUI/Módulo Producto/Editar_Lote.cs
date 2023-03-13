@@ -28,7 +28,7 @@ namespace SGV_CLP.GUI.Módulo_Producto
             isValidFechaHora = false;
 
             SepararFechayHora();
-            txtCantidad.Text = ProductoMapper.ConsultarAtributoLote(cod_Lote, "cantidad");
+            txtCantidad.Text = LoteMapper.ConsultarAtributoLote(cod_Lote, "cantidad");
             DTPFechaLote.Value = DateTime.ParseExact(fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             DTPHoraLote.Value = DateTime.ParseExact(hora, "HH:mm:ss", CultureInfo.InvariantCulture);
 
@@ -38,7 +38,7 @@ namespace SGV_CLP.GUI.Módulo_Producto
 
         private void SepararFechayHora()
         {
-            string[] fechaHora = ProductoMapper.ConsultarAtributoLote(cod_Lote, "fecha").Split(' ');
+            string[] fechaHora = LoteMapper.ConsultarAtributoLote(cod_Lote, "fecha").Split(' ');
             fecha = fechaHora[0];
             hora = fechaHora[1];
         }
@@ -59,11 +59,11 @@ namespace SGV_CLP.GUI.Módulo_Producto
         {
             if (SRBFechaActual.Checked)
             {
-                ProductoMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DateTime.Now);
+                LoteMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DateTime.Now);
             }
             else
             {
-                ProductoMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
+                LoteMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
             }
             SystemSounds.Beep.Play();
             MessageBox.Show("Lote de producto editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -113,6 +113,20 @@ namespace SGV_CLP.GUI.Módulo_Producto
         {
             DTPFechaLote.Visible = true;
             DTPHoraLote.Visible = true;
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
+        }
+
+        private void DTPFechaLote_ValueChanged(object sender, EventArgs e)
+        {
+            FechaHora_not_choose_in_Lote_label.Visible = false;
+            isValidFechaHora = true;
+            ValidateLotFields();
+        }
+
+        private void DTPHoraLote_ValueChanged(object sender, EventArgs e)
+        {
             FechaHora_not_choose_in_Lote_label.Visible = false;
             isValidFechaHora = true;
             ValidateLotFields();
