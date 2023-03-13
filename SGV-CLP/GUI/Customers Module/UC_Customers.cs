@@ -2,12 +2,11 @@
 using SGV_CLP.Classes.Customers_Module;
 using SGV_CLP.GUI.Customers_Module;
 using System.Media;
-using System.Text.RegularExpressions;
 
 
 namespace SGV_CLP.GUI
 {
-    public partial class UC_Customer : UserControl
+    public partial class UC_Customers : UserControl
     {
         List<Customer> registeredCustomers;
 
@@ -15,7 +14,7 @@ namespace SGV_CLP.GUI
 
         bool customerIDIsValid, firstLastNameIsValid, firstNameIsValid, phoneNumberIsValid, homeAddressIsValid, eMailIsValid;
 
-        public UC_Customer()
+        public UC_Customers()
         {
             InitializeComponent();
 
