@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using SGV_CLP.Classes.Customers_Module;
 using SGV_CLP.GUI;
 using System;
 using System.Collections.Generic;
@@ -60,7 +61,7 @@ namespace SGV_CLP.Classes.Módulo_Administración
         //var idCliente = await ClienteMapper.IngresarCliente(cliente);
         //--------
         //READ
-        public static async Task<Cliente> getUserData(string CC_Cliente)
+        public static async Task<Customer> getUserData(string CC_Cliente)
         {
             await using NpgsqlConnection connection = new(_connectionString);
             connection.Open();
@@ -80,7 +81,7 @@ namespace SGV_CLP.Classes.Módulo_Administración
                 string telefono = (string)reader["telefono"];
                 string correoElectronico = (string)reader["correo_Electronico"];
                 string ccCLiente = (string)reader["cc_Cliente"];
-                return new Cliente(ccCLiente, primerNombre, segundoNombre, primerApellido, segundoApellido, direccionDomicilio, telefono, correoElectronico);
+                return new Customer(ccCLiente, primerNombre, segundoNombre, primerApellido, segundoApellido, direccionDomicilio, telefono, correoElectronico);
             }
             return null;
         }

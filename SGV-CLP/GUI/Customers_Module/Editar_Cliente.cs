@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Customers_Module;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +11,6 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SGV_CLP.Classes;
 
 namespace SGV_CLP.GUI.Módulo_Clientes
 {
@@ -30,9 +31,9 @@ namespace SGV_CLP.GUI.Módulo_Clientes
             telefIsValid = false;
             correoIsValid = false;
 
-            txtCorreoCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "correo_Electronico");
-            txtDireccionCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "direccion_Domicilio");
-            txtTelefonoCliente.Text = ClienteMapper.ConsultarAtributoCliente(cc_Cliente, "telefono");
+            txtCorreoCliente.Text = CustomerMapper.GetCustomerField(cc_Cliente, "correo_Electronico");
+            txtDireccionCliente.Text = CustomerMapper.GetCustomerField(cc_Cliente, "direccion_Domicilio");
+            txtTelefonoCliente.Text = CustomerMapper.GetCustomerField(cc_Cliente, "telefono");
 
             txtDireccionCliente.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
             txtTelefonoCliente.MaxLength = Constants.LIMIT_TELEF_LENGTH;
@@ -47,7 +48,7 @@ namespace SGV_CLP.GUI.Módulo_Clientes
 
         private void button_EditarCliente_Click(object sender, EventArgs e)
         {
-            ClienteMapper.EditarCliente(cc_Cliente, txtDireccionCliente.Text, txtCorreoCliente.Text, txtTelefonoCliente.Text);
+            CustomerMapper.EditCustomer(cc_Cliente, txtDireccionCliente.Text, txtCorreoCliente.Text, txtTelefonoCliente.Text);
             SystemSounds.Beep.Play();
             MessageBox.Show("Cliente editado con éxito", "Editar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Dispose();

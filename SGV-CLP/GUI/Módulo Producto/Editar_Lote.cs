@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Products_module;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace SGV_CLP.GUI.Módulo_Producto
             isValidFechaHora = false;
 
             SepararFechayHora();
-            txtCantidad.Text = LoteMapper.ConsultarAtributoLote(cod_Lote, "cantidad");
+            txtCantidad.Text = BatchMapper.GetBatchField(cod_Lote, "cantidad");
             DTPFechaLote.Value = DateTime.ParseExact(fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             DTPHoraLote.Value = DateTime.ParseExact(hora, "HH:mm:ss", CultureInfo.InvariantCulture);
 
@@ -38,7 +39,7 @@ namespace SGV_CLP.GUI.Módulo_Producto
 
         private void SepararFechayHora()
         {
-            string[] fechaHora = LoteMapper.ConsultarAtributoLote(cod_Lote, "fecha").Split(' ');
+            string[] fechaHora = BatchMapper.GetBatchField(cod_Lote, "fecha").Split(' ');
             fecha = fechaHora[0];
             hora = fechaHora[1];
         }
@@ -59,11 +60,11 @@ namespace SGV_CLP.GUI.Módulo_Producto
         {
             if (SRBFechaActual.Checked)
             {
-                LoteMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DateTime.Now);
+                BatchMapper.EditBatch(cod_Lote, int.Parse(txtCantidad.Text), DateTime.Now);
             }
             else
             {
-                LoteMapper.EditarLote(cod_Lote, int.Parse(txtCantidad.Text), DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
+                BatchMapper.EditBatch(cod_Lote, int.Parse(txtCantidad.Text), DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
             }
             SystemSounds.Beep.Play();
             MessageBox.Show("Lote de producto editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);

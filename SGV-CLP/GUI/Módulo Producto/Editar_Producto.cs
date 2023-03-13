@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Products_module;
 using Siticone.Desktop.UI.WinForms;
 using System;
 using System.Collections.Generic;
@@ -25,13 +26,13 @@ namespace SGV_CLP.GUI
 
             this.cod_Producto = cod_Producto;
 
-            txtPE.Text = ProductoMapper.ConsultarAtributoProducto(cod_Producto, "precio_Elaboracion").Replace(",", ".");
-            txtPVP.Text = ProductoMapper.ConsultarAtributoProducto(cod_Producto, "precio_Unitario").Replace(",", ".");
-            txtImagen.Text = ProductoMapper.ConsultarAtributoProducto(cod_Producto, "ruta_Imagen");
+            txtPE.Text = ProductMapper.GetProductField(cod_Producto, "precio_Elaboracion").Replace(",", ".");
+            txtPVP.Text = ProductMapper.GetProductField(cod_Producto, "precio_Unitario").Replace(",", ".");
+            txtImagen.Text = ProductMapper.GetProductField(cod_Producto, "ruta_Imagen");
             
             foreach (var item in cBoxCategoria.Items)
             {
-                if ( item.ToString() == ProductoMapper.ConsultarAtributoProducto(cod_Producto, "categoria"))
+                if ( item.ToString() == ProductMapper.GetProductField(cod_Producto, "categoria"))
                 {
                     cBoxCategoria.SelectedIndex = cBoxCategoria.Items.IndexOf(item.ToString());
                 }
@@ -62,7 +63,7 @@ namespace SGV_CLP.GUI
         private void SBEditarProd_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
-            ProductoMapper.EditarProducto(cod_Producto, cBoxCategoria.Text, Convert.ToDouble(txtPE.Text, CultureInfo.InvariantCulture), Convert.ToDouble(txtPVP.Text, CultureInfo.InvariantCulture), txtImagen.Text);
+            ProductMapper.EditProduct(cod_Producto, cBoxCategoria.Text, Convert.ToDouble(txtPE.Text, CultureInfo.InvariantCulture), Convert.ToDouble(txtPVP.Text, CultureInfo.InvariantCulture), txtImagen.Text);
             MessageBox.Show("Producto editado con éxito", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MainMenu.uc_ventas.loadProducts();
             this.Dispose();

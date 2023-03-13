@@ -1,6 +1,6 @@
 ﻿namespace SGV_CLP.GUI
 {
-    partial class UC_Clientes
+    partial class UC_Customer
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -32,44 +32,44 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Clientes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Customer));
             siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             TabRegistrar = new TabPage();
-            siticoneHtmlLabel_valid_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            labelValidPhoneNumber = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel_invalid_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            siticoneHtmlLabel_correct_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            labelCorrectEMail = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel_wrong_email = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtCorreoCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            siticoneHtmlLabel_correct_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtPrimerNombreCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            tbEMail = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            labelCorrectPhoneNumberLength = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            tbFirstName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel_wrong_length_telef = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            siticoneHtmlLabel_cc_correct_length = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            Button_aniadirCliente = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            siticoneHtmlLabel_cc_valida = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            labelCorrectCustomerIDLength = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            buttonAddCustomer = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            labelValidCustomerID = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel_cc_invalida = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtDireccionCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            tbHomeAddress = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel_cc_wrong_length = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel14 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtCedulaCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            txtSegundoNombreCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            tbCustomerID = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            tbMiddleName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel12 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtSegundoApellidoCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            tbSecondLastName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel13 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtTelefonoCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            tbPhoneNumber = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel16 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtPrimerApellidoCliente = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            tbFirstLastName = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel17 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             TabEditar = new TabPage();
             siticoneHtmlLabel_buscarCliente_sin_campo = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            cBConsultarClientePor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            cbSearchCustomerBy = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             txtBuscarClientePor = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            SDGVCliente = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            CustomerDataGridView = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             ColumnaCedula = new DataGridViewTextBoxColumn();
             ColumnaNombres = new DataGridViewTextBoxColumn();
             ColumnaApellidos = new DataGridViewTextBoxColumn();
@@ -82,7 +82,7 @@
             TabRegistrar.SuspendLayout();
             TabEditar.SuspendLayout();
             siticonePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)SDGVCliente).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CustomerDataGridView).BeginInit();
             SuspendLayout();
             // 
             // siticoneTabControl1
@@ -119,33 +119,33 @@
             // 
             // TabRegistrar
             // 
-            TabRegistrar.Controls.Add(siticoneHtmlLabel_valid_telef);
+            TabRegistrar.Controls.Add(labelValidPhoneNumber);
             TabRegistrar.Controls.Add(siticoneHtmlLabel_invalid_telef);
-            TabRegistrar.Controls.Add(siticoneHtmlLabel_correct_email);
+            TabRegistrar.Controls.Add(labelCorrectEMail);
             TabRegistrar.Controls.Add(siticoneHtmlLabel_wrong_email);
             TabRegistrar.Controls.Add(siticoneHtmlLabel2);
-            TabRegistrar.Controls.Add(txtCorreoCliente);
-            TabRegistrar.Controls.Add(siticoneHtmlLabel_correct_length_telef);
-            TabRegistrar.Controls.Add(txtPrimerNombreCliente);
+            TabRegistrar.Controls.Add(tbEMail);
+            TabRegistrar.Controls.Add(labelCorrectPhoneNumberLength);
+            TabRegistrar.Controls.Add(tbFirstName);
             TabRegistrar.Controls.Add(siticoneHtmlLabel_wrong_length_telef);
-            TabRegistrar.Controls.Add(siticoneHtmlLabel_cc_correct_length);
-            TabRegistrar.Controls.Add(Button_aniadirCliente);
-            TabRegistrar.Controls.Add(siticoneHtmlLabel_cc_valida);
+            TabRegistrar.Controls.Add(labelCorrectCustomerIDLength);
+            TabRegistrar.Controls.Add(buttonAddCustomer);
+            TabRegistrar.Controls.Add(labelValidCustomerID);
             TabRegistrar.Controls.Add(siticoneHtmlLabel3);
             TabRegistrar.Controls.Add(siticoneHtmlLabel_cc_invalida);
-            TabRegistrar.Controls.Add(txtDireccionCliente);
+            TabRegistrar.Controls.Add(tbHomeAddress);
             TabRegistrar.Controls.Add(siticoneHtmlLabel_cc_wrong_length);
             TabRegistrar.Controls.Add(siticoneHtmlLabel14);
             TabRegistrar.Controls.Add(siticoneHtmlLabel4);
-            TabRegistrar.Controls.Add(txtCedulaCliente);
-            TabRegistrar.Controls.Add(txtSegundoNombreCliente);
+            TabRegistrar.Controls.Add(tbCustomerID);
+            TabRegistrar.Controls.Add(tbMiddleName);
             TabRegistrar.Controls.Add(siticoneHtmlLabel12);
-            TabRegistrar.Controls.Add(txtSegundoApellidoCliente);
+            TabRegistrar.Controls.Add(tbSecondLastName);
             TabRegistrar.Controls.Add(siticoneHtmlLabel13);
-            TabRegistrar.Controls.Add(txtTelefonoCliente);
+            TabRegistrar.Controls.Add(tbPhoneNumber);
             TabRegistrar.Controls.Add(siticoneHtmlLabel16);
             TabRegistrar.Controls.Add(siticoneHtmlLabel1);
-            TabRegistrar.Controls.Add(txtPrimerApellidoCliente);
+            TabRegistrar.Controls.Add(tbFirstLastName);
             TabRegistrar.Controls.Add(siticoneHtmlLabel17);
             TabRegistrar.Controls.Add(siticoneHtmlLabel7);
             TabRegistrar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -160,17 +160,17 @@
             // 
             // siticoneHtmlLabel_valid_telef
             // 
-            siticoneHtmlLabel_valid_telef.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel_valid_telef.BackColor = Color.Transparent;
-            siticoneHtmlLabel_valid_telef.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel_valid_telef.ForeColor = Color.SpringGreen;
-            siticoneHtmlLabel_valid_telef.Location = new Point(752, 816);
-            siticoneHtmlLabel_valid_telef.Margin = new Padding(3, 5, 3, 5);
-            siticoneHtmlLabel_valid_telef.Name = "siticoneHtmlLabel_valid_telef";
-            siticoneHtmlLabel_valid_telef.Size = new Size(163, 22);
-            siticoneHtmlLabel_valid_telef.TabIndex = 87;
-            siticoneHtmlLabel_valid_telef.Text = "¡Teléfono celular válido!";
-            siticoneHtmlLabel_valid_telef.Visible = false;
+            labelValidPhoneNumber.Anchor = AnchorStyles.None;
+            labelValidPhoneNumber.BackColor = Color.Transparent;
+            labelValidPhoneNumber.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelValidPhoneNumber.ForeColor = Color.SpringGreen;
+            labelValidPhoneNumber.Location = new Point(752, 816);
+            labelValidPhoneNumber.Margin = new Padding(3, 5, 3, 5);
+            labelValidPhoneNumber.Name = "siticoneHtmlLabel_valid_telef";
+            labelValidPhoneNumber.Size = new Size(163, 22);
+            labelValidPhoneNumber.TabIndex = 87;
+            labelValidPhoneNumber.Text = "¡Teléfono celular válido!";
+            labelValidPhoneNumber.Visible = false;
             // 
             // siticoneHtmlLabel_invalid_telef
             // 
@@ -187,16 +187,16 @@
             // 
             // siticoneHtmlLabel_correct_email
             // 
-            siticoneHtmlLabel_correct_email.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel_correct_email.BackColor = Color.Transparent;
-            siticoneHtmlLabel_correct_email.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel_correct_email.ForeColor = Color.SpringGreen;
-            siticoneHtmlLabel_correct_email.Location = new Point(1118, 691);
-            siticoneHtmlLabel_correct_email.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel_correct_email.Name = "siticoneHtmlLabel_correct_email";
-            siticoneHtmlLabel_correct_email.Size = new Size(93, 22);
-            siticoneHtmlLabel_correct_email.TabIndex = 85;
-            siticoneHtmlLabel_correct_email.Text = "¡Email válido!";
+            labelCorrectEMail.Anchor = AnchorStyles.None;
+            labelCorrectEMail.BackColor = Color.Transparent;
+            labelCorrectEMail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCorrectEMail.ForeColor = Color.SpringGreen;
+            labelCorrectEMail.Location = new Point(1118, 691);
+            labelCorrectEMail.Margin = new Padding(3, 4, 3, 4);
+            labelCorrectEMail.Name = "siticoneHtmlLabel_correct_email";
+            labelCorrectEMail.Size = new Size(93, 22);
+            labelCorrectEMail.TabIndex = 85;
+            labelCorrectEMail.Text = "¡Email válido!";
             // 
             // siticoneHtmlLabel_wrong_email
             // 
@@ -225,70 +225,70 @@
             // 
             // txtCorreoCliente
             // 
-            txtCorreoCliente.Anchor = AnchorStyles.None;
-            txtCorreoCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtCorreoCliente.BorderRadius = 20;
-            txtCorreoCliente.DefaultText = "";
-            txtCorreoCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtCorreoCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtCorreoCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtCorreoCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtCorreoCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCorreoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCorreoCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCorreoCliente.Location = new Point(510, 665);
-            txtCorreoCliente.Margin = new Padding(3, 8, 3, 8);
-            txtCorreoCliente.MinimumSize = new Size(229, 60);
-            txtCorreoCliente.Name = "txtCorreoCliente";
-            txtCorreoCliente.PasswordChar = '\0';
-            txtCorreoCliente.PlaceholderText = "";
-            txtCorreoCliente.SelectedText = "";
-            txtCorreoCliente.Size = new Size(583, 60);
-            txtCorreoCliente.TabIndex = 61;
-            txtCorreoCliente.TextOffset = new Point(5, 0);
-            txtCorreoCliente.TextChanged += txtCorreoCliente_TextChanged;
-            txtCorreoCliente.KeyPress += txtCorreoCliente_KeyPress;
+            tbEMail.Anchor = AnchorStyles.None;
+            tbEMail.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbEMail.BorderRadius = 20;
+            tbEMail.DefaultText = "";
+            tbEMail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbEMail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbEMail.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbEMail.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbEMail.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbEMail.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbEMail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbEMail.Location = new Point(510, 665);
+            tbEMail.Margin = new Padding(3, 8, 3, 8);
+            tbEMail.MinimumSize = new Size(229, 60);
+            tbEMail.Name = "txtCorreoCliente";
+            tbEMail.PasswordChar = '\0';
+            tbEMail.PlaceholderText = "";
+            tbEMail.SelectedText = "";
+            tbEMail.Size = new Size(583, 60);
+            tbEMail.TabIndex = 61;
+            tbEMail.TextOffset = new Point(5, 0);
+            tbEMail.TextChanged += txtCorreoCliente_TextChanged;
+            tbEMail.KeyPress += txtCorreoCliente_KeyPress;
             // 
             // siticoneHtmlLabel_correct_length_telef
             // 
-            siticoneHtmlLabel_correct_length_telef.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel_correct_length_telef.BackColor = Color.Transparent;
-            siticoneHtmlLabel_correct_length_telef.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel_correct_length_telef.ForeColor = Color.SpringGreen;
-            siticoneHtmlLabel_correct_length_telef.Location = new Point(752, 778);
-            siticoneHtmlLabel_correct_length_telef.Margin = new Padding(3, 5, 3, 5);
-            siticoneHtmlLabel_correct_length_telef.Name = "siticoneHtmlLabel_correct_length_telef";
-            siticoneHtmlLabel_correct_length_telef.Size = new Size(128, 22);
-            siticoneHtmlLabel_correct_length_telef.TabIndex = 60;
-            siticoneHtmlLabel_correct_length_telef.Text = "¡Longitud correcta!";
+            labelCorrectPhoneNumberLength.Anchor = AnchorStyles.None;
+            labelCorrectPhoneNumberLength.BackColor = Color.Transparent;
+            labelCorrectPhoneNumberLength.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCorrectPhoneNumberLength.ForeColor = Color.SpringGreen;
+            labelCorrectPhoneNumberLength.Location = new Point(752, 778);
+            labelCorrectPhoneNumberLength.Margin = new Padding(3, 5, 3, 5);
+            labelCorrectPhoneNumberLength.Name = "siticoneHtmlLabel_correct_length_telef";
+            labelCorrectPhoneNumberLength.Size = new Size(128, 22);
+            labelCorrectPhoneNumberLength.TabIndex = 60;
+            labelCorrectPhoneNumberLength.Text = "¡Longitud correcta!";
             // 
             // txtPrimerNombreCliente
             // 
-            txtPrimerNombreCliente.Anchor = AnchorStyles.None;
-            txtPrimerNombreCliente.AutoSize = true;
-            txtPrimerNombreCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtPrimerNombreCliente.BorderRadius = 20;
-            txtPrimerNombreCliente.DefaultText = "";
-            txtPrimerNombreCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtPrimerNombreCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtPrimerNombreCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtPrimerNombreCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtPrimerNombreCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPrimerNombreCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPrimerNombreCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPrimerNombreCliente.Location = new Point(510, 321);
-            txtPrimerNombreCliente.Margin = new Padding(3, 8, 3, 8);
-            txtPrimerNombreCliente.MaxLength = 50;
-            txtPrimerNombreCliente.MinimumSize = new Size(229, 60);
-            txtPrimerNombreCliente.Name = "txtPrimerNombreCliente";
-            txtPrimerNombreCliente.PasswordChar = '\0';
-            txtPrimerNombreCliente.PlaceholderText = "";
-            txtPrimerNombreCliente.SelectedText = "";
-            txtPrimerNombreCliente.Size = new Size(229, 60);
-            txtPrimerNombreCliente.TabIndex = 44;
-            txtPrimerNombreCliente.TextOffset = new Point(5, 0);
-            txtPrimerNombreCliente.TextChanged += txtPrimerNombreCliente_TextChanged;
-            txtPrimerNombreCliente.KeyPress += txtPrimerNombreCliente_KeyPress;
+            tbFirstName.Anchor = AnchorStyles.None;
+            tbFirstName.AutoSize = true;
+            tbFirstName.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbFirstName.BorderRadius = 20;
+            tbFirstName.DefaultText = "";
+            tbFirstName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbFirstName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbFirstName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbFirstName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbFirstName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbFirstName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbFirstName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbFirstName.Location = new Point(510, 321);
+            tbFirstName.Margin = new Padding(3, 8, 3, 8);
+            tbFirstName.MaxLength = 50;
+            tbFirstName.MinimumSize = new Size(229, 60);
+            tbFirstName.Name = "txtPrimerNombreCliente";
+            tbFirstName.PasswordChar = '\0';
+            tbFirstName.PlaceholderText = "";
+            tbFirstName.SelectedText = "";
+            tbFirstName.Size = new Size(229, 60);
+            tbFirstName.TabIndex = 44;
+            tbFirstName.TextOffset = new Point(5, 0);
+            tbFirstName.TextChanged += txtPrimerNombreCliente_TextChanged;
+            tbFirstName.KeyPress += txtPrimerNombreCliente_KeyPress;
             // 
             // siticoneHtmlLabel_wrong_length_telef
             // 
@@ -305,48 +305,48 @@
             // 
             // siticoneHtmlLabel_cc_correct_length
             // 
-            siticoneHtmlLabel_cc_correct_length.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel_cc_correct_length.BackColor = Color.Transparent;
-            siticoneHtmlLabel_cc_correct_length.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel_cc_correct_length.ForeColor = Color.SpringGreen;
-            siticoneHtmlLabel_cc_correct_length.Location = new Point(754, 246);
-            siticoneHtmlLabel_cc_correct_length.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel_cc_correct_length.Name = "siticoneHtmlLabel_cc_correct_length";
-            siticoneHtmlLabel_cc_correct_length.Size = new Size(128, 22);
-            siticoneHtmlLabel_cc_correct_length.TabIndex = 57;
-            siticoneHtmlLabel_cc_correct_length.Text = "¡Longitud correcta!";
+            labelCorrectCustomerIDLength.Anchor = AnchorStyles.None;
+            labelCorrectCustomerIDLength.BackColor = Color.Transparent;
+            labelCorrectCustomerIDLength.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCorrectCustomerIDLength.ForeColor = Color.SpringGreen;
+            labelCorrectCustomerIDLength.Location = new Point(754, 246);
+            labelCorrectCustomerIDLength.Margin = new Padding(3, 4, 3, 4);
+            labelCorrectCustomerIDLength.Name = "siticoneHtmlLabel_cc_correct_length";
+            labelCorrectCustomerIDLength.Size = new Size(128, 22);
+            labelCorrectCustomerIDLength.TabIndex = 57;
+            labelCorrectCustomerIDLength.Text = "¡Longitud correcta!";
             // 
             // Button_aniadirCliente
             // 
-            Button_aniadirCliente.Anchor = AnchorStyles.Bottom;
-            Button_aniadirCliente.BorderRadius = 20;
-            Button_aniadirCliente.DisabledState.BorderColor = Color.DarkGray;
-            Button_aniadirCliente.DisabledState.CustomBorderColor = Color.DarkGray;
-            Button_aniadirCliente.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            Button_aniadirCliente.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            Button_aniadirCliente.FillColor = Color.Black;
-            Button_aniadirCliente.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Button_aniadirCliente.ForeColor = Color.White;
-            Button_aniadirCliente.Location = new Point(640, 947);
-            Button_aniadirCliente.Margin = new Padding(3, 5, 3, 5);
-            Button_aniadirCliente.Name = "Button_aniadirCliente";
-            Button_aniadirCliente.Size = new Size(206, 60);
-            Button_aniadirCliente.TabIndex = 39;
-            Button_aniadirCliente.Text = "Añadir";
-            Button_aniadirCliente.Click += registrarCliente;
+            buttonAddCustomer.Anchor = AnchorStyles.Bottom;
+            buttonAddCustomer.BorderRadius = 20;
+            buttonAddCustomer.DisabledState.BorderColor = Color.DarkGray;
+            buttonAddCustomer.DisabledState.CustomBorderColor = Color.DarkGray;
+            buttonAddCustomer.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            buttonAddCustomer.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            buttonAddCustomer.FillColor = Color.Black;
+            buttonAddCustomer.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAddCustomer.ForeColor = Color.White;
+            buttonAddCustomer.Location = new Point(640, 947);
+            buttonAddCustomer.Margin = new Padding(3, 5, 3, 5);
+            buttonAddCustomer.Name = "Button_aniadirCliente";
+            buttonAddCustomer.Size = new Size(206, 60);
+            buttonAddCustomer.TabIndex = 39;
+            buttonAddCustomer.Text = "Añadir";
+            buttonAddCustomer.Click += ButtonAddCustomer_Click;
             // 
             // siticoneHtmlLabel_cc_valida
             // 
-            siticoneHtmlLabel_cc_valida.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel_cc_valida.BackColor = Color.Transparent;
-            siticoneHtmlLabel_cc_valida.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel_cc_valida.ForeColor = Color.SpringGreen;
-            siticoneHtmlLabel_cc_valida.Location = new Point(754, 208);
-            siticoneHtmlLabel_cc_valida.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel_cc_valida.Name = "siticoneHtmlLabel_cc_valida";
-            siticoneHtmlLabel_cc_valida.Size = new Size(101, 22);
-            siticoneHtmlLabel_cc_valida.TabIndex = 56;
-            siticoneHtmlLabel_cc_valida.Text = "¡Cédula válida!";
+            labelValidCustomerID.Anchor = AnchorStyles.None;
+            labelValidCustomerID.BackColor = Color.Transparent;
+            labelValidCustomerID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelValidCustomerID.ForeColor = Color.SpringGreen;
+            labelValidCustomerID.Location = new Point(754, 208);
+            labelValidCustomerID.Margin = new Padding(3, 4, 3, 4);
+            labelValidCustomerID.Name = "siticoneHtmlLabel_cc_valida";
+            labelValidCustomerID.Size = new Size(101, 22);
+            labelValidCustomerID.TabIndex = 56;
+            labelValidCustomerID.Text = "¡Cédula válida!";
             // 
             // siticoneHtmlLabel3
             // 
@@ -375,29 +375,29 @@
             // 
             // txtDireccionCliente
             // 
-            txtDireccionCliente.Anchor = AnchorStyles.None;
-            txtDireccionCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtDireccionCliente.BorderRadius = 20;
-            txtDireccionCliente.DefaultText = "";
-            txtDireccionCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtDireccionCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtDireccionCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtDireccionCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtDireccionCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDireccionCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDireccionCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDireccionCliente.Location = new Point(510, 551);
-            txtDireccionCliente.Margin = new Padding(3, 8, 3, 8);
-            txtDireccionCliente.MinimumSize = new Size(229, 60);
-            txtDireccionCliente.Name = "txtDireccionCliente";
-            txtDireccionCliente.PasswordChar = '\0';
-            txtDireccionCliente.PlaceholderText = "";
-            txtDireccionCliente.SelectedText = "";
-            txtDireccionCliente.Size = new Size(583, 60);
-            txtDireccionCliente.TabIndex = 42;
-            txtDireccionCliente.TextOffset = new Point(5, 0);
-            txtDireccionCliente.TextChanged += txtDireccionCliente_TextChanged;
-            txtDireccionCliente.KeyPress += txtDireccionCliente_KeyPress;
+            tbHomeAddress.Anchor = AnchorStyles.None;
+            tbHomeAddress.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbHomeAddress.BorderRadius = 20;
+            tbHomeAddress.DefaultText = "";
+            tbHomeAddress.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbHomeAddress.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbHomeAddress.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbHomeAddress.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbHomeAddress.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbHomeAddress.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbHomeAddress.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbHomeAddress.Location = new Point(510, 551);
+            tbHomeAddress.Margin = new Padding(3, 8, 3, 8);
+            tbHomeAddress.MinimumSize = new Size(229, 60);
+            tbHomeAddress.Name = "txtDireccionCliente";
+            tbHomeAddress.PasswordChar = '\0';
+            tbHomeAddress.PlaceholderText = "";
+            tbHomeAddress.SelectedText = "";
+            tbHomeAddress.Size = new Size(583, 60);
+            tbHomeAddress.TabIndex = 42;
+            tbHomeAddress.TextOffset = new Point(5, 0);
+            tbHomeAddress.TextChanged += txtDireccionCliente_TextChanged;
+            tbHomeAddress.KeyPress += txtDireccionCliente_KeyPress;
             // 
             // siticoneHtmlLabel_cc_wrong_length
             // 
@@ -438,58 +438,58 @@
             // 
             // txtCedulaCliente
             // 
-            txtCedulaCliente.Anchor = AnchorStyles.None;
-            txtCedulaCliente.AutoSize = true;
-            txtCedulaCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtCedulaCliente.BorderRadius = 20;
-            txtCedulaCliente.DefaultText = "";
-            txtCedulaCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtCedulaCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtCedulaCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtCedulaCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtCedulaCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCedulaCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCedulaCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCedulaCliente.Location = new Point(510, 208);
-            txtCedulaCliente.Margin = new Padding(3, 8, 3, 8);
-            txtCedulaCliente.MinimumSize = new Size(229, 60);
-            txtCedulaCliente.Name = "txtCedulaCliente";
-            txtCedulaCliente.PasswordChar = '\0';
-            txtCedulaCliente.PlaceholderText = "";
-            txtCedulaCliente.SelectedText = "";
-            txtCedulaCliente.Size = new Size(229, 60);
-            txtCedulaCliente.TabIndex = 40;
-            txtCedulaCliente.TextOffset = new Point(5, 0);
-            txtCedulaCliente.TextChanged += txtCedulaCliente_TextChanged;
-            txtCedulaCliente.KeyPress += txtCedulaCliente_KeyPress;
-            txtCedulaCliente.KeyUp += txtCedulaCliente_KeyUp;
+            tbCustomerID.Anchor = AnchorStyles.None;
+            tbCustomerID.AutoSize = true;
+            tbCustomerID.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbCustomerID.BorderRadius = 20;
+            tbCustomerID.DefaultText = "";
+            tbCustomerID.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbCustomerID.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbCustomerID.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbCustomerID.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbCustomerID.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbCustomerID.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbCustomerID.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbCustomerID.Location = new Point(510, 208);
+            tbCustomerID.Margin = new Padding(3, 8, 3, 8);
+            tbCustomerID.MinimumSize = new Size(229, 60);
+            tbCustomerID.Name = "txtCedulaCliente";
+            tbCustomerID.PasswordChar = '\0';
+            tbCustomerID.PlaceholderText = "";
+            tbCustomerID.SelectedText = "";
+            tbCustomerID.Size = new Size(229, 60);
+            tbCustomerID.TabIndex = 40;
+            tbCustomerID.TextOffset = new Point(5, 0);
+            tbCustomerID.TextChanged += txtCedulaCliente_TextChanged;
+            tbCustomerID.KeyPress += TbCustomerID_KeyPress;
+            tbCustomerID.KeyUp += TbCustomerID_KeyUp;
             // 
             // txtSegundoNombreCliente
             // 
-            txtSegundoNombreCliente.Anchor = AnchorStyles.None;
-            txtSegundoNombreCliente.AutoSize = true;
-            txtSegundoNombreCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtSegundoNombreCliente.BorderRadius = 20;
-            txtSegundoNombreCliente.DefaultText = "";
-            txtSegundoNombreCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtSegundoNombreCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtSegundoNombreCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtSegundoNombreCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtSegundoNombreCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSegundoNombreCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSegundoNombreCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSegundoNombreCliente.Location = new Point(864, 321);
-            txtSegundoNombreCliente.Margin = new Padding(3, 8, 3, 8);
-            txtSegundoNombreCliente.MaxLength = 50;
-            txtSegundoNombreCliente.MinimumSize = new Size(229, 60);
-            txtSegundoNombreCliente.Name = "txtSegundoNombreCliente";
-            txtSegundoNombreCliente.PasswordChar = '\0';
-            txtSegundoNombreCliente.PlaceholderText = "";
-            txtSegundoNombreCliente.SelectedText = "";
-            txtSegundoNombreCliente.Size = new Size(229, 60);
-            txtSegundoNombreCliente.TabIndex = 48;
-            txtSegundoNombreCliente.TextOffset = new Point(5, 0);
-            txtSegundoNombreCliente.KeyPress += txtSegundoNombreCliente_KeyPress;
+            tbMiddleName.Anchor = AnchorStyles.None;
+            tbMiddleName.AutoSize = true;
+            tbMiddleName.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbMiddleName.BorderRadius = 20;
+            tbMiddleName.DefaultText = "";
+            tbMiddleName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbMiddleName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbMiddleName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbMiddleName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbMiddleName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbMiddleName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbMiddleName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbMiddleName.Location = new Point(864, 321);
+            tbMiddleName.Margin = new Padding(3, 8, 3, 8);
+            tbMiddleName.MaxLength = 50;
+            tbMiddleName.MinimumSize = new Size(229, 60);
+            tbMiddleName.Name = "txtSegundoNombreCliente";
+            tbMiddleName.PasswordChar = '\0';
+            tbMiddleName.PlaceholderText = "";
+            tbMiddleName.SelectedText = "";
+            tbMiddleName.Size = new Size(229, 60);
+            tbMiddleName.TabIndex = 48;
+            tbMiddleName.TextOffset = new Point(5, 0);
+            tbMiddleName.KeyPress += txtSegundoNombreCliente_KeyPress;
             // 
             // siticoneHtmlLabel12
             // 
@@ -505,29 +505,29 @@
             // 
             // txtSegundoApellidoCliente
             // 
-            txtSegundoApellidoCliente.Anchor = AnchorStyles.None;
-            txtSegundoApellidoCliente.AutoSize = true;
-            txtSegundoApellidoCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtSegundoApellidoCliente.BorderRadius = 20;
-            txtSegundoApellidoCliente.DefaultText = "";
-            txtSegundoApellidoCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtSegundoApellidoCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtSegundoApellidoCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtSegundoApellidoCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtSegundoApellidoCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSegundoApellidoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSegundoApellidoCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSegundoApellidoCliente.Location = new Point(864, 437);
-            txtSegundoApellidoCliente.Margin = new Padding(3, 8, 3, 8);
-            txtSegundoApellidoCliente.MinimumSize = new Size(229, 60);
-            txtSegundoApellidoCliente.Name = "txtSegundoApellidoCliente";
-            txtSegundoApellidoCliente.PasswordChar = '\0';
-            txtSegundoApellidoCliente.PlaceholderText = "";
-            txtSegundoApellidoCliente.SelectedText = "";
-            txtSegundoApellidoCliente.Size = new Size(229, 60);
-            txtSegundoApellidoCliente.TabIndex = 49;
-            txtSegundoApellidoCliente.TextOffset = new Point(5, 0);
-            txtSegundoApellidoCliente.KeyPress += txtSegundoApellidoCliente_KeyPress;
+            tbSecondLastName.Anchor = AnchorStyles.None;
+            tbSecondLastName.AutoSize = true;
+            tbSecondLastName.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbSecondLastName.BorderRadius = 20;
+            tbSecondLastName.DefaultText = "";
+            tbSecondLastName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbSecondLastName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbSecondLastName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbSecondLastName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbSecondLastName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbSecondLastName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbSecondLastName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbSecondLastName.Location = new Point(864, 437);
+            tbSecondLastName.Margin = new Padding(3, 8, 3, 8);
+            tbSecondLastName.MinimumSize = new Size(229, 60);
+            tbSecondLastName.Name = "txtSegundoApellidoCliente";
+            tbSecondLastName.PasswordChar = '\0';
+            tbSecondLastName.PlaceholderText = "";
+            tbSecondLastName.SelectedText = "";
+            tbSecondLastName.Size = new Size(229, 60);
+            tbSecondLastName.TabIndex = 49;
+            tbSecondLastName.TextOffset = new Point(5, 0);
+            tbSecondLastName.KeyPress += txtSegundoApellidoCliente_KeyPress;
             // 
             // siticoneHtmlLabel13
             // 
@@ -543,30 +543,30 @@
             // 
             // txtTelefonoCliente
             // 
-            txtTelefonoCliente.Anchor = AnchorStyles.None;
-            txtTelefonoCliente.AutoSize = true;
-            txtTelefonoCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtTelefonoCliente.BorderRadius = 20;
-            txtTelefonoCliente.DefaultText = "";
-            txtTelefonoCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtTelefonoCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtTelefonoCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtTelefonoCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtTelefonoCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTelefonoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTelefonoCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTelefonoCliente.Location = new Point(510, 778);
-            txtTelefonoCliente.Margin = new Padding(3, 8, 3, 8);
-            txtTelefonoCliente.MinimumSize = new Size(229, 60);
-            txtTelefonoCliente.Name = "txtTelefonoCliente";
-            txtTelefonoCliente.PasswordChar = '\0';
-            txtTelefonoCliente.PlaceholderText = "";
-            txtTelefonoCliente.SelectedText = "";
-            txtTelefonoCliente.Size = new Size(229, 60);
-            txtTelefonoCliente.TabIndex = 43;
-            txtTelefonoCliente.TextOffset = new Point(5, 0);
-            txtTelefonoCliente.TextChanged += txtTelefonoCliente_TextChanged;
-            txtTelefonoCliente.KeyPress += txtTelefonoCliente_KeyPress;
+            tbPhoneNumber.Anchor = AnchorStyles.None;
+            tbPhoneNumber.AutoSize = true;
+            tbPhoneNumber.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbPhoneNumber.BorderRadius = 20;
+            tbPhoneNumber.DefaultText = "";
+            tbPhoneNumber.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbPhoneNumber.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbPhoneNumber.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbPhoneNumber.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbPhoneNumber.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbPhoneNumber.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbPhoneNumber.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbPhoneNumber.Location = new Point(510, 778);
+            tbPhoneNumber.Margin = new Padding(3, 8, 3, 8);
+            tbPhoneNumber.MinimumSize = new Size(229, 60);
+            tbPhoneNumber.Name = "txtTelefonoCliente";
+            tbPhoneNumber.PasswordChar = '\0';
+            tbPhoneNumber.PlaceholderText = "";
+            tbPhoneNumber.SelectedText = "";
+            tbPhoneNumber.Size = new Size(229, 60);
+            tbPhoneNumber.TabIndex = 43;
+            tbPhoneNumber.TextOffset = new Point(5, 0);
+            tbPhoneNumber.TextChanged += txtTelefonoCliente_TextChanged;
+            tbPhoneNumber.KeyPress += txtTelefonoCliente_KeyPress;
             // 
             // siticoneHtmlLabel16
             // 
@@ -594,30 +594,30 @@
             // 
             // txtPrimerApellidoCliente
             // 
-            txtPrimerApellidoCliente.Anchor = AnchorStyles.None;
-            txtPrimerApellidoCliente.AutoSize = true;
-            txtPrimerApellidoCliente.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            txtPrimerApellidoCliente.BorderRadius = 20;
-            txtPrimerApellidoCliente.DefaultText = "";
-            txtPrimerApellidoCliente.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtPrimerApellidoCliente.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtPrimerApellidoCliente.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtPrimerApellidoCliente.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtPrimerApellidoCliente.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPrimerApellidoCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPrimerApellidoCliente.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPrimerApellidoCliente.Location = new Point(510, 437);
-            txtPrimerApellidoCliente.Margin = new Padding(3, 8, 3, 8);
-            txtPrimerApellidoCliente.MinimumSize = new Size(229, 60);
-            txtPrimerApellidoCliente.Name = "txtPrimerApellidoCliente";
-            txtPrimerApellidoCliente.PasswordChar = '\0';
-            txtPrimerApellidoCliente.PlaceholderText = "";
-            txtPrimerApellidoCliente.SelectedText = "";
-            txtPrimerApellidoCliente.Size = new Size(229, 60);
-            txtPrimerApellidoCliente.TabIndex = 46;
-            txtPrimerApellidoCliente.TextOffset = new Point(5, 0);
-            txtPrimerApellidoCliente.TextChanged += txtPrimerApellidoCliente_TextChanged;
-            txtPrimerApellidoCliente.KeyPress += txtPrimerApellidoCliente_KeyPress;
+            tbFirstLastName.Anchor = AnchorStyles.None;
+            tbFirstLastName.AutoSize = true;
+            tbFirstLastName.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tbFirstLastName.BorderRadius = 20;
+            tbFirstLastName.DefaultText = "";
+            tbFirstLastName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbFirstLastName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbFirstLastName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbFirstLastName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbFirstLastName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbFirstLastName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tbFirstLastName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbFirstLastName.Location = new Point(510, 437);
+            tbFirstLastName.Margin = new Padding(3, 8, 3, 8);
+            tbFirstLastName.MinimumSize = new Size(229, 60);
+            tbFirstLastName.Name = "txtPrimerApellidoCliente";
+            tbFirstLastName.PasswordChar = '\0';
+            tbFirstLastName.PlaceholderText = "";
+            tbFirstLastName.SelectedText = "";
+            tbFirstLastName.Size = new Size(229, 60);
+            tbFirstLastName.TabIndex = 46;
+            tbFirstLastName.TextOffset = new Point(5, 0);
+            tbFirstLastName.TextChanged += txtPrimerApellidoCliente_TextChanged;
+            tbFirstLastName.KeyPress += txtPrimerApellidoCliente_KeyPress;
             // 
             // siticoneHtmlLabel17
             // 
@@ -646,7 +646,7 @@
             // TabEditar
             // 
             TabEditar.Controls.Add(siticoneHtmlLabel_buscarCliente_sin_campo);
-            TabEditar.Controls.Add(cBConsultarClientePor);
+            TabEditar.Controls.Add(cbSearchCustomerBy);
             TabEditar.Controls.Add(txtBuscarClientePor);
             TabEditar.Controls.Add(siticonePanel1);
             TabEditar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -674,25 +674,25 @@
             // 
             // cBConsultarClientePor
             // 
-            cBConsultarClientePor.Anchor = AnchorStyles.None;
-            cBConsultarClientePor.BackColor = Color.Transparent;
-            cBConsultarClientePor.BorderRadius = 20;
-            cBConsultarClientePor.DrawMode = DrawMode.OwnerDrawFixed;
-            cBConsultarClientePor.DropDownStyle = ComboBoxStyle.DropDownList;
-            cBConsultarClientePor.FocusedColor = Color.FromArgb(94, 148, 255);
-            cBConsultarClientePor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cBConsultarClientePor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            cBConsultarClientePor.ForeColor = Color.FromArgb(68, 88, 112);
-            cBConsultarClientePor.ItemHeight = 40;
-            cBConsultarClientePor.Items.AddRange(new object[] { "Seleccionar...", "CI", "Nombres", "Apellidos", "Teléfono" });
-            cBConsultarClientePor.Location = new Point(719, 221);
-            cBConsultarClientePor.Margin = new Padding(3, 5, 3, 5);
-            cBConsultarClientePor.MinimumSize = new Size(228, 0);
-            cBConsultarClientePor.Name = "cBConsultarClientePor";
-            cBConsultarClientePor.Size = new Size(314, 46);
-            cBConsultarClientePor.TabIndex = 16;
-            cBConsultarClientePor.TextOffset = new Point(5, 0);
-            cBConsultarClientePor.SelectedIndexChanged += cBConsultarClientePor_SelectedIndexChanged;
+            cbSearchCustomerBy.Anchor = AnchorStyles.None;
+            cbSearchCustomerBy.BackColor = Color.Transparent;
+            cbSearchCustomerBy.BorderRadius = 20;
+            cbSearchCustomerBy.DrawMode = DrawMode.OwnerDrawFixed;
+            cbSearchCustomerBy.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSearchCustomerBy.FocusedColor = Color.FromArgb(94, 148, 255);
+            cbSearchCustomerBy.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cbSearchCustomerBy.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cbSearchCustomerBy.ForeColor = Color.FromArgb(68, 88, 112);
+            cbSearchCustomerBy.ItemHeight = 40;
+            cbSearchCustomerBy.Items.AddRange(new object[] { "Seleccionar...", "CI", "Nombres", "Apellidos", "Teléfono" });
+            cbSearchCustomerBy.Location = new Point(719, 221);
+            cbSearchCustomerBy.Margin = new Padding(3, 5, 3, 5);
+            cbSearchCustomerBy.MinimumSize = new Size(228, 0);
+            cbSearchCustomerBy.Name = "cBConsultarClientePor";
+            cbSearchCustomerBy.Size = new Size(314, 46);
+            cbSearchCustomerBy.TabIndex = 16;
+            cbSearchCustomerBy.TextOffset = new Point(5, 0);
+            cbSearchCustomerBy.SelectedIndexChanged += CbSearchCustomerBy_SelectedIndexChanged;
             // 
             // txtBuscarClientePor
             // 
@@ -718,11 +718,11 @@
             txtBuscarClientePor.TabIndex = 15;
             txtBuscarClientePor.TextOffset = new Point(5, 0);
             txtBuscarClientePor.TextChanged += txtBuscarClientePor_TextChanged;
-            txtBuscarClientePor.KeyPress += txtBuscarClientePor_KeyPress;
+            txtBuscarClientePor.KeyPress += TbSearchCustomerBy_KeyPress;
             // 
             // siticonePanel1
             // 
-            siticonePanel1.Controls.Add(SDGVCliente);
+            siticonePanel1.Controls.Add(CustomerDataGridView);
             siticonePanel1.Dock = DockStyle.Bottom;
             siticonePanel1.Location = new Point(3, 447);
             siticonePanel1.Margin = new Padding(3, 5, 3, 5);
@@ -733,8 +733,8 @@
             // SDGVCliente
             // 
             dataGridViewCellStyle5.BackColor = Color.White;
-            SDGVCliente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            SDGVCliente.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            CustomerDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            CustomerDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle6.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -742,10 +742,10 @@
             dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            SDGVCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            SDGVCliente.ColumnHeadersHeight = 60;
-            SDGVCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            SDGVCliente.Columns.AddRange(new DataGridViewColumn[] { ColumnaCedula, ColumnaNombres, ColumnaApellidos, ColumnaDireccion, ColumnaTelefono, ColumnaCorreo, ColumnaEditar, ColumnaEliminar });
+            CustomerDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            CustomerDataGridView.ColumnHeadersHeight = 60;
+            CustomerDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            CustomerDataGridView.Columns.AddRange(new DataGridViewColumn[] { ColumnaCedula, ColumnaNombres, ColumnaApellidos, ColumnaDireccion, ColumnaTelefono, ColumnaCorreo, ColumnaEditar, ColumnaEliminar });
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = Color.White;
             dataGridViewCellStyle8.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -753,42 +753,42 @@
             dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            SDGVCliente.DefaultCellStyle = dataGridViewCellStyle8;
-            SDGVCliente.Dock = DockStyle.Fill;
-            SDGVCliente.GridColor = Color.FromArgb(231, 229, 255);
-            SDGVCliente.Location = new Point(0, 0);
-            SDGVCliente.Margin = new Padding(3, 4, 3, 4);
-            SDGVCliente.Name = "SDGVCliente";
-            SDGVCliente.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            SDGVCliente.RowHeadersVisible = false;
-            SDGVCliente.RowHeadersWidth = 50;
-            SDGVCliente.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(231, 229, 255);
-            SDGVCliente.RowTemplate.DividerHeight = 15;
-            SDGVCliente.RowTemplate.Height = 50;
-            SDGVCliente.Size = new Size(1479, 667);
-            SDGVCliente.TabIndex = 0;
-            SDGVCliente.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            SDGVCliente.ThemeStyle.AlternatingRowsStyle.Font = null;
-            SDGVCliente.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            SDGVCliente.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            SDGVCliente.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            SDGVCliente.ThemeStyle.BackColor = Color.White;
-            SDGVCliente.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            SDGVCliente.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            SDGVCliente.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            SDGVCliente.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            SDGVCliente.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            SDGVCliente.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            SDGVCliente.ThemeStyle.HeaderStyle.Height = 60;
-            SDGVCliente.ThemeStyle.ReadOnly = false;
-            SDGVCliente.ThemeStyle.RowsStyle.BackColor = Color.White;
-            SDGVCliente.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            SDGVCliente.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            SDGVCliente.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            SDGVCliente.ThemeStyle.RowsStyle.Height = 50;
-            SDGVCliente.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            SDGVCliente.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            SDGVCliente.CellClick += SDGVCliente_CellClick;
+            CustomerDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            CustomerDataGridView.Dock = DockStyle.Fill;
+            CustomerDataGridView.GridColor = Color.FromArgb(231, 229, 255);
+            CustomerDataGridView.Location = new Point(0, 0);
+            CustomerDataGridView.Margin = new Padding(3, 4, 3, 4);
+            CustomerDataGridView.Name = "SDGVCliente";
+            CustomerDataGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            CustomerDataGridView.RowHeadersVisible = false;
+            CustomerDataGridView.RowHeadersWidth = 50;
+            CustomerDataGridView.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(231, 229, 255);
+            CustomerDataGridView.RowTemplate.DividerHeight = 15;
+            CustomerDataGridView.RowTemplate.Height = 50;
+            CustomerDataGridView.Size = new Size(1479, 667);
+            CustomerDataGridView.TabIndex = 0;
+            CustomerDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            CustomerDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            CustomerDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            CustomerDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            CustomerDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            CustomerDataGridView.ThemeStyle.BackColor = Color.White;
+            CustomerDataGridView.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            CustomerDataGridView.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            CustomerDataGridView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            CustomerDataGridView.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CustomerDataGridView.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            CustomerDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            CustomerDataGridView.ThemeStyle.HeaderStyle.Height = 60;
+            CustomerDataGridView.ThemeStyle.ReadOnly = false;
+            CustomerDataGridView.ThemeStyle.RowsStyle.BackColor = Color.White;
+            CustomerDataGridView.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            CustomerDataGridView.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CustomerDataGridView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            CustomerDataGridView.ThemeStyle.RowsStyle.Height = 50;
+            CustomerDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            CustomerDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            CustomerDataGridView.CellClick += CustomerDataGridView_CellClick;
             // 
             // ColumnaCedula
             // 
@@ -873,7 +873,7 @@
             TabEditar.ResumeLayout(false);
             TabEditar.PerformLayout();
             siticonePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)SDGVCliente).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CustomerDataGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -883,36 +883,36 @@
         private TabPage TabRegistrar;
         private TabPage TabEditar;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView SDGVCliente;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTelefonoCliente;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtDireccionCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView CustomerDataGridView;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbPhoneNumber;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbHomeAddress;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCedulaCliente;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton Button_aniadirCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbCustomerID;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton buttonAddCustomer;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel7;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel3;
-        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cBConsultarClientePor;
+        private Siticone.Desktop.UI.WinForms.SiticoneComboBox cbSearchCustomerBy;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtBuscarClientePor;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel4;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel12;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel13;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel14;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtSegundoApellidoCliente;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtSegundoNombreCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbSecondLastName;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbMiddleName;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel16;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPrimerApellidoCliente;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbFirstLastName;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel17;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtPrimerNombreCliente;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_cc_correct_length;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_cc_valida;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbFirstName;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelCorrectCustomerIDLength;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelValidCustomerID;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_cc_invalida;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_cc_wrong_length;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_length_telef;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelCorrectPhoneNumberLength;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_length_telef;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtCorreoCliente;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_correct_email;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox tbEMail;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelCorrectEMail;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_wrong_email;
         private DataGridViewTextBoxColumn ColumnaCedula;
         private DataGridViewTextBoxColumn ColumnaNombres;
@@ -922,7 +922,7 @@
         private DataGridViewTextBoxColumn ColumnaCorreo;
         private DataGridViewImageColumn ColumnaEditar;
         private DataGridViewImageColumn ColumnaEliminar;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_valid_telef;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelValidPhoneNumber;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_invalid_telef;
     }
 }

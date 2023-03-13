@@ -1,135 +1,134 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Customers_Module;
 using SGV_CLP.GUI.Módulo_Clientes;
 using System.Media;
 using System.Text.RegularExpressions;
 
 
 namespace SGV_CLP.GUI
-
 {
-    public partial class UC_Clientes : UserControl
+    public partial class UC_Customer : UserControl
     {
-        List<Cliente> clientesRegistrados = ClienteMapper.ConsultarClientes();
+        List<Customer> registeredCustomers = CustomerMapper.GetAllCustomers();
 
-        int count_correct_fields = 0, num_atributos = 6;
+        int countCorrectFields = 0, fieldsNumber = 6;
 
-        bool ccIsValid, firsLastNameIsValid, firstNameIsValid, addressIsValid, telefIsValid, correoIsValid;
+        bool customerIDIsValid, firstLastNameIsValid, firstNameIsValid, homeAddressIsValid, phoneNumberIsValid, eMailIsValid;
 
-        public UC_Clientes()
+        public UC_Customer()
         {
             InitializeComponent();
             // Llenamos la tabla Clientes
-            llenarTablaCliente();
+            FillCustomerDataGridView();
 
-            cBConsultarClientePor.SelectedIndex = 0;
+            cbSearchCustomerBy.SelectedIndex = 0;
 
-            ccIsValid = false;
-            firsLastNameIsValid = false;
+            customerIDIsValid = false;
+            firstLastNameIsValid = false;
             firstNameIsValid = false;
-            addressIsValid = false;
-            telefIsValid = false;
-            correoIsValid = false;
+            homeAddressIsValid = false;
+            phoneNumberIsValid = false;
+            eMailIsValid = false;
 
             // Limitamos la longitud segun los requisitos
-            txtCedulaCliente.MaxLength = Constants.LIMIT_CC_LENGTH;
-            txtPrimerNombreCliente.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
-            txtSegundoNombreCliente.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
-            txtPrimerApellidoCliente.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
-            txtSegundoApellidoCliente.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
-            txtDireccionCliente.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
-            txtTelefonoCliente.MaxLength = Constants.LIMIT_TELEF_LENGTH;
-            txtCorreoCliente.MaxLength = Constants.LIMIT_CORREO_LENGTH;
+            tbCustomerID.MaxLength = Constants.LIMIT_CC_LENGTH;
+            tbFirstName.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
+            tbMiddleName.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
+            tbFirstLastName.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
+            tbSecondLastName.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
+            tbHomeAddress.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
+            tbPhoneNumber.MaxLength = Constants.LIMIT_TELEF_LENGTH;
+            tbEMail.MaxLength = Constants.LIMIT_CORREO_LENGTH;
 
             //Hide Labels
-            siticoneHtmlLabel_cc_correct_length.Hide();
-            siticoneHtmlLabel_cc_valida.Hide();
-            siticoneHtmlLabel_correct_length_telef.Hide();
-            siticoneHtmlLabel_valid_telef.Hide();
-            siticoneHtmlLabel_correct_email.Hide();
+            labelCorrectCustomerIDLength.Hide();
+            labelValidCustomerID.Hide();
+            labelCorrectPhoneNumberLength.Hide();
+            labelValidPhoneNumber.Hide();
+            labelCorrectEMail.Hide();
 
-            Button_aniadirCliente.Enabled = false;
+            buttonAddCustomer.Enabled = false;
         }
 
-        private void vaciarCampos()
+        private void ClearCustomerFields()
         {
-            txtCedulaCliente.Text = string.Empty;
-            txtPrimerNombreCliente.Text = string.Empty;
-            txtSegundoNombreCliente.Text = string.Empty;
-            txtPrimerApellidoCliente.Text = string.Empty;
-            txtSegundoApellidoCliente.Text = string.Empty;
-            txtDireccionCliente.Text = string.Empty;
-            txtTelefonoCliente.Text = string.Empty;
-            txtCorreoCliente.Text = string.Empty;
+            tbCustomerID.Text = string.Empty;
+            tbFirstName.Text = string.Empty;
+            tbMiddleName.Text = string.Empty;
+            tbFirstLastName.Text = string.Empty;
+            tbSecondLastName.Text = string.Empty;
+            tbHomeAddress.Text = string.Empty;
+            tbPhoneNumber.Text = string.Empty;
+            tbEMail.Text = string.Empty;
         }
 
-        public void llenarTablaCliente()
+        public void FillCustomerDataGridView()
         {
-            if (clientesRegistrados != null)
+            if (registeredCustomers != null)
             {
-                SDGVCliente.Rows.Clear();
-                clientesRegistrados = ClienteMapper.ConsultarClientes();
-                foreach (Cliente cliente in clientesRegistrados)
+                CustomerDataGridView.Rows.Clear();
+                registeredCustomers = CustomerMapper.GetAllCustomers();
+                foreach (Customer customer in registeredCustomers)
                 {
-                    // dgvClientes
-                    SDGVCliente.Rows.Add(cliente.Cc_Cliente, cliente.Primer_Nombre + cliente.Segundo_Nombre, cliente.Primer_Apellido + cliente.Segundo_Apellido, cliente.Direccion_Domicilio, cliente.Telefono, cliente.Correo_Electronico);
+                    CustomerDataGridView.Rows.Add(customer.customerID, customer.firstName + customer.MiddleName, customer.firstLastName + customer.secondLastName, customer.homeAddress, customer.phoneNumber, customer.eMail);
                 }
             }
         }
 
-        private void registrarCliente(object sender, EventArgs e)
+        private void ButtonAddCustomer_Click(object sender, EventArgs e)
         {
-            var cliente = new Cliente
+            var customer = new Customer
             {
-                Cc_Cliente = txtCedulaCliente.Text,
-                Primer_Nombre = txtPrimerNombreCliente.Text,
-                Segundo_Nombre = txtSegundoNombreCliente.Text,
-                Primer_Apellido = txtPrimerApellidoCliente.Text,
-                Segundo_Apellido = txtSegundoApellidoCliente.Text,
-                Direccion_Domicilio = txtDireccionCliente.Text,
-                Telefono = txtTelefonoCliente.Text,
-                Correo_Electronico = txtCorreoCliente.Text
+                customerID = tbCustomerID.Text,
+                firstName = tbFirstName.Text,
+                MiddleName = tbMiddleName.Text,
+                firstLastName = tbFirstLastName.Text,
+                secondLastName = tbSecondLastName.Text,
+                homeAddress = tbHomeAddress.Text,
+                phoneNumber = tbPhoneNumber.Text,
+                eMail = tbEMail.Text
             };
 
-            ClienteMapper.IngresarCliente(cliente);
+            CustomerMapper.AddCustomer(customer);
 
-            llenarTablaCliente();
-            vaciarCampos();
+            FillCustomerDataGridView();
+            ClearCustomerFields();
 
             SystemSounds.Beep.Play();
             MessageBox.Show("Cliente añadido con éxito", "Añadir", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void SDGVCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void CustomerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // CLICK EN CELDA ELIMINAR CLIENTE
-            if (SDGVCliente.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
+            if (CustomerDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
             {
                 if (e.RowIndex >= 0)
                 {
                     if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Eliminar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        string cc_Cliente = SDGVCliente.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        string customerID = CustomerDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                        ClienteMapper.EliminarCliente(cc_Cliente);
+                        CustomerMapper.DeleteCustomer(customerID);
                         MessageBox.Show("Producto eliminado con éxito");
                     }
                 }
             }
 
             // CLICK EN CELDA EDITAR CLIENTE
-            if (SDGVCliente.Columns[e.ColumnIndex].Name == "ColumnaEditar")
+            if (CustomerDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEditar")
             {
                 if (e.RowIndex >= 0)
                 {
-                    string cc_Cliente = SDGVCliente.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
-                    Editar_Cliente ventana = new Editar_Cliente(cc_Cliente);
+                    string customerID = CustomerDataGridView.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                    Editar_Cliente ventana = new Editar_Cliente(customerID);
                     ventana.ShowDialog();
                 }
             }
-            llenarTablaCliente();
+            FillCustomerDataGridView();
         }
 
-        private void txtCedulaCliente_KeyPress(object sender, KeyPressEventArgs e)
+        private void TbCustomerID_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
@@ -142,24 +141,24 @@ namespace SGV_CLP.GUI
 
         }
 
-        private void txtCedulaCliente_KeyUp(object sender, KeyEventArgs e)
+        private void TbCustomerID_KeyUp(object sender, KeyEventArgs e)
         {
-            controlCedula();
+            IDControl();
         }
 
-        public void controlCedula()
+        public void IDControl()
         {
-            if (ValidationUtils.ValidarCedula(txtCedulaCliente.Text))
+            if (ValidationUtils.ValidarCedula(tbCustomerID.Text))
             {
                 siticoneHtmlLabel_cc_invalida.Hide();
-                siticoneHtmlLabel_cc_valida.Show();
+                labelValidCustomerID.Show();
             }
             validateFieldsCounter();
         }
 
-        private void txtBuscarClientePor_KeyPress(object sender, KeyPressEventArgs e)
+        private void TbSearchCustomerBy_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (cBConsultarClientePor.SelectedIndex)
+            switch (cbSearchCustomerBy.SelectedIndex)
             {
                 case 1:
                     if (e.KeyChar != '\b' && !char.IsDigit(e.KeyChar))
@@ -198,16 +197,16 @@ namespace SGV_CLP.GUI
                     }
                     break;
                 default:
-                    if (cBConsultarClientePor.SelectedIndex == -1) e.Handled = true;
+                    if (cbSearchCustomerBy.SelectedIndex == -1) e.Handled = true;
                     break;
             }
         }
 
-        private void cBConsultarClientePor_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbSearchCustomerBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            llenarTablaCliente();
+            FillCustomerDataGridView();
             txtBuscarClientePor.Text = string.Empty;
-            if (cBConsultarClientePor.SelectedIndex > 0)
+            if (cbSearchCustomerBy.SelectedIndex > 0)
             {
                 siticoneHtmlLabel_buscarCliente_sin_campo.Hide();
                 txtBuscarClientePor.Enabled = true;
@@ -300,90 +299,90 @@ namespace SGV_CLP.GUI
 
         private void validateFieldsCounter()
         {
-            Button_aniadirCliente.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCedulaCliente.Text);
+            buttonAddCustomer.Enabled = countCorrectFields >= fieldsNumber && ValidationUtils.ValidarCedula(tbCustomerID.Text);
         }
 
         private void txtCorreoCliente_TextChanged(object sender, EventArgs e)
         {
-            if (ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && !correoIsValid)
+            if (ValidationUtils.IsValidEmail(tbEMail.Text) && !eMailIsValid)
             {
                 //El correo es válido
                 siticoneHtmlLabel_wrong_email.Hide();
-                siticoneHtmlLabel_correct_email.Show();
-                count_correct_fields++;
-                correoIsValid = true;
+                labelCorrectEMail.Show();
+                countCorrectFields++;
+                eMailIsValid = true;
 
             }
-            else if (!ValidationUtils.IsValidEmail(txtCorreoCliente.Text) && correoIsValid)
+            else if (!ValidationUtils.IsValidEmail(tbEMail.Text) && eMailIsValid)
             {
                 // El correo es invalido pero fue valido anteriormente
                 siticoneHtmlLabel_wrong_email.Show();
-                siticoneHtmlLabel_correct_email.Hide();
-                count_correct_fields--;
-                correoIsValid = false;
+                labelCorrectEMail.Hide();
+                countCorrectFields--;
+                eMailIsValid = false;
             }
             validateFieldsCounter();
         }
 
         private void txtTelefonoCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtTelefonoCliente.Text.Length == Constants.LIMIT_TELEF_LENGTH && !telefIsValid)
+            if (tbPhoneNumber.Text.Length == Constants.LIMIT_TELEF_LENGTH && !phoneNumberIsValid)
             {
                 siticoneHtmlLabel_wrong_length_telef.Hide();
-                siticoneHtmlLabel_correct_length_telef.Show();
-                if (ValidationUtils.IsValidPhoneNumber(txtTelefonoCliente.Text))
+                labelCorrectPhoneNumberLength.Show();
+                if (ValidationUtils.IsValidPhoneNumber(tbPhoneNumber.Text))
                 {
-                    siticoneHtmlLabel_valid_telef.Show();
+                    labelValidPhoneNumber.Show();
                     siticoneHtmlLabel_invalid_telef.Hide();
-                    telefIsValid = true;
-                    count_correct_fields++;
+                    phoneNumberIsValid = true;
+                    countCorrectFields++;
                 }
                 else
                 {
-                    siticoneHtmlLabel_valid_telef.Hide();
+                    labelValidPhoneNumber.Hide();
                     siticoneHtmlLabel_invalid_telef.Show();
-                    telefIsValid = false;
-                    count_correct_fields--;
+                    phoneNumberIsValid = false;
+                    countCorrectFields--;
                 }
             }
-            else if (txtTelefonoCliente.Text.Length < Constants.LIMIT_TELEF_LENGTH && telefIsValid)
+            else if (tbPhoneNumber.Text.Length < Constants.LIMIT_TELEF_LENGTH && phoneNumberIsValid)
             {
-                siticoneHtmlLabel_valid_telef.Hide();
+                labelValidPhoneNumber.Hide();
                 siticoneHtmlLabel_invalid_telef.Show();
                 siticoneHtmlLabel_wrong_length_telef.Show();
-                siticoneHtmlLabel_correct_length_telef.Hide();
-                telefIsValid = false;
-                count_correct_fields--;
+                labelCorrectPhoneNumberLength.Hide();
+                phoneNumberIsValid = false;
+                countCorrectFields--;
             }
             validateFieldsCounter();
         }
 
         private void txtDireccionCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtDireccionCliente.Text.Length > 0 && !addressIsValid)
+            if (tbHomeAddress.Text.Length > 0 && !homeAddressIsValid)
             {
-                addressIsValid = true;
-                count_correct_fields++;
+                homeAddressIsValid = true;
+                countCorrectFields++;
             }
-            else if (txtDireccionCliente.Text.Length == 0 && addressIsValid)
+            else if (tbHomeAddress.Text.Length == 0 && homeAddressIsValid)
             {
-                addressIsValid = false;
-                count_correct_fields--;
+                homeAddressIsValid = false;
+                countCorrectFields--;
             }
             validateFieldsCounter();
         }
 
         private void txtPrimerNombreCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtPrimerNombreCliente.Text.Length > 0 && !firstNameIsValid)
+            if (tbFirstName.Text.Length > 0 && !firstNameIsValid)
             {
                 firstNameIsValid = true;
-                count_correct_fields++;
+                countCorrectFields++;
             }
-            else if (txtPrimerNombreCliente.Text.Length == 0 && firstNameIsValid)
+            else if (tbFirstName.Text.Length == 0 && firstNameIsValid)
             {
                 firstNameIsValid = false;
-                count_correct_fields--;
+                countCorrectFields--;
             }
 
             validateFieldsCounter();
@@ -391,15 +390,15 @@ namespace SGV_CLP.GUI
 
         private void txtPrimerApellidoCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtPrimerApellidoCliente.Text.Length > 0 && !firsLastNameIsValid)
+            if (tbFirstLastName.Text.Length > 0 && !firstLastNameIsValid)
             {
-                firsLastNameIsValid = true;
-                count_correct_fields++;
+                firstLastNameIsValid = true;
+                countCorrectFields++;
             }
-            else if (txtPrimerApellidoCliente.Text.Length == 0 && firsLastNameIsValid)
+            else if (tbFirstLastName.Text.Length == 0 && firstLastNameIsValid)
             {
-                firsLastNameIsValid = false;
-                count_correct_fields--;
+                firstLastNameIsValid = false;
+                countCorrectFields--;
             }
 
             validateFieldsCounter();
@@ -408,23 +407,23 @@ namespace SGV_CLP.GUI
         private void txtCedulaCliente_TextChanged(object sender, EventArgs e)
         {
             // comprueba que la cc == 10 y muesta mensaje de correcto
-            if (txtCedulaCliente.Text.Length == Constants.LIMIT_CC_LENGTH && !ccIsValid)
+            if (tbCustomerID.Text.Length == Constants.LIMIT_CC_LENGTH && !customerIDIsValid)
             {
-                ccIsValid = true;
-                count_correct_fields++;
+                customerIDIsValid = true;
+                countCorrectFields++;
                 siticoneHtmlLabel_cc_wrong_length.Hide();
-                siticoneHtmlLabel_cc_correct_length.Show();
+                labelCorrectCustomerIDLength.Show();
             }
-            else if (txtCedulaCliente.Text.Length < Constants.LIMIT_CC_LENGTH && ccIsValid)
+            else if (tbCustomerID.Text.Length < Constants.LIMIT_CC_LENGTH && customerIDIsValid)
             {
                 // Borro 1 char de la cc teniendo ya completos los 10 previamente
-                ccIsValid = false;
-                count_correct_fields--;
+                customerIDIsValid = false;
+                countCorrectFields--;
                 siticoneHtmlLabel_cc_invalida.Show();
                 siticoneHtmlLabel_cc_wrong_length.Show();
 
-                siticoneHtmlLabel_cc_correct_length.Hide();
-                siticoneHtmlLabel_cc_valida.Hide();
+                labelCorrectCustomerIDLength.Hide();
+                labelValidCustomerID.Hide();
             }
 
             validateFieldsCounter();
@@ -433,7 +432,7 @@ namespace SGV_CLP.GUI
         private void txtBuscarClientePor_TextChanged(object sender, EventArgs e)
         {
             // Obtener el valor del ComboBox
-            string selectedItem = cBConsultarClientePor.SelectedItem.ToString();
+            string selectedItem = cbSearchCustomerBy.SelectedItem.ToString();
 
             // Obtener el valor del TextBox
             string filterValue = txtBuscarClientePor.Text;
@@ -442,7 +441,7 @@ namespace SGV_CLP.GUI
             {
                 txtBuscarClientePor.MaxLength = Constants.LIMIT_CC_LENGTH;
 
-                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
                     if (row.Cells[0].Value != null)
@@ -455,7 +454,7 @@ namespace SGV_CLP.GUI
             {
                 txtBuscarClientePor.MaxLength = Constants.LIMIT_NOMBRE_LENGTH;
 
-                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
                     if (row.Cells[1].Value != null)
@@ -468,7 +467,7 @@ namespace SGV_CLP.GUI
             {
                 txtBuscarClientePor.MaxLength = Constants.LIMIT_APELLIDO_LENGTH;
 
-                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
                     if (row.Cells[2].Value != null)
@@ -480,7 +479,7 @@ namespace SGV_CLP.GUI
             else if (selectedItem == "Teléfono")
             {
                 txtBuscarClientePor.MaxLength = Constants.LIMIT_TELEF_LENGTH;
-                foreach (DataGridViewRow row in SDGVCliente.Rows)
+                foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
                     if (row.Cells[4].Value != null)
