@@ -1,5 +1,6 @@
 ﻿using SGV_CLP.Classes;
-using SGV_CLP.Classes.Modulo_Ventas;
+using SGV_CLP.Classes.Products_module;
+using SGV_CLP.Classes.Sales_Module;
 using SGV_CLP.GUI.Módulo_Ventas;
 using Siticone.Desktop.UI.WinForms;
 using System.Media;
@@ -10,17 +11,17 @@ namespace SGV_CLP.GUI
 {
     public partial class UC_Ventas : UserControl
     {
-        List<Producto> productos;
-        List<Producto> especialidades;
-        List<Producto> bebidas;
-        public static NotaVenta notaVenta;
+        List<Product> productos;
+        List<Product> especialidades;
+        List<Product> bebidas;
+        public static Invoice invoice;
         public static SiticoneDataGridView detalleVentaTabla;
         public static SiticoneHtmlLabel totalVenta;
         public static List<UC_Item> productosUI = new List<UC_Item>();
         public string Categoria = string.Empty;
         public UC_Ventas()
         {
-            notaVenta = new NotaVenta();
+            invoice = new Invoice();
 
             InitializeComponent();
             detalleVentaTabla = siticoneDataGridView2;
@@ -32,16 +33,16 @@ namespace SGV_CLP.GUI
 
         public void loadProducts()
         {
-            productos = ProductoMapper.ConsultarProductos();
-            especialidades = new List<Producto>();
-            bebidas = new List<Producto>();
-            foreach (Producto producto in productos)
+            productos = ProductMapper.GetAllProduct();
+            especialidades = new List<Product>();
+            bebidas = new List<Product>();
+            foreach (Product producto in productos)
             {
-                if (producto.Categoria.Equals("Bebidas"))
+                if (producto.category.Equals("Bebidas"))
                 {
                     bebidas.Add(producto);
                 }
-                if (producto.Categoria.Equals("Especialidades"))
+                if (producto.category.Equals("Especialidades"))
                 {
                     especialidades.Add(producto);
                 }
@@ -141,9 +142,9 @@ namespace SGV_CLP.GUI
                     if (MessageBox.Show("¿Está seguro de eliminar este detalle de nota de venta?", "Eliminar detalle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         DataGridViewRow row = siticoneDataGridView2.Rows[e.RowIndex];
-                        notaVenta.deleteDetailbyProductName(row.Cells[0].Value.ToString());
+                        invoice.DeleteInvoiceDetailbyProductName(row.Cells[0].Value.ToString());
                         siticoneDataGridView2.Rows.RemoveAt(e.RowIndex);
-                        UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.notaVenta.calcularTotalVentas().ToString();
+                        UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.invoice.CalculateTotalSales().ToString();
                     }
                 }
             }
@@ -156,48 +157,48 @@ namespace SGV_CLP.GUI
 
         private void txtConsultarVenta_TextChanged(object sender, EventArgs e)
         {
-            List<NotaVenta> notasVenta = new List<NotaVenta>();
+            List<Invoice> invoices = new List<Invoice>();
             switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
                 case 0:
                     if (!txtConsultarVenta.Text.Equals(string.Empty))
-                        notasVenta = NotaVentaMapper.ConsultarNotaVenta(Convert.ToInt32(txtConsultarVenta.Text));
+                        invoices = InvoiceMapper.GetAllInvoicesByCode(Convert.ToInt32(txtConsultarVenta.Text));
                     break;
 
                 case 1:
-                    notasVenta = NotaVentaMapper.ConsultarNotaVenta(txtConsultarVenta.Text);
+                    invoices = InvoiceMapper.GetAllInvoices(txtConsultarVenta.Text);
                     break;
 
                 case >= 2 and <= 4:
-                    notasVenta = NotaVentaMapper.ConsultarNotaVenta(Categoria, txtConsultarVenta.Text);
+                    invoices = InvoiceMapper.GetAllInvoices(Categoria, txtConsultarVenta.Text);
                     break;
 
             }
 
-            llenarTablaVenta(notasVenta);
+            llenarTablaVenta(invoices);
         }
 
-        public void llenarTablaVenta(List<NotaVenta> notasVenta)
+        public void llenarTablaVenta(List<Invoice> notasVenta)
         {
             if (notasVenta != null)
             {
                 siticoneDataGridView1.Rows.Clear();
                 notasVenta.ForEach(item => siticoneDataGridView1.Rows.Add(
-                    item.codNotaVenta,
-                    item.cliente.Cc_Cliente,
-                    item.cliente.Primer_Nombre,
-                    item.cliente.Primer_Apellido,
-                    item.cliente.Telefono,
-                    item.precioFinal,
-                    item.fechaVenta));
+                    item.invoiceCode,
+                    item.customer.customerID,
+                    item.customer.firstName,
+                    item.customer.firstLastName,
+                    item.customer.phoneNumber,
+                    item.totalSales,
+                    item.issuedDate));
             }
         }
 
         private void dateTimePickerConsultarVenta_ValueChanged(object sender, EventArgs e)
         {
-            List<NotaVenta> notasVenta = new List<NotaVenta>();
-            notasVenta = NotaVentaMapper.ConsultarNotaVentabyDate(dateTimePickerConsultarVenta.Text);
-            llenarTablaVenta(notasVenta);
+            List<Invoice> invoices = new List<Invoice>();
+            invoices = InvoiceMapper.GetAllInvoicesByDate(dateTimePickerConsultarVenta.Text);
+            llenarTablaVenta(invoices);
         }
 
         private void txtConsultarVenta_KeyPress(object sender, KeyPressEventArgs e)

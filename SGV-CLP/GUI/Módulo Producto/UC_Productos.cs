@@ -1,6 +1,5 @@
 ﻿using SGV_CLP.Classes;
-using SGV_CLP.Classes.Modulo_Ventas;
-using SGV_CLP.GUI.Módulo_Clientes;
+using SGV_CLP.Classes.Products_module;
 using SGV_CLP.GUI.Módulo_Producto;
 using Siticone.Desktop.UI.WinForms;
 using System;
@@ -21,9 +20,9 @@ namespace SGV_CLP.GUI
 {
     public partial class UC_Productos : UserControl
     {
-        List<Producto> ProductosRegistrados = ProductoMapper.ConsultarProductos();
-        List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
-        List<Lote> LoteRegistrados = LoteMapper.ConsultarLotes();
+        List<Product> ProductosRegistrados;
+        List<string> NombresProductosRegistrados;
+        List<Batch> LoteRegistrados;
 
         bool isValidIdProd, isValidNombreProd, isValidCategoria, isValidPE, isValidPVP, isValidRutaImg; // Para validar los campos de Producto
         bool isValidNombProdEnLote, isValidCantidad, isValidFechaHora; // Para validar los campos de Lote
@@ -31,6 +30,11 @@ namespace SGV_CLP.GUI
         public UC_Productos()
         {
             InitializeComponent();
+
+            ProductosRegistrados = ProductMapper.GetAllProduct();
+            NombresProductosRegistrados = ProductMapper.GetProductsNames();
+            LoteRegistrados = BatchMapper.GetAllBatches();
+
             LlenarTablaProducto();
             LlenarTablaLote();
             LlenarComboBoxesProductos();
@@ -87,21 +91,18 @@ namespace SGV_CLP.GUI
             rutaImagen_not_valid_label.Hide();
         }
 
-
         // Llenar tabla Producto
         public void LlenarTablaProducto()
         {
             if (ProductosRegistrados != null)
             {
                 SDGVProducto.Rows.Clear();
-                ProductosRegistrados = ProductoMapper.ConsultarProductos();
-                foreach (Producto producto in ProductosRegistrados)
+                ProductosRegistrados = ProductMapper.GetAllProduct();
+                foreach (Product producto in ProductosRegistrados)
                 {
-                    SDGVProducto.Rows.Add(producto.Id, producto.Nombre, producto.PrecioElaboracion, producto.PVP, producto.Categoria, producto.CantidadTotal);
+                    SDGVProducto.Rows.Add(producto.productCode, producto.productName, producto.productionPrice, producto.salesPriceToThePubic, producto.category, producto.totalQuantity);
                 }
             }
-            LlenarComboBoxesProductos();
-            // aquí debería llamar a método de llenar comboboxes de Administración hechos por DAVID
         }
 
         private void SBExaminar_Click(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace SGV_CLP.GUI
         // Añadir Producto
         private void SBAniadirProducto_Click(object sender, EventArgs e)
         {
-            var producto = new Producto(
+            var producto = new Product(
                 txtIDProd.Text.ToUpper(),
                 txtNombreProducto.Text,
                 Convert.ToDouble(txtPE.Text, CultureInfo.InvariantCulture),
@@ -127,9 +128,10 @@ namespace SGV_CLP.GUI
                 cBoxCategoria.Text,
                 txtImagen.Text);
 
-            ProductoMapper.IngresarProducto(producto);
+            ProductMapper.AddProduct(producto);
 
             LlenarTablaProducto();
+            LlenarComboBoxesProductos();
             VaciarCamposProd();
             MainMenu.uc_ventas.loadProducts();
 
@@ -148,8 +150,7 @@ namespace SGV_CLP.GUI
                     if (MessageBox.Show("¿Está seguro de eliminar este producto?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         string cod_Producto = SDGVProducto.Rows[e.RowIndex].Cells[0].Value.ToString();
-
-                        ProductoMapper.EliminarProducto(cod_Producto);
+                        ProductMapper.DeleteProduct(cod_Producto);
                         MessageBox.Show("Producto eliminado con éxito");
                     }
                 }
@@ -166,6 +167,7 @@ namespace SGV_CLP.GUI
                 }
             }
             LlenarTablaProducto();
+            LlenarComboBoxesProductos();
             MainMenu.uc_ventas.loadProducts();
         }
 
@@ -283,7 +285,7 @@ namespace SGV_CLP.GUI
             if (txtIDProd.Text.Length > 0)
             {
                 // Verifica la existencia del ID
-                if (ProductoMapper.IDproductoExiste(txtIDProd.Text))
+                if (ProductMapper.ProductExistsByCode(txtIDProd.Text))
                 {
                     IDProd_not_unique_label.Show();
                     isValidIdProd = false;
@@ -318,7 +320,7 @@ namespace SGV_CLP.GUI
             if (txtNombreProducto.Text.Length > 0)
             {
                 // Verifica la existencia del nombre de producto
-                if (ProductoMapper.NombreProductoExiste(txtNombreProducto.Text))
+                if (ProductMapper.ProductExistsByName(txtNombreProducto.Text))
                 {
                     nombreProducto_not_unique_label.Show();
                     isValidNombreProd = false;
@@ -463,14 +465,14 @@ namespace SGV_CLP.GUI
             if (LoteRegistrados != null)
             {
                 SDGVLote.Rows.Clear();
-                LoteRegistrados = LoteMapper.ConsultarLotes();
-                foreach (Lote lote in LoteRegistrados)
+                LoteRegistrados = BatchMapper.GetAllBatches();
+                foreach (Batch lote in LoteRegistrados)
                 {
                     SDGVLote.Rows.Add(
-                        lote.Cod_Lote,
-                        lote.Cod_Producto,
-                        lote.Cantidad,
-                        lote.FechaElaboracion.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                        lote.batchCode,
+                        lote.productCode,
+                        lote.quantity,
+                        lote.manufactureDate.Value.ToString("yyyy-MM-dd HH:mm:ss"));
                 }
             }
         }
@@ -482,13 +484,13 @@ namespace SGV_CLP.GUI
             {
                 cBoxProductoLote.Items.Clear();
                 cBoxConsultarLotePorProducto.Items.Clear();
-                NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+                NombresProductosRegistrados = ProductMapper.GetProductsNames();
                 cBoxProductoLote.Items.Add("Seleccione...");
                 cBoxConsultarLotePorProducto.Items.Add("Seleccione...");
                 foreach (string nombreProd in NombresProductosRegistrados)
                 {
                     cBoxProductoLote.Items.Add(nombreProd);
-                    cBoxConsultarLotePorProducto.Items.Add(ProductoMapper.ConsultarIdProducto(nombreProd));
+                    cBoxConsultarLotePorProducto.Items.Add(ProductMapper.GetProductCode(nombreProd));
                 }
             }
         }
@@ -496,23 +498,34 @@ namespace SGV_CLP.GUI
         // Añadir Lote
         private void SBAniadirLote_Click(object sender, EventArgs e)
         {
-            if (SRBFechaActual.Checked)
+            string codLote = string.Empty;
+            string codProducto = ProductMapper.GetProductCode(cBoxProductoLote.SelectedItem.ToString());
+            string ultimoCodLote = BatchMapper.GetMostRecentBatchCodeForProduct(codProducto);
+            if (ultimoCodLote != string.Empty)
             {
-                var LoteConFechaActual = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DateTime.Now.ToString("yyyyMMddHHmmss"),
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
-                Convert.ToInt32(txtCantidad.Text),
-                DateTime.Now);
-                LoteMapper.IngresarLote(LoteConFechaActual);
+                codLote = ultimoCodLote.Substring(0, 4) + (Convert.ToInt32(ultimoCodLote.Substring(4)) + 1).ToString("000");
             }
             else
             {
-                var LoteConDateTimePicker = new Lote(
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()) + DTPFechaLote.Value.ToString("yyyyMMdd") + DTPHoraLote.Value.ToString("HHmmss"),
-                ProductoMapper.ConsultarIdProducto(cBoxProductoLote.SelectedItem.ToString()),
+                codLote = codProducto + "0001";
+            }
+            if (SRBFechaActual.Checked)
+            {
+                var LoteConFechaActual = new Batch(
+                codLote,
+                codProducto,
+                Convert.ToInt32(txtCantidad.Text),
+                DateTime.Now);
+                BatchMapper.AddBatch(LoteConFechaActual);
+            }
+            else
+            {
+                var LoteConDateTimePicker = new Batch(
+                codLote,
+                codProducto,
                 Convert.ToInt32(txtCantidad.Text),
                 DTPFechaLote.Value.Date + DTPHoraLote.Value.TimeOfDay);
-                LoteMapper.IngresarLote(LoteConDateTimePicker);
+                BatchMapper.AddBatch(LoteConDateTimePicker);
             }
 
             LlenarTablaLote();
@@ -532,7 +545,7 @@ namespace SGV_CLP.GUI
                     if (MessageBox.Show("¿Está seguro de eliminar este lote?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         string cod_Lote = SDGVLote.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        LoteMapper.EliminarLote(cod_Lote);
+                        BatchMapper.DeleteBatch(cod_Lote);
                         MessageBox.Show("Lote de producto eliminado con éxito");
                     }
                 }
@@ -548,6 +561,7 @@ namespace SGV_CLP.GUI
                 }
             }
             LlenarTablaLote();
+            LlenarTablaProducto();
         }
 
         private void TxtConsultarLotePorCodigo_TextChanged(object sender, EventArgs e)
