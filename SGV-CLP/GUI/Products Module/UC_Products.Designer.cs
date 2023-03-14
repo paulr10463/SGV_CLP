@@ -402,7 +402,7 @@ namespace SGV_CLP.GUI
             cbCategory.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbCategory.ForeColor = Color.FromArgb(68, 88, 112);
             cbCategory.ItemHeight = 35;
-            cbCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
+            cbCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas Frías", "Bebidas Calientes", "Empanadas" });
             cbCategory.Location = new Point(421, 300);
             cbCategory.Margin = new Padding(3, 5, 3, 5);
             cbCategory.Name = "cBoxCategoria";

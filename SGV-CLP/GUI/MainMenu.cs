@@ -44,6 +44,7 @@ namespace SGV_CLP
         private void siticoneButton3_CheckedChanged(object sender, EventArgs e)
         {
             uC_Ventas1.BringToFront();
+            uC_Ventas1.loadProducts();
         }
 
         private void siticoneButton4_CheckedChanged(object sender, EventArgs e)

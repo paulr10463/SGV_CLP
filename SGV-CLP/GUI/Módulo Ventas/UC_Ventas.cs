@@ -11,9 +11,11 @@ namespace SGV_CLP.GUI
 {
     public partial class UC_Ventas : UserControl
     {
-        List<Product> productos;
-        List<Product> especialidades;
-        List<Product> bebidas;
+        List<Product> products;
+        List<Product> specialties;
+        List<Product> hotDrinks;
+        List<Product> coldDrinks;
+        List<Product> empanadas;
         public static Invoice invoice;
         public static SiticoneDataGridView detalleVentaTabla;
         public static SiticoneHtmlLabel totalVenta;
@@ -31,36 +33,78 @@ namespace SGV_CLP.GUI
 
         }
 
+
         public void loadProducts()
         {
-            productos = ProductMapper.GetAllProduct();
-            especialidades = new List<Product>();
-            bebidas = new List<Product>();
-            foreach (Product producto in productos)
+            products = ProductMapper.GetAllProduct();
+            specialties = new List<Product>();
+            hotDrinks = new List<Product>();
+            coldDrinks = new List<Product>();
+            empanadas = new List<Product>();
+            classifyProducts(); 
+            showProducts(specialties, flowLayoutPanel1);
+            showProducts(hotDrinks, flowLayoutPanel2);
+            showProducts(coldDrinks, flowLayoutPanel4);
+            showProducts(empanadas, flowLayoutPanel5);
+            
+        }
+
+        private void classifyProducts()
+        {
+            //Add in each Product category the products
+            foreach (Product producto in products)
             {
-                if (producto.category.Equals("Bebidas"))
+                if (producto.category.Equals("Bebidas Calientes"))
                 {
-                    bebidas.Add(producto);
+                    if (Convert.ToInt32(ProductMapper.GetProductField(producto.productCode, "cantidad_Total")) > 0)
+                    {
+                        hotDrinks.Add(producto);
+                        hotDrinksHtmlLabel.Visible = true;
+                    }
+                    else hotDrinksHtmlLabel.Visible = false;
+
+
                 }
                 if (producto.category.Equals("Especialidades"))
                 {
-                    especialidades.Add(producto);
+                    if (Convert.ToInt32(ProductMapper.GetProductField(producto.productCode, "cantidad_Total")) > 0)
+                    {
+                        specialties.Add(producto);
+                        specialtiesHtmlLabel.Visible = true;
+                    }
+                    else specialtiesHtmlLabel.Visible = false;
+                }
+                if (producto.category.Equals("Bebidas Frías"))
+                {
+                    if (Convert.ToInt32(ProductMapper.GetProductField(producto.productCode, "cantidad_Total")) > 0)
+                    {
+                        coldDrinks.Add(producto);
+                        coldDrinksHtmlLabel.Visible = true;
+                    }
+                    else coldDrinksHtmlLabel.Visible = false;
+                }
+                if (producto.category.Equals("Empanadas"))
+                {
+                    if (Convert.ToInt32(ProductMapper.GetProductField(producto.productCode, "cantidad_Total")) > 0)
+                    {
+                        empanadas.Add(producto);
+                        empanadasHtmlLabel.Visible = true;
+                    }
+                    else empanadasHtmlLabel.Visible = false;
                 }
             }
-            List<UC_Item> especialidadesUI = new List<UC_Item>();
-            List<UC_Item> bebidasUI = new List<UC_Item>();
+        }
+        private void showProducts(List<Product> productCategoryItems, FlowLayoutPanel flowLayoutPanel)
+        {
+            flowLayoutPanel.Controls.Clear();
+            if (productCategoryItems.Count > 0)
+            {
+                List<UC_Item> productCategoryItemsUI = new List<UC_Item>();
+                productCategoryItems.ForEach(producto => productCategoryItemsUI.Add(new UC_Item(producto)));
+                productCategoryItemsUI.ForEach(item => flowLayoutPanel.Controls.Add(item));
+                productCategoryItemsUI.ForEach(item => productosUI.Add(item));
+            }
 
-            especialidades.ForEach(producto => especialidadesUI.Add(new UC_Item(producto)));
-            bebidas.ForEach(bebida => bebidasUI.Add(new UC_Item(bebida)));
-
-            flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel2.Controls.Clear();
-
-            especialidadesUI.ForEach(item => flowLayoutPanel1.Controls.Add(item));
-            bebidasUI.ForEach(item => flowLayoutPanel2.Controls.Add(item));
-
-            especialidadesUI.ForEach(item => productosUI.Add(item));
-            bebidasUI.ForEach(item => productosUI.Add(item));
         }
         //Se verifica que la siticoneDataGridView2 tenga algun producto para poder abrir el checkout
         private void siticoneButton4_Click(object sender, EventArgs e)
@@ -85,30 +129,9 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel11.Visible = false;
         }
 
-        //Calcula el total de la venta
-        public void setTotal(SiticoneDataGridView tablaVenta)
-        {
-            double total = 0;
-            foreach (DataGridViewRow rowItem in siticoneDataGridView2.Rows)
-            {
-                if (rowItem.Cells[0].Value != null)
-                {
-                    total += (double)rowItem.Cells[2].Value;
-                }
-                else
-                {
-                    break;
-                }
-            }
 
-            siticoneHtmlLabel11.Text = "Total:      $" + total.ToString();
-
-        }
 
         //Validaciones en el cuadro de Busqueda de ventas
-
-
-
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtConsultarVenta.Text = System.String.Empty;
@@ -190,7 +213,7 @@ namespace SGV_CLP.GUI
                     item.customer.firstLastName,
                     item.customer.phoneNumber,
                     item.totalSales,
-                    item.issuedDate));
+                    item.issuedDate.Value.ToShortDateString()));
             }
         }
 
@@ -234,6 +257,26 @@ namespace SGV_CLP.GUI
             ComboBox_ConsultarVentaPor_SelectedIndexChanged(null, null);
         }
 
+        private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 7)
+            {
 
+                try
+                {
+                    int InvoiceCodeSelected = Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value);
+                     ShowDetailInvoice showDetailInvoice = new ShowDetailInvoice(
+                         InvoiceDetailMapper.GetAllInvoiceDetails(InvoiceCodeSelected),
+                         Convert.ToDouble(siticoneDataGridView1.Rows[e.RowIndex].Cells[5].Value),
+                         InvoiceCodeSelected
+                    );
+                    showDetailInvoice.BringToFront();
+                    showDetailInvoice.Visible = true;
+                }
+                catch (Exception ex){
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }
