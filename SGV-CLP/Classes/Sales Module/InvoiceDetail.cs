@@ -24,13 +24,6 @@ namespace SGV_CLP.Classes.Sales_Module
             this.product = product;
         }
 
-        public InvoiceDetail(string productName, int soldQuantity, double subTotal)
-        {
-            this.soldQuantity = soldQuantity;
-            this.subTotal = subTotal;
-            this.product = new Product(productName , string.Empty);
-        }
-
         public InvoiceDetail()
         {
             this.soldQuantity = 0;

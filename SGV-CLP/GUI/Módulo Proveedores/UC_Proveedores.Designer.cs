@@ -28,433 +28,446 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Proveedores));
-            siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
-            Añadir = new TabPage();
-            siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            SBAniadirProveedor = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            txtTelefono = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            txtDirec = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtRUC = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            txtNombreProv = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            Editar = new TabPage();
-            siticoneComboBox6 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            SDGVProveedor = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
-            ColumnaRUC = new DataGridViewTextBoxColumn();
-            ColumnaNombreProv = new DataGridViewTextBoxColumn();
-            ColumnaDireccion = new DataGridViewTextBoxColumn();
-            ColumnaTelefono = new DataGridViewTextBoxColumn();
-            ColumnaEditarProveedor = new DataGridViewImageColumn();
-            ColumnaEliminarProveedor = new DataGridViewImageColumn();
-            siticoneTabControl1.SuspendLayout();
-            Añadir.SuspendLayout();
-            Editar.SuspendLayout();
-            siticonePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)SDGVProveedor).BeginInit();
-            SuspendLayout();
+            this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
+            this.Añadir = new System.Windows.Forms.TabPage();
+            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.SBAniadirProveedor = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.txtTelefono = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.txtDirec = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.txtRUC = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneHtmlLabel5 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.txtNombreProv = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.Editar = new System.Windows.Forms.TabPage();
+            this.siticoneComboBox6 = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.siticoneTextBox6 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.SDGVProveedor = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.ColumnaRUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaNombreProv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnaEditarProveedor = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ColumnaEliminarProveedor = new System.Windows.Forms.DataGridViewImageColumn();
+            this.siticoneTabControl1.SuspendLayout();
+            this.Añadir.SuspendLayout();
+            this.Editar.SuspendLayout();
+            this.siticonePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SDGVProveedor)).BeginInit();
+            this.SuspendLayout();
             // 
             // siticoneTabControl1
             // 
-            siticoneTabControl1.Alignment = TabAlignment.Left;
-            siticoneTabControl1.Controls.Add(Añadir);
-            siticoneTabControl1.Controls.Add(Editar);
-            siticoneTabControl1.Dock = DockStyle.Fill;
-            siticoneTabControl1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneTabControl1.ItemSize = new Size(160, 75);
-            siticoneTabControl1.Location = new Point(0, 0);
-            siticoneTabControl1.Margin = new Padding(3, 4, 3, 4);
-            siticoneTabControl1.Name = "siticoneTabControl1";
-            siticoneTabControl1.SelectedIndex = 0;
-            siticoneTabControl1.Size = new Size(1549, 945);
-            siticoneTabControl1.TabButtonHoverState.BorderColor = Color.Empty;
-            siticoneTabControl1.TabButtonHoverState.FillColor = Color.Black;
-            siticoneTabControl1.TabButtonHoverState.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneTabControl1.TabButtonHoverState.ForeColor = Color.White;
-            siticoneTabControl1.TabButtonHoverState.InnerColor = Color.Black;
-            siticoneTabControl1.TabButtonIdleState.BorderColor = Color.Empty;
-            siticoneTabControl1.TabButtonIdleState.FillColor = Color.Black;
-            siticoneTabControl1.TabButtonIdleState.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneTabControl1.TabButtonIdleState.ForeColor = Color.FromArgb(156, 160, 167);
-            siticoneTabControl1.TabButtonIdleState.InnerColor = Color.Black;
-            siticoneTabControl1.TabButtonSelectedState.BorderColor = Color.Empty;
-            siticoneTabControl1.TabButtonSelectedState.FillColor = Color.Black;
-            siticoneTabControl1.TabButtonSelectedState.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneTabControl1.TabButtonSelectedState.ForeColor = Color.White;
-            siticoneTabControl1.TabButtonSelectedState.InnerColor = Color.FromArgb(76, 132, 255);
-            siticoneTabControl1.TabButtonSize = new Size(160, 75);
-            siticoneTabControl1.TabIndex = 2;
-            siticoneTabControl1.TabMenuBackColor = Color.Black;
+            this.siticoneTabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.siticoneTabControl1.Controls.Add(this.Añadir);
+            this.siticoneTabControl1.Controls.Add(this.Editar);
+            this.siticoneTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.siticoneTabControl1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneTabControl1.ItemSize = new System.Drawing.Size(160, 75);
+            this.siticoneTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.siticoneTabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneTabControl1.Name = "siticoneTabControl1";
+            this.siticoneTabControl1.SelectedIndex = 0;
+            this.siticoneTabControl1.Size = new System.Drawing.Size(1549, 945);
+            this.siticoneTabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.siticoneTabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.Black;
+            this.siticoneTabControl1.TabButtonHoverState.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneTabControl1.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.siticoneTabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.Black;
+            this.siticoneTabControl1.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.siticoneTabControl1.TabButtonIdleState.FillColor = System.Drawing.Color.Black;
+            this.siticoneTabControl1.TabButtonIdleState.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneTabControl1.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.siticoneTabControl1.TabButtonIdleState.InnerColor = System.Drawing.Color.Black;
+            this.siticoneTabControl1.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.siticoneTabControl1.TabButtonSelectedState.FillColor = System.Drawing.Color.Black;
+            this.siticoneTabControl1.TabButtonSelectedState.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneTabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
+            this.siticoneTabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.siticoneTabControl1.TabButtonSize = new System.Drawing.Size(160, 75);
+            this.siticoneTabControl1.TabIndex = 2;
+            this.siticoneTabControl1.TabMenuBackColor = System.Drawing.Color.Black;
             // 
             // Añadir
             // 
-            Añadir.Controls.Add(siticoneHtmlLabel4);
-            Añadir.Controls.Add(SBAniadirProveedor);
-            Añadir.Controls.Add(txtTelefono);
-            Añadir.Controls.Add(txtDirec);
-            Añadir.Controls.Add(siticoneHtmlLabel1);
-            Añadir.Controls.Add(txtRUC);
-            Añadir.Controls.Add(siticoneHtmlLabel7);
-            Añadir.Controls.Add(siticoneHtmlLabel5);
-            Añadir.Controls.Add(txtNombreProv);
-            Añadir.Controls.Add(siticoneHtmlLabel3);
-            Añadir.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Añadir.Location = new Point(164, 4);
-            Añadir.Margin = new Padding(3, 5, 3, 5);
-            Añadir.Name = "Añadir";
-            Añadir.Padding = new Padding(3, 5, 3, 5);
-            Añadir.Size = new Size(1381, 937);
-            Añadir.TabIndex = 0;
-            Añadir.Text = "Registrar Proveedor";
-            Añadir.UseVisualStyleBackColor = true;
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel4);
+            this.Añadir.Controls.Add(this.SBAniadirProveedor);
+            this.Añadir.Controls.Add(this.txtTelefono);
+            this.Añadir.Controls.Add(this.txtDirec);
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel1);
+            this.Añadir.Controls.Add(this.txtRUC);
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel7);
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel5);
+            this.Añadir.Controls.Add(this.txtNombreProv);
+            this.Añadir.Controls.Add(this.siticoneHtmlLabel3);
+            this.Añadir.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Añadir.Location = new System.Drawing.Point(164, 4);
+            this.Añadir.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Añadir.Name = "Añadir";
+            this.Añadir.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Añadir.Size = new System.Drawing.Size(1381, 937);
+            this.Añadir.TabIndex = 0;
+            this.Añadir.Text = "Registrar Proveedor";
+            this.Añadir.UseVisualStyleBackColor = true;
             // 
             // siticoneHtmlLabel4
             // 
-            siticoneHtmlLabel4.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel4.BackColor = Color.Transparent;
-            siticoneHtmlLabel4.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel4.Location = new Point(387, 193);
-            siticoneHtmlLabel4.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
-            siticoneHtmlLabel4.Size = new Size(57, 34);
-            siticoneHtmlLabel4.TabIndex = 55;
-            siticoneHtmlLabel4.Text = "RUC";
+            this.siticoneHtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(387, 193);
+            this.siticoneHtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
+            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(57, 34);
+            this.siticoneHtmlLabel4.TabIndex = 55;
+            this.siticoneHtmlLabel4.Text = "RUC";
             // 
             // SBAniadirProveedor
             // 
-            SBAniadirProveedor.Anchor = AnchorStyles.None;
-            SBAniadirProveedor.BorderRadius = 20;
-            SBAniadirProveedor.DisabledState.BorderColor = Color.DarkGray;
-            SBAniadirProveedor.DisabledState.CustomBorderColor = Color.DarkGray;
-            SBAniadirProveedor.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            SBAniadirProveedor.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            SBAniadirProveedor.FillColor = Color.Black;
-            SBAniadirProveedor.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            SBAniadirProveedor.ForeColor = Color.White;
-            SBAniadirProveedor.Location = new Point(559, 684);
-            SBAniadirProveedor.Margin = new Padding(3, 4, 3, 4);
-            SBAniadirProveedor.Name = "SBAniadirProveedor";
-            SBAniadirProveedor.Size = new Size(206, 60);
-            SBAniadirProveedor.TabIndex = 54;
-            SBAniadirProveedor.Text = "Añadir";
-            SBAniadirProveedor.Click += SBAniadirProveedor_Click;
+            this.SBAniadirProveedor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SBAniadirProveedor.BorderRadius = 20;
+            this.SBAniadirProveedor.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SBAniadirProveedor.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SBAniadirProveedor.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SBAniadirProveedor.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SBAniadirProveedor.FillColor = System.Drawing.Color.Black;
+            this.SBAniadirProveedor.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SBAniadirProveedor.ForeColor = System.Drawing.Color.White;
+            this.SBAniadirProveedor.Location = new System.Drawing.Point(559, 684);
+            this.SBAniadirProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SBAniadirProveedor.Name = "SBAniadirProveedor";
+            this.SBAniadirProveedor.Size = new System.Drawing.Size(206, 60);
+            this.SBAniadirProveedor.TabIndex = 54;
+            this.SBAniadirProveedor.Text = "Añadir";
+            this.SBAniadirProveedor.Click += new System.EventHandler(this.SBAniadirProveedor_Click);
             // 
             // txtTelefono
             // 
-            txtTelefono.Anchor = AnchorStyles.None;
-            txtTelefono.BorderRadius = 20;
-            txtTelefono.DefaultText = "";
-            txtTelefono.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtTelefono.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtTelefono.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtTelefono.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtTelefono.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTelefono.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTelefono.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTelefono.Location = new Point(703, 480);
-            txtTelefono.Margin = new Padding(3, 7, 3, 7);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.PasswordChar = '\0';
-            txtTelefono.PlaceholderText = "";
-            txtTelefono.SelectedText = "";
-            txtTelefono.Size = new Size(229, 55);
-            txtTelefono.TabIndex = 53;
+            this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTelefono.BorderRadius = 20;
+            this.txtTelefono.DefaultText = "";
+            this.txtTelefono.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTelefono.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTelefono.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTelefono.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTelefono.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTelefono.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTelefono.Location = new System.Drawing.Point(703, 480);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.PasswordChar = '\0';
+            this.txtTelefono.PlaceholderText = "";
+            this.txtTelefono.SelectedText = "";
+            this.txtTelefono.Size = new System.Drawing.Size(229, 55);
+            this.txtTelefono.TabIndex = 53;
             // 
             // txtDirec
             // 
-            txtDirec.Anchor = AnchorStyles.None;
-            txtDirec.BorderRadius = 20;
-            txtDirec.DefaultText = "";
-            txtDirec.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtDirec.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtDirec.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtDirec.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtDirec.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDirec.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDirec.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDirec.Location = new Point(703, 381);
-            txtDirec.Margin = new Padding(3, 7, 3, 7);
-            txtDirec.Name = "txtDirec";
-            txtDirec.PasswordChar = '\0';
-            txtDirec.PlaceholderText = "";
-            txtDirec.SelectedText = "";
-            txtDirec.Size = new Size(229, 55);
-            txtDirec.TabIndex = 52;
+            this.txtDirec.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDirec.BorderRadius = 20;
+            this.txtDirec.DefaultText = "";
+            this.txtDirec.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDirec.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDirec.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDirec.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDirec.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDirec.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDirec.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDirec.Location = new System.Drawing.Point(703, 381);
+            this.txtDirec.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.txtDirec.Name = "txtDirec";
+            this.txtDirec.PasswordChar = '\0';
+            this.txtDirec.PlaceholderText = "";
+            this.txtDirec.SelectedText = "";
+            this.txtDirec.Size = new System.Drawing.Size(229, 55);
+            this.txtDirec.TabIndex = 52;
             // 
             // siticoneHtmlLabel1
             // 
-            siticoneHtmlLabel1.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel1.BackColor = Color.Transparent;
-            siticoneHtmlLabel1.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel1.Location = new Point(387, 391);
-            siticoneHtmlLabel1.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            siticoneHtmlLabel1.Size = new Size(126, 34);
-            siticoneHtmlLabel1.TabIndex = 51;
-            siticoneHtmlLabel1.Text = "Dirección";
+            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(387, 391);
+            this.siticoneHtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(126, 34);
+            this.siticoneHtmlLabel1.TabIndex = 51;
+            this.siticoneHtmlLabel1.Text = "Dirección";
             // 
             // txtRUC
             // 
-            txtRUC.Anchor = AnchorStyles.None;
-            txtRUC.BorderRadius = 20;
-            txtRUC.DefaultText = "";
-            txtRUC.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtRUC.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtRUC.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtRUC.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtRUC.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtRUC.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtRUC.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtRUC.Location = new Point(703, 184);
-            txtRUC.Margin = new Padding(3, 7, 3, 7);
-            txtRUC.Name = "txtRUC";
-            txtRUC.PasswordChar = '\0';
-            txtRUC.PlaceholderText = "";
-            txtRUC.SelectedText = "";
-            txtRUC.Size = new Size(229, 55);
-            txtRUC.TabIndex = 50;
+            this.txtRUC.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtRUC.BorderRadius = 20;
+            this.txtRUC.DefaultText = "";
+            this.txtRUC.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtRUC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtRUC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtRUC.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtRUC.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtRUC.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRUC.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtRUC.Location = new System.Drawing.Point(703, 184);
+            this.txtRUC.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.txtRUC.Name = "txtRUC";
+            this.txtRUC.PasswordChar = '\0';
+            this.txtRUC.PlaceholderText = "";
+            this.txtRUC.SelectedText = "";
+            this.txtRUC.Size = new System.Drawing.Size(229, 55);
+            this.txtRUC.TabIndex = 50;
             // 
             // siticoneHtmlLabel7
             // 
-            siticoneHtmlLabel7.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel7.BackColor = Color.Transparent;
-            siticoneHtmlLabel7.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel7.Location = new Point(387, 489);
-            siticoneHtmlLabel7.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel7.Name = "siticoneHtmlLabel7";
-            siticoneHtmlLabel7.Size = new Size(112, 34);
-            siticoneHtmlLabel7.TabIndex = 49;
-            siticoneHtmlLabel7.Text = "Teléfono";
+            this.siticoneHtmlLabel7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel7.Location = new System.Drawing.Point(387, 489);
+            this.siticoneHtmlLabel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel7.Name = "siticoneHtmlLabel7";
+            this.siticoneHtmlLabel7.Size = new System.Drawing.Size(112, 34);
+            this.siticoneHtmlLabel7.TabIndex = 49;
+            this.siticoneHtmlLabel7.Text = "Teléfono";
             // 
             // siticoneHtmlLabel5
             // 
-            siticoneHtmlLabel5.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel5.BackColor = Color.Transparent;
-            siticoneHtmlLabel5.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel5.Location = new Point(387, 292);
-            siticoneHtmlLabel5.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel5.Name = "siticoneHtmlLabel5";
-            siticoneHtmlLabel5.Size = new Size(293, 34);
-            siticoneHtmlLabel5.TabIndex = 46;
-            siticoneHtmlLabel5.Text = "Nombre del Proveedor";
+            this.siticoneHtmlLabel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel5.Location = new System.Drawing.Point(387, 292);
+            this.siticoneHtmlLabel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneHtmlLabel5.Name = "siticoneHtmlLabel5";
+            this.siticoneHtmlLabel5.Size = new System.Drawing.Size(293, 34);
+            this.siticoneHtmlLabel5.TabIndex = 46;
+            this.siticoneHtmlLabel5.Text = "Nombre del Proveedor";
             // 
             // txtNombreProv
             // 
-            txtNombreProv.Anchor = AnchorStyles.None;
-            txtNombreProv.BorderRadius = 20;
-            txtNombreProv.DefaultText = "";
-            txtNombreProv.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtNombreProv.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtNombreProv.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtNombreProv.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtNombreProv.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNombreProv.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNombreProv.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNombreProv.Location = new Point(703, 283);
-            txtNombreProv.Margin = new Padding(3, 7, 3, 7);
-            txtNombreProv.Name = "txtNombreProv";
-            txtNombreProv.PasswordChar = '\0';
-            txtNombreProv.PlaceholderText = "";
-            txtNombreProv.SelectedText = "";
-            txtNombreProv.Size = new Size(229, 55);
-            txtNombreProv.TabIndex = 45;
+            this.txtNombreProv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNombreProv.BorderRadius = 20;
+            this.txtNombreProv.DefaultText = "";
+            this.txtNombreProv.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtNombreProv.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtNombreProv.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombreProv.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtNombreProv.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombreProv.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNombreProv.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtNombreProv.Location = new System.Drawing.Point(703, 283);
+            this.txtNombreProv.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.txtNombreProv.Name = "txtNombreProv";
+            this.txtNombreProv.PasswordChar = '\0';
+            this.txtNombreProv.PlaceholderText = "";
+            this.txtNombreProv.SelectedText = "";
+            this.txtNombreProv.Size = new System.Drawing.Size(229, 55);
+            this.txtNombreProv.TabIndex = 45;
             // 
             // siticoneHtmlLabel3
             // 
-            siticoneHtmlLabel3.Anchor = AnchorStyles.None;
-            siticoneHtmlLabel3.BackColor = Color.Transparent;
-            siticoneHtmlLabel3.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel3.Location = new Point(469, 284);
-            siticoneHtmlLabel3.Margin = new Padding(3, 5, 3, 5);
-            siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            siticoneHtmlLabel3.Size = new Size(57, 34);
-            siticoneHtmlLabel3.TabIndex = 44;
-            siticoneHtmlLabel3.Text = "RUC";
+            this.siticoneHtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(469, 284);
+            this.siticoneHtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
+            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(57, 34);
+            this.siticoneHtmlLabel3.TabIndex = 44;
+            this.siticoneHtmlLabel3.Text = "RUC";
             // 
             // Editar
             // 
-            Editar.Controls.Add(siticoneComboBox6);
-            Editar.Controls.Add(siticoneTextBox6);
-            Editar.Controls.Add(siticonePanel1);
-            Editar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Editar.Location = new Point(164, 4);
-            Editar.Margin = new Padding(3, 5, 3, 5);
-            Editar.Name = "Editar";
-            Editar.Padding = new Padding(3, 5, 3, 5);
-            Editar.Size = new Size(1381, 937);
-            Editar.TabIndex = 1;
-            Editar.Text = "Editar/Eliminar Proveedor";
-            Editar.UseVisualStyleBackColor = true;
+            this.Editar.Controls.Add(this.siticoneComboBox6);
+            this.Editar.Controls.Add(this.siticoneTextBox6);
+            this.Editar.Controls.Add(this.siticonePanel1);
+            this.Editar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Editar.Location = new System.Drawing.Point(164, 4);
+            this.Editar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Editar.Name = "Editar";
+            this.Editar.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Editar.Size = new System.Drawing.Size(1381, 937);
+            this.Editar.TabIndex = 1;
+            this.Editar.Text = "Editar/Eliminar Proveedor";
+            this.Editar.UseVisualStyleBackColor = true;
             // 
             // siticoneComboBox6
             // 
-            siticoneComboBox6.Anchor = AnchorStyles.None;
-            siticoneComboBox6.AutoCompleteCustomSource.AddRange(new string[] { "RUC", "Nombre" });
-            siticoneComboBox6.BackColor = Color.Transparent;
-            siticoneComboBox6.BorderRadius = 20;
-            siticoneComboBox6.DrawMode = DrawMode.OwnerDrawFixed;
-            siticoneComboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
-            siticoneComboBox6.FocusedColor = Color.FromArgb(94, 148, 255);
-            siticoneComboBox6.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneComboBox6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneComboBox6.ForeColor = Color.FromArgb(68, 88, 112);
-            siticoneComboBox6.ItemHeight = 40;
-            siticoneComboBox6.Items.AddRange(new object[] { "RUC", "Nombre", "Teléfono" });
-            siticoneComboBox6.Location = new Point(686, 104);
-            siticoneComboBox6.Margin = new Padding(3, 4, 3, 4);
-            siticoneComboBox6.Name = "siticoneComboBox6";
-            siticoneComboBox6.Size = new Size(311, 46);
-            siticoneComboBox6.TabIndex = 20;
+            this.siticoneComboBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneComboBox6.AutoCompleteCustomSource.AddRange(new string[] {
+            "RUC",
+            "Nombre"});
+            this.siticoneComboBox6.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneComboBox6.BorderRadius = 20;
+            this.siticoneComboBox6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.siticoneComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.siticoneComboBox6.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneComboBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneComboBox6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneComboBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.siticoneComboBox6.ItemHeight = 40;
+            this.siticoneComboBox6.Items.AddRange(new object[] {
+            "RUC",
+            "Nombre",
+            "Teléfono"});
+            this.siticoneComboBox6.Location = new System.Drawing.Point(686, 104);
+            this.siticoneComboBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.siticoneComboBox6.Name = "siticoneComboBox6";
+            this.siticoneComboBox6.Size = new System.Drawing.Size(311, 46);
+            this.siticoneComboBox6.TabIndex = 20;
             // 
             // siticoneTextBox6
             // 
-            siticoneTextBox6.Anchor = AnchorStyles.None;
-            siticoneTextBox6.BorderRadius = 20;
-            siticoneTextBox6.DefaultText = "";
-            siticoneTextBox6.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            siticoneTextBox6.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            siticoneTextBox6.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            siticoneTextBox6.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            siticoneTextBox6.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneTextBox6.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox6.Location = new Point(337, 104);
-            siticoneTextBox6.Margin = new Padding(3, 5, 3, 5);
-            siticoneTextBox6.Name = "siticoneTextBox6";
-            siticoneTextBox6.PasswordChar = '\0';
-            siticoneTextBox6.PlaceholderText = "Buscar...";
-            siticoneTextBox6.SelectedText = "";
-            siticoneTextBox6.Size = new Size(312, 61);
-            siticoneTextBox6.TabIndex = 19;
+            this.siticoneTextBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.siticoneTextBox6.BorderRadius = 20;
+            this.siticoneTextBox6.DefaultText = "";
+            this.siticoneTextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.siticoneTextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.siticoneTextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.siticoneTextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.siticoneTextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneTextBox6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.siticoneTextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.siticoneTextBox6.Location = new System.Drawing.Point(337, 104);
+            this.siticoneTextBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.siticoneTextBox6.Name = "siticoneTextBox6";
+            this.siticoneTextBox6.PasswordChar = '\0';
+            this.siticoneTextBox6.PlaceholderText = "Buscar...";
+            this.siticoneTextBox6.SelectedText = "";
+            this.siticoneTextBox6.Size = new System.Drawing.Size(312, 61);
+            this.siticoneTextBox6.TabIndex = 19;
             // 
             // siticonePanel1
             // 
-            siticonePanel1.Controls.Add(SDGVProveedor);
-            siticonePanel1.Dock = DockStyle.Bottom;
-            siticonePanel1.Location = new Point(3, 265);
-            siticonePanel1.Margin = new Padding(3, 5, 3, 5);
-            siticonePanel1.Name = "siticonePanel1";
-            siticonePanel1.Size = new Size(1375, 667);
-            siticonePanel1.TabIndex = 1;
+            this.siticonePanel1.Controls.Add(this.SDGVProveedor);
+            this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.siticonePanel1.Location = new System.Drawing.Point(3, 265);
+            this.siticonePanel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.siticonePanel1.Name = "siticonePanel1";
+            this.siticonePanel1.Size = new System.Drawing.Size(1375, 667);
+            this.siticonePanel1.TabIndex = 1;
             // 
             // SDGVProveedor
             // 
-            dataGridViewCellStyle1.BackColor = Color.White;
-            SDGVProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            SDGVProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            SDGVProveedor.ColumnHeadersHeight = 50;
-            SDGVProveedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            SDGVProveedor.Columns.AddRange(new DataGridViewColumn[] { ColumnaRUC, ColumnaNombreProv, ColumnaDireccion, ColumnaTelefono, ColumnaEditarProveedor, ColumnaEliminarProveedor });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            SDGVProveedor.DefaultCellStyle = dataGridViewCellStyle3;
-            SDGVProveedor.Dock = DockStyle.Fill;
-            SDGVProveedor.GridColor = Color.FromArgb(231, 229, 255);
-            SDGVProveedor.Location = new Point(0, 0);
-            SDGVProveedor.Margin = new Padding(3, 4, 3, 4);
-            SDGVProveedor.Name = "SDGVProveedor";
-            SDGVProveedor.RowHeadersVisible = false;
-            SDGVProveedor.RowHeadersWidth = 51;
-            SDGVProveedor.RowTemplate.DefaultCellStyle.BackColor = Color.White;
-            SDGVProveedor.RowTemplate.Height = 50;
-            SDGVProveedor.Size = new Size(1375, 667);
-            SDGVProveedor.TabIndex = 0;
-            SDGVProveedor.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            SDGVProveedor.ThemeStyle.AlternatingRowsStyle.Font = null;
-            SDGVProveedor.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            SDGVProveedor.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            SDGVProveedor.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            SDGVProveedor.ThemeStyle.BackColor = Color.White;
-            SDGVProveedor.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            SDGVProveedor.ThemeStyle.HeaderStyle.BackColor = Color.DimGray;
-            SDGVProveedor.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            SDGVProveedor.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            SDGVProveedor.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            SDGVProveedor.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            SDGVProveedor.ThemeStyle.HeaderStyle.Height = 50;
-            SDGVProveedor.ThemeStyle.ReadOnly = false;
-            SDGVProveedor.ThemeStyle.RowsStyle.BackColor = Color.White;
-            SDGVProveedor.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            SDGVProveedor.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            SDGVProveedor.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            SDGVProveedor.ThemeStyle.RowsStyle.Height = 50;
-            SDGVProveedor.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            SDGVProveedor.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            SDGVProveedor.CellClick += SDGVProveedor_CellClick;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.SDGVProveedor.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SDGVProveedor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.SDGVProveedor.ColumnHeadersHeight = 50;
+            this.SDGVProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.SDGVProveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnaRUC,
+            this.ColumnaNombreProv,
+            this.ColumnaDireccion,
+            this.ColumnaTelefono,
+            this.ColumnaEditarProveedor,
+            this.ColumnaEliminarProveedor});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.SDGVProveedor.DefaultCellStyle = dataGridViewCellStyle3;
+            this.SDGVProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SDGVProveedor.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProveedor.Location = new System.Drawing.Point(0, 0);
+            this.SDGVProveedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SDGVProveedor.Name = "SDGVProveedor";
+            this.SDGVProveedor.RowHeadersVisible = false;
+            this.SDGVProveedor.RowHeadersWidth = 51;
+            this.SDGVProveedor.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProveedor.RowTemplate.DividerHeight = 15;
+            this.SDGVProveedor.RowTemplate.Height = 50;
+            this.SDGVProveedor.Size = new System.Drawing.Size(1375, 667);
+            this.SDGVProveedor.TabIndex = 0;
+            this.SDGVProveedor.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVProveedor.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.SDGVProveedor.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.SDGVProveedor.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.SDGVProveedor.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.SDGVProveedor.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVProveedor.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProveedor.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DimGray;
+            this.SDGVProveedor.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.SDGVProveedor.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SDGVProveedor.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.SDGVProveedor.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.SDGVProveedor.ThemeStyle.HeaderStyle.Height = 50;
+            this.SDGVProveedor.ThemeStyle.ReadOnly = false;
+            this.SDGVProveedor.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.SDGVProveedor.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.SDGVProveedor.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SDGVProveedor.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.SDGVProveedor.ThemeStyle.RowsStyle.Height = 50;
+            this.SDGVProveedor.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.SDGVProveedor.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.SDGVProveedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SDGVProveedor_CellClick);
             // 
             // ColumnaRUC
             // 
-            ColumnaRUC.HeaderText = "RUC";
-            ColumnaRUC.MinimumWidth = 6;
-            ColumnaRUC.Name = "ColumnaRUC";
+            this.ColumnaRUC.HeaderText = "RUC";
+            this.ColumnaRUC.MinimumWidth = 6;
+            this.ColumnaRUC.Name = "ColumnaRUC";
             // 
             // ColumnaNombreProv
             // 
-            ColumnaNombreProv.HeaderText = "Nombre";
-            ColumnaNombreProv.MinimumWidth = 6;
-            ColumnaNombreProv.Name = "ColumnaNombreProv";
+            this.ColumnaNombreProv.HeaderText = "Nombre";
+            this.ColumnaNombreProv.MinimumWidth = 6;
+            this.ColumnaNombreProv.Name = "ColumnaNombreProv";
             // 
             // ColumnaDireccion
             // 
-            ColumnaDireccion.HeaderText = "Dirección";
-            ColumnaDireccion.MinimumWidth = 6;
-            ColumnaDireccion.Name = "ColumnaDireccion";
+            this.ColumnaDireccion.HeaderText = "Dirección";
+            this.ColumnaDireccion.MinimumWidth = 6;
+            this.ColumnaDireccion.Name = "ColumnaDireccion";
             // 
             // ColumnaTelefono
             // 
-            ColumnaTelefono.HeaderText = "Teléfono";
-            ColumnaTelefono.MinimumWidth = 6;
-            ColumnaTelefono.Name = "ColumnaTelefono";
+            this.ColumnaTelefono.HeaderText = "Teléfono";
+            this.ColumnaTelefono.MinimumWidth = 6;
+            this.ColumnaTelefono.Name = "ColumnaTelefono";
             // 
             // ColumnaEditarProveedor
             // 
-            ColumnaEditarProveedor.HeaderText = "";
-            ColumnaEditarProveedor.Image = (Image)resources.GetObject("ColumnaEditarProveedor.Image");
-            ColumnaEditarProveedor.MinimumWidth = 6;
-            ColumnaEditarProveedor.Name = "ColumnaEditarProveedor";
+            this.ColumnaEditarProveedor.HeaderText = "";
+            this.ColumnaEditarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEditarProveedor.Image")));
+            this.ColumnaEditarProveedor.MinimumWidth = 6;
+            this.ColumnaEditarProveedor.Name = "ColumnaEditarProveedor";
             // 
             // ColumnaEliminarProveedor
             // 
-            ColumnaEliminarProveedor.HeaderText = "";
-            ColumnaEliminarProveedor.Image = (Image)resources.GetObject("ColumnaEliminarProveedor.Image");
-            ColumnaEliminarProveedor.MinimumWidth = 6;
-            ColumnaEliminarProveedor.Name = "ColumnaEliminarProveedor";
+            this.ColumnaEliminarProveedor.HeaderText = "";
+            this.ColumnaEliminarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("ColumnaEliminarProveedor.Image")));
+            this.ColumnaEliminarProveedor.MinimumWidth = 6;
+            this.ColumnaEliminarProveedor.Name = "ColumnaEliminarProveedor";
             // 
             // UC_Proveedores
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(siticoneTabControl1);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "UC_Proveedores";
-            Size = new Size(1549, 945);
-            siticoneTabControl1.ResumeLayout(false);
-            Añadir.ResumeLayout(false);
-            Añadir.PerformLayout();
-            Editar.ResumeLayout(false);
-            siticonePanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)SDGVProveedor).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.siticoneTabControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "UC_Proveedores";
+            this.Size = new System.Drawing.Size(1549, 945);
+            this.siticoneTabControl1.ResumeLayout(false);
+            this.Añadir.ResumeLayout(false);
+            this.Añadir.PerformLayout();
+            this.Editar.ResumeLayout(false);
+            this.siticonePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SDGVProveedor)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

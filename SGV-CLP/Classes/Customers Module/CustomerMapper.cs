@@ -94,28 +94,6 @@ namespace SGV_CLP.Classes.Customers_Module
             return registeredCustomers;
         }
 
-        public static bool CustomerExistsByID(string customerID)
-        {
-            bool exists = false;
-            using (var connection = new NpgsqlConnection(s_connectionString))
-            {
-                connection.Open();
-                using (var command = new NpgsqlCommand("SELECT * FROM \"Cliente\" WHERE \"cc_Cliente\" ILIKE @cc_Cliente", connection))
-                {
-                    command.Parameters.AddWithValue("@cc_Cliente", customerID);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            exists = true;
-                        }
-                    }
-                }
-            }
-            return exists;
-        }
-
-
         // Consultar un atributo de un Cliente
         public static string GetCustomerField(string customerID, string field)
         {

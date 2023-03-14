@@ -1,8 +1,6 @@
 ﻿using Npgsql;
-using SGV_CLP.Classes.Customers_Module;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,28 +31,6 @@ namespace SGV_CLP.Classes.Sales_Module
                 cmd.Parameters.AddWithValue("@SubTotal", invoiceDetail.subTotal);
                 cmd.ExecuteNonQuery();
             }
-        }
-
-        public static List<InvoiceDetail> GetAllInvoiceDetails(int invoiceCode)
-        {
-            List<InvoiceDetail> invoiceDetails = new List<InvoiceDetail>();
-            string queryString = "SELECT \"nombre_Producto\",\"cantidad\",\"subTotal\"  FROM public.\"DetalleNotaVenta\" join public.\"Producto\" on \"DetalleNotaVenta\".\"cod_Producto\" = \"Producto\".\"cod_Producto\" where \"cod_NotaVenta\" = @CodNotaVenta;";
-            using (var connection = new NpgsqlConnection(s_connectionString))
-            {
-                connection.Open();
-                using (var command = new NpgsqlCommand(queryString, connection))
-                {
-                    command.Parameters.AddWithValue("@CodNotaVenta", invoiceCode);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            invoiceDetails.Add( new InvoiceDetail(reader.GetString(0), reader.GetInt32(1), reader.GetDouble(2)));
-                        }
-                    }
-                }
-            }
-            return invoiceDetails;
         }
     }
 
