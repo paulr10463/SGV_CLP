@@ -169,7 +169,6 @@ namespace SGV_CLP.GUI
                 }
             }
             FillProductDataGridView();
-            FillBatchDataGridView();
             FillComboBoxesBatchProducts();
             MainMenu.uc_ventas.loadProducts();
         }

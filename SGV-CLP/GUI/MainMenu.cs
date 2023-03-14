@@ -1,5 +1,4 @@
 ﻿using SGV_CLP.Classes;
-using SGV_CLP.Classes.Sales_Module;
 using SGV_CLP.GUI;
 using System.Media;
 
@@ -45,8 +44,6 @@ namespace SGV_CLP
         private void siticoneButton3_CheckedChanged(object sender, EventArgs e)
         {
             uC_Ventas1.BringToFront();
-            List<Invoice> registeredInvoices = InvoiceMapper.GetAllInvoices("");
-            uC_Ventas1.llenarTablaVenta(registeredInvoices);
             uC_Ventas1.loadProducts();
         }
 

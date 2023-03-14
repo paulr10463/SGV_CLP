@@ -41,12 +41,12 @@ namespace SGV_CLP.GUI
             hotDrinks = new List<Product>();
             coldDrinks = new List<Product>();
             empanadas = new List<Product>();
-            classifyProducts();
+            classifyProducts(); 
             showProducts(specialties, flowLayoutPanel1);
             showProducts(hotDrinks, flowLayoutPanel2);
             showProducts(coldDrinks, flowLayoutPanel4);
             showProducts(empanadas, flowLayoutPanel5);
-
+            
         }
 
         private void classifyProducts()
@@ -259,22 +259,21 @@ namespace SGV_CLP.GUI
 
         private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            if(e.ColumnIndex == 7)
             {
 
                 try
                 {
                     int InvoiceCodeSelected = Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value);
-                    ShowDetailInvoice showDetailInvoice = new ShowDetailInvoice(
-                        InvoiceDetailMapper.GetAllInvoiceDetails(InvoiceCodeSelected),
-                        Convert.ToDouble(siticoneDataGridView1.Rows[e.RowIndex].Cells[5].Value),
-                        InvoiceCodeSelected
-                   );
+                     ShowDetailInvoice showDetailInvoice = new ShowDetailInvoice(
+                         InvoiceDetailMapper.GetAllInvoiceDetails(InvoiceCodeSelected),
+                         Convert.ToDouble(siticoneDataGridView1.Rows[e.RowIndex].Cells[5].Value),
+                         InvoiceCodeSelected
+                    );
                     showDetailInvoice.BringToFront();
                     showDetailInvoice.Visible = true;
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex){
                     MessageBox.Show(ex.Message);
                 }
             }
