@@ -84,7 +84,7 @@
             buttonCancel.Text = "Cancelar";
             buttonCancel.Click += ButtonCancel_Click;
             // 
-            // rutaImagen_not_valid_label
+            // labelInvalidImagePath
             // 
             labelInvalidImagePath.Anchor = AnchorStyles.None;
             labelInvalidImagePath.BackColor = Color.Transparent;
@@ -92,13 +92,13 @@
             labelInvalidImagePath.ForeColor = Color.Red;
             labelInvalidImagePath.Location = new Point(1052, 357);
             labelInvalidImagePath.Margin = new Padding(3, 4, 3, 4);
-            labelInvalidImagePath.Name = "rutaImagen_not_valid_label";
+            labelInvalidImagePath.Name = "labelInvalidImagePath";
             labelInvalidImagePath.Size = new Size(89, 22);
             labelInvalidImagePath.TabIndex = 77;
             labelInvalidImagePath.Text = "Ruta inválida";
             labelInvalidImagePath.Visible = false;
             // 
-            // PE_not_valid_label
+            // labelInvalidProductionPrice
             // 
             labelInvalidProductionPrice.Anchor = AnchorStyles.None;
             labelInvalidProductionPrice.BackColor = Color.Transparent;
@@ -106,13 +106,13 @@
             labelInvalidProductionPrice.ForeColor = Color.Red;
             labelInvalidProductionPrice.Location = new Point(549, 145);
             labelInvalidProductionPrice.Margin = new Padding(3, 4, 3, 4);
-            labelInvalidProductionPrice.Name = "PE_not_valid_label";
+            labelInvalidProductionPrice.Name = "labelInvalidProductionPrice";
             labelInvalidProductionPrice.Size = new Size(117, 22);
             labelInvalidProductionPrice.TabIndex = 76;
             labelInvalidProductionPrice.Text = "Máx. 2 decimales";
             labelInvalidProductionPrice.Visible = false;
             // 
-            // PVP_not_greater_than_PE_label
+            // LabelSPPNotGreaterThanPP
             // 
             LabelSPPNotGreaterThanPP.Anchor = AnchorStyles.None;
             LabelSPPNotGreaterThanPP.BackColor = Color.Transparent;
@@ -120,13 +120,13 @@
             LabelSPPNotGreaterThanPP.ForeColor = Color.Red;
             LabelSPPNotGreaterThanPP.Location = new Point(549, 258);
             LabelSPPNotGreaterThanPP.Margin = new Padding(3, 4, 3, 4);
-            LabelSPPNotGreaterThanPP.Name = "PVP_not_greater_than_PE_label";
+            LabelSPPNotGreaterThanPP.Name = "LabelSPPNotGreaterThanPP";
             LabelSPPNotGreaterThanPP.Size = new Size(118, 22);
             LabelSPPNotGreaterThanPP.TabIndex = 75;
             LabelSPPNotGreaterThanPP.Text = "Debe ser >= a PE";
             LabelSPPNotGreaterThanPP.Visible = false;
             // 
-            // PVP_not_valid_label
+            // labelInvalidSalesPriceToThePublic
             // 
             labelInvalidSalesPriceToThePublic.Anchor = AnchorStyles.None;
             labelInvalidSalesPriceToThePublic.BackColor = Color.Transparent;
@@ -134,13 +134,13 @@
             labelInvalidSalesPriceToThePublic.ForeColor = Color.Red;
             labelInvalidSalesPriceToThePublic.Location = new Point(549, 228);
             labelInvalidSalesPriceToThePublic.Margin = new Padding(3, 4, 3, 4);
-            labelInvalidSalesPriceToThePublic.Name = "PVP_not_valid_label";
+            labelInvalidSalesPriceToThePublic.Name = "labelInvalidSalesPriceToThePublic";
             labelInvalidSalesPriceToThePublic.Size = new Size(117, 22);
             labelInvalidSalesPriceToThePublic.TabIndex = 74;
             labelInvalidSalesPriceToThePublic.Text = "Máx. 2 decimales";
             labelInvalidSalesPriceToThePublic.Visible = false;
             // 
-            // categoria_not_choose_label
+            // labelCategoryNotChosen
             // 
             labelCategoryNotChosen.Anchor = AnchorStyles.None;
             labelCategoryNotChosen.BackColor = Color.Transparent;
@@ -148,7 +148,7 @@
             labelCategoryNotChosen.ForeColor = Color.Red;
             labelCategoryNotChosen.Location = new Point(549, 23);
             labelCategoryNotChosen.Margin = new Padding(3, 4, 3, 4);
-            labelCategoryNotChosen.Name = "categoria_not_choose_label";
+            labelCategoryNotChosen.Name = "labelCategoryNotChosen";
             labelCategoryNotChosen.Size = new Size(265, 22);
             labelCategoryNotChosen.TabIndex = 73;
             labelCategoryNotChosen.Text = "Debe pertenecer a una categoría válida";
@@ -220,7 +220,7 @@
             cbCategory.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbCategory.ForeColor = Color.FromArgb(68, 88, 112);
             cbCategory.ItemHeight = 35;
-            cbCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
+            cbCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas Frías", "Bebidas Calientes", "Empanadas" });
             cbCategory.Location = new Point(299, 17);
             cbCategory.Margin = new Padding(3, 5, 3, 5);
             cbCategory.Name = "cbCategory";

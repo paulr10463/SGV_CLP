@@ -29,6 +29,8 @@ namespace SGV_CLP.GUI
             detalleVentaTabla = siticoneDataGridView2;
             totalVenta = siticoneHtmlLabel11;
             dateTimePickerConsultarVenta.Visible = false;
+            txtConsultarVenta.Enabled = false;
+            ComboBox_ConsultarVentaPor.SelectedIndex = 0;
             loadProducts();
 
         }
@@ -134,25 +136,36 @@ namespace SGV_CLP.GUI
         //Validaciones en el cuadro de Busqueda de ventas
         private void ComboBox_ConsultarVentaPor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtConsultarVenta.Text = System.String.Empty;
-            if (ComboBox_ConsultarVentaPor.SelectedIndex != -1)
+            InvoiceMapper.GetAllInvoices("");
+            // txtConsultarVenta.Text = string.Empty;
+            if (ComboBox_ConsultarVentaPor.SelectedIndex > 0)
             {
                 siticoneHtmlLabel_buscarCliente_sin_campo.Hide();
+                txtConsultarVenta.Enabled = true;
             }
+            else
+            {
+                siticoneHtmlLabel_buscarCliente_sin_campo.Show();
+                txtConsultarVenta.Enabled = false;
+            }
+
             dateTimePickerConsultarVenta.Visible = false;
+
             switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
-                case 0: Categoria = "cod_NotaVenta"; txtConsultarVenta_TextChanged(null, null); break;
-                case 1: Categoria = "cc_Cliente"; txtConsultarVenta_TextChanged(null, null); break;
-                case 2: Categoria = "primer_Nombre"; txtConsultarVenta_TextChanged(null, null); break;
-                case 3: Categoria = "primer_Apellido"; txtConsultarVenta_TextChanged(null, null); break;
-                case 4: Categoria = "telefono"; txtConsultarVenta_TextChanged(null, null); break;
-                case 5:
+                case 1: Categoria = "cod_NotaVenta"; txtConsultarVenta_TextChanged(null, null); break;
+                case 2: Categoria = "cc_Cliente"; txtConsultarVenta_TextChanged(null, null); break;
+                case 3: Categoria = "primer_Nombre"; txtConsultarVenta_TextChanged(null, null); break;
+                case 4: Categoria = "primer_Apellido"; txtConsultarVenta_TextChanged(null, null); break;
+                case 5: Categoria = "telefono"; txtConsultarVenta_TextChanged(null, null); break;
+                case 6:
                     Categoria = "fecha_emision";
                     dateTimePickerConsultarVenta.Visible = true;
                     dateTimePickerConsultarVenta_ValueChanged(null, null);
                     break;
             }
+
+            txtConsultarVenta.Text = string.Empty;
         }
 
 
@@ -183,21 +196,21 @@ namespace SGV_CLP.GUI
             List<Invoice> invoices = new List<Invoice>();
             switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
-                case 0:
+                case 1:
                     if (!txtConsultarVenta.Text.Equals(string.Empty))
                         invoices = InvoiceMapper.GetAllInvoicesByCode(Convert.ToInt32(txtConsultarVenta.Text));
                     break;
 
-                case 1:
+                case 2:
+                    txtConsultarVenta.MaxLength = Constants.LIMIT_CC_LENGTH;
                     invoices = InvoiceMapper.GetAllInvoices(txtConsultarVenta.Text);
                     break;
 
-                case >= 2 and <= 4:
+                case >= 3 and <= 5:
                     invoices = InvoiceMapper.GetAllInvoices(Categoria, txtConsultarVenta.Text);
                     break;
 
             }
-
             llenarTablaVenta(invoices);
         }
 
@@ -213,14 +226,13 @@ namespace SGV_CLP.GUI
                     item.customer.firstLastName,
                     item.customer.phoneNumber,
                     item.totalSales,
-                    item.issuedDate.Value.ToShortDateString()));
+                    item.issuedDate.Value.ToString("yyyy-MM-dd")));
             }
         }
 
         private void dateTimePickerConsultarVenta_ValueChanged(object sender, EventArgs e)
         {
-            List<Invoice> invoices = new List<Invoice>();
-            invoices = InvoiceMapper.GetAllInvoicesByDate(dateTimePickerConsultarVenta.Text);
+            List<Invoice> invoices = InvoiceMapper.GetAllInvoicesByDate(dateTimePickerConsultarVenta.Text);
             llenarTablaVenta(invoices);
         }
 
@@ -229,7 +241,7 @@ namespace SGV_CLP.GUI
             switch (ComboBox_ConsultarVentaPor.SelectedIndex)
             {
                 //case 0: "cod_NotaVenta, ccCliente y Telefono"
-                case 0 or 1 or 4:
+                case 1 or 2 or 5:
                     if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                     {
                         e.Handled = true;
@@ -239,7 +251,7 @@ namespace SGV_CLP.GUI
                     }
                     break;
                 //case 2: "primer_Nombre y apellido"; 
-                case 2 or 3:
+                case 3 or 4:
                     if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
                     {
                         e.Handled = true;

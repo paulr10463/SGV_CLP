@@ -696,9 +696,9 @@
             labelSearchCustomerWithoutField.Location = new Point(373, 176);
             labelSearchCustomerWithoutField.Margin = new Padding(3, 4, 3, 4);
             labelSearchCustomerWithoutField.Name = "labelSearchCustomerWithoutField";
-            labelSearchCustomerWithoutField.Size = new Size(152, 22);
+            labelSearchCustomerWithoutField.Size = new Size(257, 22);
             labelSearchCustomerWithoutField.TabIndex = 19;
-            labelSearchCustomerWithoutField.Text = "¡Seleccione un campo!";
+            labelSearchCustomerWithoutField.Text = "¡Seleccione un parámetro para buscar!";
             // 
             // cbSearchCustomerBy
             // 

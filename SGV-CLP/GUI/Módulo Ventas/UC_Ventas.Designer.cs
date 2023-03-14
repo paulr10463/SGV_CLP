@@ -431,13 +431,14 @@
             // 
             siticoneHtmlLabel_buscarCliente_sin_campo.Anchor = AnchorStyles.None;
             siticoneHtmlLabel_buscarCliente_sin_campo.BackColor = Color.Transparent;
+            siticoneHtmlLabel_buscarCliente_sin_campo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneHtmlLabel_buscarCliente_sin_campo.ForeColor = Color.Red;
             siticoneHtmlLabel_buscarCliente_sin_campo.Location = new Point(251, 108);
             siticoneHtmlLabel_buscarCliente_sin_campo.Margin = new Padding(3, 4, 3, 4);
             siticoneHtmlLabel_buscarCliente_sin_campo.Name = "siticoneHtmlLabel_buscarCliente_sin_campo";
-            siticoneHtmlLabel_buscarCliente_sin_campo.Size = new Size(152, 22);
+            siticoneHtmlLabel_buscarCliente_sin_campo.Size = new Size(257, 22);
             siticoneHtmlLabel_buscarCliente_sin_campo.TabIndex = 24;
-            siticoneHtmlLabel_buscarCliente_sin_campo.Text = "¡Seleccione un campo!";
+            siticoneHtmlLabel_buscarCliente_sin_campo.Text = "¡Seleccione un parámetro para buscar!";
             // 
             // siticoneDataGridView1
             // 
@@ -559,7 +560,7 @@
             ComboBox_ConsultarVentaPor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ComboBox_ConsultarVentaPor.ForeColor = Color.FromArgb(68, 88, 112);
             ComboBox_ConsultarVentaPor.ItemHeight = 40;
-            ComboBox_ConsultarVentaPor.Items.AddRange(new object[] { "Código Nota de Venta", "CC Cliente", "Nombre Cliente", "Apellido Cliente", "Teléfono Cliente", "Fecha Venta" });
+            ComboBox_ConsultarVentaPor.Items.AddRange(new object[] { "Seleccione...", "Código Nota de Venta", "CC Cliente", "Nombre Cliente", "Apellido Cliente", "Teléfono Cliente", "Fecha Venta" });
             ComboBox_ConsultarVentaPor.Location = new Point(601, 140);
             ComboBox_ConsultarVentaPor.Margin = new Padding(3, 4, 3, 4);
             ComboBox_ConsultarVentaPor.Name = "ComboBox_ConsultarVentaPor";

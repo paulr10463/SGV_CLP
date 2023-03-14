@@ -183,7 +183,7 @@ namespace SGV_CLP.GUI
             Añadir.TabIndex = 0;
             Añadir.Text = "Registrar Producto";
             // 
-            // rutaImagen_not_valid_label
+            // labelInvalidImagePath
             // 
             labelInvalidImagePath.Anchor = AnchorStyles.None;
             labelInvalidImagePath.BackColor = Color.Transparent;
@@ -191,13 +191,13 @@ namespace SGV_CLP.GUI
             labelInvalidImagePath.ForeColor = Color.Red;
             labelInvalidImagePath.Location = new Point(1174, 640);
             labelInvalidImagePath.Margin = new Padding(3, 4, 3, 4);
-            labelInvalidImagePath.Name = "rutaImagen_not_valid_label";
+            labelInvalidImagePath.Name = "labelInvalidImagePath";
             labelInvalidImagePath.Size = new Size(89, 22);
             labelInvalidImagePath.TabIndex = 63;
             labelInvalidImagePath.Text = "Ruta inválida";
             labelInvalidImagePath.Visible = false;
             // 
-            // PE_not_valid_label
+            // labelInvalidProductionPrice
             // 
             labelInvalidProductionPrice.Anchor = AnchorStyles.None;
             labelInvalidProductionPrice.BackColor = Color.Transparent;
@@ -205,13 +205,13 @@ namespace SGV_CLP.GUI
             labelInvalidProductionPrice.ForeColor = Color.Red;
             labelInvalidProductionPrice.Location = new Point(671, 428);
             labelInvalidProductionPrice.Margin = new Padding(3, 4, 3, 4);
-            labelInvalidProductionPrice.Name = "PE_not_valid_label";
+            labelInvalidProductionPrice.Name = "labelInvalidProductionPrice";
             labelInvalidProductionPrice.Size = new Size(117, 22);
             labelInvalidProductionPrice.TabIndex = 62;
             labelInvalidProductionPrice.Text = "Máx. 2 decimales";
             labelInvalidProductionPrice.Visible = false;
             // 
-            // PVP_not_greater_than_PE_label
+            // LabelSPPNotGreaterThanPP
             // 
             LabelSPPNotGreaterThanPP.Anchor = AnchorStyles.None;
             LabelSPPNotGreaterThanPP.BackColor = Color.Transparent;
@@ -219,13 +219,13 @@ namespace SGV_CLP.GUI
             LabelSPPNotGreaterThanPP.ForeColor = Color.Red;
             LabelSPPNotGreaterThanPP.Location = new Point(671, 541);
             LabelSPPNotGreaterThanPP.Margin = new Padding(3, 4, 3, 4);
-            LabelSPPNotGreaterThanPP.Name = "PVP_not_greater_than_PE_label";
+            LabelSPPNotGreaterThanPP.Name = "LabelSPPNotGreaterThanPP";
             LabelSPPNotGreaterThanPP.Size = new Size(118, 22);
             LabelSPPNotGreaterThanPP.TabIndex = 61;
             LabelSPPNotGreaterThanPP.Text = "Debe ser >= a PE";
             LabelSPPNotGreaterThanPP.Visible = false;
             // 
-            // PVP_not_valid_label
+            // labelInvalidSalesPriceToThePublic
             // 
             labelInvalidSalesPriceToThePublic.Anchor = AnchorStyles.None;
             labelInvalidSalesPriceToThePublic.BackColor = Color.Transparent;
@@ -233,13 +233,13 @@ namespace SGV_CLP.GUI
             labelInvalidSalesPriceToThePublic.ForeColor = Color.Red;
             labelInvalidSalesPriceToThePublic.Location = new Point(671, 511);
             labelInvalidSalesPriceToThePublic.Margin = new Padding(3, 4, 3, 4);
-            labelInvalidSalesPriceToThePublic.Name = "PVP_not_valid_label";
+            labelInvalidSalesPriceToThePublic.Name = "labelInvalidSalesPriceToThePublic";
             labelInvalidSalesPriceToThePublic.Size = new Size(117, 22);
             labelInvalidSalesPriceToThePublic.TabIndex = 59;
             labelInvalidSalesPriceToThePublic.Text = "Máx. 2 decimales";
             labelInvalidSalesPriceToThePublic.Visible = false;
             // 
-            // categoria_not_choose_label
+            // labelCategoryNotChosen
             // 
             labelCategoryNotChosen.Anchor = AnchorStyles.None;
             labelCategoryNotChosen.BackColor = Color.Transparent;
@@ -247,13 +247,13 @@ namespace SGV_CLP.GUI
             labelCategoryNotChosen.ForeColor = Color.Red;
             labelCategoryNotChosen.Location = new Point(671, 306);
             labelCategoryNotChosen.Margin = new Padding(3, 4, 3, 4);
-            labelCategoryNotChosen.Name = "categoria_not_choose_label";
+            labelCategoryNotChosen.Name = "labelCategoryNotChosen";
             labelCategoryNotChosen.Size = new Size(265, 22);
             labelCategoryNotChosen.TabIndex = 57;
             labelCategoryNotChosen.Text = "Debe pertenecer a una categoría válida";
             labelCategoryNotChosen.Visible = false;
             // 
-            // nombreProducto_not_unique_label
+            // labelProductNameNotUnique
             // 
             labelProductNameNotUnique.Anchor = AnchorStyles.None;
             labelProductNameNotUnique.BackColor = Color.Transparent;
@@ -261,13 +261,13 @@ namespace SGV_CLP.GUI
             labelProductNameNotUnique.ForeColor = Color.Red;
             labelProductNameNotUnique.Location = new Point(671, 207);
             labelProductNameNotUnique.Margin = new Padding(3, 4, 3, 4);
-            labelProductNameNotUnique.Name = "nombreProducto_not_unique_label";
+            labelProductNameNotUnique.Name = "labelProductNameNotUnique";
             labelProductNameNotUnique.Size = new Size(256, 22);
             labelProductNameNotUnique.TabIndex = 56;
             labelProductNameNotUnique.Text = "Ya existe un producto con ese nombre";
             labelProductNameNotUnique.Visible = false;
             // 
-            // IDProd_not_unique_label
+            // labelProductCodeNotUnique
             // 
             labelProductCodeNotUnique.Anchor = AnchorStyles.None;
             labelProductCodeNotUnique.BackColor = Color.Transparent;
@@ -275,7 +275,7 @@ namespace SGV_CLP.GUI
             labelProductCodeNotUnique.ForeColor = Color.Red;
             labelProductCodeNotUnique.Location = new Point(671, 107);
             labelProductCodeNotUnique.Margin = new Padding(3, 4, 3, 4);
-            labelProductCodeNotUnique.Name = "IDProd_not_unique_label";
+            labelProductCodeNotUnique.Name = "labelProductCodeNotUnique";
             labelProductCodeNotUnique.Size = new Size(219, 22);
             labelProductCodeNotUnique.TabIndex = 55;
             labelProductCodeNotUnique.Text = "Ya existe un producto con ese ID";
@@ -293,7 +293,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel1.TabIndex = 52;
             siticoneHtmlLabel1.Text = "ID Producto";
             // 
-            // txtIDProd
+            // tbProductCode
             // 
             tbProductCode.Anchor = AnchorStyles.None;
             tbProductCode.BorderRadius = 20;
@@ -307,7 +307,7 @@ namespace SGV_CLP.GUI
             tbProductCode.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbProductCode.Location = new Point(421, 95);
             tbProductCode.Margin = new Padding(3, 8, 3, 8);
-            tbProductCode.Name = "txtIDProd";
+            tbProductCode.Name = "tbProductCode";
             tbProductCode.PasswordChar = '\0';
             tbProductCode.PlaceholderText = "";
             tbProductCode.SelectedText = "";
@@ -336,7 +336,7 @@ namespace SGV_CLP.GUI
             SBExaminar.Text = "Examinar...";
             SBExaminar.Click += ButtonBrowse_Click;
             // 
-            // txtImagen
+            // tbImagePath
             // 
             tbImagePath.Anchor = AnchorStyles.None;
             tbImagePath.BorderRadius = 20;
@@ -350,7 +350,7 @@ namespace SGV_CLP.GUI
             tbImagePath.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbImagePath.Location = new Point(421, 617);
             tbImagePath.Margin = new Padding(3, 7, 3, 7);
-            tbImagePath.Name = "txtImagen";
+            tbImagePath.Name = "tbImagePath";
             tbImagePath.PasswordChar = '\0';
             tbImagePath.PlaceholderText = "";
             tbImagePath.SelectedText = "";
@@ -371,7 +371,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel11.TabIndex = 48;
             siticoneHtmlLabel11.Text = "Ruta imagen";
             // 
-            // SBAniadirProd
+            // buttonAddProduct
             // 
             buttonAddProduct.Anchor = AnchorStyles.None;
             buttonAddProduct.BorderRadius = 20;
@@ -384,13 +384,13 @@ namespace SGV_CLP.GUI
             buttonAddProduct.ForeColor = Color.White;
             buttonAddProduct.Location = new Point(583, 796);
             buttonAddProduct.Margin = new Padding(3, 5, 3, 5);
-            buttonAddProduct.Name = "SBAniadirProd";
+            buttonAddProduct.Name = "buttonAddProduct";
             buttonAddProduct.Size = new Size(206, 60);
             buttonAddProduct.TabIndex = 45;
             buttonAddProduct.Text = "Añadir";
             buttonAddProduct.Click += ButtonAddProduct_Click;
             // 
-            // cBoxCategoria
+            // cbCategory
             // 
             cbCategory.Anchor = AnchorStyles.None;
             cbCategory.BackColor = Color.Transparent;
@@ -405,7 +405,7 @@ namespace SGV_CLP.GUI
             cbCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas Frías", "Bebidas Calientes", "Empanadas" });
             cbCategory.Location = new Point(421, 300);
             cbCategory.Margin = new Padding(3, 5, 3, 5);
-            cbCategory.Name = "cBoxCategoria";
+            cbCategory.Name = "cbCategory";
             cbCategory.Size = new Size(228, 41);
             cbCategory.StartIndex = 0;
             cbCategory.TabIndex = 44;
@@ -424,7 +424,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel6.TabIndex = 43;
             siticoneHtmlLabel6.Text = "Categoría";
             // 
-            // txtPVP
+            // tbSalesPriceToThePublic
             // 
             tbSalesPriceToThePublic.Anchor = AnchorStyles.None;
             tbSalesPriceToThePublic.BorderRadius = 20;
@@ -438,7 +438,7 @@ namespace SGV_CLP.GUI
             tbSalesPriceToThePublic.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbSalesPriceToThePublic.Location = new Point(421, 511);
             tbSalesPriceToThePublic.Margin = new Padding(3, 8, 3, 8);
-            tbSalesPriceToThePublic.Name = "txtPVP";
+            tbSalesPriceToThePublic.Name = "tbSalesPriceToThePublic";
             tbSalesPriceToThePublic.PasswordChar = '\0';
             tbSalesPriceToThePublic.PlaceholderText = "";
             tbSalesPriceToThePublic.SelectedText = "";
@@ -460,7 +460,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel8.TabIndex = 41;
             siticoneHtmlLabel8.Text = "P.V.P.";
             // 
-            // txtPE
+            // tbProductionPrice
             // 
             tbProductionPrice.Anchor = AnchorStyles.None;
             tbProductionPrice.BorderRadius = 20;
@@ -474,7 +474,7 @@ namespace SGV_CLP.GUI
             tbProductionPrice.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbProductionPrice.Location = new Point(421, 406);
             tbProductionPrice.Margin = new Padding(3, 8, 3, 8);
-            tbProductionPrice.Name = "txtPE";
+            tbProductionPrice.Name = "tbProductionPrice";
             tbProductionPrice.PasswordChar = '\0';
             tbProductionPrice.PlaceholderText = "";
             tbProductionPrice.SelectedText = "";
@@ -508,7 +508,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel5.TabIndex = 28;
             siticoneHtmlLabel5.Text = "Nombre Producto";
             // 
-            // txtNombreProducto
+            // tbProductName
             // 
             tbProductName.Anchor = AnchorStyles.None;
             tbProductName.BorderRadius = 20;
@@ -522,7 +522,7 @@ namespace SGV_CLP.GUI
             tbProductName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbProductName.Location = new Point(421, 195);
             tbProductName.Margin = new Padding(3, 8, 3, 8);
-            tbProductName.Name = "txtNombreProducto";
+            tbProductName.Name = "tbProductName";
             tbProductName.PasswordChar = '\0';
             tbProductName.PlaceholderText = "";
             tbProductName.SelectedText = "";
@@ -550,7 +550,7 @@ namespace SGV_CLP.GUI
             Editar.TabIndex = 1;
             Editar.Text = "Editar/Eliminar Producto";
             // 
-            // categoria_not_choose_in_ConsultarProducto_label
+            // labelCategoryNotChosenInTheSearchProductTab
             // 
             labelCategoryNotChosenInTheSearchProductTab.Anchor = AnchorStyles.None;
             labelCategoryNotChosenInTheSearchProductTab.BackColor = Color.Transparent;
@@ -558,13 +558,13 @@ namespace SGV_CLP.GUI
             labelCategoryNotChosenInTheSearchProductTab.ForeColor = Color.Red;
             labelCategoryNotChosenInTheSearchProductTab.Location = new Point(324, 209);
             labelCategoryNotChosenInTheSearchProductTab.Margin = new Padding(3, 4, 3, 4);
-            labelCategoryNotChosenInTheSearchProductTab.Name = "categoria_not_choose_in_ConsultarProducto_label";
+            labelCategoryNotChosenInTheSearchProductTab.Name = "labelCategoryNotChosenInTheSearchProductTab";
             labelCategoryNotChosenInTheSearchProductTab.Size = new Size(265, 22);
             labelCategoryNotChosenInTheSearchProductTab.TabIndex = 59;
             labelCategoryNotChosenInTheSearchProductTab.Text = "Debe pertenecer a una categoría válida";
             labelCategoryNotChosenInTheSearchProductTab.Visible = false;
             // 
-            // cBoxConsultarProductoPorCategoria
+            // cbSearchProductByCategory
             // 
             cbSearchProductByCategory.Anchor = AnchorStyles.None;
             cbSearchProductByCategory.BackColor = Color.Transparent;
@@ -579,14 +579,14 @@ namespace SGV_CLP.GUI
             cbSearchProductByCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
             cbSearchProductByCategory.Location = new Point(302, 139);
             cbSearchProductByCategory.Margin = new Padding(3, 5, 3, 5);
-            cbSearchProductByCategory.Name = "cBoxConsultarProductoPorCategoria";
+            cbSearchProductByCategory.Name = "cbSearchProductByCategory";
             cbSearchProductByCategory.Size = new Size(312, 61);
             cbSearchProductByCategory.TabIndex = 58;
             cbSearchProductByCategory.TextOffset = new Point(5, 0);
             cbSearchProductByCategory.Visible = false;
             cbSearchProductByCategory.SelectedIndexChanged += CbSearchProductByCategory_SelectedIndexChanged;
             // 
-            // siticoneHtmlLabel_buscarProducto_sin_campo
+            // labelSearchProductWithoutField
             // 
             labelSearchProductWithoutField.Anchor = AnchorStyles.None;
             labelSearchProductWithoutField.BackColor = Color.Transparent;
@@ -594,12 +594,12 @@ namespace SGV_CLP.GUI
             labelSearchProductWithoutField.ForeColor = Color.Red;
             labelSearchProductWithoutField.Location = new Point(302, 108);
             labelSearchProductWithoutField.Margin = new Padding(3, 4, 3, 4);
-            labelSearchProductWithoutField.Name = "siticoneHtmlLabel_buscarProducto_sin_campo";
-            labelSearchProductWithoutField.Size = new Size(152, 22);
+            labelSearchProductWithoutField.Name = "labelSearchProductWithoutField";
+            labelSearchProductWithoutField.Size = new Size(257, 22);
             labelSearchProductWithoutField.TabIndex = 25;
-            labelSearchProductWithoutField.Text = "¡Seleccione un campo!";
+            labelSearchProductWithoutField.Text = "¡Seleccione un parámetro para buscar!";
             // 
-            // cBConsultarProductoPor
+            // cbSearchProdutBy
             // 
             cbSearchProdutBy.Anchor = AnchorStyles.None;
             cbSearchProdutBy.AutoCompleteCustomSource.AddRange(new string[] { "Código", "Nombre", "Categoría" });
@@ -615,13 +615,13 @@ namespace SGV_CLP.GUI
             cbSearchProdutBy.Items.AddRange(new object[] { "Seleccione...", "Código", "Nombre", "Categoría" });
             cbSearchProdutBy.Location = new Point(631, 139);
             cbSearchProdutBy.Margin = new Padding(3, 4, 3, 4);
-            cbSearchProdutBy.Name = "cBConsultarProductoPor";
+            cbSearchProdutBy.Name = "cbSearchProdutBy";
             cbSearchProdutBy.Size = new Size(311, 46);
             cbSearchProdutBy.StartIndex = 0;
             cbSearchProdutBy.TabIndex = 20;
             cbSearchProdutBy.SelectedIndexChanged += CbSearchProductBy_SelectedIndexChanged;
             // 
-            // txtConsultarProducto
+            // tbSearchProductBy
             // 
             tbSearchProductBy.Anchor = AnchorStyles.None;
             tbSearchProductBy.BorderRadius = 20;
@@ -636,7 +636,7 @@ namespace SGV_CLP.GUI
             tbSearchProductBy.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbSearchProductBy.Location = new Point(302, 139);
             tbSearchProductBy.Margin = new Padding(3, 5, 3, 5);
-            tbSearchProductBy.Name = "txtConsultarProducto";
+            tbSearchProductBy.Name = "tbSearchProductBy";
             tbSearchProductBy.PasswordChar = '\0';
             tbSearchProductBy.PlaceholderText = "Buscar...";
             tbSearchProductBy.SelectedText = "";
@@ -654,7 +654,7 @@ namespace SGV_CLP.GUI
             siticonePanel1.Size = new Size(1275, 667);
             siticonePanel1.TabIndex = 1;
             // 
-            // SDGVProducto
+            // ProductDataGridView
             // 
             ProductDataGridView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
@@ -682,7 +682,7 @@ namespace SGV_CLP.GUI
             ProductDataGridView.GridColor = Color.FromArgb(231, 229, 255);
             ProductDataGridView.Location = new Point(0, 0);
             ProductDataGridView.Margin = new Padding(3, 4, 3, 4);
-            ProductDataGridView.Name = "SDGVProducto";
+            ProductDataGridView.Name = "ProductDataGridView";
             ProductDataGridView.RowHeadersVisible = false;
             ProductDataGridView.RowHeadersWidth = 50;
             ProductDataGridView.RowTemplate.DefaultCellStyle.BackColor = Color.White;
@@ -806,7 +806,7 @@ namespace SGV_CLP.GUI
             tabPage1.TabIndex = 2;
             tabPage1.Text = "Registrar Lote";
             // 
-            // FechaHora_not_choose_in_Lote_label
+            // labelManufactureDateNotChosen
             // 
             labelManufactureDateNotChosen.Anchor = AnchorStyles.None;
             labelManufactureDateNotChosen.BackColor = Color.Transparent;
@@ -814,13 +814,13 @@ namespace SGV_CLP.GUI
             labelManufactureDateNotChosen.ForeColor = Color.Red;
             labelManufactureDateNotChosen.Location = new Point(801, 505);
             labelManufactureDateNotChosen.Margin = new Padding(3, 4, 3, 4);
-            labelManufactureDateNotChosen.Name = "FechaHora_not_choose_in_Lote_label";
+            labelManufactureDateNotChosen.Name = "labelManufactureDateNotChosen";
             labelManufactureDateNotChosen.Size = new Size(240, 22);
             labelManufactureDateNotChosen.TabIndex = 65;
             labelManufactureDateNotChosen.Text = "Debe tener una fecha y hora válidas";
             labelManufactureDateNotChosen.Visible = false;
             // 
-            // Producto_not_choose_in_Lote_label
+            // labelBatchProductNameNotChosen
             // 
             labelBatchProductNameNotChosen.Anchor = AnchorStyles.None;
             labelBatchProductNameNotChosen.BackColor = Color.Transparent;
@@ -828,7 +828,7 @@ namespace SGV_CLP.GUI
             labelBatchProductNameNotChosen.ForeColor = Color.Red;
             labelBatchProductNameNotChosen.Location = new Point(801, 239);
             labelBatchProductNameNotChosen.Margin = new Padding(3, 4, 3, 4);
-            labelBatchProductNameNotChosen.Name = "Producto_not_choose_in_Lote_label";
+            labelBatchProductNameNotChosen.Name = "labelBatchProductNameNotChosen";
             labelBatchProductNameNotChosen.Size = new Size(274, 22);
             labelBatchProductNameNotChosen.TabIndex = 64;
             labelBatchProductNameNotChosen.Text = "Debe pertenecer a un producto existente";
@@ -856,7 +856,7 @@ namespace SGV_CLP.GUI
             GBFechaHoraElab.Text = "Fecha y Hora";
             GBFechaHoraElab.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
-            // DTPHoraLote
+            // dtpManufactureHour
             // 
             dtpManufactureHour.Anchor = AnchorStyles.None;
             dtpManufactureHour.BorderRadius = 10;
@@ -869,7 +869,7 @@ namespace SGV_CLP.GUI
             dtpManufactureHour.Margin = new Padding(3, 4, 3, 4);
             dtpManufactureHour.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpManufactureHour.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpManufactureHour.Name = "DTPHoraLote";
+            dtpManufactureHour.Name = "dtpManufactureHour";
             dtpManufactureHour.ShowUpDown = true;
             dtpManufactureHour.Size = new Size(123, 37);
             dtpManufactureHour.TabIndex = 59;
@@ -877,7 +877,7 @@ namespace SGV_CLP.GUI
             dtpManufactureHour.Value = new DateTime(2023, 2, 6, 1, 19, 20, 716);
             dtpManufactureHour.Visible = false;
             // 
-            // SRBFechaActual
+            // rbCurrentDate
             // 
             rbCurrentDate.Anchor = AnchorStyles.None;
             rbCurrentDate.AutoSize = true;
@@ -889,7 +889,7 @@ namespace SGV_CLP.GUI
             rbCurrentDate.ForeColor = Color.Black;
             rbCurrentDate.Location = new Point(21, 67);
             rbCurrentDate.Margin = new Padding(3, 4, 3, 4);
-            rbCurrentDate.Name = "SRBFechaActual";
+            rbCurrentDate.Name = "rbCurrentDate";
             rbCurrentDate.Size = new Size(112, 34);
             rbCurrentDate.TabIndex = 56;
             rbCurrentDate.Text = "Actual";
@@ -899,7 +899,7 @@ namespace SGV_CLP.GUI
             rbCurrentDate.UncheckedState.InnerColor = Color.Transparent;
             rbCurrentDate.CheckedChanged += RbCurrentDate_CheckedChanged;
             // 
-            // SRBElegirFecha
+            // rbChooseDate
             // 
             rbChooseDate.Anchor = AnchorStyles.None;
             rbChooseDate.AutoSize = true;
@@ -911,7 +911,7 @@ namespace SGV_CLP.GUI
             rbChooseDate.ForeColor = Color.Black;
             rbChooseDate.Location = new Point(164, 67);
             rbChooseDate.Margin = new Padding(3, 4, 3, 4);
-            rbChooseDate.Name = "SRBElegirFecha";
+            rbChooseDate.Name = "rbChooseDate";
             rbChooseDate.Size = new Size(98, 34);
             rbChooseDate.TabIndex = 57;
             rbChooseDate.Text = "Elegir";
@@ -921,7 +921,7 @@ namespace SGV_CLP.GUI
             rbChooseDate.UncheckedState.InnerColor = Color.Transparent;
             rbChooseDate.CheckedChanged += RbChooseDate_CheckedChanged;
             // 
-            // DTPFechaLote
+            // dtpManufactureDate
             // 
             dtpManufactureDate.Anchor = AnchorStyles.None;
             dtpManufactureDate.BorderRadius = 10;
@@ -934,14 +934,14 @@ namespace SGV_CLP.GUI
             dtpManufactureDate.Margin = new Padding(3, 4, 3, 4);
             dtpManufactureDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpManufactureDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpManufactureDate.Name = "DTPFechaLote";
+            dtpManufactureDate.Name = "dtpManufactureDate";
             dtpManufactureDate.Size = new Size(180, 37);
             dtpManufactureDate.TabIndex = 58;
             dtpManufactureDate.TextOffset = new Point(5, 0);
             dtpManufactureDate.Value = new DateTime(2023, 3, 10, 0, 0, 0, 0);
             dtpManufactureDate.Visible = false;
             // 
-            // SBAniadirLote
+            // buttonAddBatch
             // 
             buttonAddBatch.Anchor = AnchorStyles.None;
             buttonAddBatch.BorderRadius = 20;
@@ -954,13 +954,13 @@ namespace SGV_CLP.GUI
             buttonAddBatch.ForeColor = Color.White;
             buttonAddBatch.Location = new Point(545, 670);
             buttonAddBatch.Margin = new Padding(3, 4, 3, 4);
-            buttonAddBatch.Name = "SBAniadirLote";
+            buttonAddBatch.Name = "buttonAddBatch";
             buttonAddBatch.Size = new Size(206, 60);
             buttonAddBatch.TabIndex = 54;
             buttonAddBatch.Text = "Añadir";
             buttonAddBatch.Click += ButtonAddBatch_Click;
             // 
-            // cBoxProductoLote
+            // cbBatchProductName
             // 
             cbBatchProductName.Anchor = AnchorStyles.None;
             cbBatchProductName.BackColor = Color.Transparent;
@@ -975,7 +975,7 @@ namespace SGV_CLP.GUI
             cbBatchProductName.Items.AddRange(new object[] { "Seleccione..." });
             cbBatchProductName.Location = new Point(544, 232);
             cbBatchProductName.Margin = new Padding(3, 4, 3, 4);
-            cbBatchProductName.Name = "cBoxProductoLote";
+            cbBatchProductName.Name = "cbBatchProductName";
             cbBatchProductName.Size = new Size(228, 41);
             cbBatchProductName.StartIndex = 0;
             cbBatchProductName.TabIndex = 53;
@@ -994,7 +994,7 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel3.TabIndex = 52;
             siticoneHtmlLabel3.Text = "Producto";
             // 
-            // txtCantidad
+            // tbQuantity
             // 
             tbQuantity.Anchor = AnchorStyles.None;
             tbQuantity.BorderRadius = 20;
@@ -1008,7 +1008,7 @@ namespace SGV_CLP.GUI
             tbQuantity.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbQuantity.Location = new Point(544, 315);
             tbQuantity.Margin = new Padding(3, 7, 3, 7);
-            tbQuantity.Name = "txtCantidad";
+            tbQuantity.Name = "tbQuantity";
             tbQuantity.PasswordChar = '\0';
             tbQuantity.PlaceholderText = "";
             tbQuantity.SelectedText = "";
@@ -1047,7 +1047,7 @@ namespace SGV_CLP.GUI
             tabPage2.TabIndex = 3;
             tabPage2.Text = "Editar/Eliminar Lote";
             // 
-            // Producto_not_choose_in_ConsultarLote_label
+            // labelProductCodeNotChosenInTheSearchBatchTab
             // 
             labelProductCodeNotChosenInTheSearchBatchTab.Anchor = AnchorStyles.None;
             labelProductCodeNotChosenInTheSearchBatchTab.BackColor = Color.Transparent;
@@ -1055,13 +1055,13 @@ namespace SGV_CLP.GUI
             labelProductCodeNotChosenInTheSearchBatchTab.ForeColor = Color.Red;
             labelProductCodeNotChosenInTheSearchBatchTab.Location = new Point(327, 213);
             labelProductCodeNotChosenInTheSearchBatchTab.Margin = new Padding(3, 4, 3, 4);
-            labelProductCodeNotChosenInTheSearchBatchTab.Name = "Producto_not_choose_in_ConsultarLote_label";
+            labelProductCodeNotChosenInTheSearchBatchTab.Name = "labelProductCodeNotChosenInTheSearchBatchTab";
             labelProductCodeNotChosenInTheSearchBatchTab.Size = new Size(274, 22);
             labelProductCodeNotChosenInTheSearchBatchTab.TabIndex = 65;
             labelProductCodeNotChosenInTheSearchBatchTab.Text = "Debe pertenecer a un producto existente";
             labelProductCodeNotChosenInTheSearchBatchTab.Visible = false;
             // 
-            // cBoxConsultarLotePorProducto
+            // cbSearchBatchByProductCode
             // 
             cbSearchBatchByProductCode.Anchor = AnchorStyles.None;
             cbSearchBatchByProductCode.BackColor = Color.Transparent;
@@ -1075,7 +1075,7 @@ namespace SGV_CLP.GUI
             cbSearchBatchByProductCode.ItemHeight = 55;
             cbSearchBatchByProductCode.Location = new Point(313, 143);
             cbSearchBatchByProductCode.Margin = new Padding(3, 4, 3, 4);
-            cbSearchBatchByProductCode.Name = "cBoxConsultarLotePorProducto";
+            cbSearchBatchByProductCode.Name = "cbSearchBatchByProductCode";
             cbSearchBatchByProductCode.Size = new Size(312, 61);
             cbSearchBatchByProductCode.TabIndex = 61;
             cbSearchBatchByProductCode.TextOffset = new Point(5, 0);
@@ -1091,11 +1091,11 @@ namespace SGV_CLP.GUI
             siticoneHtmlLabel_buscarLote_sin_campo.Location = new Point(313, 112);
             siticoneHtmlLabel_buscarLote_sin_campo.Margin = new Padding(3, 4, 3, 4);
             siticoneHtmlLabel_buscarLote_sin_campo.Name = "siticoneHtmlLabel_buscarLote_sin_campo";
-            siticoneHtmlLabel_buscarLote_sin_campo.Size = new Size(152, 22);
+            siticoneHtmlLabel_buscarLote_sin_campo.Size = new Size(257, 22);
             siticoneHtmlLabel_buscarLote_sin_campo.TabIndex = 60;
-            siticoneHtmlLabel_buscarLote_sin_campo.Text = "¡Seleccione un campo!";
+            siticoneHtmlLabel_buscarLote_sin_campo.Text = "¡Seleccione un parámetro para buscar!";
             // 
-            // DTPFConsultarLotePorFecha
+            // dtpSearchBatchByDate
             // 
             dtpSearchBatchByDate.Anchor = AnchorStyles.None;
             dtpSearchBatchByDate.BorderColor = Color.White;
@@ -1110,7 +1110,7 @@ namespace SGV_CLP.GUI
             dtpSearchBatchByDate.Margin = new Padding(3, 4, 3, 4);
             dtpSearchBatchByDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpSearchBatchByDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpSearchBatchByDate.Name = "DTPFConsultarLotePorFecha";
+            dtpSearchBatchByDate.Name = "dtpSearchBatchByDate";
             dtpSearchBatchByDate.Size = new Size(312, 61);
             dtpSearchBatchByDate.TabIndex = 59;
             dtpSearchBatchByDate.TextOffset = new Point(5, 0);
@@ -1128,7 +1128,7 @@ namespace SGV_CLP.GUI
             siticoneGradientPanel1.Size = new Size(1281, 667);
             siticoneGradientPanel1.TabIndex = 28;
             // 
-            // SDGVLote
+            // BatchDataGridView
             // 
             dataGridViewCellStyle4.BackColor = Color.White;
             BatchDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
@@ -1155,7 +1155,7 @@ namespace SGV_CLP.GUI
             BatchDataGridView.GridColor = Color.FromArgb(231, 229, 255);
             BatchDataGridView.Location = new Point(0, 0);
             BatchDataGridView.Margin = new Padding(3, 5, 3, 5);
-            BatchDataGridView.Name = "SDGVLote";
+            BatchDataGridView.Name = "BatchDataGridView";
             BatchDataGridView.RowHeadersVisible = false;
             BatchDataGridView.RowHeadersWidth = 50;
             BatchDataGridView.RowTemplate.DefaultCellStyle.BackColor = Color.White;
@@ -1235,7 +1235,7 @@ namespace SGV_CLP.GUI
             ColumnaEliminarLote.ReadOnly = true;
             ColumnaEliminarLote.Resizable = DataGridViewTriState.True;
             // 
-            // cBConsultarLotePor
+            // cbSearchBatchBy
             // 
             cbSearchBatchBy.Anchor = AnchorStyles.None;
             cbSearchBatchBy.BackColor = Color.Transparent;
@@ -1250,13 +1250,13 @@ namespace SGV_CLP.GUI
             cbSearchBatchBy.Items.AddRange(new object[] { "Seleccione...", "Código lote", "Código producto", "Fecha" });
             cbSearchBatchBy.Location = new Point(642, 143);
             cbSearchBatchBy.Margin = new Padding(3, 4, 3, 4);
-            cbSearchBatchBy.Name = "cBConsultarLotePor";
+            cbSearchBatchBy.Name = "cbSearchBatchBy";
             cbSearchBatchBy.Size = new Size(311, 46);
             cbSearchBatchBy.StartIndex = 0;
             cbSearchBatchBy.TabIndex = 24;
             cbSearchBatchBy.SelectedIndexChanged += CbSearchBatchBy_SelectedIndexChanged;
             // 
-            // txtConsultarLotePorCodigo
+            // tbSearchBatchByBatchCode
             // 
             tbSearchBatchByBatchCode.Anchor = AnchorStyles.None;
             tbSearchBatchByBatchCode.BorderRadius = 20;
@@ -1271,7 +1271,7 @@ namespace SGV_CLP.GUI
             tbSearchBatchByBatchCode.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbSearchBatchByBatchCode.Location = new Point(313, 143);
             tbSearchBatchByBatchCode.Margin = new Padding(3, 5, 3, 5);
-            tbSearchBatchByBatchCode.Name = "txtConsultarLotePorCodigo";
+            tbSearchBatchByBatchCode.Name = "tbSearchBatchByBatchCode";
             tbSearchBatchByBatchCode.PasswordChar = '\0';
             tbSearchBatchByBatchCode.PlaceholderText = "Buscar...";
             tbSearchBatchByBatchCode.SelectedText = "";
@@ -1279,13 +1279,13 @@ namespace SGV_CLP.GUI
             tbSearchBatchByBatchCode.TabIndex = 23;
             tbSearchBatchByBatchCode.TextChanged += TbSearchBatchByBatchCode_TextChanged;
             // 
-            // UC_Productos
+            // UC_Products
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(siticoneTabControl1);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "UC_Productos";
+            Name = "UC_Products";
             Size = new Size(1449, 1020);
             siticoneTabControl1.ResumeLayout(false);
             Añadir.ResumeLayout(false);
