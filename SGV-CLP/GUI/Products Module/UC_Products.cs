@@ -505,7 +505,7 @@ namespace SGV_CLP.GUI
             string lastBatchCode = BatchMapper.GetMostRecentBatchCodeForProduct(productCode);
             if (lastBatchCode != string.Empty)
             {
-                batchCode = lastBatchCode.Substring(0, 4) + (Convert.ToInt32(lastBatchCode.Substring(4)) + 1).ToString("000");
+                batchCode = productCode + (Convert.ToInt32(lastBatchCode.Substring(-4)) + 1).ToString("000");
             }
             else
             {
