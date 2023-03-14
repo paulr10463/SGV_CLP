@@ -45,10 +45,10 @@ namespace SGV_CLP
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneDragControl1 = new Siticone.Desktop.UI.WinForms.SiticoneDragControl(this.components);
             this.siticoneCustomGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel();
-            this.uC_Clientes1 = new SGV_CLP.GUI.UC_Clientes();
+            this.uC_Clientes1 = new SGV_CLP.GUI.UC_Customers();
             this.uC_Ventas1 = new SGV_CLP.GUI.UC_Ventas();
             this.uC_Compras1 = new SGV_CLP.GUI.UC_Compras();
-            this.uC_Productos1 = new SGV_CLP.GUI.UC_Productos();
+            this.uC_Productos1 = new SGV_CLP.GUI.UC_Products();
             this.uC_Proveedores1 = new SGV_CLP.GUI.UC_Proveedores();
             this.uC_Administracion1 = new SGV_CLP.GUI.UC_Administracion();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -382,9 +382,9 @@ namespace SGV_CLP
         private Siticone.Desktop.UI.WinForms.SiticoneCirclePictureBox siticoneCirclePictureBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton7;
         private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel1;
-        private GUI.UC_Clientes uC_Clientes1;
+        private GUI.UC_Customers uC_Clientes1;
         private GUI.UC_Compras uC_Compras1;
-        private GUI.UC_Productos uC_Productos1;
+        private GUI.UC_Products uC_Productos1;
         private GUI.UC_Proveedores uC_Proveedores1;
         private GUI.UC_Administracion uC_Administracion1;
         private UC_Ventas uC_Ventas1;

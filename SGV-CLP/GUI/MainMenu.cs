@@ -55,6 +55,8 @@ namespace SGV_CLP
         private void siticoneButton6_CheckedChanged(object sender, EventArgs e)
         {
             uC_Productos1.BringToFront();
+            uC_Productos1.FillProductDataGridView();
+            uC_Productos1.FillBatchDataGridView();
         }
 
         private void siticoneButton7_Click(object sender, EventArgs e)

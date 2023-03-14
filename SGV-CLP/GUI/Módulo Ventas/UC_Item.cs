@@ -1,5 +1,6 @@
 ﻿using SGV_CLP.Classes;
-using SGV_CLP.Classes.Modulo_Ventas;
+using SGV_CLP.Classes.Sales_Module;
+using SGV_CLP.Classes.Products_module;
 using SGV_CLP.Properties;
 using Siticone.Desktop.UI.WinForms;
 using System;
@@ -17,12 +18,12 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 {
     public partial class UC_Item : UserControl
     {
-        public DetalleNotaVenta detalleNotaVenta;
-        Producto _producto;
-        public UC_Item(Producto producto)
+        public InvoiceDetail invoiceDetail;
+        Product _producto;
+        public UC_Item(Product producto)
         {
-            detalleNotaVenta = new DetalleNotaVenta();
-            detalleNotaVenta.producto = producto;
+            invoiceDetail = new InvoiceDetail();
+            invoiceDetail.product = producto;
             _producto = producto;
             InitializeComponent();
             siticoneButton1.Enabled = false;
@@ -34,39 +35,46 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             //En caso de coger la imagen a través de una ruta en la compu
             try
             {
-                Image myImage = Image.FromFile(Path.Combine(Application.StartupPath, producto.Imagen));
+                Image myImage = Image.FromFile(Path.Combine(Application.StartupPath, producto.imagePath));
                 this.siticonePictureBox1.Image = myImage;
             }
             catch(Exception e) {
                 Console.WriteLine(e.Message);
             }
-            this.siticoneHtmlLabel1.Text = producto.Nombre;
+            this.siticoneHtmlLabel1.Text = producto.productName;
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            detalleNotaVenta.cantidad = (int)siticoneNumericUpDown1.Value;
-            detalleNotaVenta.subtotal = detalleNotaVenta.cantidad * _producto.PVP;
-            UC_Ventas.notaVenta.addOrUpdateDetalleVenta(detalleNotaVenta);
-            addRowInTable(detalleNotaVenta.cantidad, _producto);
+            invoiceDetail.soldQuantity = (int)siticoneNumericUpDown1.Value;
+            invoiceDetail.subTotal = invoiceDetail.soldQuantity * _producto.salesPriceToThePubic;
+            UC_Ventas.invoice.AddOrUpdateInvoiceDetail(invoiceDetail);
+            addRowInTable(invoiceDetail.soldQuantity, _producto);
             UC_Ventas.totalVenta.Visible = true;
-            UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.notaVenta.calcularTotalVentas().ToString();
+            UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.invoice.CalculateTotalSales().ToString();
         }
 
         //Activa el boton de añadir si en numericUpDown.value > 0
         private void siticoneNumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if ((int)siticoneNumericUpDown1.Value > 0)
+            int cantidadProducto = int.Parse(ProductMapper.GetProductField(this._producto.productCode, "cantidad_Total")); 
+            if ((int)siticoneNumericUpDown1.Value > cantidadProducto)
             {
-                siticoneButton1.Enabled = true;
+                MessageBox.Show("Cantidad en inventario de " + _producto.productName + " es escasa");
+                siticoneButton1.Enabled = false;
+                siticoneNumericUpDown1.Value -= 1;
             }
-            else
+            else if ((int)siticoneNumericUpDown1.Value == 0 || cantidadProducto == 0)
             {
                 siticoneButton1.Enabled = false;
             }
+            else if((int)siticoneNumericUpDown1.Value <= cantidadProducto && cantidadProducto > 0)
+            {
+                siticoneButton1.Enabled = true;
+            }
         }
 
-        public void addRowInTable(int cantidad, Producto producto)
+        public void addRowInTable(int cantidad, Product producto)
         {
             bool flag = false;
 
@@ -74,10 +82,10 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             {
                 if (rowItem.Cells[0].Value != null)
                 {
-                    if (rowItem.Cells[0].Value.Equals(producto.Nombre))
+                    if (rowItem.Cells[0].Value.Equals(producto.productName))
                     {
                         rowItem.Cells[1].Value = cantidad;
-                        rowItem.Cells[2].Value = detalleNotaVenta.subtotal;
+                        rowItem.Cells[2].Value = invoiceDetail.subTotal;
                         flag = true;
                     }
                 }
@@ -89,9 +97,9 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             if (!flag)
             {
                 DataGridViewRow row = (DataGridViewRow)UC_Ventas.detalleVentaTabla.Rows[0].Clone();
-                row.Cells[0].Value = producto.Nombre;
+                row.Cells[0].Value = producto.productName;
                 row.Cells[1].Value = cantidad;
-                row.Cells[2].Value = detalleNotaVenta.subtotal;
+                row.Cells[2].Value = invoiceDetail.subTotal;
                 UC_Ventas.detalleVentaTabla.Rows.Add(row);
             }
            

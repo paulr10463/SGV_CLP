@@ -19,10 +19,10 @@
     <Compile Update="GUI\Módulo Administración\UC_Administracion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Clientes\UC_Clientes.cs">
+    <Compile Update="GUI\Customers Module\UC_Customers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Producto\UC_Productos.cs">
+    <Compile Update="GUI\Products Module\UC_Products.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Proveedores\UC_Proveedores.cs">

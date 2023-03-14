@@ -1,6 +1,7 @@
 ﻿using SGV_CLP.Classes;
-using SGV_CLP.Classes.Módulo_Cliente;
-using SGV_CLP.Classes.Modulo_Ventas;
+using SGV_CLP.Classes.Customers_Module;
+using SGV_CLP.Classes.Sales_Module;
+using SGV_CLP.Classes.Sales_Module;
 using Siticone.Desktop.UI.AnimatorNS;
 using Siticone.Desktop.UI.WinForms;
 using System;
@@ -24,7 +25,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         //listaClientes1.getClientes();
             //.ConsultarClientes();
         //listaClientes = ClienteMapper.ConsultarClientes();
-        public static List<Cliente> clientes = ClienteMapper.ConsultarClientes();
+        public static List<Customer> clientes = CustomerMapper.GetAllCustomers();
         AutoCompleteStringCollection listaDeSugerenciasdeAutompletacion;
 
         int num_atributos = 6;
@@ -77,18 +78,21 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void actulizarListadeSugerenciasdeAutocompletacion()
         {
-            clientes.ForEach(a => listaDeSugerenciasdeAutompletacion.Add(a.Cc_Cliente));
+            clientes.ForEach(a => listaDeSugerenciasdeAutompletacion.Add(a.customerID));
         }
 
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            Cliente clienteFinal = new Cliente(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
-            UC_Ventas.notaVenta.cliente= clienteFinal;
-            UC_Ventas.notaVenta.usuario = MainMenu.UsuarioRegistrado;
-            UC_Ventas.notaVenta.fechaVenta = DateTime.Now;
-            NotaVentaMapper.IngresarNotaVenta(UC_Ventas.notaVenta);
-            UC_Ventas.notaVenta = new NotaVenta();
+            
+            Customer clienteFinal = new Customer(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
+            UC_Ventas.invoice.customer = clienteFinal;
+            UC_Ventas.invoice.user = MainMenu.UsuarioRegistrado;
+            UC_Ventas.invoice.issuedDate = DateTime.Now;
+            InvoiceMapper.AddInvoice(UC_Ventas.invoice);
+            UC_Ventas.invoice.SetInvoiceDetail(InvoiceMapper.ConsultarUltimoID());
+            UC_Ventas.invoice.invoiceDetailList.ForEach(item => InvoiceDetailMapper.AddInvoiceDetail(item));
+            UC_Ventas.invoice = new Invoice();
 
 
             UC_Ventas.resetNumPickers();
@@ -161,7 +165,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
             siticoneHtmlLabel_correct_length_telef.Visible= false;
             siticoneHtmlLabel_correct_email.Visible= false;
-            Cliente clienteNuevo = new Cliente(txtCC_ClienteVenta.Text, 
+            Customer clienteNuevo = new Customer(txtCC_ClienteVenta.Text, 
                 txtNombre1Venta.Text, 
                 txtNombre2Venta.Text, 
                 txtApellido1Venta.Text, 
@@ -170,17 +174,17 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 txtTelefVenta.Text, 
                 txtCorreoVenta.Text);
 
-            switch(ListaClientes.findExistentClient(clientes, clienteNuevo))
+            switch(CustomerList.FindExistentCustomer(clientes, clienteNuevo))
             {
                 case 0:
                     break;
                 case 1:
-                    ClienteMapper.ModificarCliente(clienteNuevo);
-                    clientes = ClienteMapper.ConsultarClientes();
+                    CustomerMapper.UpdateCustomer(clienteNuevo);
+                    clientes = CustomerMapper.GetAllCustomers();
                     break;
                 case -1:
-                    ClienteMapper.IngresarCliente(clienteNuevo);
-                    clientes = ClienteMapper.ConsultarClientes();
+                    CustomerMapper.AddCustomer(clienteNuevo);
+                    clientes = CustomerMapper.GetAllCustomers();
                     break;
             }
             
@@ -338,11 +342,11 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
             validateFieldsCounter();
             bool clienteEncontrado=false;
-            foreach (Cliente cliente in clientes)
+            foreach (Customer cliente in clientes)
             {
                 if(cliente != null )
                 {
-                    if (cliente.Cc_Cliente.Equals(txtCC_ClienteVenta.Text))
+                    if (cliente.customerID.Equals(txtCC_ClienteVenta.Text))
                     {
                         loadCustomerFields(cliente);
                         clienteEncontrado= true;
@@ -350,7 +354,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 }
             }
             if ( !clienteEncontrado ) {
-                loadCustomerFields(new Cliente("0", "", "", "", "", "", "", ""));
+                loadCustomerFields(new Customer("0", "", "", "", "", "", "", ""));
             }
         }
 
@@ -410,15 +414,15 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         }
 
 
-        private void loadCustomerFields(Cliente cliente)
+        private void loadCustomerFields(Customer cliente)
         {
-            txtNombre1Venta.Text = cliente.Primer_Nombre;
-            txtNombre2Venta.Text = cliente.Segundo_Nombre;
-            txtApellido1Venta.Text = cliente.Primer_Apellido;
-            txtApellido2Venta.Text = cliente.Segundo_Apellido;
-            txtDireccionVenta.Text = cliente.Direccion_Domicilio;
-            txtTelefVenta.Text = cliente.Telefono;
-            txtCorreoVenta.Text = cliente.Correo_Electronico;
+            txtNombre1Venta.Text = cliente.firstName;
+            txtNombre2Venta.Text = cliente.MiddleName;
+            txtApellido1Venta.Text = cliente.firstLastName;
+            txtApellido2Venta.Text = cliente.secondLastName;
+            txtDireccionVenta.Text = cliente.homeAddress;
+            txtTelefVenta.Text = cliente.phoneNumber;
+            txtCorreoVenta.Text = cliente.eMail;
 
         }
 
