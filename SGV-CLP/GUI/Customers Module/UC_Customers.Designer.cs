@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Customers));
             siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             TabRegistrar = new TabPage();
+            labelCustomerIDUnique = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            labelCustomerIDNotUnique = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             labelValidPhoneNumber = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             labelInvalidPhoneNumber = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             labelCorrectEMail = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -119,6 +121,8 @@
             // 
             // TabRegistrar
             // 
+            TabRegistrar.Controls.Add(labelCustomerIDUnique);
+            TabRegistrar.Controls.Add(labelCustomerIDNotUnique);
             TabRegistrar.Controls.Add(labelValidPhoneNumber);
             TabRegistrar.Controls.Add(labelInvalidPhoneNumber);
             TabRegistrar.Controls.Add(labelCorrectEMail);
@@ -158,6 +162,30 @@
             TabRegistrar.Text = "Registrar Cliente";
             TabRegistrar.UseVisualStyleBackColor = true;
             // 
+            // labelCustomerIDUnique
+            // 
+            labelCustomerIDUnique.Anchor = AnchorStyles.None;
+            labelCustomerIDUnique.BackColor = Color.Transparent;
+            labelCustomerIDUnique.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCustomerIDUnique.ForeColor = Color.SpringGreen;
+            labelCustomerIDUnique.Location = new Point(752, 247);
+            labelCustomerIDUnique.Name = "labelCustomerIDUnique";
+            labelCustomerIDUnique.Size = new Size(96, 22);
+            labelCustomerIDUnique.TabIndex = 89;
+            labelCustomerIDUnique.Text = "¡Cédula única!";
+            // 
+            // labelCustomerIDNotUnique
+            // 
+            labelCustomerIDNotUnique.Anchor = AnchorStyles.None;
+            labelCustomerIDNotUnique.BackColor = Color.Transparent;
+            labelCustomerIDNotUnique.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCustomerIDNotUnique.ForeColor = Color.Red;
+            labelCustomerIDNotUnique.Location = new Point(752, 247);
+            labelCustomerIDNotUnique.Name = "labelCustomerIDNotUnique";
+            labelCustomerIDNotUnique.Size = new Size(147, 22);
+            labelCustomerIDNotUnique.TabIndex = 88;
+            labelCustomerIDNotUnique.Text = "¡Cédula ya registrada!";
+            // 
             // labelValidPhoneNumber
             // 
             labelValidPhoneNumber.Anchor = AnchorStyles.None;
@@ -172,7 +200,7 @@
             labelValidPhoneNumber.Text = "¡Teléfono celular válido!";
             labelValidPhoneNumber.Visible = false;
             // 
-            // siticoneHtmlLabel_invalid_telef
+            // labelInvalidPhoneNumber
             // 
             labelInvalidPhoneNumber.Anchor = AnchorStyles.None;
             labelInvalidPhoneNumber.BackColor = Color.Transparent;
@@ -180,7 +208,7 @@
             labelInvalidPhoneNumber.ForeColor = Color.Red;
             labelInvalidPhoneNumber.Location = new Point(752, 816);
             labelInvalidPhoneNumber.Margin = new Padding(3, 5, 3, 5);
-            labelInvalidPhoneNumber.Name = "siticoneHtmlLabel_invalid_telef";
+            labelInvalidPhoneNumber.Name = "labelInvalidPhoneNumber";
             labelInvalidPhoneNumber.Size = new Size(175, 22);
             labelInvalidPhoneNumber.TabIndex = 86;
             labelInvalidPhoneNumber.Text = "¡Teléfono celular inválido!";
@@ -198,7 +226,7 @@
             labelCorrectEMail.TabIndex = 85;
             labelCorrectEMail.Text = "¡Email válido!";
             // 
-            // siticoneHtmlLabel_wrong_email
+            // labelWrongEMail
             // 
             labelWrongEMail.Anchor = AnchorStyles.None;
             labelWrongEMail.BackColor = Color.Transparent;
@@ -206,7 +234,7 @@
             labelWrongEMail.ForeColor = Color.Red;
             labelWrongEMail.Location = new Point(1118, 691);
             labelWrongEMail.Margin = new Padding(3, 4, 3, 4);
-            labelWrongEMail.Name = "siticoneHtmlLabel_wrong_email";
+            labelWrongEMail.Name = "labelWrongEMail";
             labelWrongEMail.Size = new Size(105, 22);
             labelWrongEMail.TabIndex = 84;
             labelWrongEMail.Text = "¡Email inválido!";
@@ -290,7 +318,7 @@
             tbFirstName.TextChanged += TbFirstName_TextChanged;
             tbFirstName.KeyPress += TbFirstName_KeyPress;
             // 
-            // siticoneHtmlLabel_wrong_length_telef
+            // labelWrongPhoneNumberLength
             // 
             labelWrongPhoneNumberLength.Anchor = AnchorStyles.None;
             labelWrongPhoneNumberLength.BackColor = Color.Transparent;
@@ -298,7 +326,7 @@
             labelWrongPhoneNumberLength.ForeColor = Color.Red;
             labelWrongPhoneNumberLength.Location = new Point(752, 778);
             labelWrongPhoneNumberLength.Margin = new Padding(3, 5, 3, 5);
-            labelWrongPhoneNumberLength.Name = "siticoneHtmlLabel_wrong_length_telef";
+            labelWrongPhoneNumberLength.Name = "labelWrongPhoneNumberLength";
             labelWrongPhoneNumberLength.Size = new Size(160, 22);
             labelWrongPhoneNumberLength.TabIndex = 59;
             labelWrongPhoneNumberLength.Text = "¡Se necesitan 10 caract.!";
@@ -309,7 +337,7 @@
             labelCorrectCustomerIDLength.BackColor = Color.Transparent;
             labelCorrectCustomerIDLength.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelCorrectCustomerIDLength.ForeColor = Color.SpringGreen;
-            labelCorrectCustomerIDLength.Location = new Point(754, 246);
+            labelCorrectCustomerIDLength.Location = new Point(752, 208);
             labelCorrectCustomerIDLength.Margin = new Padding(3, 4, 3, 4);
             labelCorrectCustomerIDLength.Name = "labelCorrectCustomerIDLength";
             labelCorrectCustomerIDLength.Size = new Size(128, 22);
@@ -341,7 +369,7 @@
             labelValidCustomerID.BackColor = Color.Transparent;
             labelValidCustomerID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelValidCustomerID.ForeColor = Color.SpringGreen;
-            labelValidCustomerID.Location = new Point(754, 208);
+            labelValidCustomerID.Location = new Point(752, 170);
             labelValidCustomerID.Margin = new Padding(3, 4, 3, 4);
             labelValidCustomerID.Name = "labelValidCustomerID";
             labelValidCustomerID.Size = new Size(101, 22);
@@ -353,22 +381,22 @@
             siticoneHtmlLabel3.Anchor = AnchorStyles.None;
             siticoneHtmlLabel3.BackColor = Color.Transparent;
             siticoneHtmlLabel3.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel3.Location = new Point(349, 223);
+            siticoneHtmlLabel3.Location = new Point(349, 208);
             siticoneHtmlLabel3.Margin = new Padding(3, 5, 3, 5);
             siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
             siticoneHtmlLabel3.Size = new Size(99, 34);
             siticoneHtmlLabel3.TabIndex = 24;
             siticoneHtmlLabel3.Text = "Cédula";
             // 
-            // siticoneHtmlLabel_cc_invalida
+            // labelInvalidCustomerID
             // 
             labelInvalidCustomerID.Anchor = AnchorStyles.None;
             labelInvalidCustomerID.BackColor = Color.Transparent;
             labelInvalidCustomerID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelInvalidCustomerID.ForeColor = Color.Red;
-            labelInvalidCustomerID.Location = new Point(754, 208);
+            labelInvalidCustomerID.Location = new Point(752, 170);
             labelInvalidCustomerID.Margin = new Padding(3, 4, 3, 4);
-            labelInvalidCustomerID.Name = "siticoneHtmlLabel_cc_invalida";
+            labelInvalidCustomerID.Name = "labelInvalidCustomerID";
             labelInvalidCustomerID.Size = new Size(113, 22);
             labelInvalidCustomerID.TabIndex = 55;
             labelInvalidCustomerID.Text = "¡Cédula inválida!";
@@ -399,15 +427,15 @@
             tbHomeAddress.TextChanged += TbHomeAddress_TextChanged;
             tbHomeAddress.KeyPress += TbHomeAddress_KeyPress;
             // 
-            // siticoneHtmlLabel_cc_wrong_length
+            // labelWrongCustomerIDLength
             // 
             labelWrongCustomerIDLength.Anchor = AnchorStyles.None;
             labelWrongCustomerIDLength.BackColor = Color.Transparent;
             labelWrongCustomerIDLength.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             labelWrongCustomerIDLength.ForeColor = Color.Red;
-            labelWrongCustomerIDLength.Location = new Point(752, 246);
+            labelWrongCustomerIDLength.Location = new Point(750, 208);
             labelWrongCustomerIDLength.Margin = new Padding(3, 4, 3, 4);
-            labelWrongCustomerIDLength.Name = "siticoneHtmlLabel_cc_wrong_length";
+            labelWrongCustomerIDLength.Name = "labelWrongCustomerIDLength";
             labelWrongCustomerIDLength.Size = new Size(160, 22);
             labelWrongCustomerIDLength.TabIndex = 54;
             labelWrongCustomerIDLength.Text = "¡Se necesitan 10 caract.!";
@@ -450,7 +478,7 @@
             tbCustomerID.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             tbCustomerID.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             tbCustomerID.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            tbCustomerID.Location = new Point(510, 208);
+            tbCustomerID.Location = new Point(510, 195);
             tbCustomerID.Margin = new Padding(3, 8, 3, 8);
             tbCustomerID.MinimumSize = new Size(229, 60);
             tbCustomerID.Name = "tbCustomerID";
@@ -659,7 +687,7 @@
             TabEditar.Text = "Editar/Eliminar Cliente";
             TabEditar.UseVisualStyleBackColor = true;
             // 
-            // siticoneHtmlLabel_buscarCliente_sin_campo
+            // labelSearchCustomerWithoutField
             // 
             labelSearchCustomerWithoutField.Anchor = AnchorStyles.None;
             labelSearchCustomerWithoutField.BackColor = Color.Transparent;
@@ -667,7 +695,7 @@
             labelSearchCustomerWithoutField.ForeColor = Color.Red;
             labelSearchCustomerWithoutField.Location = new Point(373, 176);
             labelSearchCustomerWithoutField.Margin = new Padding(3, 4, 3, 4);
-            labelSearchCustomerWithoutField.Name = "siticoneHtmlLabel_buscarCliente_sin_campo";
+            labelSearchCustomerWithoutField.Name = "labelSearchCustomerWithoutField";
             labelSearchCustomerWithoutField.Size = new Size(152, 22);
             labelSearchCustomerWithoutField.TabIndex = 19;
             labelSearchCustomerWithoutField.Text = "¡Seleccione un campo!";
@@ -732,28 +760,28 @@
             // 
             // CustomerDataGridView
             // 
-            dataGridViewCellStyle5.BackColor = Color.White;
-            CustomerDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            CustomerDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             CustomerDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle6.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            CustomerDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            CustomerDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             CustomerDataGridView.ColumnHeadersHeight = 60;
             CustomerDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             CustomerDataGridView.Columns.AddRange(new DataGridViewColumn[] { ColumnaCedula, ColumnaNombres, ColumnaApellidos, ColumnaDireccion, ColumnaTelefono, ColumnaCorreo, ColumnaEditar, ColumnaEliminar });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            CustomerDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            CustomerDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             CustomerDataGridView.Dock = DockStyle.Fill;
             CustomerDataGridView.GridColor = Color.FromArgb(231, 229, 255);
             CustomerDataGridView.Location = new Point(0, 0);
@@ -762,8 +790,7 @@
             CustomerDataGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             CustomerDataGridView.RowHeadersVisible = false;
             CustomerDataGridView.RowHeadersWidth = 50;
-            CustomerDataGridView.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(231, 229, 255);
-            CustomerDataGridView.RowTemplate.DividerHeight = 15;
+            CustomerDataGridView.RowTemplate.DefaultCellStyle.BackColor = Color.White;
             CustomerDataGridView.RowTemplate.Height = 50;
             CustomerDataGridView.Size = new Size(1479, 667);
             CustomerDataGridView.TabIndex = 0;
@@ -840,10 +867,10 @@
             // ColumnaEditar
             // 
             ColumnaEditar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.Padding = new Padding(5);
-            ColumnaEditar.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = null;
+            dataGridViewCellStyle3.Padding = new Padding(5);
+            ColumnaEditar.DefaultCellStyle = dataGridViewCellStyle3;
             ColumnaEditar.HeaderText = "";
             ColumnaEditar.Image = (Image)resources.GetObject("ColumnaEditar.Image");
             ColumnaEditar.MinimumWidth = 45;
@@ -859,13 +886,13 @@
             ColumnaEliminar.Name = "ColumnaEliminar";
             ColumnaEliminar.Resizable = DataGridViewTriState.True;
             // 
-            // UC_Customer
+            // UC_Customers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(siticoneTabControl1);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "UC_Customer";
+            Name = "UC_Customers";
             Size = new Size(1653, 1127);
             siticoneTabControl1.ResumeLayout(false);
             TabRegistrar.ResumeLayout(false);
@@ -924,5 +951,7 @@
         private DataGridViewImageColumn ColumnaEliminar;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelValidPhoneNumber;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelInvalidPhoneNumber;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelCustomerIDUnique;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel labelCustomerIDNotUnique;
     }
 }

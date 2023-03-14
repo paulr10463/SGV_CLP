@@ -11,19 +11,23 @@ namespace SGV_CLP
         public MainMenu(Usuario user)
         {
             InitializeComponent();
-            UsuarioRegistrado = user; 
+            UsuarioRegistrado = user;
             siticoneHtmlLabel2.Text = "Bienvenido " + UsuarioRegistrado.primer_Nombre + "!";
             uc_ventas = uC_Ventas1;
-            if (user.cargo.Equals("Admin")){
+            if (user.cargo.Equals("Administrador"))
+            {
+                uC_Compras1.BringToFront();
                 siticoneButton4.Visible = false;
                 siticoneButton3.Visible = false;
                 siticoneButton6.Visible = false;
             }
-            if (user.cargo.Equals("Cajero")){
+            if (user.cargo.Equals("Cajero"))
+            {
+                uC_Clientes1.BringToFront();
                 siticoneButton1.Visible = false;
                 siticoneButton5.Visible = false;
                 siticoneButton2.Visible = false;
-                
+
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using SGV_CLP.Classes;
 using SGV_CLP.Classes.Customers_Module;
+using SGV_CLP.Classes.Products_module;
 using SGV_CLP.GUI.Customers_Module;
 using System.Media;
 
@@ -12,7 +13,7 @@ namespace SGV_CLP.GUI
 
         int countCorrectFields, fieldsNumber;
 
-        bool customerIDIsValid, firstLastNameIsValid, firstNameIsValid, phoneNumberIsValid, homeAddressIsValid, eMailIsValid;
+        bool customerIDIsValid, customerIDIsUnique, firstLastNameIsValid, firstNameIsValid, phoneNumberIsValid, homeAddressIsValid, eMailIsValid;
 
         public UC_Customers()
         {
@@ -24,6 +25,7 @@ namespace SGV_CLP.GUI
             fieldsNumber = 6;
 
             customerIDIsValid = false;
+            customerIDIsUnique = false;
             firstLastNameIsValid = false;
             firstNameIsValid = false;
             homeAddressIsValid = false;
@@ -47,6 +49,8 @@ namespace SGV_CLP.GUI
             //Hide Labels
             labelCorrectCustomerIDLength.Hide();
             labelValidCustomerID.Hide();
+            labelCustomerIDUnique.Hide();
+            labelCustomerIDNotUnique.Hide();
             labelCorrectPhoneNumberLength.Hide();
             labelValidPhoneNumber.Hide();
             labelCorrectEMail.Hide();
@@ -64,6 +68,11 @@ namespace SGV_CLP.GUI
             tbHomeAddress.Text = string.Empty;
             tbPhoneNumber.Text = string.Empty;
             tbEMail.Text = string.Empty;
+
+            countCorrectFields = 0;
+            customerIDIsValid = false;
+
+            labelCustomerIDUnique.Hide();
         }
 
         public void FillCustomerDataGridView()
@@ -72,9 +81,15 @@ namespace SGV_CLP.GUI
             {
                 CustomerDataGridView.Rows.Clear();
                 registeredCustomers = CustomerMapper.GetAllCustomers();
+                int index = 0;
                 foreach (Customer customer in registeredCustomers)
                 {
                     CustomerDataGridView.Rows.Add(customer.customerID, customer.firstName + customer.MiddleName, customer.firstLastName + customer.secondLastName, customer.homeAddress, customer.phoneNumber, customer.eMail);
+                    if (customer.customerID.Equals("0000000000"))
+                    {
+                        CustomerDataGridView.Rows[index].Visible = false;
+                    }
+                    index++;
                 }
             }
         }
@@ -114,7 +129,7 @@ namespace SGV_CLP.GUI
                         string customerID = CustomerDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
 
                         CustomerMapper.DeleteCustomer(customerID);
-                        MessageBox.Show("Producto eliminado con éxito");
+                        MessageBox.Show("Cliente eliminado con éxito");
                     }
                 }
             }
@@ -303,7 +318,7 @@ namespace SGV_CLP.GUI
 
         private void ValidateFieldsCounter()
         {
-            buttonAddCustomer.Enabled = countCorrectFields >= fieldsNumber && ValidationUtils.ValidarCedula(tbCustomerID.Text);
+            buttonAddCustomer.Enabled = countCorrectFields >= fieldsNumber && ValidationUtils.ValidarCedula(tbCustomerID.Text) && customerIDIsValid == true;
         }
 
         private void TbEMail_TextChanged(object sender, EventArgs e)
@@ -334,19 +349,19 @@ namespace SGV_CLP.GUI
             {
                 labelWrongPhoneNumberLength.Hide();
                 labelCorrectPhoneNumberLength.Show();
+                countCorrectFields++;
+
                 if (ValidationUtils.IsValidPhoneNumber(tbPhoneNumber.Text))
                 {
                     labelValidPhoneNumber.Show();
                     labelInvalidPhoneNumber.Hide();
                     phoneNumberIsValid = true;
-                    countCorrectFields++;
                 }
                 else
                 {
                     labelValidPhoneNumber.Hide();
                     labelInvalidPhoneNumber.Show();
                     phoneNumberIsValid = false;
-                    countCorrectFields--;
                 }
             }
             else if (tbPhoneNumber.Text.Length < Constants.LIMIT_TELEF_LENGTH && phoneNumberIsValid)
@@ -358,6 +373,7 @@ namespace SGV_CLP.GUI
                 phoneNumberIsValid = false;
                 countCorrectFields--;
             }
+
             ValidateFieldsCounter();
         }
 
@@ -413,10 +429,22 @@ namespace SGV_CLP.GUI
             // comprueba que la cc == 10 y muesta mensaje de correcto
             if (tbCustomerID.Text.Length == Constants.LIMIT_CC_LENGTH && !customerIDIsValid)
             {
-                customerIDIsValid = true;
-                countCorrectFields++;
                 labelWrongCustomerIDLength.Hide();
                 labelCorrectCustomerIDLength.Show();
+
+                if (CustomerMapper.CustomerExistsByID(tbCustomerID.Text))
+                {
+                    labelCustomerIDUnique.Hide();
+                    labelCustomerIDNotUnique.Show();
+                    customerIDIsValid = false;
+                }
+                else
+                {
+                    labelCustomerIDUnique.Show();
+                    labelCustomerIDNotUnique.Hide();
+                    customerIDIsValid = true;
+                    countCorrectFields++;
+                }
             }
             else if (tbCustomerID.Text.Length < Constants.LIMIT_CC_LENGTH && customerIDIsValid)
             {
@@ -429,7 +457,10 @@ namespace SGV_CLP.GUI
                 labelCorrectCustomerIDLength.Hide();
                 labelValidCustomerID.Hide();
             }
-
+            else
+            {
+                customerIDIsValid = false;
+            }
             ValidateFieldsCounter();
         }
 

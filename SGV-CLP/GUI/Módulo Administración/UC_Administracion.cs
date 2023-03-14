@@ -13,6 +13,8 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SGV_CLP.Classes.Products_module;
+using SGV_CLP.Classes.Customers_Module;
 
 namespace SGV_CLP.GUI
 {
@@ -20,7 +22,7 @@ namespace SGV_CLP.GUI
     {
         List<Usuario> UsuariosRegistrados = new List<Usuario>();
         List<ParametroPorUnidad> ParamsPURegistrados = new List<ParametroPorUnidad>();
-        List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+        List<string> NombresProductosRegistrados = ProductMapper.GetProductsNames();
 
         int count_correct_fields = 0, num_atributos = 6;
 
@@ -101,7 +103,7 @@ namespace SGV_CLP.GUI
             product_name_Selected = false;
 
             numUpDown_UnidadBase.Value = 0;
-            numUpDown_UnidadExtra.Value = 0; 
+            numUpDown_UnidadExtra.Value = 0;
 
             txt_FiltrarUsuarios.Enabled = false;
             txt_filtrarParametros.Enabled = false;
@@ -155,13 +157,19 @@ namespace SGV_CLP.GUI
             {
                 SDGVUsuario.Rows.Clear();
                 UsuariosRegistrados = UsuarioMapper.ConsultarUsuarios();
+                int index = 0;
                 foreach (Usuario usuario in UsuariosRegistrados)
                 {
-                    SDGVUsuario.Rows.Add(usuario.userName, usuario.cc_Usuario, usuario.primer_Nombre + " "+ usuario.segundo_Nombre, usuario.primer_Apellido +" "+ usuario.segundo_Apellido, usuario.cargo);
+                    SDGVUsuario.Rows.Add(usuario.userName, usuario.cc_Usuario, usuario.primer_Nombre + " " + usuario.segundo_Nombre, usuario.primer_Apellido + " " + usuario.segundo_Apellido, usuario.cargo);
+                    if (usuario.userName.Equals("DefaultUser"))
+                    {
+                        SDGVUsuario.Rows[index].Visible = false;
+                    }
+                    index++;
                 }
             }
         }
-        
+
         public void llenarTablaParamUnidad()
         {
             if (ParamsPURegistrados != null)
@@ -180,7 +188,7 @@ namespace SGV_CLP.GUI
             if (NombresProductosRegistrados != null)
             {
                 cBoxProductos_Param.Items.Clear();
-                NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+                NombresProductosRegistrados = ProductMapper.GetProductsNames();
                 cBoxProductos_Param.Items.Add("Seleccionar...");
                 foreach (string nombreProd in NombresProductosRegistrados)
                 {
@@ -239,7 +247,7 @@ namespace SGV_CLP.GUI
             else
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show("¡No se admiten 2 promociones en un mismo producto!","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("¡No se admiten 2 promociones en un mismo producto!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             vaciarCampos();
@@ -298,7 +306,7 @@ namespace SGV_CLP.GUI
                 control_cargo = false;
                 count_correct_fields++;
             }
-            else if(siticoneComboBox_aniadirCargoUsuario.SelectedIndex == 0 && !control_cargo)
+            else if (siticoneComboBox_aniadirCargoUsuario.SelectedIndex == 0 && !control_cargo)
             {
                 Label_sinCampoCargoUsuario.Show();
                 control_cargo = true;
@@ -506,7 +514,7 @@ namespace SGV_CLP.GUI
             }
             validateFieldsCounter_Usuario();
         }
-                
+
         private void txtAniadirNombre1Usuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
@@ -545,7 +553,7 @@ namespace SGV_CLP.GUI
         private void txtAniadirNombre2Usuario_TextChanged(object sender, EventArgs e)
         {
 
-            
+
             validateFieldsCounter_Usuario();
 
         }

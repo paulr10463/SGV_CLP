@@ -1,5 +1,6 @@
 ﻿using SGV_CLP.Classes;
 using SGV_CLP.Classes.Módulo_Administración;
+using SGV_CLP.Classes.Products_module;
 using Siticone.Desktop.UI.WinForms.Enums;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace SGV_CLP.GUI.Módulo_Administración
 {
     public partial class Editar_Parametro_Por_Unidad : Form
     {
-        List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+        List<string> NombresProductosRegistrados = ProductMapper.GetProductsNames();
         string idParam;
 
         // ###### PARAMETRO ######
@@ -84,7 +85,7 @@ namespace SGV_CLP.GUI.Módulo_Administración
             if (NombresProductosRegistrados != null)
             {
                 cBox_ProductosParam.Items.Clear();
-                NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+                NombresProductosRegistrados = ProductMapper.GetProductsNames();
                 cBox_ProductosParam.Items.Add("Seleccionar...");
                 foreach (string nombreProd in NombresProductosRegistrados)
                 {
