@@ -139,6 +139,7 @@
             this.ButtonFinalizarVenta.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonFinalizarVenta.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.ButtonFinalizarVenta.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonFinalizarVenta.Enabled = false;
             this.ButtonFinalizarVenta.FillColor = System.Drawing.Color.Black;
             this.ButtonFinalizarVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ButtonFinalizarVenta.ForeColor = System.Drawing.Color.White;

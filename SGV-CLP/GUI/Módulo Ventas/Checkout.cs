@@ -140,6 +140,16 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 siticoneHtmlLabel_wrong_email.Show();
                 siticoneHtmlLabel_correct_email.Hide();
             }
+            if (txtTelefVenta.TextLength == 10)
+            {
+                siticoneHtmlLabel_wrong_length_telef.Hide();
+                siticoneHtmlLabel_correct_length_telef.Show();
+            }
+            else
+            {
+                siticoneHtmlLabel_wrong_length_telef.Show();
+                siticoneHtmlLabel_correct_length_telef.Hide();
+            }
 
         }
 
@@ -188,8 +198,8 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                     clientes = CustomerMapper.GetAllCustomers();
                     break;
             }
-            
-            
+
+            txtCC_ClienteVenta_TextChanged(null, null);
             actulizarListadeSugerenciasdeAutocompletacion();
         }
 
@@ -197,7 +207,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         private void txtCC_ClienteVenta_KeyUp(object sender, KeyEventArgs e)
         {
             controlCedula();
-
+            /*
             if(ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text) && txtCC_ClienteVenta.Text.Length == Constants.LIMIT_CC_LENGTH)
             {
                 ButtonAniadirClienteVenta.Enabled = true;
@@ -205,7 +215,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             else
             {
                 ButtonAniadirClienteVenta.Enabled = false;
-            }
+            }*/
         }
 
         public void controlCedula()
@@ -341,22 +351,39 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 siticoneHtmlLabel_cc_valida.Hide();
             }
 
+            ButtonAniadirClienteVenta.Enabled = false;
+            Customer aux = findCustomer();
+            if (aux != null)
+            {
+                loadCustomerFields(aux);
+                ButtonFinalizarVenta.Enabled = true;
+            }
+            else
+            {
+                if(ccIsValid && ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text)) ButtonAniadirClienteVenta.Enabled = true;
+                loadCustomerFields(new Customer("0", "", "", "", "", "", "", ""));
+                ButtonFinalizarVenta.Enabled = false;
+            }
+
             validateFieldsCounter();
-            bool clienteEncontrado=false;
+            
+        }
+
+        private Customer findCustomer()
+        {
+            Customer clienteEncontrado = null;
             foreach (Customer cliente in clientes)
             {
-                if(cliente != null )
+                if (cliente != null)
                 {
                     if (cliente.customerID.Equals(txtCC_ClienteVenta.Text))
                     {
-                        loadCustomerFields(cliente);
-                        clienteEncontrado= true;
+                        clienteEncontrado = cliente;
                     }
                 }
             }
-            if ( !clienteEncontrado ) {
-                loadCustomerFields(new Customer("0", "", "", "", "", "", "", ""));
-            }
+            return clienteEncontrado;
+            
         }
 
         private void txtRecibidoVenta_KeyPress(object sender, KeyPressEventArgs e)
@@ -393,7 +420,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void validateFieldsCounter()
         {
-            ButtonConfirmarVenta.Enabled = count_correct_fields >= num_atributos && ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text);
+            ButtonConfirmarVenta.Enabled = count_correct_fields >= num_atributos;
         }
         public void setTotal(SiticoneDataGridView tablaVenta)
         {
