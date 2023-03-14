@@ -372,23 +372,26 @@
             // 
             this.siticoneHtmlLabel_correct_length_contra.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel_correct_length_contra.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_correct_length_contra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneHtmlLabel_correct_length_contra.ForeColor = System.Drawing.Color.SpringGreen;
             this.siticoneHtmlLabel_correct_length_contra.Location = new System.Drawing.Point(718, 177);
             this.siticoneHtmlLabel_correct_length_contra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel_correct_length_contra.Name = "siticoneHtmlLabel_correct_length_contra";
-            this.siticoneHtmlLabel_correct_length_contra.Size = new System.Drawing.Size(119, 21);
+            this.siticoneHtmlLabel_correct_length_contra.Size = new System.Drawing.Size(103, 17);
             this.siticoneHtmlLabel_correct_length_contra.TabIndex = 101;
             this.siticoneHtmlLabel_correct_length_contra.Text = "¡Longitud correcta!";
+            this.siticoneHtmlLabel_correct_length_contra.Click += new System.EventHandler(this.siticoneHtmlLabel_correct_length_contra_Click);
             // 
             // siticoneHtmlLabel_wrong_length_contra
             // 
             this.siticoneHtmlLabel_wrong_length_contra.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel_wrong_length_contra.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_wrong_length_contra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneHtmlLabel_wrong_length_contra.ForeColor = System.Drawing.Color.Red;
             this.siticoneHtmlLabel_wrong_length_contra.Location = new System.Drawing.Point(717, 177);
             this.siticoneHtmlLabel_wrong_length_contra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel_wrong_length_contra.Name = "siticoneHtmlLabel_wrong_length_contra";
-            this.siticoneHtmlLabel_wrong_length_contra.Size = new System.Drawing.Size(121, 21);
+            this.siticoneHtmlLabel_wrong_length_contra.Size = new System.Drawing.Size(104, 17);
             this.siticoneHtmlLabel_wrong_length_contra.TabIndex = 100;
             this.siticoneHtmlLabel_wrong_length_contra.Text = "¡Mínimo 10 caract.!";
             // 
@@ -396,11 +399,12 @@
             // 
             this.siticoneHtmlLabel_correct_length_nombreuser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel_correct_length_nombreuser.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_correct_length_nombreuser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneHtmlLabel_correct_length_nombreuser.ForeColor = System.Drawing.Color.SpringGreen;
-            this.siticoneHtmlLabel_correct_length_nombreuser.Location = new System.Drawing.Point(717, 96);
+            this.siticoneHtmlLabel_correct_length_nombreuser.Location = new System.Drawing.Point(721, 96);
             this.siticoneHtmlLabel_correct_length_nombreuser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel_correct_length_nombreuser.Name = "siticoneHtmlLabel_correct_length_nombreuser";
-            this.siticoneHtmlLabel_correct_length_nombreuser.Size = new System.Drawing.Size(119, 21);
+            this.siticoneHtmlLabel_correct_length_nombreuser.Size = new System.Drawing.Size(103, 17);
             this.siticoneHtmlLabel_correct_length_nombreuser.TabIndex = 103;
             this.siticoneHtmlLabel_correct_length_nombreuser.Text = "¡Longitud correcta!";
             // 
@@ -408,11 +412,12 @@
             // 
             this.siticoneHtmlLabel_wrong_length_nombreuser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.siticoneHtmlLabel_wrong_length_nombreuser.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel_wrong_length_nombreuser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.siticoneHtmlLabel_wrong_length_nombreuser.ForeColor = System.Drawing.Color.Red;
             this.siticoneHtmlLabel_wrong_length_nombreuser.Location = new System.Drawing.Point(723, 96);
             this.siticoneHtmlLabel_wrong_length_nombreuser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.siticoneHtmlLabel_wrong_length_nombreuser.Name = "siticoneHtmlLabel_wrong_length_nombreuser";
-            this.siticoneHtmlLabel_wrong_length_nombreuser.Size = new System.Drawing.Size(113, 21);
+            this.siticoneHtmlLabel_wrong_length_nombreuser.Size = new System.Drawing.Size(98, 17);
             this.siticoneHtmlLabel_wrong_length_nombreuser.TabIndex = 102;
             this.siticoneHtmlLabel_wrong_length_nombreuser.Text = "¡Mínimo 5 caract.!";
             // 
@@ -445,7 +450,7 @@
             this.Controls.Add(this.SBCancelar);
             this.Controls.Add(this.SBAceptar);
             this.Name = "Editar_Usuario";
-            this.Text = "Editar_Usuario";
+            this.Text = "Editar Usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Sales_Module;
 using SGV_CLP.GUI;
 using System.Media;
 
@@ -11,19 +12,23 @@ namespace SGV_CLP
         public MainMenu(Usuario user)
         {
             InitializeComponent();
-            UsuarioRegistrado = user; 
+            UsuarioRegistrado = user;
             siticoneHtmlLabel2.Text = "Bienvenido " + UsuarioRegistrado.primer_Nombre + "!";
             uc_ventas = uC_Ventas1;
-            if (user.cargo.Equals("Admin")){
+            if (user.cargo.Equals("Administrador"))
+            {
+                uC_Compras1.BringToFront();
                 siticoneButton4.Visible = false;
                 siticoneButton3.Visible = false;
                 siticoneButton6.Visible = false;
             }
-            if (user.cargo.Equals("Cajero")){
+            if (user.cargo.Equals("Cajero"))
+            {
+                uC_Clientes1.BringToFront();
                 siticoneButton1.Visible = false;
                 siticoneButton5.Visible = false;
                 siticoneButton2.Visible = false;
-                
+
             }
         }
 
@@ -40,11 +45,15 @@ namespace SGV_CLP
         private void siticoneButton3_CheckedChanged(object sender, EventArgs e)
         {
             uC_Ventas1.BringToFront();
+            List<Invoice> registeredInvoices = InvoiceMapper.GetAllInvoices("");
+            uC_Ventas1.llenarTablaVenta(registeredInvoices);
+            uC_Ventas1.loadProducts();
         }
 
         private void siticoneButton4_CheckedChanged(object sender, EventArgs e)
         {
             uC_Clientes1.BringToFront();
+            uC_Clientes1.FillCustomerDataGridView();
         }
 
         private void siticoneButton5_CheckedChanged(object sender, EventArgs e)
@@ -55,8 +64,8 @@ namespace SGV_CLP
         private void siticoneButton6_CheckedChanged(object sender, EventArgs e)
         {
             uC_Productos1.BringToFront();
-            uC_Productos1.LlenarTablaProducto();
-            uC_Productos1.LlenarTablaLote();
+            uC_Productos1.FillProductDataGridView();
+            uC_Productos1.FillBatchDataGridView();
         }
 
         private void siticoneButton7_Click(object sender, EventArgs e)

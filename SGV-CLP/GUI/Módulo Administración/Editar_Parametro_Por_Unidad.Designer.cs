@@ -178,11 +178,12 @@
             // 
             this.label_SinNombProd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_SinNombProd.BackColor = System.Drawing.Color.Transparent;
+            this.label_SinNombProd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_SinNombProd.ForeColor = System.Drawing.Color.Red;
-            this.label_SinNombProd.Location = new System.Drawing.Point(671, 310);
+            this.label_SinNombProd.Location = new System.Drawing.Point(671, 305);
             this.label_SinNombProd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label_SinNombProd.Name = "label_SinNombProd";
-            this.label_SinNombProd.Size = new System.Drawing.Size(153, 21);
+            this.label_SinNombProd.Size = new System.Drawing.Size(134, 17);
             this.label_SinNombProd.TabIndex = 73;
             this.label_SinNombProd.Text = "¡Seleccione un producto!";
             // 
@@ -190,11 +191,12 @@
             // 
             this.label_SinUnidadExtra.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_SinUnidadExtra.BackColor = System.Drawing.Color.Transparent;
+            this.label_SinUnidadExtra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_SinUnidadExtra.ForeColor = System.Drawing.Color.Red;
-            this.label_SinUnidadExtra.Location = new System.Drawing.Point(562, 176);
+            this.label_SinUnidadExtra.Location = new System.Drawing.Point(562, 180);
             this.label_SinUnidadExtra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label_SinUnidadExtra.Name = "label_SinUnidadExtra";
-            this.label_SinUnidadExtra.Size = new System.Drawing.Size(129, 21);
+            this.label_SinUnidadExtra.Size = new System.Drawing.Size(110, 17);
             this.label_SinUnidadExtra.TabIndex = 72;
             this.label_SinUnidadExtra.Text = "¡Ingrese una unidad!";
             // 
@@ -202,11 +204,12 @@
             // 
             this.label_SinUnidadBase.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_SinUnidadBase.BackColor = System.Drawing.Color.Transparent;
+            this.label_SinUnidadBase.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label_SinUnidadBase.ForeColor = System.Drawing.Color.Red;
-            this.label_SinUnidadBase.Location = new System.Drawing.Point(562, 60);
+            this.label_SinUnidadBase.Location = new System.Drawing.Point(562, 69);
             this.label_SinUnidadBase.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label_SinUnidadBase.Name = "label_SinUnidadBase";
-            this.label_SinUnidadBase.Size = new System.Drawing.Size(129, 21);
+            this.label_SinUnidadBase.Size = new System.Drawing.Size(110, 17);
             this.label_SinUnidadBase.TabIndex = 71;
             this.label_SinUnidadBase.Text = "¡Ingrese una unidad!";
             // 

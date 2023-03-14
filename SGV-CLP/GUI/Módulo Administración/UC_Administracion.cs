@@ -1,7 +1,7 @@
 ﻿using SGV_CLP.Classes;
 using SGV_CLP.Classes.Módulo_Administración;
 using SGV_CLP.GUI.Módulo_Administración;
-using SGV_CLP.GUI.Módulo_Clientes;
+using SGV_CLP.GUI.Customers_Module;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +13,8 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SGV_CLP.Classes.Products_module;
+using SGV_CLP.Classes.Customers_Module;
 
 namespace SGV_CLP.GUI
 {
@@ -20,7 +22,7 @@ namespace SGV_CLP.GUI
     {
         List<Usuario> UsuariosRegistrados = new List<Usuario>();
         List<ParametroPorUnidad> ParamsPURegistrados = new List<ParametroPorUnidad>();
-        List<string> NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+        List<string> NombresProductosRegistrados = ProductMapper.GetProductsNames();
 
         int count_correct_fields = 0, num_atributos = 6;
 
@@ -105,6 +107,13 @@ namespace SGV_CLP.GUI
 
             txt_FiltrarUsuarios.Enabled = false;
             txt_filtrarParametros.Enabled = false;
+
+            label_SinSeleccionFiltroUser.Show();
+            label_SinSeleccionFiltroParam.Show();
+
+            // Inicializa Cbox
+            this.cBox_OpcionesFiltroUser.SelectedIndex = 0;
+            this.cBox_OpcionesFiltrarParam.SelectedIndex = 0;
         }
 
         public void vaciarCampos()
@@ -133,6 +142,9 @@ namespace SGV_CLP.GUI
             numUpDown_UnidadBase.Value = 0;
             numUpDown_UnidadExtra.Value = 0;
 
+            this.cBox_OpcionesFiltroUser.SelectedIndex = 0;
+            this.cBox_OpcionesFiltrarParam.SelectedIndex = 0;
+
             LlenarComboBoxesProductos();
 
             validateFieldsCounter_Usuario();
@@ -145,13 +157,19 @@ namespace SGV_CLP.GUI
             {
                 SDGVUsuario.Rows.Clear();
                 UsuariosRegistrados = UsuarioMapper.ConsultarUsuarios();
+                int index = 0;
                 foreach (Usuario usuario in UsuariosRegistrados)
                 {
-                    SDGVUsuario.Rows.Add(usuario.userName, usuario.cc_Usuario, usuario.primer_Nombre + " "+ usuario.segundo_Nombre, usuario.primer_Apellido +" "+ usuario.segundo_Apellido, usuario.cargo);
+                    SDGVUsuario.Rows.Add(usuario.userName, usuario.cc_Usuario, usuario.primer_Nombre + " " + usuario.segundo_Nombre, usuario.primer_Apellido + " " + usuario.segundo_Apellido, usuario.cargo);
+                    if (usuario.userName.Equals("DefaultUser"))
+                    {
+                        SDGVUsuario.Rows[index].Visible = false;
+                    }
+                    index++;
                 }
             }
         }
-        
+
         public void llenarTablaParamUnidad()
         {
             if (ParamsPURegistrados != null)
@@ -170,7 +188,7 @@ namespace SGV_CLP.GUI
             if (NombresProductosRegistrados != null)
             {
                 cBoxProductos_Param.Items.Clear();
-                NombresProductosRegistrados = ProductoMapper.ConsultarNombresProductos();
+                NombresProductosRegistrados = ProductMapper.GetProductsNames();
                 cBoxProductos_Param.Items.Add("Seleccionar...");
                 foreach (string nombreProd in NombresProductosRegistrados)
                 {
@@ -229,7 +247,7 @@ namespace SGV_CLP.GUI
             else
             {
                 SystemSounds.Beep.Play();
-                MessageBox.Show("¡No se admiten 2 promociones en un mismo producto!","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("¡No se admiten 2 promociones en un mismo producto!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             vaciarCampos();
@@ -288,7 +306,7 @@ namespace SGV_CLP.GUI
                 control_cargo = false;
                 count_correct_fields++;
             }
-            else if(siticoneComboBox_aniadirCargoUsuario.SelectedIndex == 0 && !control_cargo)
+            else if (siticoneComboBox_aniadirCargoUsuario.SelectedIndex == 0 && !control_cargo)
             {
                 Label_sinCampoCargoUsuario.Show();
                 control_cargo = true;
@@ -496,7 +514,7 @@ namespace SGV_CLP.GUI
             }
             validateFieldsCounter_Usuario();
         }
-                
+
         private void txtAniadirNombre1Usuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
@@ -535,7 +553,7 @@ namespace SGV_CLP.GUI
         private void txtAniadirNombre2Usuario_TextChanged(object sender, EventArgs e)
         {
 
-            
+
             validateFieldsCounter_Usuario();
 
         }
@@ -614,7 +632,7 @@ namespace SGV_CLP.GUI
         private void txt_FiltrarUsuarios_TextChanged(object sender, EventArgs e)
         {
             // Obtener el valor del ComboBox
-            string selectedItem = cBox_OpcionesFiltro.SelectedItem.ToString();
+            string selectedItem = cBox_OpcionesFiltroUser.SelectedItem.ToString();
 
             // Obtener el valor del TextBox
             string filterValue = txt_FiltrarUsuarios.Text;
@@ -679,19 +697,23 @@ namespace SGV_CLP.GUI
 
         private void siticoneComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBox_OpcionesFiltro.SelectedIndex > 0)
+            llenarTablaUsuario();
+            txt_FiltrarUsuarios.Text = System.String.Empty;
+            if (cBox_OpcionesFiltroUser.SelectedIndex > 0)
             {
+                label_SinSeleccionFiltroUser.Hide();
                 txt_FiltrarUsuarios.Enabled = true;
             }
             else
             {
+                label_SinSeleccionFiltroUser.Show();
                 txt_FiltrarUsuarios.Enabled = false;
             }
         }
 
         private void txt_FiltrarUsuarios_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch (cBox_OpcionesFiltro.SelectedIndex)
+            switch (cBox_OpcionesFiltroUser.SelectedIndex)
             {
                 case 1:
                     if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -737,14 +759,19 @@ namespace SGV_CLP.GUI
 
         private void cBox_OpcionesFiltrarParam_SelectedIndexChanged(object sender, EventArgs e)
         {
+            llenarTablaParamUnidad();
+            txt_filtrarParametros.Text = System.String.Empty;
             if (cBox_OpcionesFiltrarParam.SelectedIndex > 0)
             {
+                label_SinSeleccionFiltroParam.Hide();
                 txt_filtrarParametros.Enabled = true;
             }
             else
             {
+                label_SinSeleccionFiltroParam.Show();
                 txt_filtrarParametros.Enabled = false;
             }
+
         }
 
         private void txt_filtrarParametros_KeyPress(object sender, KeyPressEventArgs e)

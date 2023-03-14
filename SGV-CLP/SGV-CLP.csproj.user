@@ -13,16 +13,19 @@
     <Compile Update="GUI\Módulo Administración\Editar_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Clientes\Editar_Cliente.cs">
+    <Compile Update="GUI\Customers Module\EditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Compras\Editar_Compra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Producto\Editar_Lote.cs">
+    <Compile Update="GUI\Módulo Ventas\ShowDetailInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Módulo Producto\Editar_Producto.cs">
+    <Compile Update="GUI\Products Module\EditBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Products Module\EditProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Módulo Compras\UC_Compras.cs">

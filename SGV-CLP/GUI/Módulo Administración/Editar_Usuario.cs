@@ -120,8 +120,6 @@ namespace SGV_CLP.GUI.Módulo_Administración
                 count_correct_fields--;
             }
 
-            MessageBox.Show("" + count_correct_fields);
-
             validateFieldsCounter_Usuario();
         }
 
@@ -267,6 +265,11 @@ namespace SGV_CLP.GUI.Módulo_Administración
                 MessageBox.Show("Ingrese únicamente letras!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+        }
+
+        private void siticoneHtmlLabel_correct_length_contra_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void txt_EditarApell1_TextChanged(object sender, EventArgs e)

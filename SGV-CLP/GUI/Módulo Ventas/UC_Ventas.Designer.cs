@@ -38,10 +38,14 @@
             siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             Añadir = new TabPage();
             flowLayoutPanel3 = new FlowLayoutPanel();
-            siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            specialtiesHtmlLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            hotDrinksHtmlLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             flowLayoutPanel2 = new FlowLayoutPanel();
+            coldDrinksHtmlLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            empanadasHtmlLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            flowLayoutPanel5 = new FlowLayoutPanel();
             siticoneGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneGradientPanel();
             siticoneHtmlLabel11 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneDataGridView2 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
@@ -62,6 +66,7 @@
             Column3 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
             FechaDeVenta = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewImageColumn();
             ComboBox_ConsultarVentaPor = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             txtConsultarVenta = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             richTextBox1 = new RichTextBox();
@@ -134,27 +139,33 @@
             // 
             flowLayoutPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel3.AutoScroll = true;
-            flowLayoutPanel3.Controls.Add(siticoneHtmlLabel1);
+            flowLayoutPanel3.Controls.Add(specialtiesHtmlLabel);
             flowLayoutPanel3.Controls.Add(flowLayoutPanel1);
-            flowLayoutPanel3.Controls.Add(siticoneHtmlLabel2);
+            flowLayoutPanel3.Controls.Add(hotDrinksHtmlLabel);
             flowLayoutPanel3.Controls.Add(flowLayoutPanel2);
+            flowLayoutPanel3.Controls.Add(coldDrinksHtmlLabel);
+            flowLayoutPanel3.Controls.Add(flowLayoutPanel4);
+            flowLayoutPanel3.Controls.Add(empanadasHtmlLabel);
+            flowLayoutPanel3.Controls.Add(flowLayoutPanel5);
             flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel3.Location = new Point(7, 9);
             flowLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
             flowLayoutPanel3.Size = new Size(640, 931);
             flowLayoutPanel3.TabIndex = 12;
+            flowLayoutPanel3.WrapContents = false;
             // 
-            // siticoneHtmlLabel1
+            // specialtiesHtmlLabel
             // 
-            siticoneHtmlLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            siticoneHtmlLabel1.BackColor = Color.Transparent;
-            siticoneHtmlLabel1.Location = new Point(3, 4);
-            siticoneHtmlLabel1.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            siticoneHtmlLabel1.Size = new Size(101, 22);
-            siticoneHtmlLabel1.TabIndex = 8;
-            siticoneHtmlLabel1.Text = "Especialidades";
+            specialtiesHtmlLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            specialtiesHtmlLabel.BackColor = Color.Transparent;
+            specialtiesHtmlLabel.Location = new Point(3, 4);
+            specialtiesHtmlLabel.Margin = new Padding(3, 4, 3, 4);
+            specialtiesHtmlLabel.Name = "specialtiesHtmlLabel";
+            specialtiesHtmlLabel.Size = new Size(101, 22);
+            specialtiesHtmlLabel.TabIndex = 8;
+            specialtiesHtmlLabel.Text = "Especialidades ";
+            specialtiesHtmlLabel.Visible = false;
             // 
             // flowLayoutPanel1
             // 
@@ -166,16 +177,17 @@
             flowLayoutPanel1.Size = new Size(118, 0);
             flowLayoutPanel1.TabIndex = 10;
             // 
-            // siticoneHtmlLabel2
+            // hotDrinksHtmlLabel
             // 
-            siticoneHtmlLabel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            siticoneHtmlLabel2.BackColor = Color.Transparent;
-            siticoneHtmlLabel2.Location = new Point(3, 42);
-            siticoneHtmlLabel2.Margin = new Padding(3, 4, 3, 4);
-            siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            siticoneHtmlLabel2.Size = new Size(118, 22);
-            siticoneHtmlLabel2.TabIndex = 9;
-            siticoneHtmlLabel2.Text = "Bebidas calientes";
+            hotDrinksHtmlLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            hotDrinksHtmlLabel.BackColor = Color.Transparent;
+            hotDrinksHtmlLabel.Location = new Point(3, 42);
+            hotDrinksHtmlLabel.Margin = new Padding(3, 4, 3, 4);
+            hotDrinksHtmlLabel.Name = "hotDrinksHtmlLabel";
+            hotDrinksHtmlLabel.Size = new Size(118, 22);
+            hotDrinksHtmlLabel.TabIndex = 9;
+            hotDrinksHtmlLabel.Text = "Bebidas calientes ";
+            hotDrinksHtmlLabel.Visible = false;
             // 
             // flowLayoutPanel2
             // 
@@ -186,6 +198,50 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(118, 0);
             flowLayoutPanel2.TabIndex = 11;
+            // 
+            // coldDrinksHtmlLabel
+            // 
+            coldDrinksHtmlLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            coldDrinksHtmlLabel.BackColor = Color.Transparent;
+            coldDrinksHtmlLabel.Location = new Point(3, 80);
+            coldDrinksHtmlLabel.Margin = new Padding(3, 4, 3, 4);
+            coldDrinksHtmlLabel.Name = "coldDrinksHtmlLabel";
+            coldDrinksHtmlLabel.Size = new Size(90, 22);
+            coldDrinksHtmlLabel.TabIndex = 12;
+            coldDrinksHtmlLabel.Text = "Bebidas Frías";
+            coldDrinksHtmlLabel.Visible = false;
+            // 
+            // flowLayoutPanel4
+            // 
+            flowLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel4.AutoSize = true;
+            flowLayoutPanel4.Location = new Point(3, 110);
+            flowLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(118, 0);
+            flowLayoutPanel4.TabIndex = 13;
+            // 
+            // empanadasHtmlLabel
+            // 
+            empanadasHtmlLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            empanadasHtmlLabel.BackColor = Color.Transparent;
+            empanadasHtmlLabel.Location = new Point(3, 118);
+            empanadasHtmlLabel.Margin = new Padding(3, 4, 3, 4);
+            empanadasHtmlLabel.Name = "empanadasHtmlLabel";
+            empanadasHtmlLabel.Size = new Size(80, 22);
+            empanadasHtmlLabel.TabIndex = 14;
+            empanadasHtmlLabel.Text = "Empanadas";
+            empanadasHtmlLabel.Visible = false;
+            // 
+            // flowLayoutPanel5
+            // 
+            flowLayoutPanel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel5.AutoSize = true;
+            flowLayoutPanel5.Location = new Point(3, 148);
+            flowLayoutPanel5.Margin = new Padding(3, 4, 3, 4);
+            flowLayoutPanel5.Name = "flowLayoutPanel5";
+            flowLayoutPanel5.Size = new Size(118, 0);
+            flowLayoutPanel5.TabIndex = 15;
             // 
             // siticoneGradientPanel1
             // 
@@ -206,7 +262,7 @@
             siticoneHtmlLabel11.Anchor = AnchorStyles.None;
             siticoneHtmlLabel11.BackColor = Color.Transparent;
             siticoneHtmlLabel11.Font = new Font("Century Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel11.Location = new Point(189, 761);
+            siticoneHtmlLabel11.Location = new Point(189, 762);
             siticoneHtmlLabel11.MinimumSize = new Size(150, 40);
             siticoneHtmlLabel11.Name = "siticoneHtmlLabel11";
             siticoneHtmlLabel11.Size = new Size(150, 40);
@@ -327,7 +383,7 @@
             siticoneButton4.FillColor = Color.Black;
             siticoneButton4.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneButton4.ForeColor = Color.White;
-            siticoneButton4.Location = new Point(166, 845);
+            siticoneButton4.Location = new Point(166, 846);
             siticoneButton4.Margin = new Padding(3, 4, 3, 4);
             siticoneButton4.Name = "siticoneButton4";
             siticoneButton4.Size = new Size(197, 53);
@@ -375,13 +431,14 @@
             // 
             siticoneHtmlLabel_buscarCliente_sin_campo.Anchor = AnchorStyles.None;
             siticoneHtmlLabel_buscarCliente_sin_campo.BackColor = Color.Transparent;
+            siticoneHtmlLabel_buscarCliente_sin_campo.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneHtmlLabel_buscarCliente_sin_campo.ForeColor = Color.Red;
             siticoneHtmlLabel_buscarCliente_sin_campo.Location = new Point(251, 108);
             siticoneHtmlLabel_buscarCliente_sin_campo.Margin = new Padding(3, 4, 3, 4);
             siticoneHtmlLabel_buscarCliente_sin_campo.Name = "siticoneHtmlLabel_buscarCliente_sin_campo";
-            siticoneHtmlLabel_buscarCliente_sin_campo.Size = new Size(152, 22);
+            siticoneHtmlLabel_buscarCliente_sin_campo.Size = new Size(257, 22);
             siticoneHtmlLabel_buscarCliente_sin_campo.TabIndex = 24;
-            siticoneHtmlLabel_buscarCliente_sin_campo.Text = "¡Seleccione un campo!";
+            siticoneHtmlLabel_buscarCliente_sin_campo.Text = "¡Seleccione un parámetro para buscar!";
             // 
             // siticoneDataGridView1
             // 
@@ -397,7 +454,7 @@
             siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             siticoneDataGridView1.ColumnHeadersHeight = 60;
             siticoneDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            siticoneDataGridView1.Columns.AddRange(new DataGridViewColumn[] { CodNV, CICliente, Column1, Column2, Column3, Column7, FechaDeVenta });
+            siticoneDataGridView1.Columns.AddRange(new DataGridViewColumn[] { CodNV, CICliente, Column1, Column2, Column3, Column7, FechaDeVenta, Column4 });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -437,6 +494,7 @@
             siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 29;
             siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            siticoneDataGridView1.CellClick += siticoneDataGridView1_CellClick;
             // 
             // CodNV
             // 
@@ -480,6 +538,16 @@
             FechaDeVenta.MinimumWidth = 6;
             FechaDeVenta.Name = "FechaDeVenta";
             // 
+            // Column4
+            // 
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Column4.HeaderText = "Detalle";
+            Column4.Image = Properties.Resources._3Puntos;
+            Column4.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 103;
+            // 
             // ComboBox_ConsultarVentaPor
             // 
             ComboBox_ConsultarVentaPor.Anchor = AnchorStyles.None;
@@ -492,7 +560,7 @@
             ComboBox_ConsultarVentaPor.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             ComboBox_ConsultarVentaPor.ForeColor = Color.FromArgb(68, 88, 112);
             ComboBox_ConsultarVentaPor.ItemHeight = 40;
-            ComboBox_ConsultarVentaPor.Items.AddRange(new object[] { "Código Nota de Venta", "CC Cliente", "Nombre Cliente", "Apellido Cliente", "Teléfono Cliente", "Fecha Venta" });
+            ComboBox_ConsultarVentaPor.Items.AddRange(new object[] { "Seleccione...", "Código Nota de Venta", "CC Cliente", "Nombre Cliente", "Apellido Cliente", "Teléfono Cliente", "Fecha Venta" });
             ComboBox_ConsultarVentaPor.Location = new Point(601, 140);
             ComboBox_ConsultarVentaPor.Margin = new Padding(3, 4, 3, 4);
             ComboBox_ConsultarVentaPor.Name = "ComboBox_ConsultarVentaPor";
@@ -636,8 +704,8 @@
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView1;
         private DataGridViewTextBoxColumn codFactura;
         private RichTextBox richTextBox1;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel specialtiesHtmlLabel;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel hotDrinksHtmlLabel;
 
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel11;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel_buscarCliente_sin_campo;
@@ -648,6 +716,12 @@
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
         public Siticone.Desktop.UI.WinForms.SiticoneDataGridView siticoneDataGridView2;
+        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker dateTimePickerConsultarVenta;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel coldDrinksHtmlLabel;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel empanadasHtmlLabel;
+        private FlowLayoutPanel flowLayoutPanel5;
         private DataGridViewTextBoxColumn CodNV;
         private DataGridViewTextBoxColumn CICliente;
         private DataGridViewTextBoxColumn Column1;
@@ -655,7 +729,6 @@
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn FechaDeVenta;
-        private Siticone.Desktop.UI.WinForms.SiticoneDateTimePicker dateTimePickerConsultarVenta;
-        private FlowLayoutPanel flowLayoutPanel3;
+        private DataGridViewImageColumn Column4;
     }
 }
