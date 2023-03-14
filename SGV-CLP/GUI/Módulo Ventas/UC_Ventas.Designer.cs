@@ -153,7 +153,6 @@
             flowLayoutPanel3.Name = "flowLayoutPanel3";
             flowLayoutPanel3.Size = new Size(640, 931);
             flowLayoutPanel3.TabIndex = 12;
-            flowLayoutPanel3.WrapContents = false;
             // 
             // specialtiesHtmlLabel
             // 
