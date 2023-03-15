@@ -120,6 +120,8 @@ namespace SGV_CLP.GUI
             {
                 Checkout ventana = new Checkout(siticoneDataGridView2);
                 ventana.ShowDialog();
+                List<Invoice> registeredInvoices = InvoiceMapper.GetAllInvoices("");
+                MainMenu.uc_ventas.llenarTablaVenta(registeredInvoices);
             }
 
         }

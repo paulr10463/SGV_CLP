@@ -24,7 +24,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 DataGridViewRow row = (DataGridViewRow)siticoneDataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = invoiceDetail.product.productName;
                 row.Cells[1].Value = invoiceDetail.soldQuantity;
-                row.Cells[2].Value = invoiceDetail.subTotal;
+                row.Cells[2].Value = Math.Round((decimal)invoiceDetail.subTotal, 2).ToString().Replace(',', '.');
                 siticoneDataGridView1.Rows.Add(row);
             }
         }

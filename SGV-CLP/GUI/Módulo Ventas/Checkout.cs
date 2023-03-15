@@ -97,7 +97,6 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             UC_Ventas.invoice.invoiceDetailList.ForEach(item => InvoiceDetailMapper.AddInvoiceDetail(item));
             UC_Ventas.invoice = new Invoice();
 
-
             UC_Ventas.resetNumPickers();
             SystemSounds.Beep.Play();
             MessageBox.Show("Venta finalizada con éxito", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -419,7 +418,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             {
                 if (Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) > Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture))
                 {
-                    txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) - Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture)).ToString().Replace(',', '.');
+                    txtVueltoVenta.Text = Math.Round((decimal)(Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) - Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture)), 2).ToString().Replace(',', '.');
                 }
                 else
                 {
