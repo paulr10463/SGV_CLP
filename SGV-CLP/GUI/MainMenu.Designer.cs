@@ -240,7 +240,7 @@ namespace SGV_CLP
             siticoneHtmlLabel2.Anchor = AnchorStyles.None;
             siticoneHtmlLabel2.BackColor = Color.Transparent;
             siticoneHtmlLabel2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            siticoneHtmlLabel2.Location = new Point(52, 21);
+            siticoneHtmlLabel2.Location = new Point(6, 30);
             siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
             siticoneHtmlLabel2.Size = new Size(17, 25);
             siticoneHtmlLabel2.TabIndex = 13;
@@ -356,6 +356,7 @@ namespace SGV_CLP
             ClientSize = new Size(1902, 1033);
             Controls.Add(siticoneCustomGradientPanel1);
             Controls.Add(siticonePanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SGV-CLP";

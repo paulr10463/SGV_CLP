@@ -17,9 +17,9 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         public ShowDetailInvoice(List<InvoiceDetail> invoiceDetails, double total, int codNotaVenta)
         {
             InitializeComponent();
-            CodNotaVentaLabel.Text = "Nota de venta N°: "+ codNotaVenta.ToString();
-            TotalLabel.Text = "Total: $"+total.ToString();
-            foreach(InvoiceDetail invoiceDetail in invoiceDetails)
+            CodNotaVentaLabel.Text = "Nota de venta N°: " + codNotaVenta.ToString();
+            TotalLabel.Text = "Total: $" + total.ToString();
+            foreach (InvoiceDetail invoiceDetail in invoiceDetails)
             {
                 DataGridViewRow row = (DataGridViewRow)siticoneDataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = invoiceDetail.product.productName;

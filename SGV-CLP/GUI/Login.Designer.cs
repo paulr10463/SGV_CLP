@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             siticonePanel2 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             siticonePanel3 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
@@ -98,7 +99,7 @@
             // 
             // siticoneGradientButton2
             // 
-            siticoneGradientButton2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            siticoneGradientButton2.Anchor = AnchorStyles.None;
             siticoneGradientButton2.BorderRadius = 10;
             siticoneGradientButton2.DefaultAutoSize = true;
             siticoneGradientButton2.DisabledState.BorderColor = Color.DarkGray;
@@ -110,12 +111,12 @@
             siticoneGradientButton2.FillColor2 = Color.Black;
             siticoneGradientButton2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneGradientButton2.ForeColor = Color.White;
-            siticoneGradientButton2.Location = new Point(343, 861);
+            siticoneGradientButton2.Location = new Point(338, 838);
             siticoneGradientButton2.Margin = new Padding(3, 5, 3, 5);
             siticoneGradientButton2.MaximumSize = new Size(286, 93);
             siticoneGradientButton2.MinimumSize = new Size(171, 80);
             siticoneGradientButton2.Name = "siticoneGradientButton2";
-            siticoneGradientButton2.Size = new Size(71, 36);
+            siticoneGradientButton2.Size = new Size(171, 80);
             siticoneGradientButton2.TabIndex = 10;
             siticoneGradientButton2.Text = "Salir";
             siticoneGradientButton2.Click += siticoneGradientButton2_Click;
@@ -148,7 +149,7 @@
             // 
             // siticoneGradientButton1
             // 
-            siticoneGradientButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            siticoneGradientButton1.Anchor = AnchorStyles.None;
             siticoneGradientButton1.BorderRadius = 10;
             siticoneGradientButton1.DefaultAutoSize = true;
             siticoneGradientButton1.DisabledState.BorderColor = Color.DarkGray;
@@ -160,12 +161,12 @@
             siticoneGradientButton1.FillColor2 = Color.Black;
             siticoneGradientButton1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneGradientButton1.ForeColor = Color.White;
-            siticoneGradientButton1.Location = new Point(101, 861);
+            siticoneGradientButton1.Location = new Point(100, 838);
             siticoneGradientButton1.Margin = new Padding(3, 5, 3, 5);
             siticoneGradientButton1.MaximumSize = new Size(286, 93);
             siticoneGradientButton1.MinimumSize = new Size(171, 80);
             siticoneGradientButton1.Name = "siticoneGradientButton1";
-            siticoneGradientButton1.Size = new Size(156, 36);
+            siticoneGradientButton1.Size = new Size(171, 80);
             siticoneGradientButton1.TabIndex = 9;
             siticoneGradientButton1.Text = "Iniciar sesión";
             siticoneGradientButton1.Click += siticoneGradientButton1_Click;
@@ -215,7 +216,7 @@
             siticoneTextBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             siticoneTextBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneTextBox2.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox2.Location = new Point(118, 491);
+            siticoneTextBox2.Location = new Point(117, 489);
             siticoneTextBox2.Margin = new Padding(6, 7, 6, 7);
             siticoneTextBox2.Name = "siticoneTextBox2";
             siticoneTextBox2.PasswordChar = '●';
@@ -237,7 +238,7 @@
             siticoneTextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             siticoneTextBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             siticoneTextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            siticoneTextBox1.Location = new Point(118, 340);
+            siticoneTextBox1.Location = new Point(118, 335);
             siticoneTextBox1.Margin = new Padding(6, 7, 6, 7);
             siticoneTextBox1.Name = "siticoneTextBox1";
             siticoneTextBox1.PasswordChar = '\0';
@@ -253,6 +254,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1738, 1055);
             Controls.Add(siticonePanel2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             Text = "LOGIN SGV-CLP";

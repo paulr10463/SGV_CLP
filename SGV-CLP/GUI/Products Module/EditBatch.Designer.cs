@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditBatch));
             SBCancelar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             buttonEditBatch = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             labelManufactureDateNotChosen = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -60,7 +61,7 @@
             SBCancelar.Text = "Cancelar";
             SBCancelar.Click += ButtonCancel_Click;
             // 
-            // SBAceptar
+            // buttonEditBatch
             // 
             buttonEditBatch.Anchor = AnchorStyles.None;
             buttonEditBatch.BorderRadius = 20;
@@ -73,13 +74,13 @@
             buttonEditBatch.ForeColor = Color.White;
             buttonEditBatch.Location = new Point(79, 424);
             buttonEditBatch.Margin = new Padding(3, 4, 3, 4);
-            buttonEditBatch.Name = "SBAceptar";
+            buttonEditBatch.Name = "buttonEditBatch";
             buttonEditBatch.Size = new Size(206, 60);
             buttonEditBatch.TabIndex = 71;
             buttonEditBatch.Text = "Aceptar";
             buttonEditBatch.Click += ButtonEditBatch_Click;
             // 
-            // FechaHora_not_choose_in_Lote_label
+            // labelManufactureDateNotChosen
             // 
             labelManufactureDateNotChosen.Anchor = AnchorStyles.None;
             labelManufactureDateNotChosen.BackColor = Color.Transparent;
@@ -87,7 +88,7 @@
             labelManufactureDateNotChosen.ForeColor = Color.Red;
             labelManufactureDateNotChosen.Location = new Point(189, 349);
             labelManufactureDateNotChosen.Margin = new Padding(3, 4, 3, 4);
-            labelManufactureDateNotChosen.Name = "FechaHora_not_choose_in_Lote_label";
+            labelManufactureDateNotChosen.Name = "labelManufactureDateNotChosen";
             labelManufactureDateNotChosen.Size = new Size(240, 22);
             labelManufactureDateNotChosen.TabIndex = 76;
             labelManufactureDateNotChosen.Text = "Debe tener una fecha y hora válidas";
@@ -115,7 +116,7 @@
             GBFechaHoraElab.Text = "Fecha y Hora";
             GBFechaHoraElab.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
-            // DTPHoraLote
+            // dtpManufactureHour
             // 
             dtpManufactureHour.Anchor = AnchorStyles.None;
             dtpManufactureHour.BorderRadius = 10;
@@ -128,7 +129,7 @@
             dtpManufactureHour.Margin = new Padding(3, 4, 3, 4);
             dtpManufactureHour.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpManufactureHour.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpManufactureHour.Name = "DTPHoraLote";
+            dtpManufactureHour.Name = "dtpManufactureHour";
             dtpManufactureHour.ShowUpDown = true;
             dtpManufactureHour.Size = new Size(123, 37);
             dtpManufactureHour.TabIndex = 59;
@@ -159,7 +160,7 @@
             SRBFechaActual.UncheckedState.InnerColor = Color.Transparent;
             SRBFechaActual.CheckedChanged += RbCurrentDate_CheckedChanged;
             // 
-            // SRBElegirFecha
+            // rbChooseDate
             // 
             rbChooseDate.Anchor = AnchorStyles.None;
             rbChooseDate.AutoSize = true;
@@ -171,7 +172,7 @@
             rbChooseDate.ForeColor = Color.Black;
             rbChooseDate.Location = new Point(165, 67);
             rbChooseDate.Margin = new Padding(3, 4, 3, 4);
-            rbChooseDate.Name = "SRBElegirFecha";
+            rbChooseDate.Name = "rbChooseDate";
             rbChooseDate.Size = new Size(98, 34);
             rbChooseDate.TabIndex = 57;
             rbChooseDate.Text = "Elegir";
@@ -181,7 +182,7 @@
             rbChooseDate.UncheckedState.InnerColor = Color.Transparent;
             rbChooseDate.CheckedChanged += RbChooseDate_CheckedChanged;
             // 
-            // DTPFechaLote
+            // dtpManufactureDate
             // 
             dtpManufactureDate.Anchor = AnchorStyles.None;
             dtpManufactureDate.BorderRadius = 10;
@@ -194,7 +195,7 @@
             dtpManufactureDate.Margin = new Padding(3, 4, 3, 4);
             dtpManufactureDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpManufactureDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            dtpManufactureDate.Name = "DTPFechaLote";
+            dtpManufactureDate.Name = "dtpManufactureDate";
             dtpManufactureDate.Size = new Size(180, 37);
             dtpManufactureDate.TabIndex = 58;
             dtpManufactureDate.TextOffset = new Point(5, 0);
@@ -202,7 +203,7 @@
             dtpManufactureDate.Visible = false;
             dtpManufactureDate.ValueChanged += DtpManufactureDate_ValueChanged;
             // 
-            // txtCantidad
+            // tbQuantity
             // 
             tbQuantity.Anchor = AnchorStyles.None;
             tbQuantity.BorderRadius = 20;
@@ -216,7 +217,7 @@
             tbQuantity.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbQuantity.Location = new Point(334, 38);
             tbQuantity.Margin = new Padding(3, 7, 3, 7);
-            tbQuantity.Name = "txtCantidad";
+            tbQuantity.Name = "tbQuantity";
             tbQuantity.PasswordChar = '\0';
             tbQuantity.PlaceholderText = "";
             tbQuantity.SelectedText = "";
@@ -238,7 +239,7 @@
             siticoneHtmlLabel4.TabIndex = 73;
             siticoneHtmlLabel4.Text = "Cantidad";
             // 
-            // Editar_Lote
+            // EditBatch
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -250,7 +251,8 @@
             Controls.Add(GBFechaHoraElab);
             Controls.Add(tbQuantity);
             Controls.Add(siticoneHtmlLabel4);
-            Name = "Editar_Lote";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "EditBatch";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Editar Lote";
             GBFechaHoraElab.ResumeLayout(false);

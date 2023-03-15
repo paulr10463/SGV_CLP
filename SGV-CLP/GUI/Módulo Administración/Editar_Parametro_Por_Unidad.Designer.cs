@@ -28,215 +28,212 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cBox_ProductosParam = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.numUpDown_UnidadBase = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
-            this.numUpDown_UnidadExtra = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
-            this.siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.SBAceptar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.SBCancelar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.label_SinNombProd = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.label_SinUnidadExtra = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.label_SinUnidadBase = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_UnidadBase)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_UnidadExtra)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar_Parametro_Por_Unidad));
+            cBox_ProductosParam = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            numUpDown_UnidadBase = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
+            numUpDown_UnidadExtra = new Siticone.Desktop.UI.WinForms.SiticoneNumericUpDown();
+            siticoneHtmlLabel4 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            siticoneHtmlLabel3 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            SBAceptar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            SBCancelar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            label_SinNombProd = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            label_SinUnidadExtra = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            label_SinUnidadBase = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            ((System.ComponentModel.ISupportInitialize)numUpDown_UnidadBase).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDown_UnidadExtra).BeginInit();
+            SuspendLayout();
             // 
             // cBox_ProductosParam
             // 
-            this.cBox_ProductosParam.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cBox_ProductosParam.BackColor = System.Drawing.Color.Transparent;
-            this.cBox_ProductosParam.BorderRadius = 20;
-            this.cBox_ProductosParam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cBox_ProductosParam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBox_ProductosParam.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cBox_ProductosParam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cBox_ProductosParam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cBox_ProductosParam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cBox_ProductosParam.ItemHeight = 40;
-            this.cBox_ProductosParam.Items.AddRange(new object[] {
-            "Humitas",
-            "Tamales",
-            "Cafe",
-            "Empanadas"});
-            this.cBox_ProductosParam.Location = new System.Drawing.Point(366, 295);
-            this.cBox_ProductosParam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cBox_ProductosParam.Name = "cBox_ProductosParam";
-            this.cBox_ProductosParam.Size = new System.Drawing.Size(261, 46);
-            this.cBox_ProductosParam.TabIndex = 59;
-            this.cBox_ProductosParam.TextOffset = new System.Drawing.Point(5, 0);
-            this.cBox_ProductosParam.SelectedIndexChanged += new System.EventHandler(this.cBox_ProductosParam_SelectedIndexChanged);
+            cBox_ProductosParam.Anchor = AnchorStyles.None;
+            cBox_ProductosParam.BackColor = Color.Transparent;
+            cBox_ProductosParam.BorderRadius = 20;
+            cBox_ProductosParam.DrawMode = DrawMode.OwnerDrawFixed;
+            cBox_ProductosParam.DropDownStyle = ComboBoxStyle.DropDownList;
+            cBox_ProductosParam.FocusedColor = Color.FromArgb(94, 148, 255);
+            cBox_ProductosParam.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            cBox_ProductosParam.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            cBox_ProductosParam.ForeColor = Color.FromArgb(68, 88, 112);
+            cBox_ProductosParam.ItemHeight = 40;
+            cBox_ProductosParam.Items.AddRange(new object[] { "Humitas", "Tamales", "Cafe", "Empanadas" });
+            cBox_ProductosParam.Location = new Point(366, 311);
+            cBox_ProductosParam.Margin = new Padding(3, 4, 3, 4);
+            cBox_ProductosParam.Name = "cBox_ProductosParam";
+            cBox_ProductosParam.Size = new Size(261, 46);
+            cBox_ProductosParam.TabIndex = 59;
+            cBox_ProductosParam.TextOffset = new Point(5, 0);
+            cBox_ProductosParam.SelectedIndexChanged += cBox_ProductosParam_SelectedIndexChanged;
             // 
             // numUpDown_UnidadBase
             // 
-            this.numUpDown_UnidadBase.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDown_UnidadBase.BackColor = System.Drawing.Color.White;
-            this.numUpDown_UnidadBase.BorderRadius = 10;
-            this.numUpDown_UnidadBase.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numUpDown_UnidadBase.Location = new System.Drawing.Point(366, 50);
-            this.numUpDown_UnidadBase.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.numUpDown_UnidadBase.Name = "numUpDown_UnidadBase";
-            this.numUpDown_UnidadBase.Size = new System.Drawing.Size(145, 50);
-            this.numUpDown_UnidadBase.TabIndex = 58;
-            this.numUpDown_UnidadBase.TextOffset = new System.Drawing.Point(5, 0);
-            this.numUpDown_UnidadBase.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.numUpDown_UnidadBase.UpDownButtonForeColor = System.Drawing.Color.White;
-            this.numUpDown_UnidadBase.ValueChanged += new System.EventHandler(this.numUpDown_UnidadBase_ValueChanged);
+            numUpDown_UnidadBase.Anchor = AnchorStyles.None;
+            numUpDown_UnidadBase.BackColor = Color.White;
+            numUpDown_UnidadBase.BorderRadius = 10;
+            numUpDown_UnidadBase.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            numUpDown_UnidadBase.Location = new Point(366, 53);
+            numUpDown_UnidadBase.Margin = new Padding(3, 5, 3, 5);
+            numUpDown_UnidadBase.Name = "numUpDown_UnidadBase";
+            numUpDown_UnidadBase.Size = new Size(145, 53);
+            numUpDown_UnidadBase.TabIndex = 58;
+            numUpDown_UnidadBase.TextOffset = new Point(5, 0);
+            numUpDown_UnidadBase.UpDownButtonFillColor = Color.Black;
+            numUpDown_UnidadBase.UpDownButtonForeColor = Color.White;
+            numUpDown_UnidadBase.ValueChanged += numUpDown_UnidadBase_ValueChanged;
             // 
             // numUpDown_UnidadExtra
             // 
-            this.numUpDown_UnidadExtra.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDown_UnidadExtra.BackColor = System.Drawing.Color.White;
-            this.numUpDown_UnidadExtra.BorderRadius = 10;
-            this.numUpDown_UnidadExtra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numUpDown_UnidadExtra.Location = new System.Drawing.Point(366, 163);
-            this.numUpDown_UnidadExtra.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.numUpDown_UnidadExtra.Name = "numUpDown_UnidadExtra";
-            this.numUpDown_UnidadExtra.Size = new System.Drawing.Size(145, 50);
-            this.numUpDown_UnidadExtra.TabIndex = 57;
-            this.numUpDown_UnidadExtra.TextOffset = new System.Drawing.Point(5, 0);
-            this.numUpDown_UnidadExtra.UpDownButtonFillColor = System.Drawing.Color.Black;
-            this.numUpDown_UnidadExtra.UpDownButtonForeColor = System.Drawing.Color.White;
-            this.numUpDown_UnidadExtra.ValueChanged += new System.EventHandler(this.numUpDown_UnidadExtra_ValueChanged);
+            numUpDown_UnidadExtra.Anchor = AnchorStyles.None;
+            numUpDown_UnidadExtra.BackColor = Color.White;
+            numUpDown_UnidadExtra.BorderRadius = 10;
+            numUpDown_UnidadExtra.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            numUpDown_UnidadExtra.Location = new Point(366, 172);
+            numUpDown_UnidadExtra.Margin = new Padding(3, 5, 3, 5);
+            numUpDown_UnidadExtra.Name = "numUpDown_UnidadExtra";
+            numUpDown_UnidadExtra.Size = new Size(145, 53);
+            numUpDown_UnidadExtra.TabIndex = 57;
+            numUpDown_UnidadExtra.TextOffset = new Point(5, 0);
+            numUpDown_UnidadExtra.UpDownButtonFillColor = Color.Black;
+            numUpDown_UnidadExtra.UpDownButtonForeColor = Color.White;
+            numUpDown_UnidadExtra.ValueChanged += numUpDown_UnidadExtra_ValueChanged;
             // 
             // siticoneHtmlLabel4
             // 
-            this.siticoneHtmlLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel4.Location = new System.Drawing.Point(144, 60);
-            this.siticoneHtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
-            this.siticoneHtmlLabel4.Size = new System.Drawing.Size(128, 26);
-            this.siticoneHtmlLabel4.TabIndex = 56;
-            this.siticoneHtmlLabel4.Text = "Unidad Base";
+            siticoneHtmlLabel4.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel4.BackColor = Color.Transparent;
+            siticoneHtmlLabel4.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel4.Location = new Point(144, 63);
+            siticoneHtmlLabel4.Margin = new Padding(3, 4, 3, 4);
+            siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
+            siticoneHtmlLabel4.Size = new Size(163, 34);
+            siticoneHtmlLabel4.TabIndex = 56;
+            siticoneHtmlLabel4.Text = "Unidad Base";
             // 
             // siticoneHtmlLabel3
             // 
-            this.siticoneHtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(144, 171);
-            this.siticoneHtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(128, 26);
-            this.siticoneHtmlLabel3.TabIndex = 55;
-            this.siticoneHtmlLabel3.Text = "Unidad Extra";
+            siticoneHtmlLabel3.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel3.BackColor = Color.Transparent;
+            siticoneHtmlLabel3.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel3.Location = new Point(144, 180);
+            siticoneHtmlLabel3.Margin = new Padding(3, 4, 3, 4);
+            siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
+            siticoneHtmlLabel3.Size = new Size(163, 34);
+            siticoneHtmlLabel3.TabIndex = 55;
+            siticoneHtmlLabel3.Text = "Unidad Extra";
             // 
             // SBAceptar
             // 
-            this.SBAceptar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SBAceptar.BorderRadius = 20;
-            this.SBAceptar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SBAceptar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SBAceptar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SBAceptar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SBAceptar.FillColor = System.Drawing.Color.Black;
-            this.SBAceptar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SBAceptar.ForeColor = System.Drawing.Color.White;
-            this.SBAceptar.Location = new System.Drawing.Point(203, 415);
-            this.SBAceptar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SBAceptar.Name = "SBAceptar";
-            this.SBAceptar.Size = new System.Drawing.Size(206, 57);
-            this.SBAceptar.TabIndex = 60;
-            this.SBAceptar.Text = "Aceptar";
-            this.SBAceptar.Click += new System.EventHandler(this.SBAceptar_Click);
+            SBAceptar.Anchor = AnchorStyles.None;
+            SBAceptar.BorderRadius = 20;
+            SBAceptar.DisabledState.BorderColor = Color.DarkGray;
+            SBAceptar.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBAceptar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBAceptar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBAceptar.FillColor = Color.Black;
+            SBAceptar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBAceptar.ForeColor = Color.White;
+            SBAceptar.Location = new Point(203, 437);
+            SBAceptar.Margin = new Padding(3, 4, 3, 4);
+            SBAceptar.Name = "SBAceptar";
+            SBAceptar.Size = new Size(206, 60);
+            SBAceptar.TabIndex = 60;
+            SBAceptar.Text = "Aceptar";
+            SBAceptar.Click += SBAceptar_Click;
             // 
             // SBCancelar
             // 
-            this.SBCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SBCancelar.BorderRadius = 20;
-            this.SBCancelar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SBCancelar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SBCancelar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SBCancelar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SBCancelar.FillColor = System.Drawing.Color.Black;
-            this.SBCancelar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SBCancelar.ForeColor = System.Drawing.Color.White;
-            this.SBCancelar.Location = new System.Drawing.Point(435, 415);
-            this.SBCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SBCancelar.Name = "SBCancelar";
-            this.SBCancelar.Size = new System.Drawing.Size(206, 57);
-            this.SBCancelar.TabIndex = 61;
-            this.SBCancelar.Text = "Cancelar";
-            this.SBCancelar.Click += new System.EventHandler(this.SBCancelar_Click);
+            SBCancelar.Anchor = AnchorStyles.None;
+            SBCancelar.BorderRadius = 20;
+            SBCancelar.DisabledState.BorderColor = Color.DarkGray;
+            SBCancelar.DisabledState.CustomBorderColor = Color.DarkGray;
+            SBCancelar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            SBCancelar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            SBCancelar.FillColor = Color.Black;
+            SBCancelar.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SBCancelar.ForeColor = Color.White;
+            SBCancelar.Location = new Point(435, 437);
+            SBCancelar.Margin = new Padding(3, 4, 3, 4);
+            SBCancelar.Name = "SBCancelar";
+            SBCancelar.Size = new Size(206, 60);
+            SBCancelar.TabIndex = 61;
+            SBCancelar.Text = "Cancelar";
+            SBCancelar.Click += SBCancelar_Click;
             // 
             // siticoneHtmlLabel1
             // 
-            this.siticoneHtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(175, 305);
-            this.siticoneHtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(97, 26);
-            this.siticoneHtmlLabel1.TabIndex = 62;
-            this.siticoneHtmlLabel1.Text = "Producto";
+            siticoneHtmlLabel1.Anchor = AnchorStyles.None;
+            siticoneHtmlLabel1.BackColor = Color.Transparent;
+            siticoneHtmlLabel1.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneHtmlLabel1.Location = new Point(175, 321);
+            siticoneHtmlLabel1.Margin = new Padding(3, 4, 3, 4);
+            siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            siticoneHtmlLabel1.Size = new Size(119, 34);
+            siticoneHtmlLabel1.TabIndex = 62;
+            siticoneHtmlLabel1.Text = "Producto";
             // 
             // label_SinNombProd
             // 
-            this.label_SinNombProd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label_SinNombProd.BackColor = System.Drawing.Color.Transparent;
-            this.label_SinNombProd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label_SinNombProd.ForeColor = System.Drawing.Color.Red;
-            this.label_SinNombProd.Location = new System.Drawing.Point(671, 305);
-            this.label_SinNombProd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.label_SinNombProd.Name = "label_SinNombProd";
-            this.label_SinNombProd.Size = new System.Drawing.Size(134, 17);
-            this.label_SinNombProd.TabIndex = 73;
-            this.label_SinNombProd.Text = "¡Seleccione un producto!";
+            label_SinNombProd.Anchor = AnchorStyles.None;
+            label_SinNombProd.BackColor = Color.Transparent;
+            label_SinNombProd.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label_SinNombProd.ForeColor = Color.Red;
+            label_SinNombProd.Location = new Point(671, 321);
+            label_SinNombProd.Margin = new Padding(3, 4, 3, 4);
+            label_SinNombProd.Name = "label_SinNombProd";
+            label_SinNombProd.Size = new Size(167, 22);
+            label_SinNombProd.TabIndex = 73;
+            label_SinNombProd.Text = "¡Seleccione un producto!";
             // 
             // label_SinUnidadExtra
             // 
-            this.label_SinUnidadExtra.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label_SinUnidadExtra.BackColor = System.Drawing.Color.Transparent;
-            this.label_SinUnidadExtra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label_SinUnidadExtra.ForeColor = System.Drawing.Color.Red;
-            this.label_SinUnidadExtra.Location = new System.Drawing.Point(562, 180);
-            this.label_SinUnidadExtra.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.label_SinUnidadExtra.Name = "label_SinUnidadExtra";
-            this.label_SinUnidadExtra.Size = new System.Drawing.Size(110, 17);
-            this.label_SinUnidadExtra.TabIndex = 72;
-            this.label_SinUnidadExtra.Text = "¡Ingrese una unidad!";
+            label_SinUnidadExtra.Anchor = AnchorStyles.None;
+            label_SinUnidadExtra.BackColor = Color.Transparent;
+            label_SinUnidadExtra.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label_SinUnidadExtra.ForeColor = Color.Red;
+            label_SinUnidadExtra.Location = new Point(562, 189);
+            label_SinUnidadExtra.Margin = new Padding(3, 4, 3, 4);
+            label_SinUnidadExtra.Name = "label_SinUnidadExtra";
+            label_SinUnidadExtra.Size = new Size(137, 22);
+            label_SinUnidadExtra.TabIndex = 72;
+            label_SinUnidadExtra.Text = "¡Ingrese una unidad!";
             // 
             // label_SinUnidadBase
             // 
-            this.label_SinUnidadBase.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label_SinUnidadBase.BackColor = System.Drawing.Color.Transparent;
-            this.label_SinUnidadBase.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label_SinUnidadBase.ForeColor = System.Drawing.Color.Red;
-            this.label_SinUnidadBase.Location = new System.Drawing.Point(562, 69);
-            this.label_SinUnidadBase.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.label_SinUnidadBase.Name = "label_SinUnidadBase";
-            this.label_SinUnidadBase.Size = new System.Drawing.Size(110, 17);
-            this.label_SinUnidadBase.TabIndex = 71;
-            this.label_SinUnidadBase.Text = "¡Ingrese una unidad!";
+            label_SinUnidadBase.Anchor = AnchorStyles.None;
+            label_SinUnidadBase.BackColor = Color.Transparent;
+            label_SinUnidadBase.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label_SinUnidadBase.ForeColor = Color.Red;
+            label_SinUnidadBase.Location = new Point(562, 73);
+            label_SinUnidadBase.Margin = new Padding(3, 4, 3, 4);
+            label_SinUnidadBase.Name = "label_SinUnidadBase";
+            label_SinUnidadBase.Size = new Size(137, 22);
+            label_SinUnidadBase.TabIndex = 71;
+            label_SinUnidadBase.Text = "¡Ingrese una unidad!";
             // 
             // Editar_Parametro_Por_Unidad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(878, 540);
-            this.Controls.Add(this.label_SinNombProd);
-            this.Controls.Add(this.label_SinUnidadExtra);
-            this.Controls.Add(this.label_SinUnidadBase);
-            this.Controls.Add(this.siticoneHtmlLabel1);
-            this.Controls.Add(this.SBCancelar);
-            this.Controls.Add(this.SBAceptar);
-            this.Controls.Add(this.cBox_ProductosParam);
-            this.Controls.Add(this.numUpDown_UnidadBase);
-            this.Controls.Add(this.numUpDown_UnidadExtra);
-            this.Controls.Add(this.siticoneHtmlLabel4);
-            this.Controls.Add(this.siticoneHtmlLabel3);
-            this.Name = "Editar_Parametro_Por_Unidad";
-            this.Text = "Editar parametro por unidad";
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_UnidadBase)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDown_UnidadExtra)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(878, 568);
+            Controls.Add(label_SinNombProd);
+            Controls.Add(label_SinUnidadExtra);
+            Controls.Add(label_SinUnidadBase);
+            Controls.Add(siticoneHtmlLabel1);
+            Controls.Add(SBCancelar);
+            Controls.Add(SBAceptar);
+            Controls.Add(cBox_ProductosParam);
+            Controls.Add(numUpDown_UnidadBase);
+            Controls.Add(numUpDown_UnidadExtra);
+            Controls.Add(siticoneHtmlLabel4);
+            Controls.Add(siticoneHtmlLabel3);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Editar_Parametro_Por_Unidad";
+            Text = "Editar parametro por unidad";
+            ((System.ComponentModel.ISupportInitialize)numUpDown_UnidadBase).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numUpDown_UnidadExtra).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

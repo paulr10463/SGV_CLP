@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCustomer));
             buttonCancelar = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             buttonEditCustomer = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             siticoneHtmlLabel20 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -63,7 +64,7 @@
             buttonCancelar.Text = "Cancelar";
             buttonCancelar.Click += ButtonCancel_Click;
             // 
-            // button_EditarCliente
+            // buttonEditCustomer
             // 
             buttonEditCustomer.Anchor = AnchorStyles.None;
             buttonEditCustomer.BorderRadius = 20;
@@ -76,7 +77,7 @@
             buttonEditCustomer.ForeColor = Color.White;
             buttonEditCustomer.Location = new Point(164, 315);
             buttonEditCustomer.Margin = new Padding(3, 4, 3, 4);
-            buttonEditCustomer.Name = "button_EditarCliente";
+            buttonEditCustomer.Name = "buttonEditCustomer";
             buttonEditCustomer.Size = new Size(206, 60);
             buttonEditCustomer.TabIndex = 46;
             buttonEditCustomer.Text = "Aceptar";
@@ -94,7 +95,7 @@
             siticoneHtmlLabel20.TabIndex = 49;
             siticoneHtmlLabel20.Text = "Dirección";
             // 
-            // txtDireccionCliente
+            // tbHomeAddress
             // 
             tbHomeAddress.Anchor = AnchorStyles.None;
             tbHomeAddress.BorderRadius = 20;
@@ -108,7 +109,7 @@
             tbHomeAddress.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbHomeAddress.Location = new Point(226, 33);
             tbHomeAddress.Margin = new Padding(3, 7, 3, 7);
-            tbHomeAddress.Name = "txtDireccionCliente";
+            tbHomeAddress.Name = "tbHomeAddress";
             tbHomeAddress.PasswordChar = '\0';
             tbHomeAddress.PlaceholderText = "";
             tbHomeAddress.SelectedText = "";
@@ -130,7 +131,7 @@
             siticoneHtmlLabel1.TabIndex = 51;
             siticoneHtmlLabel1.Text = "Teléfono";
             // 
-            // txtTelefonoCliente
+            // tbPhoneNumber
             // 
             tbPhoneNumber.Anchor = AnchorStyles.None;
             tbPhoneNumber.BorderRadius = 20;
@@ -144,7 +145,7 @@
             tbPhoneNumber.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbPhoneNumber.Location = new Point(226, 218);
             tbPhoneNumber.Margin = new Padding(3, 7, 3, 7);
-            tbPhoneNumber.Name = "txtTelefonoCliente";
+            tbPhoneNumber.Name = "tbPhoneNumber";
             tbPhoneNumber.PasswordChar = '\0';
             tbPhoneNumber.PlaceholderText = "";
             tbPhoneNumber.SelectedText = "";
@@ -166,7 +167,7 @@
             siticoneHtmlLabel2.TabIndex = 53;
             siticoneHtmlLabel2.Text = "eMail";
             // 
-            // txtCorreoCliente
+            // tbEMail
             // 
             tbEMail.Anchor = AnchorStyles.None;
             tbEMail.BorderRadius = 20;
@@ -180,7 +181,7 @@
             tbEMail.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             tbEMail.Location = new Point(226, 124);
             tbEMail.Margin = new Padding(3, 7, 3, 7);
-            tbEMail.Name = "txtCorreoCliente";
+            tbEMail.Name = "tbEMail";
             tbEMail.PasswordChar = '\0';
             tbEMail.PlaceholderText = "";
             tbEMail.SelectedText = "";
@@ -190,7 +191,7 @@
             tbEMail.TextChanged += TbEMail_TextChanged;
             tbEMail.KeyPress += TbEMail_KeyPress;
             // 
-            // siticoneHtmlLabel_correct_email
+            // labelCorrectEMail
             // 
             labelCorrectEMail.Anchor = AnchorStyles.None;
             labelCorrectEMail.BackColor = Color.Transparent;
@@ -198,12 +199,12 @@
             labelCorrectEMail.ForeColor = Color.SpringGreen;
             labelCorrectEMail.Location = new Point(696, 143);
             labelCorrectEMail.Margin = new Padding(3, 4, 3, 4);
-            labelCorrectEMail.Name = "siticoneHtmlLabel_correct_email";
+            labelCorrectEMail.Name = "labelCorrectEMail";
             labelCorrectEMail.Size = new Size(93, 22);
             labelCorrectEMail.TabIndex = 87;
             labelCorrectEMail.Text = "¡Email válido!";
             // 
-            // siticoneHtmlLabel_wrong_email
+            // labelWrongEMail
             // 
             labelWrongEMail.Anchor = AnchorStyles.None;
             labelWrongEMail.BackColor = Color.Transparent;
@@ -211,12 +212,12 @@
             labelWrongEMail.ForeColor = Color.Red;
             labelWrongEMail.Location = new Point(696, 143);
             labelWrongEMail.Margin = new Padding(3, 4, 3, 4);
-            labelWrongEMail.Name = "siticoneHtmlLabel_wrong_email";
+            labelWrongEMail.Name = "labelWrongEMail";
             labelWrongEMail.Size = new Size(105, 22);
             labelWrongEMail.TabIndex = 86;
             labelWrongEMail.Text = "¡Email inválido!";
             // 
-            // siticoneHtmlLabel_valid_telef
+            // labelValidPhoneNumber
             // 
             labelValidPhoneNumber.Anchor = AnchorStyles.None;
             labelValidPhoneNumber.BackColor = Color.Transparent;
@@ -224,13 +225,13 @@
             labelValidPhoneNumber.ForeColor = Color.SpringGreen;
             labelValidPhoneNumber.Location = new Point(450, 249);
             labelValidPhoneNumber.Margin = new Padding(3, 5, 3, 5);
-            labelValidPhoneNumber.Name = "siticoneHtmlLabel_valid_telef";
+            labelValidPhoneNumber.Name = "labelValidPhoneNumber";
             labelValidPhoneNumber.Size = new Size(163, 22);
             labelValidPhoneNumber.TabIndex = 91;
             labelValidPhoneNumber.Text = "¡Teléfono celular válido!";
             labelValidPhoneNumber.Visible = false;
             // 
-            // siticoneHtmlLabel_invalid_telef
+            // labelInvalidPhoneNumber
             // 
             labelInvalidPhoneNumber.Anchor = AnchorStyles.None;
             labelInvalidPhoneNumber.BackColor = Color.Transparent;
@@ -238,12 +239,12 @@
             labelInvalidPhoneNumber.ForeColor = Color.Red;
             labelInvalidPhoneNumber.Location = new Point(450, 249);
             labelInvalidPhoneNumber.Margin = new Padding(3, 5, 3, 5);
-            labelInvalidPhoneNumber.Name = "siticoneHtmlLabel_invalid_telef";
+            labelInvalidPhoneNumber.Name = "labelInvalidPhoneNumber";
             labelInvalidPhoneNumber.Size = new Size(175, 22);
             labelInvalidPhoneNumber.TabIndex = 90;
             labelInvalidPhoneNumber.Text = "¡Teléfono celular inválido!";
             // 
-            // siticoneHtmlLabel_correct_length_telef
+            // labelCorrectPhoneNumberLength
             // 
             labelCorrectPhoneNumberLength.Anchor = AnchorStyles.None;
             labelCorrectPhoneNumberLength.BackColor = Color.Transparent;
@@ -251,12 +252,12 @@
             labelCorrectPhoneNumberLength.ForeColor = Color.SpringGreen;
             labelCorrectPhoneNumberLength.Location = new Point(450, 218);
             labelCorrectPhoneNumberLength.Margin = new Padding(3, 5, 3, 5);
-            labelCorrectPhoneNumberLength.Name = "siticoneHtmlLabel_correct_length_telef";
+            labelCorrectPhoneNumberLength.Name = "labelCorrectPhoneNumberLength";
             labelCorrectPhoneNumberLength.Size = new Size(128, 22);
             labelCorrectPhoneNumberLength.TabIndex = 89;
             labelCorrectPhoneNumberLength.Text = "¡Longitud correcta!";
             // 
-            // siticoneHtmlLabel_wrong_length_telef
+            // labelWrongPhoneNumberLength
             // 
             labelWrongPhoneNumberLength.Anchor = AnchorStyles.None;
             labelWrongPhoneNumberLength.BackColor = Color.Transparent;
@@ -264,12 +265,12 @@
             labelWrongPhoneNumberLength.ForeColor = Color.Red;
             labelWrongPhoneNumberLength.Location = new Point(450, 218);
             labelWrongPhoneNumberLength.Margin = new Padding(3, 5, 3, 5);
-            labelWrongPhoneNumberLength.Name = "siticoneHtmlLabel_wrong_length_telef";
+            labelWrongPhoneNumberLength.Name = "labelWrongPhoneNumberLength";
             labelWrongPhoneNumberLength.Size = new Size(160, 22);
             labelWrongPhoneNumberLength.TabIndex = 88;
             labelWrongPhoneNumberLength.Text = "¡Se necesitan 10 caract.!";
             // 
-            // Editar_Cliente
+            // EditCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -289,7 +290,8 @@
             Controls.Add(tbHomeAddress);
             Controls.Add(buttonCancelar);
             Controls.Add(buttonEditCustomer);
-            Name = "Editar_Cliente";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "EditCustomer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Editar Cliente";
             ResumeLayout(false);

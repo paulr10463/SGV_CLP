@@ -85,7 +85,7 @@ namespace SGV_CLP.GUI
                 int index = 0;
                 foreach (Customer customer in registeredCustomers)
                 {
-                    CustomerDataGridView.Rows.Add(customer.customerID, customer.firstName + customer.MiddleName, customer.firstLastName + customer.secondLastName, customer.homeAddress, customer.phoneNumber, customer.eMail);
+                    CustomerDataGridView.Rows.Add(customer.customerID, customer.firstName + " " + customer.MiddleName, customer.firstLastName + " " + customer.secondLastName, customer.homeAddress, customer.phoneNumber, customer.eMail);
                     if (customer.customerID.Equals("9999999999"))
                     {
                         CustomerDataGridView.Rows[index].Visible = false;

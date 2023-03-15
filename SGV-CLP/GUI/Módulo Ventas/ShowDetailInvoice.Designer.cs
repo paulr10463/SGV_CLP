@@ -28,135 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
-            this.CC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Contras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodNotaVentaLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.TotalLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).BeginInit();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowDetailInvoice));
+            siticoneDataGridView1 = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            CC = new DataGridViewTextBoxColumn();
+            Contras = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            CodNotaVentaLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            TotalLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            ((System.ComponentModel.ISupportInitialize)siticoneDataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // siticoneDataGridView1
             // 
-            this.siticoneDataGridView1.AllowUserToResizeColumns = false;
-            this.siticoneDataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.siticoneDataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.siticoneDataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.siticoneDataGridView1.ColumnHeadersHeight = 50;
-            this.siticoneDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.siticoneDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CC,
-            this.Contras,
-            this.Nombre});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.siticoneDataGridView1.GridColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.Location = new System.Drawing.Point(23, 84);
-            this.siticoneDataGridView1.Name = "siticoneDataGridView1";
-            this.siticoneDataGridView1.RowHeadersVisible = false;
-            this.siticoneDataGridView1.RowHeadersWidth = 51;
-            this.siticoneDataGridView1.RowTemplate.Height = 25;
-            this.siticoneDataGridView1.Size = new System.Drawing.Size(509, 546);
-            this.siticoneDataGridView1.TabIndex = 55;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.siticoneDataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.GridColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.DimGray;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.siticoneDataGridView1.ThemeStyle.HeaderStyle.Height = 50;
-            this.siticoneDataGridView1.ThemeStyle.ReadOnly = false;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 25;
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            siticoneDataGridView1.AllowUserToResizeColumns = false;
+            siticoneDataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            siticoneDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            siticoneDataGridView1.Anchor = AnchorStyles.None;
+            siticoneDataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            siticoneDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            siticoneDataGridView1.ColumnHeadersHeight = 50;
+            siticoneDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            siticoneDataGridView1.Columns.AddRange(new DataGridViewColumn[] { CC, Contras, Nombre });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            siticoneDataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            siticoneDataGridView1.GridColor = Color.White;
+            siticoneDataGridView1.Location = new Point(26, 112);
+            siticoneDataGridView1.Margin = new Padding(3, 4, 3, 4);
+            siticoneDataGridView1.Name = "siticoneDataGridView1";
+            siticoneDataGridView1.RowHeadersVisible = false;
+            siticoneDataGridView1.RowHeadersWidth = 51;
+            siticoneDataGridView1.RowTemplate.Height = 25;
+            siticoneDataGridView1.Size = new Size(582, 728);
+            siticoneDataGridView1.TabIndex = 55;
+            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
+            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            siticoneDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            siticoneDataGridView1.ThemeStyle.BackColor = Color.White;
+            siticoneDataGridView1.ThemeStyle.GridColor = Color.White;
+            siticoneDataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.DimGray;
+            siticoneDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            siticoneDataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneDataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            siticoneDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            siticoneDataGridView1.ThemeStyle.HeaderStyle.Height = 50;
+            siticoneDataGridView1.ThemeStyle.ReadOnly = false;
+            siticoneDataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
+            siticoneDataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            siticoneDataGridView1.ThemeStyle.RowsStyle.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            siticoneDataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            siticoneDataGridView1.ThemeStyle.RowsStyle.Height = 25;
+            siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            siticoneDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // CC
             // 
-            this.CC.HeaderText = "Nombre Producto";
-            this.CC.MinimumWidth = 6;
-            this.CC.Name = "CC";
+            CC.HeaderText = "Nombre Producto";
+            CC.MinimumWidth = 6;
+            CC.Name = "CC";
             // 
             // Contras
             // 
-            this.Contras.HeaderText = "Cantidad";
-            this.Contras.MinimumWidth = 6;
-            this.Contras.Name = "Contras";
+            Contras.HeaderText = "Cantidad";
+            Contras.MinimumWidth = 6;
+            Contras.Name = "Contras";
             // 
             // Nombre
             // 
-            this.Nombre.HeaderText = "Subtotal";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
+            Nombre.HeaderText = "Subtotal";
+            Nombre.MinimumWidth = 6;
+            Nombre.Name = "Nombre";
             // 
             // CodNotaVentaLabel
             // 
-            this.CodNotaVentaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CodNotaVentaLabel.BackColor = System.Drawing.Color.Transparent;
-            this.CodNotaVentaLabel.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CodNotaVentaLabel.Location = new System.Drawing.Point(134, 27);
-            this.CodNotaVentaLabel.Name = "CodNotaVentaLabel";
-            this.CodNotaVentaLabel.Size = new System.Drawing.Size(251, 35);
-            this.CodNotaVentaLabel.TabIndex = 56;
-            this.CodNotaVentaLabel.Text = "siticoneHtmlLabel1";
-            this.CodNotaVentaLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            CodNotaVentaLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            CodNotaVentaLabel.BackColor = Color.Transparent;
+            CodNotaVentaLabel.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CodNotaVentaLabel.Location = new Point(153, 36);
+            CodNotaVentaLabel.Margin = new Padding(3, 4, 3, 4);
+            CodNotaVentaLabel.Name = "CodNotaVentaLabel";
+            CodNotaVentaLabel.Size = new Size(309, 42);
+            CodNotaVentaLabel.TabIndex = 56;
+            CodNotaVentaLabel.Text = "siticoneHtmlLabel1";
+            CodNotaVentaLabel.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // TotalLabel
             // 
-            this.TotalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TotalLabel.BackColor = System.Drawing.Color.Transparent;
-            this.TotalLabel.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TotalLabel.Location = new System.Drawing.Point(177, 668);
-            this.TotalLabel.Name = "TotalLabel";
-            this.TotalLabel.Size = new System.Drawing.Size(150, 35);
-            this.TotalLabel.TabIndex = 57;
-            this.TotalLabel.Text = "Total: $X.XX";
-            this.TotalLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            TotalLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            TotalLabel.BackColor = Color.Transparent;
+            TotalLabel.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            TotalLabel.Location = new Point(202, 891);
+            TotalLabel.Margin = new Padding(3, 4, 3, 4);
+            TotalLabel.Name = "TotalLabel";
+            TotalLabel.Size = new Size(188, 42);
+            TotalLabel.TabIndex = 57;
+            TotalLabel.Text = "Total: $X.XX";
+            TotalLabel.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // ShowDetailInvoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 755);
-            this.Controls.Add(this.TotalLabel);
-            this.Controls.Add(this.CodNotaVentaLabel);
-            this.Controls.Add(this.siticoneDataGridView1);
-            this.Name = "ShowDetailInvoice";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ShowDetailInvoice";
-            ((System.ComponentModel.ISupportInitialize)(this.siticoneDataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(645, 1007);
+            Controls.Add(TotalLabel);
+            Controls.Add(CodNotaVentaLabel);
+            Controls.Add(siticoneDataGridView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "ShowDetailInvoice";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "ShowDetailInvoice";
+            ((System.ComponentModel.ISupportInitialize)siticoneDataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -523,9 +523,10 @@ namespace SGV_CLP.GUI
             string batchCode;
             string productCode = ProductMapper.GetProductCode(cbBatchProductName.SelectedItem.ToString());
             string lastBatchCode = BatchMapper.GetMostRecentBatchCodeForProduct(productCode);
+            //double numero = Convert.ToInt32(lastBatchCode.Substring()) + 1;
             if (lastBatchCode != string.Empty)
             {
-                batchCode = productCode + (Convert.ToInt32(lastBatchCode.Substring(-4)) + 1).ToString("000");
+                batchCode = productCode + (Convert.ToInt32(lastBatchCode.Substring(lastBatchCode.Length -4, 4)) + 1).ToString("0000");
             }
             else
             {

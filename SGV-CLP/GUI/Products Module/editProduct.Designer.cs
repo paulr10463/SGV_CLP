@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditProduct));
             buttonEditProduct = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             buttonCancel = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             labelInvalidImagePath = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
@@ -335,6 +336,7 @@
             Controls.Add(siticoneHtmlLabel7);
             Controls.Add(buttonCancel);
             Controls.Add(buttonEditProduct);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "EditProduct";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Editar Producto";

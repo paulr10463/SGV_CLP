@@ -22,7 +22,7 @@ namespace SGV_CLP.Classes.Sales_Module
             using (var connection = new NpgsqlConnection(s_connectionString))
             {
                 connection.Open();
-                var queryString = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"" + parameter + "\" LIKE '%" + value + "%'";
+                var queryString = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"" + parameter + "\" ILIKE '%" + value + "%'";
                 using (var command = new NpgsqlCommand(queryString, connection))
                 using (var reader = command.ExecuteReader())
                 {
@@ -52,7 +52,7 @@ namespace SGV_CLP.Classes.Sales_Module
             using (var connection = new NpgsqlConnection(s_connectionString))
             {
                 connection.Open();
-                var queryString = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"NotaVenta\".\"cc_Cliente\" LIKE '%" + value + "%'";
+                var queryString = "SELECT * FROM \"NotaVenta\" JOIN \"Cliente\" ON \"NotaVenta\".\"cc_Cliente\" = \"Cliente\".\"cc_Cliente\" WHERE \"NotaVenta\".\"cc_Cliente\" ILIKE '%" + value + "%'";
                 using (var command = new NpgsqlCommand(queryString, connection))
                 using (var reader = command.ExecuteReader())
                 {

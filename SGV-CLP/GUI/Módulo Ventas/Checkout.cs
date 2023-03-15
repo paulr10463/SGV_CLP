@@ -419,7 +419,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             {
                 if (Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) > Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture))
                 {
-                    txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) - Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture)).ToString();
+                    txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) - Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture)).ToString().Replace(',', '.');
                 }
                 else
                 {

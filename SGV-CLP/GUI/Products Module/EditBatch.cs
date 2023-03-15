@@ -19,7 +19,7 @@ namespace SGV_CLP.GUI.Products_Module
         string batchCode, manufactureDate, manufactureHour;
 
         bool quantityIsValid, manufactureDateIsValid; // Para validar los campos de Lote
-        
+
         public EditBatch(string batchCode)
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace SGV_CLP.GUI.Products_Module
 
             quantityIsValid = false;
             manufactureDateIsValid = false;
-            
+
             tbQuantity.Text = BatchMapper.GetBatchField(batchCode, "cantidad");
             dtpManufactureDate.Value = DateTime.ParseExact(manufactureDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             dtpManufactureHour.Value = DateTime.ParseExact(manufactureHour, "HH:mm:ss", CultureInfo.InvariantCulture);

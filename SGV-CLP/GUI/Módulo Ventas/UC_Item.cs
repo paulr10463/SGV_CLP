@@ -48,11 +48,11 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             invoiceDetail.soldQuantity = (int)siticoneNumericUpDown1.Value;
-            invoiceDetail.subTotal = invoiceDetail.soldQuantity * _producto.salesPriceToThePubic;
+            invoiceDetail.subTotal = Math.Round(invoiceDetail.soldQuantity * _producto.salesPriceToThePubic, 2);
             UC_Ventas.invoice.AddOrUpdateInvoiceDetail(invoiceDetail);
             addRowInTable(invoiceDetail.soldQuantity, _producto);
             UC_Ventas.totalVenta.Visible = true;
-            UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.invoice.CalculateTotalSales().ToString().Replace(',', '.');
+            UC_Ventas.totalVenta.Text = "Total: $" + (Math.Round((decimal)UC_Ventas.invoice.CalculateTotalSales(), 2)).ToString().Replace(',', '.');
         }
 
         //Activa el boton de añadir si en numericUpDown.value > 0

@@ -31,6 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Checkout));
             txtCC_ClienteVenta = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -828,6 +829,7 @@
             Controls.Add(txtCC_ClienteVenta);
             Controls.Add(siticoneHtmlLabel1);
             Controls.Add(siticoneHtmlLabel_wrong_length_telef);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Checkout";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pago";
