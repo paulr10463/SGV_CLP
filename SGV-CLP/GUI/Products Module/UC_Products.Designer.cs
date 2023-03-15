@@ -576,7 +576,7 @@ namespace SGV_CLP.GUI
             cbSearchProductByCategory.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             cbSearchProductByCategory.ForeColor = Color.FromArgb(68, 88, 112);
             cbSearchProductByCategory.ItemHeight = 55;
-            cbSearchProductByCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas" });
+            cbSearchProductByCategory.Items.AddRange(new object[] { "Seleccione...", "Especialidades", "Bebidas Frías", "Bebidas Calientes", "Empanadas" });
             cbSearchProductByCategory.Location = new Point(302, 139);
             cbSearchProductByCategory.Margin = new Padding(3, 5, 3, 5);
             cbSearchProductByCategory.Name = "cbSearchProductByCategory";

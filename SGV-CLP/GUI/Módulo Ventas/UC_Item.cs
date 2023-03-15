@@ -38,7 +38,8 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 Image myImage = Image.FromFile(Path.Combine(Application.StartupPath, producto.imagePath));
                 this.siticonePictureBox1.Image = myImage;
             }
-            catch(Exception e) {
+            catch (Exception e)
+            {
                 Console.WriteLine(e.Message);
             }
             this.siticoneHtmlLabel1.Text = producto.productName;
@@ -51,13 +52,13 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             UC_Ventas.invoice.AddOrUpdateInvoiceDetail(invoiceDetail);
             addRowInTable(invoiceDetail.soldQuantity, _producto);
             UC_Ventas.totalVenta.Visible = true;
-            UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.invoice.CalculateTotalSales().ToString();
+            UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.invoice.CalculateTotalSales().ToString().Replace(',', '.');
         }
 
         //Activa el boton de añadir si en numericUpDown.value > 0
         private void siticoneNumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            int cantidadProducto = int.Parse(ProductMapper.GetProductField(this._producto.productCode, "cantidad_Total")); 
+            int cantidadProducto = int.Parse(ProductMapper.GetProductField(this._producto.productCode, "cantidad_Total"));
             if ((int)siticoneNumericUpDown1.Value > cantidadProducto)
             {
                 MessageBox.Show("Cantidad en inventario de " + _producto.productName + " es escasa");
@@ -68,7 +69,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             {
                 siticoneButton1.Enabled = false;
             }
-            else if((int)siticoneNumericUpDown1.Value <= cantidadProducto && cantidadProducto > 0)
+            else if ((int)siticoneNumericUpDown1.Value <= cantidadProducto && cantidadProducto > 0)
             {
                 siticoneButton1.Enabled = true;
             }
@@ -85,7 +86,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                     if (rowItem.Cells[0].Value.Equals(producto.productName))
                     {
                         rowItem.Cells[1].Value = cantidad;
-                        rowItem.Cells[2].Value = invoiceDetail.subTotal;
+                        rowItem.Cells[2].Value = invoiceDetail.subTotal.ToString().Replace(',', '.');
                         flag = true;
                     }
                 }
@@ -99,10 +100,10 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 DataGridViewRow row = (DataGridViewRow)UC_Ventas.detalleVentaTabla.Rows[0].Clone();
                 row.Cells[0].Value = producto.productName;
                 row.Cells[1].Value = cantidad;
-                row.Cells[2].Value = invoiceDetail.subTotal;
+                row.Cells[2].Value = invoiceDetail.subTotal.ToString().Replace(',', '.');
                 UC_Ventas.detalleVentaTabla.Rows.Add(row);
             }
-           
+
         }
 
         public void resetComponents()

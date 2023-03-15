@@ -171,21 +171,28 @@ namespace SGV_CLP.GUI
 
         private void siticoneDataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (siticoneDataGridView2.Columns[e.ColumnIndex].Name == "EliminarDetalle")
+            try
             {
-                if (e.RowIndex >= 0)
+                if (siticoneDataGridView2.Columns[e.ColumnIndex].Name == "EliminarDetalle")
                 {
-                    if (MessageBox.Show("¿Está seguro de eliminar este detalle de nota de venta?", "Eliminar detalle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (e.RowIndex >= 0 && siticoneDataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString() != null)
                     {
-                        DataGridViewRow row = siticoneDataGridView2.Rows[e.RowIndex];
-                        invoice.DeleteInvoiceDetailbyProductName(row.Cells[0].Value.ToString());
-                        siticoneDataGridView2.Rows.RemoveAt(e.RowIndex);
-                        UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.invoice.CalculateTotalSales().ToString();
+                        if (MessageBox.Show("¿Está seguro de eliminar este detalle de nota de venta?", "Eliminar detalle", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            DataGridViewRow row = siticoneDataGridView2.Rows[e.RowIndex];
+                            invoice.DeleteInvoiceDetailbyProductName(row.Cells[0].Value.ToString());
+                            siticoneDataGridView2.Rows.RemoveAt(e.RowIndex);
+                            UC_Ventas.totalVenta.Text = "Total: $" + UC_Ventas.invoice.CalculateTotalSales().ToString().Replace(',', '.');
+                        }
                     }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Esa fila está vacía, no puede hacer acciones sobre ella!!");
+            }
         }
+
         public static void resetNumPickers()
         {
             productosUI.ForEach(item => item.resetComponents());
@@ -271,10 +278,9 @@ namespace SGV_CLP.GUI
 
         private void siticoneDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            try
             {
-
-                try
+                if (e.ColumnIndex == 7 && siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString() != null)
                 {
                     int InvoiceCodeSelected = Convert.ToInt32(siticoneDataGridView1.Rows[e.RowIndex].Cells[0].Value);
                     ShowDetailInvoice showDetailInvoice = new ShowDetailInvoice(
@@ -285,10 +291,10 @@ namespace SGV_CLP.GUI
                     showDetailInvoice.BringToFront();
                     showDetailInvoice.Visible = true;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Esa fila está vacía, no puede hacer acciones sobre ella!!");
             }
         }
     }

@@ -2,6 +2,7 @@
 using SGV_CLP.Classes.Customers_Module;
 using SGV_CLP.Classes.Products_module;
 using SGV_CLP.GUI.Customers_Module;
+using System;
 using System.Media;
 
 
@@ -85,7 +86,7 @@ namespace SGV_CLP.GUI
                 foreach (Customer customer in registeredCustomers)
                 {
                     CustomerDataGridView.Rows.Add(customer.customerID, customer.firstName + customer.MiddleName, customer.firstLastName + customer.secondLastName, customer.homeAddress, customer.phoneNumber, customer.eMail);
-                    if (customer.customerID.Equals("0000000000"))
+                    if (customer.customerID.Equals("9999999999"))
                     {
                         CustomerDataGridView.Rows[index].Visible = false;
                     }
@@ -119,30 +120,37 @@ namespace SGV_CLP.GUI
 
         private void CustomerDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // CLICK EN CELDA ELIMINAR CLIENTE
-            if (CustomerDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
+            try
             {
-                if (e.RowIndex >= 0)
+                // CLICK EN CELDA ELIMINAR CLIENTE
+                if (CustomerDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEliminar")
                 {
-                    if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Eliminar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (e.RowIndex >= 0 && CustomerDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != null)
                     {
-                        string customerID = CustomerDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        if (MessageBox.Show("¿Está seguro de eliminar este cliente?", "Eliminar Cliente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string customerID = CustomerDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                        CustomerMapper.DeleteCustomer(customerID);
-                        MessageBox.Show("Cliente eliminado con éxito");
+                            CustomerMapper.DeleteCustomer(customerID);
+                            MessageBox.Show("Cliente eliminado con éxito");
+                        }
+                    }
+                }
+
+                // CLICK EN CELDA EDITAR CLIENTE
+                if (CustomerDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEditar")
+                {
+                    if (e.RowIndex >= 0)
+                    {
+                        string customerID = CustomerDataGridView.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
+                        EditCustomer editCustomerWinForm = new EditCustomer(customerID);
+                        editCustomerWinForm.ShowDialog();
                     }
                 }
             }
-
-            // CLICK EN CELDA EDITAR CLIENTE
-            if (CustomerDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEditar")
+            catch (Exception nre)
             {
-                if (e.RowIndex >= 0)
-                {
-                    string customerID = CustomerDataGridView.Rows[e.RowIndex].Cells["ColumnaCedula"].Value.ToString();
-                    EditCustomer editCustomerWinForm = new EditCustomer(customerID);
-                    editCustomerWinForm.ShowDialog();
-                }
+                MessageBox.Show("Esa fila está vacía, no puede hacer acciones sobre ella!!");
             }
             FillCustomerDataGridView();
         }
@@ -453,13 +461,21 @@ namespace SGV_CLP.GUI
                 countCorrectFields--;
                 labelInvalidCustomerID.Show();
                 labelWrongCustomerIDLength.Show();
-
+                labelCustomerIDUnique.Hide();
+                labelCustomerIDNotUnique.Hide();
                 labelCorrectCustomerIDLength.Hide();
                 labelValidCustomerID.Hide();
             }
             else
             {
                 customerIDIsValid = false;
+
+                labelInvalidCustomerID.Show();
+                labelWrongCustomerIDLength.Show();
+                labelCorrectCustomerIDLength.Hide();
+                labelValidCustomerID.Hide();
+                labelCustomerIDUnique.Hide();
+                labelCustomerIDNotUnique.Hide();
             }
             ValidateFieldsCounter();
         }
@@ -479,9 +495,9 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[0].Value != null)
+                    if (row.Cells[0].Value != null && !row.Cells[0].Value.ToString().Equals("9999999999"))
                     {
-                        row.Visible = row.Cells[0].Value.ToString().ToLower().Equals(filterValue.ToLower());
+                        row.Visible = row.Cells[0].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
                 }
             }
@@ -492,7 +508,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[1].Value != null)
+                    if (row.Cells[1].Value != null && !row.Cells[1].Value.ToString().Equals("Consumidor"))
                     {
                         row.Visible = row.Cells[1].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -505,7 +521,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[2].Value != null)
+                    if (row.Cells[2].Value != null && !row.Cells[2].Value.ToString().Equals("Final"))
                     {
                         row.Visible = row.Cells[2].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -517,7 +533,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in CustomerDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[4].Value != null)
+                    if (row.Cells[4].Value != null && !row.Cells[4].Value.ToString().Equals("NA"))
                     {
                         row.Visible = row.Cells[4].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }

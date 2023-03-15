@@ -37,6 +37,10 @@ namespace SGV_CLP.GUI
             tbSalesPriceToThePublic.Text = ProductMapper.GetProductField(productCode, "precio_Unitario").Replace(",", ".");
             tbImagePath.Text = ProductMapper.GetProductField(productCode, "ruta_Imagen");
 
+            tbProductionPrice.SelectionStart = tbProductionPrice.Text.Length;
+            tbSalesPriceToThePublic.SelectionStart = tbSalesPriceToThePublic.Text.Length;
+            tbImagePath.SelectionStart = tbImagePath.Text.Length;
+
             foreach (var item in cbCategory.Items)
             {
                 if (item.ToString() == ProductMapper.GetProductField(productCode, "categoria"))

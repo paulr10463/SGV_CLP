@@ -39,6 +39,10 @@ namespace SGV_CLP.GUI.Customers_Module
             tbHomeAddress.Text = CustomerMapper.GetCustomerField(customerID, "direccion_Domicilio");
             tbEMail.Text = CustomerMapper.GetCustomerField(customerID, "correo_Electronico");
 
+            tbPhoneNumber.SelectionStart = tbPhoneNumber.Text.Length;
+            tbHomeAddress.SelectionStart = tbHomeAddress.Text.Length;
+            tbEMail.SelectionStart = tbEMail.Text.Length;
+
             tbPhoneNumber.MaxLength = Constants.LIMIT_TELEF_LENGTH;
             tbHomeAddress.MaxLength = Constants.LIMIT_DIRECCION_LENGTH;
             tbEMail.MaxLength = Constants.LIMIT_CORREO_LENGTH;

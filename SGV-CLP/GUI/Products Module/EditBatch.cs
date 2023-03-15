@@ -34,6 +34,8 @@ namespace SGV_CLP.GUI.Products_Module
             dtpManufactureDate.Value = DateTime.ParseExact(manufactureDate, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             dtpManufactureHour.Value = DateTime.ParseExact(manufactureHour, "HH:mm:ss", CultureInfo.InvariantCulture);
 
+            tbQuantity.SelectionStart = tbQuantity.Text.Length;
+
             rbChooseDate.Checked = true;
             buttonEditBatch.Enabled = false;
         }

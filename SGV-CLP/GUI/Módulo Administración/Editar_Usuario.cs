@@ -44,6 +44,13 @@ namespace SGV_CLP.GUI.Módulo_Administración
             this.cc_Usuario = cc_Usuario;
             llenarCampos();
 
+            txt_editarUsername.SelectionStart = txt_editarUsername.Text.Length;
+            txt_EditarPassword.SelectionStart = txt_EditarPassword.Text.Length;
+            txt_EditarNombre1.SelectionStart = txt_EditarNombre1.Text.Length;
+            txt_EditarNombre2.SelectionStart = txt_EditarNombre2.Text.Length;
+            txt_EditarApell1.SelectionStart = txt_EditarApell1.Text.Length;
+            txt_EditarApell2.SelectionStart = txt_EditarApell2.Text.Length;
+
             SBAceptar.Enabled = false;
 
             txt_editarUsername.MaxLength = max_long_nombre_user;

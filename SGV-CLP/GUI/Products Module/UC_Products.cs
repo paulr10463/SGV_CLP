@@ -1,4 +1,5 @@
 ﻿using SGV_CLP.Classes;
+using SGV_CLP.Classes.Customers_Module;
 using SGV_CLP.Classes.Products_module;
 using SGV_CLP.GUI.Products_Module;
 using Siticone.Desktop.UI.WinForms;
@@ -10,6 +11,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Media;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -100,9 +102,15 @@ namespace SGV_CLP.GUI
             {
                 ProductDataGridView.Rows.Clear();
                 registeredProducts = ProductMapper.GetAllProduct();
+                int index = 0;
                 foreach (Product product in registeredProducts)
                 {
                     ProductDataGridView.Rows.Add(product.productCode, product.productName, product.productionPrice, product.salesPriceToThePubic, product.category, product.totalQuantity);
+                    if (product.productCode.Equals("XXX"))
+                    {
+                        ProductDataGridView.Rows[index].Visible = false;
+                    }
+                    index++;
                 }
             }
         }
@@ -144,30 +152,38 @@ namespace SGV_CLP.GUI
         // Editar y eliminar Producto
         private void ProductDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // CLICK EN CELDA ELIMINAR PRODUCTO
-            if (ProductDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEliminarProducto")
+            try
             {
-                if (e.RowIndex >= 0)
+                // CLICK EN CELDA ELIMINAR PRODUCTO
+                if (ProductDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEliminarProducto")
                 {
-                    if (MessageBox.Show("¿Está seguro de eliminar este producto?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (e.RowIndex >= 0 && ProductDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != null)
+                    {
+                        if (MessageBox.Show("¿Está seguro de eliminar este producto?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string productCode = ProductDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            ProductMapper.DeleteProduct(productCode);
+                            MessageBox.Show("Producto eliminado con éxito");
+                        }
+                    }
+                }
+
+                // CLICK EN CELDA EDITAR PRODUCTO
+                if (ProductDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEditarProducto")
+                {
+                    if (e.RowIndex >= 0)
                     {
                         string productCode = ProductDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        ProductMapper.DeleteProduct(productCode);
-                        MessageBox.Show("Producto eliminado con éxito");
+                        EditProduct editProductWinForm = new EditProduct(productCode);
+                        editProductWinForm.ShowDialog();
                     }
                 }
             }
-
-            // CLICK EN CELDA EDITAR PRODUCTO
-            if (ProductDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEditarProducto")
+            catch (Exception ex)
             {
-                if (e.RowIndex >= 0)
-                {
-                    string productCode = ProductDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    EditProduct editProductWinForm = new EditProduct(productCode);
-                    editProductWinForm.ShowDialog();
-                }
+                MessageBox.Show("Esa fila está vacía, no puede hacer acciones sobre ella!!");
             }
+
             FillProductDataGridView();
             FillBatchDataGridView();
             FillComboBoxesBatchProducts();
@@ -188,8 +204,8 @@ namespace SGV_CLP.GUI
             {
                 foreach (DataGridViewRow row in ProductDataGridView.Rows)
                 {
-                    // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[0].Value != null)
+                    // Ocultar las filas que no cumplan con el filtro 
+                    if (row.Cells[0].Value != null && !row.Cells[0].Value.ToString().Equals("XXX"))
                     {
                         row.Visible = row.Cells[0].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -200,7 +216,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in ProductDataGridView.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[1].Value != null)
+                    if (row.Cells[1].Value != null && !row.Cells[1].Value.ToString().Equals("Producto X"))
                     {
                         row.Visible = row.Cells[1].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -492,8 +508,11 @@ namespace SGV_CLP.GUI
                 cbSearchBatchByProductCode.Items.Add("Seleccione...");
                 foreach (string nombreProd in registeredProductsNames)
                 {
-                    cbBatchProductName.Items.Add(nombreProd);
-                    cbSearchBatchByProductCode.Items.Add(ProductMapper.GetProductCode(nombreProd));
+                    if (!nombreProd.Equals("Producto X"))
+                    {
+                        cbBatchProductName.Items.Add(nombreProd);
+                        cbSearchBatchByProductCode.Items.Add(ProductMapper.GetProductCode(nombreProd));
+                    }
                 }
             }
         }
@@ -541,28 +560,36 @@ namespace SGV_CLP.GUI
         // Editar y eliminar Lote
         private void BatchDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (BatchDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEliminarLote")
+            try
             {
-                if (e.RowIndex >= 0)
+                if (BatchDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEliminarLote")
                 {
-                    if (MessageBox.Show("¿Está seguro de eliminar este lote?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (e.RowIndex >= 0 && BatchDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString() != null)
+                    {
+                        if (MessageBox.Show("¿Está seguro de eliminar este lote?", "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string batchCode = BatchDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            BatchMapper.DeleteBatch(batchCode);
+                            MessageBox.Show("Lote de producto eliminado con éxito");
+                        }
+                    }
+                }
+
+                if (BatchDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEditarLote")
+                {
+                    if (e.RowIndex >= 0)
                     {
                         string batchCode = BatchDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        BatchMapper.DeleteBatch(batchCode);
-                        MessageBox.Show("Lote de producto eliminado con éxito");
+                        EditBatch editBatchWinForm = new EditBatch(batchCode);
+                        editBatchWinForm.ShowDialog();
                     }
                 }
             }
-
-            if (BatchDataGridView.Columns[e.ColumnIndex].Name == "ColumnaEditarLote")
+            catch (Exception ex)
             {
-                if (e.RowIndex >= 0)
-                {
-                    string batchCode = BatchDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    EditBatch editBatchWinForm = new EditBatch(batchCode);
-                    editBatchWinForm.ShowDialog();
-                }
+                MessageBox.Show("Esa fila está vacía, no puede hacer acciones sobre ella!!");
             }
+
             FillBatchDataGridView();
             FillProductDataGridView();
         }

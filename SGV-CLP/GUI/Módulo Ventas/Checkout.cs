@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -23,7 +24,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
     {
         //ListaClientes listaClientes1 = new ListaClientes();
         //listaClientes1.getClientes();
-            //.ConsultarClientes();
+        //.ConsultarClientes();
         //listaClientes = ClienteMapper.ConsultarClientes();
         public static List<Customer> clientes = CustomerMapper.GetAllCustomers();
         AutoCompleteStringCollection listaDeSugerenciasdeAutompletacion;
@@ -67,12 +68,14 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             siticoneHtmlLabel_correct_email.Hide();
             siticoneHtmlLabel_cc_valida.Hide();
             siticoneHtmlLabel_cc_correct_length.Hide();
+            labelCustomerIDUnique.Hide();
+            labelCustomerIDNotUnique.Hide();
             siticoneHtmlLabel_correct_length_telef.Hide();
             siticoneHtmlLabel_wrong_email.Hide();
             siticoneHtmlLabel_wrong_length_telef.Hide();
 
             ButtonAniadirClienteVenta.Enabled = false;
-            ButtonConfirmarVenta.Enabled= false;
+            ButtonConfirmarVenta.Enabled = false;
 
         }
 
@@ -84,7 +87,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
-            
+
             Customer clienteFinal = new Customer(txtCC_ClienteVenta.Text, txtNombre1Venta.Text, txtNombre2Venta.Text, txtApellido1Venta.Text, txtApellido2Venta.Text, txtDireccionVenta.Text, txtTelefVenta.Text, txtCorreoVenta.Text);
             UC_Ventas.invoice.customer = clienteFinal;
             UC_Ventas.invoice.user = MainMenu.UsuarioRegistrado;
@@ -155,7 +158,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void siticoneButton3_Click_1(object sender, EventArgs e)
         {
-            
+
             MessageBox.Show("Cliente Registrado con éxito", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ButtonConfirmarVenta.Visible = false;
             txtNombre2Venta.Enabled = false;
@@ -174,18 +177,18 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             telefIsValid = false;
             correoIsValid = false;
 
-            siticoneHtmlLabel_correct_length_telef.Visible= false;
-            siticoneHtmlLabel_correct_email.Visible= false;
-            Customer clienteNuevo = new Customer(txtCC_ClienteVenta.Text, 
-                txtNombre1Venta.Text, 
-                txtNombre2Venta.Text, 
-                txtApellido1Venta.Text, 
-                txtApellido2Venta.Text, 
-                txtDireccionVenta.Text, 
-                txtTelefVenta.Text, 
+            siticoneHtmlLabel_correct_length_telef.Visible = false;
+            siticoneHtmlLabel_correct_email.Visible = false;
+            Customer clienteNuevo = new Customer(txtCC_ClienteVenta.Text,
+                txtNombre1Venta.Text,
+                txtNombre2Venta.Text,
+                txtApellido1Venta.Text,
+                txtApellido2Venta.Text,
+                txtDireccionVenta.Text,
+                txtTelefVenta.Text,
                 txtCorreoVenta.Text);
 
-            switch(CustomerList.FindExistentCustomer(clientes, clienteNuevo))
+            switch (CustomerList.FindExistentCustomer(clientes, clienteNuevo))
             {
                 case 0:
                     break;
@@ -285,7 +288,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
 
         private void txtDireccionVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar!=Convert.ToChar(Keys.Space))
+            if (e.KeyChar != '\b' && !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Space))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -333,18 +336,42 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         private void txtCC_ClienteVenta_TextChanged(object sender, EventArgs e)
         {
             // comprueba que la cc == 10 y muesta mensaje de correcto
-            if (txtCC_ClienteVenta.Text.Length == Constants.LIMIT_CC_LENGTH && !ccIsValid )
+            if (txtCC_ClienteVenta.Text.Length == Constants.LIMIT_CC_LENGTH && !ccIsValid)
             {
-                ccIsValid = true;
-                count_correct_fields++;
                 siticoneHtmlLabel_cc_wrong_length.Hide();
                 siticoneHtmlLabel_cc_correct_length.Show();
+
+                if (CustomerMapper.CustomerExistsByID(txtCC_ClienteVenta.Text))
+                {
+                    labelCustomerIDUnique.Hide();
+                    labelCustomerIDNotUnique.Show();
+                    ccIsValid = false;
+                }
+                else
+                {
+                    labelCustomerIDUnique.Show();
+                    labelCustomerIDNotUnique.Hide();
+                    ccIsValid = true;
+                    count_correct_fields++;
+                }
             }
-            else if (txtCC_ClienteVenta.Text.Length < Constants.LIMIT_CC_LENGTH && ccIsValid )
+            else if (txtCC_ClienteVenta.Text.Length < Constants.LIMIT_CC_LENGTH && ccIsValid)
             {
                 // Borro 1 char de la cc teniendo ya completos los 10 previamente
                 ccIsValid = false;
                 count_correct_fields--;
+                siticoneHtmlLabel_cc_invalida.Show();
+                siticoneHtmlLabel_cc_wrong_length.Show();
+                siticoneHtmlLabel_cc_correct_length.Hide();
+                siticoneHtmlLabel_cc_valida.Hide();
+                labelCustomerIDUnique.Hide();
+                labelCustomerIDNotUnique.Hide();
+            }
+            else
+            {
+                ccIsValid = false;
+                labelCustomerIDUnique.Hide();
+                labelCustomerIDNotUnique.Hide();
                 siticoneHtmlLabel_cc_invalida.Show();
                 siticoneHtmlLabel_cc_wrong_length.Show();
                 siticoneHtmlLabel_cc_correct_length.Hide();
@@ -360,13 +387,13 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             }
             else
             {
-                if(ccIsValid && ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text)) ButtonAniadirClienteVenta.Enabled = true;
+                if (ccIsValid && ValidationUtils.ValidarCedula(txtCC_ClienteVenta.Text)) ButtonAniadirClienteVenta.Enabled = true;
                 loadCustomerFields(new Customer("0", "", "", "", "", "", "", ""));
                 ButtonFinalizarVenta.Enabled = false;
             }
 
             validateFieldsCounter();
-            
+
         }
 
         private Customer findCustomer()
@@ -383,23 +410,24 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 }
             }
             return clienteEncontrado;
-            
+
         }
 
         private void txtRecibidoVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter) && txtRecibidoVenta.Text != null)
             {
-                if (Convert.ToDouble(txtRecibidoVenta.Text) > Convert.ToDouble(txtTotalVenta.Text))
+                if (Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) > Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture))
                 {
-                    txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text) - Convert.ToDouble(txtTotalVenta.Text)).ToString();
+                    txtVueltoVenta.Text = (Convert.ToDouble(txtRecibidoVenta.Text, CultureInfo.InvariantCulture) - Convert.ToDouble(txtTotalVenta.Text, CultureInfo.InvariantCulture)).ToString();
                 }
                 else
                 {
                     txtRecibidoVenta.Text = "";
                     MessageBox.Show("El valor recibido debe ser mayor al total de la venta!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }else if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != Convert.ToChar(Keys.Back))
+            }
+            else if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != Convert.ToChar(Keys.Back))
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
@@ -429,7 +457,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             {
                 if (rowItem.Cells[0].Value != null)
                 {
-                    total += (double)rowItem.Cells[2].Value;
+                    total += Convert.ToDouble(rowItem.Cells[2].Value, CultureInfo.InvariantCulture);
                 }
                 else
                 {
@@ -437,7 +465,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
                 }
             }
 
-            txtTotalVenta.Text = total.ToString();
+            txtTotalVenta.Text = total.ToString().Replace(',', '.');
 
         }
 
@@ -457,7 +485,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         private void txtApellido1Venta_TextChanged(object sender, EventArgs e)
         {
 
-            if (txtApellido1Venta.Text.Length  > 0 && !firsLastNameIsValid && editClientIsEnabled)
+            if (txtApellido1Venta.Text.Length > 0 && !firsLastNameIsValid && editClientIsEnabled)
             {
                 firsLastNameIsValid = true;
                 count_correct_fields++;
@@ -490,7 +518,7 @@ namespace SGV_CLP.GUI.Módulo_Ventas
         private void txtTelefVenta_TextChanged(object sender, EventArgs e)
         {
 
-            if (txtTelefVenta.Text.Length  == Constants.LIMIT_TELEF_LENGTH && !telefIsValid && editClientIsEnabled)
+            if (txtTelefVenta.Text.Length == Constants.LIMIT_TELEF_LENGTH && !telefIsValid && editClientIsEnabled)
             {
                 telefIsValid = true;
                 count_correct_fields++;
@@ -551,8 +579,8 @@ namespace SGV_CLP.GUI.Módulo_Ventas
             if (siticoneCheckBox1.Checked)
             {
                 txtCC_ClienteVenta.Enabled = false;
-                txtCC_ClienteVenta.Text = "0000000000";
-                siticoneHtmlLabel_cc_valida.Visible= false;
+                txtCC_ClienteVenta.Text = "9999999999";
+                siticoneHtmlLabel_cc_valida.Visible = false;
                 siticoneHtmlLabel_cc_invalida.Visible = false;
                 siticoneHtmlLabel_cc_wrong_length.Visible = false;
                 siticoneHtmlLabel_cc_correct_length.Visible = false;

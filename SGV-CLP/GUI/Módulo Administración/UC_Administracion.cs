@@ -317,27 +317,34 @@ namespace SGV_CLP.GUI
 
         private void SDGVUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (SDGVUsuario.Columns[e.ColumnIndex].Name == "ColumnaEliminarUsuario")
+            try
             {
-                if (e.RowIndex >= 0)
+                if (SDGVUsuario.Columns[e.ColumnIndex].Name == "ColumnaEliminarUsuario")
                 {
-                    if (MessageBox.Show("¿Está seguro de eliminar este usuario?", "Eliminar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (e.RowIndex >= 0 && SDGVUsuario.Rows[e.RowIndex].Cells[1].Value.ToString() != null)
+                    {
+                        if (MessageBox.Show("¿Está seguro de eliminar este usuario?", "Eliminar usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string cc_Usuario = SDGVUsuario.Rows[e.RowIndex].Cells[1].Value.ToString();
+                            UsuarioMapper.EliminarUsuario(cc_Usuario);
+                            MessageBox.Show("Usuario eliminado con éxito", "Eliminar");
+                        }
+                    }
+                }
+
+                if (SDGVUsuario.Columns[e.ColumnIndex].Name == "ColumnaEditarUsuario")
+                {
+                    if (e.RowIndex >= 0)
                     {
                         string cc_Usuario = SDGVUsuario.Rows[e.RowIndex].Cells[1].Value.ToString();
-                        UsuarioMapper.EliminarUsuario(cc_Usuario);
-                        MessageBox.Show("Usuario eliminado con éxito", "Eliminar");
+                        Editar_Usuario ventana = new Editar_Usuario(cc_Usuario);
+                        ventana.ShowDialog();
                     }
                 }
             }
-
-            if (SDGVUsuario.Columns[e.ColumnIndex].Name == "ColumnaEditarUsuario")
+            catch (Exception ex)
             {
-                if (e.RowIndex >= 0)
-                {
-                    string cc_Usuario = SDGVUsuario.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    Editar_Usuario ventana = new Editar_Usuario(cc_Usuario);
-                    ventana.ShowDialog();
-                }
+                MessageBox.Show("Esa fila está vacía, no puede hacer acciones sobre ella!!");
             }
 
             llenarTablaUsuario();
@@ -345,28 +352,36 @@ namespace SGV_CLP.GUI
 
         private void SDGVParamUnidad_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (SDGVParamUnidad.Columns[e.ColumnIndex].Name == "ColumnaEliminarParUn")
+            try
             {
-                if (e.RowIndex >= 0)
+                if (SDGVParamUnidad.Columns[e.ColumnIndex].Name == "ColumnaEliminarParUn")
                 {
-                    if (MessageBox.Show("¿Está seguro de eliminar este parámetro?", "Eliminar parámetro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (e.RowIndex >= 0 && SDGVParamUnidad.Rows[e.RowIndex].Cells[0].Value.ToString() != null)
+                    {
+                        if (MessageBox.Show("¿Está seguro de eliminar este parámetro?", "Eliminar parámetro", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            string idParam = SDGVParamUnidad.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            ParametroMapper.EliminarParametro(idParam);
+                            MessageBox.Show("Parámetro eliminado con éxito", "Eliminar");
+                        }
+                    }
+                }
+
+                if (SDGVParamUnidad.Columns[e.ColumnIndex].Name == "ColumnaEditarParUn")
+                {
+                    if (e.RowIndex >= 0)
                     {
                         string idParam = SDGVParamUnidad.Rows[e.RowIndex].Cells[0].Value.ToString();
-                        ParametroMapper.EliminarParametro(idParam);
-                        MessageBox.Show("Parámetro eliminado con éxito", "Eliminar");
+                        Editar_Parametro_Por_Unidad ventana = new Editar_Parametro_Por_Unidad(idParam);
+                        ventana.ShowDialog();
                     }
                 }
             }
-
-            if (SDGVParamUnidad.Columns[e.ColumnIndex].Name == "ColumnaEditarParUn")
+            catch (Exception ex)
             {
-                if (e.RowIndex >= 0)
-                {
-                    string idParam = SDGVParamUnidad.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    Editar_Parametro_Por_Unidad ventana = new Editar_Parametro_Por_Unidad(idParam);
-                    ventana.ShowDialog();
-                }
+                MessageBox.Show("Esa fila está vacía, no puede hacer acciones sobre ella!!");
             }
+
             llenarTablaParamUnidad();
         }
 
@@ -643,7 +658,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in SDGVUsuario.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[0].Value != null)
+                    if (row.Cells[0].Value != null && !row.Cells[0].Value.ToString().Equals("DefaultUser"))
                     {
                         row.Visible = row.Cells[0].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -654,7 +669,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in SDGVUsuario.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[1].Value != null)
+                    if (row.Cells[1].Value != null && !row.Cells[1].Value.ToString().Equals("0000000000"))
                     {
                         row.Visible = row.Cells[1].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -665,7 +680,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in SDGVUsuario.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[1].Value != null)
+                    if (row.Cells[2].Value != null && !row.Cells[0].Value.ToString().Equals("DefaultUser"))
                     {
                         row.Visible = row.Cells[2].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -676,7 +691,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in SDGVUsuario.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[1].Value != null)
+                    if (row.Cells[3].Value != null && !row.Cells[0].Value.ToString().Equals("DefaultUser"))
                     {
                         row.Visible = row.Cells[3].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }
@@ -687,7 +702,7 @@ namespace SGV_CLP.GUI
                 foreach (DataGridViewRow row in SDGVUsuario.Rows)
                 {
                     // Ocultar las filas que no cumplan con el filtro
-                    if (row.Cells[1].Value != null)
+                    if (row.Cells[4].Value != null && !row.Cells[0].Value.ToString().Equals("DefaultUser"))
                     {
                         row.Visible = row.Cells[4].Value.ToString().ToLower().Contains(filterValue.ToLower());
                     }

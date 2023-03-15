@@ -15,21 +15,21 @@ namespace SGV_CLP
         private void siticoneGradientButton1_Click(object sender, EventArgs e)
         {
             var user = UsuarioMapper.getUser(siticoneTextBox1.Text, siticoneTextBox2.Text);
-            if (user!=null)
+            if (user != null)
             {
                 this.Hide();
                 MainMenu ventana = new MainMenu(user);
                 ventana.Owner = this;
                 ventana.ShowDialog();
                 this.Dispose();
-                
+
             }
             else
             {
                 SystemSounds.Beep.Play();
                 MessageBox.Show("Credenciales erróneas. Intente nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
 
         }
 
